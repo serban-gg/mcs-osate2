@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mcs" nsURI="http://www.osate.org/xtext/aadl2/mcs/MCS" nsPrefix="mcs">
+  <eClassifiers xsi:type="ecore:EClass" name="MCSGrammarRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lib" eType="#//MCSAnnexLibrary"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subclause" eType="#//MCSAnnexSubclause"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MCSAnnexLibrary" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexLibrary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="theorems" upperBound="-1"
+        eType="#//theorem_declaration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoints" upperBound="-1"
+        eType="#//MCSViewpoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enforceclauses" upperBound="-1"
+        eType="#//PackageEnforce" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MCSViewpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policy" eType="#//Enforcement_policy"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pscript" eType="#//PackageScript"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enforcement_policy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pack" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageScript">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applies" upperBound="-1"
+        eType="#//AppliesToClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c_block" upperBound="-1"
+        eType="#//ConstraintsBlock" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//ViewpointReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AppliesToClause">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="all" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="category" eType="#//ClassifierCategory"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassifierCategory">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="component" eType="ecore:EEnum platform:/resource/org.osate.aadl2/model/aadl2.ecore#//ComponentCategory"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ct" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//ComponentType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="impl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ci" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//ComponentImplementation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="feat_g" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref_to_f" eType="#//FeatureGroupClassifierReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureGroupClassifierReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fg" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//FeatureGroupType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewpointReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policy" eType="#//Enforcement_policy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vp_ref" eType="#//MCSViewpoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstraintsBlock">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="b_label" eType="#//block_label_id"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cs" upperBound="-1" eType="#//labelled_check_statement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="labelled_check_statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c_label" eType="#//check_label_id"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cs" eType="#//check_statement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="check_statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//root_element"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inmode" eType="#//ModeSpec"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="str" eType="#//string_expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="block_label_id">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="check_label_id">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="check_theorem" eSuperTypes="#//check_statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="theo" eType="#//theorem_declaration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModeSpec">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mode" eType="#//ModeName"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModeName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="check_assertion" eSuperTypes="#//check_statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//assertion_expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="root_element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="element_reference" eSuperTypes="#//root_element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageEnforce">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" eType="#//MCSViewpoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="expression" eSuperTypes="#//constant_expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//PropertyExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="assertion_expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="string_expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MCSAnnexSubclause" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexSubclause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="theorems" upperBound="-1"
+        eType="#//theorem_declaration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enforceclauses" upperBound="-1"
+        eType="#//ClassifierEnforce" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassifierEnforce">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" eType="#//MCSViewpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="script" eType="#//ClassifierScript"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassifierScript">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="c_block" upperBound="-1"
+        eType="#//ConstraintsBlock" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//ViewpointReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="theorem_declaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ml" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locals" upperBound="-1"
+        eType="#//local_declaration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
+        eType="#//theorem_statements" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="in_modes_list">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modes" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="local_declaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="constant_declaration" eSuperTypes="#//local_declaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="constant_identifier" eSuperTypes="#//constant_declaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//type_expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left_expr" eType="#//constant_expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="type_expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="basic_type" eSuperTypes="#//type_expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bool" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AadlBoolean"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="string" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AadlString"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="constant_expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="theorem_statements">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.osate.org/xtext/aadl2/mcs/MCS" 
+       class = "org.osate.xtext.aadl2.mcs.mcs.McsPackage"
+       genModel = "model/generated/MCS.genmodel" /> 
+	
+  </extension>
+
+
+
+
+</plugin>
