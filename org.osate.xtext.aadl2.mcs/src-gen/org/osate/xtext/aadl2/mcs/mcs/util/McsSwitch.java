@@ -299,20 +299,17 @@ public class McsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case McsPackage.CONSTANT_DECLARATION:
+      case McsPackage.THEOREM_STATEMENT:
       {
-        constant_declaration constant_declaration = (constant_declaration)theEObject;
-        T result = caseconstant_declaration(constant_declaration);
-        if (result == null) result = caselocal_declaration(constant_declaration);
+        theorem_statement theorem_statement = (theorem_statement)theEObject;
+        T result = casetheorem_statement(theorem_statement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case McsPackage.CONSTANT_IDENTIFIER:
+      case McsPackage.TYPE_DECLARATION:
       {
-        constant_identifier constant_identifier = (constant_identifier)theEObject;
-        T result = caseconstant_identifier(constant_identifier);
-        if (result == null) result = caseconstant_declaration(constant_identifier);
-        if (result == null) result = caselocal_declaration(constant_identifier);
+        type_declaration type_declaration = (type_declaration)theEObject;
+        T result = casetype_declaration(type_declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -323,11 +320,38 @@ public class McsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case McsPackage.FUNCTION_DECLARATION:
+      {
+        function_declaration function_declaration = (function_declaration)theEObject;
+        T result = casefunction_declaration(function_declaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.ARGUMENT:
+      {
+        argument argument = (argument)theEObject;
+        T result = caseargument(argument);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.XEXPRESSION:
+      {
+        XExpression xExpression = (XExpression)theEObject;
+        T result = caseXExpression(xExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case McsPackage.BASIC_TYPE:
       {
         basic_type basic_type = (basic_type)theEObject;
         T result = casebasic_type(basic_type);
-        if (result == null) result = casetype_expression(basic_type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.UNNAMED_FUNCTION_TYPE:
+      {
+        UnnamedFunctionType unnamedFunctionType = (UnnamedFunctionType)theEObject;
+        T result = caseUnnamedFunctionType(unnamedFunctionType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -338,10 +362,11 @@ public class McsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case McsPackage.THEOREM_STATEMENTS:
+      case McsPackage.MCS_CLOSURE:
       {
-        theorem_statements theorem_statements = (theorem_statements)theEObject;
-        T result = casetheorem_statements(theorem_statements);
+        MCSClosure mcsClosure = (MCSClosure)theEObject;
+        T result = caseMCSClosure(mcsClosure);
+        if (result == null) result = caseXExpression(mcsClosure);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -830,33 +855,33 @@ public class McsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>constant declaration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>theorem statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>constant declaration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>theorem statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseconstant_declaration(constant_declaration object)
+  public T casetheorem_statement(theorem_statement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>constant identifier</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>type declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>constant identifier</em>'.
+   * @return the result of interpreting the object as an instance of '<em>type declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseconstant_identifier(constant_identifier object)
+  public T casetype_declaration(type_declaration object)
   {
     return null;
   }
@@ -878,6 +903,54 @@ public class McsSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>function declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>function declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefunction_declaration(function_declaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>argument</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>argument</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseargument(argument object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>XExpression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>XExpression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseXExpression(XExpression object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>basic type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -889,6 +962,22 @@ public class McsSwitch<T> extends Switch<T>
    * @generated
    */
   public T casebasic_type(basic_type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unnamed Function Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unnamed Function Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnnamedFunctionType(UnnamedFunctionType object)
   {
     return null;
   }
@@ -910,17 +999,17 @@ public class McsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>theorem statements</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>MCS Closure</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>theorem statements</em>'.
+   * @return the result of interpreting the object as an instance of '<em>MCS Closure</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casetheorem_statements(theorem_statements object)
+  public T caseMCSClosure(MCSClosure object)
   {
     return null;
   }

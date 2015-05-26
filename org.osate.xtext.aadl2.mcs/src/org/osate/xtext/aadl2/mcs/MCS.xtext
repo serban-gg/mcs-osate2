@@ -1,9 +1,12 @@
-grammar org.osate.xtext.aadl2.mcs.MCS with org.osate.xtext.aadl2.Aadl2 
+grammar org.osate.xtext.aadl2.mcs.MCS with org.eclipse.xtext.xbase.Xbase
+// with org.osate.xtext.aadl2.properties.Properties 
+   
 
 generate mcs "http://www.osate.org/xtext/aadl2/mcs/MCS"
+
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "platform:/resource/org.osate.aadl2/model/aadl2.ecore" as aadl2
-
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 
 
 MCSGrammarRoot :    
@@ -21,13 +24,15 @@ AnnexSubclause returns aadl2::AnnexSubclause:
 
 MCSAnnexLibrary returns MCSAnnexLibrary:
 	 {MCSAnnexLibrary}
-	 ( 'theorems' (theorems += theorem_declaration)+)
+	  ('types' (types += type_declaration)+)?
+	  ('functions' (functions += function_declaration)+)?
+	 ( 'theorems' (theorems += theorem_declaration)+)?
     ( viewpoints += MCSViewpoint (viewpoints += MCSViewpoint)* )?
     ( enforceclauses += PackageEnforce (enforceclauses += PackageEnforce)* )?
 ;
 	
 MCSViewpoint returns MCSViewpoint:
-    'viewpoint' name = ID policy = Enforcement_policy (pscript = PackageScript)? ';'
+    'viewpoint' name = ID policy = Enforcement_policy (pscript = PackageScript)?
 ;
 
 Enforcement_policy :
@@ -49,7 +54,7 @@ AppliesToClause :
 
 ClassifierCategory :
 	{ClassifierCategory}
-	(component = ComponentCategory (ct = [aadl2::ComponentType|QCREF])? 
+	(component = 'ComponentCategory' (ct = [aadl2::ComponentType|QCREF])? 
 		         (impl ?= 'implementation' (ci = [aadl2::ComponentImplementation|QCREF])? )?
 				| feat_g ?= 'feature group' (ref_to_f = FeatureGroupClassifierReference)? ) 
 ;
@@ -64,7 +69,7 @@ FeatureGroupClassifierReference: fg = [aadl2::FeatureGroupType|QCREF]
 ;
 
 ViewpointReference :
-	(policy = [Enforcement_policy])? vp_ref = [MCSViewpoint] ';'
+	(policy = [Enforcement_policy])? vp_ref = [MCSViewpoint]
 ;
 
 ConstraintsBlock :
@@ -73,7 +78,7 @@ ConstraintsBlock :
 ;
 
 labelled_check_statement:
-	(c_label = check_label_id)? cs = check_statement	
+	(c_label = check_label_id ':')? cs = check_statement	
 ;
 	
 
@@ -99,7 +104,7 @@ ModeName :
 ;
 
 check_assertion :
-	'check' (root = root_element)? (inmode = ModeSpec)? expr = assertion_expression 
+	'check' (root = root_element)? (inmode = ModeSpec)? '(' expr = assertion_expression ')' 
 			('fail' str = string_expression)? ';'
 ;
 
@@ -114,9 +119,10 @@ PackageEnforce returns PackageEnforce:
     'enforce' viewpoint = [MCSViewpoint] ';'			//temporary
  ;
 
-expression : expr = PropertyExpression;
+expression : name = XExpression;
 	
 assertion_expression : expr = expression;
+
 string_expression : expr = expression;
 
 MCSAnnexSubclause returns MCSAnnexSubclause:       //temporary
@@ -135,32 +141,221 @@ ClassifierScript :
 ;
 
 theorem_declaration :
-	'theorem' name=ID (ml ?= in_modes_list)? (locals += local_declaration)* (statements += theorem_statements)*
-	'end' endname = ID ';'	
+	'theorem' name=ID ml ?= (in_modes_list)? (locals += local_declaration)* (statements += theorem_statement)*
+	'end' endname = [theorem_declaration] ';'	
 ;
 
 in_modes_list:
-	'in' 'modes' (modes += ID )+
+	'in' 'modes' '('modes += ID (',' modes += ID )*')'
 ;
 
-local_declaration:					//temporary
-	constant_declaration
+local_declaration:
+	const ?= ('const')? name=ID  (type = type_expression)? ':=' (left_expr = constant_expression) ';' 
 ;
+theorem_statement: statement = check_statement;
 
-constant_declaration:
-	'const' constant_identifier  (type = type_expression)? ':=' (left_expr = constant_expression) ';'
-;
-
-constant_identifier: name=ID
+type_declaration: 
+	name=ID ':' 'type' type = type_expression ';'
 ;
 
 type_expression: 				//temporary
-	basic_type
+	 basic = basic_type
 ;
 
-basic_type: bool = BooleanType | string = StringType
+function_declaration:
+	name=ID ('(' (arg += argument) (',' arg += argument)* ')' ('returns' out=type_expression)? |
+			  ':' (ftype = UnnamedFunctionType | typeref = [type_declaration]))
+			':=' (closure = MCSClosure  |
+				 exp_body = XExpression) ';' // |
+//				 block_body = XBlockExpression ) ';' 						
 ;
+argument: 
+	{argument} name=ID (':' arg_type = type_expression)?  	
+;
+
+MCSClosure returns XExpression:
+	=>({MCSClosure} 
+	'[') 
+		=>((declaredFormalParameters+=argument (',' declaredFormalParameters+=argument)*)? explicitSyntax?='|')? 
+		expression=XExpressionInClosure 
+	']';
+
+basic_type: 
+	bool = UnnamedBooleanType | 
+	string = UnnamedStringType |
+	enumer = UnnamedEnumerationType |
+	units = UnnamedUnitsType |
+ 	integer = UnnamedIntegerType |
+	real = UnnamedRealType |
+	range= UnnamedRangeType |  
+	class=UnnamedClassifierType |
+	ref=UnnamedReferenceType |
+	func = UnnamedFunctionType |
+	typename = [type_declaration]
+;
+
+UnnamedBooleanType returns aadl2::AadlBoolean:
+	{aadl2::AadlBoolean}'aadlboolean';
+
+
+UnnamedStringType returns aadl2::AadlString:
+	{aadl2::AadlString}'aadlstring';
+
+UnnamedEnumerationType returns aadl2::EnumerationType:
+	'enumeration'
+	'(' ownedLiteral+=EnumerationLiteral (',' ownedLiteral+=EnumerationLiteral)* ')';
+
+EnumerationLiteral returns aadl2::EnumerationLiteral:
+	name=ID;
+ 	
+UnnamedUnitsType returns aadl2::UnitsType:
+	'units'
+	'(' ownedLiteral+=UnitLiteral (',' ownedLiteral+=UnitLiteralConversion)* ')';
+
+UnitLiteral returns aadl2::UnitLiteral:
+	name=ID;
+
+UnitLiteralConversion returns aadl2::UnitLiteral:
+	name=ID '=>' baseUnit=[aadl2::UnitLiteral|ID] '*' factor = NumberValue
+	;
+	
+NumberValue returns aadl2::NumberValue:
+	RealLit | =>IntegerLit ;
+ 
+RealLit returns aadl2::RealLiteral:
+	value=SignedReal 
+;
+
+IntegerLit returns aadl2::IntegerLiteral:
+	value=SignedInt
+ ;
+ 	
+SignedInt returns aadl2::Integer:
+	('+'|'-')? Number//INTEGER_LIT 
+	;
+	
+SignedReal returns aadl2::Real:
+	('+'|'-')? Number//REAL_LIT 
+	;
+
+
+UnnamedIntegerType returns aadl2::AadlInteger:
+	{aadl2::AadlInteger}
+	'aadlinteger' (range=IntegerRange)? ( (ownedUnitsType=UnnamedUnitsType| ('units' referencedUnitsType=[aadl2::UnitsType|QPREF])))?
+	 ;	
+IntegerRange returns aadl2::NumericRange:
+	lowerBound=(IntegerTerm | SignedConstant | ConstantValue )
+	'..' upperBound = (IntegerTerm | SignedConstant | ConstantValue )
+	;
+	
+IntegerTerm returns aadl2::IntegerLiteral:
+	value=SignedInt (unit=[aadl2::UnitLiteral|ID])?
+	;
+SignedConstant returns aadl2::Operation:
+	op=PlusMinus ownedPropertyExpression+=ConstantValue
+	;
+	
+PlusMinus returns aadl2::OperationKind: '+' | '-';
+	
+ConstantValue returns aadl2::NamedValue:
+  namedValue=[aadl2::PropertyConstant|QPREF]
+  ;
+  
+ UnnamedRealType returns aadl2::AadlReal:
+	{aadl2::AadlReal}
+	'aadlreal' (range=RealRange)? ((ownedUnitsType=UnnamedUnitsType| ('units' referencedUnitsType=[aadl2::UnitsType|QPREF])))?
+	 ;
+ 
+RealRange returns aadl2::NumericRange:
+	lowerBound=(RealTerm | SignedConstant | ConstantValue )
+	'..' upperBound=(RealTerm | SignedConstant | ConstantValue )
+	;
+RealTerm returns aadl2::RealLiteral:
+	value=SignedReal (unit=[aadl2::UnitLiteral|ID])?
+	;
+UnnamedRangeType returns aadl2::RangeType:
+	{aadl2::RangeType}
+	'range' 'of' (ownedNumberType=(UnnamedIntegerType|UnnamedRealType)
+		| numberType=[aadl2::NumberType|QPREF]
+	)
+	 ;	 
+UnnamedClassifierType returns aadl2::ClassifierType:
+	{aadl2::ClassifierType}
+	'classifier' 
+	('(' classifierReference+=QMReference (',' classifierReference+=QMReference)*')')?
+	 ;
+	 
+UnnamedReferenceType returns aadl2::ReferenceType:
+	'reference' {aadl2::ReferenceType}
+	('(' namedElementReference+=QMReference (',' namedElementReference+=QMReference)* ')')?
+	 ;
+	 
+QMReference returns aadl2::MetaclassReference:
+	('{'  annexName=ID '}' '*' '*' )?
+	( metaclassName+=ID )+
+	 ;
+
+QCReference returns aadl2::ClassifierValue:
+   classifier=[aadl2::ComponentClassifier|FQCREF]
+  ;
+  
+UnnamedFunctionType:
+		'(' (parm += type_expression)? (',' parm += type_expression)+ ')' 
+		(outspec ?= 'returns' result=type_expression)?
+;	
+
+ // fully qualified classifier name (always includes package name
+FQCREF:
+	(ID '::')+ ID ('.' ID)?;
 
 constant_expression: expression;
 
-theorem_statements: statements = 'statements';
+terminal SL_COMMENT:
+	'--' !('\n' | '\r')* ('\r'? '\n')?;
+
+/* 
+
+INTVALUE returns aadl2::Integer:
+	INTEGER_LIT //NUMERAL 	
+;
+
+
+terminal fragment
+EXPONENT  :  ('e'|'E') ('+'|'-')? ( DIGIT )+  ;
+
+terminal fragment
+INT_EXPONENT :  ('e'|'E') ('+')? ( DIGIT )+ ;
+
+
+terminal REAL_LIT : 	
+	(DIGIT)+('_' (DIGIT)+)* ( '.' (DIGIT)+('_' (DIGIT)+)* ( EXPONENT )?)
+  ;
+
+terminal INTEGER_LIT : 
+		(DIGIT)+('_' (DIGIT)+)*
+		(( '#' BASED_INTEGER  '#' ( INT_EXPONENT )? )
+			| (INT_EXPONENT)?
+		)
+  ;
+
+terminal fragment
+DIGIT     :  ( '0'..'9' ) ;
+
+terminal fragment
+EXTENDED_DIGIT     :  ( '0'..'9' | 'a'..'f' | 'A'..'F') ;
+
+terminal fragment
+BASED_INTEGER      :  ( EXTENDED_DIGIT ) ( ('_')? EXTENDED_DIGIT )* ;
+*/
+
+terminal ID:	('a'..'z'
+        |'A'..'Z'
+        ) ( ('_')? ('a'..'z'
+        |'A'..'Z'
+        |'0'..'9'))*;
+        
+QCREF:
+	(ID '::')* ID ('.' ID)?;
+	
+QPREF:
+	ID ('::' ID)?;

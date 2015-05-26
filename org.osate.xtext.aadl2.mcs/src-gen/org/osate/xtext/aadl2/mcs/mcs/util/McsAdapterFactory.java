@@ -231,14 +231,14 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createlocal_declarationAdapter();
       }
       @Override
-      public Adapter caseconstant_declaration(constant_declaration object)
+      public Adapter casetheorem_statement(theorem_statement object)
       {
-        return createconstant_declarationAdapter();
+        return createtheorem_statementAdapter();
       }
       @Override
-      public Adapter caseconstant_identifier(constant_identifier object)
+      public Adapter casetype_declaration(type_declaration object)
       {
-        return createconstant_identifierAdapter();
+        return createtype_declarationAdapter();
       }
       @Override
       public Adapter casetype_expression(type_expression object)
@@ -246,9 +246,29 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createtype_expressionAdapter();
       }
       @Override
+      public Adapter casefunction_declaration(function_declaration object)
+      {
+        return createfunction_declarationAdapter();
+      }
+      @Override
+      public Adapter caseargument(argument object)
+      {
+        return createargumentAdapter();
+      }
+      @Override
+      public Adapter caseXExpression(XExpression object)
+      {
+        return createXExpressionAdapter();
+      }
+      @Override
       public Adapter casebasic_type(basic_type object)
       {
         return createbasic_typeAdapter();
+      }
+      @Override
+      public Adapter caseUnnamedFunctionType(UnnamedFunctionType object)
+      {
+        return createUnnamedFunctionTypeAdapter();
       }
       @Override
       public Adapter caseconstant_expression(constant_expression object)
@@ -256,9 +276,9 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createconstant_expressionAdapter();
       }
       @Override
-      public Adapter casetheorem_statements(theorem_statements object)
+      public Adapter caseMCSClosure(MCSClosure object)
       {
-        return createtheorem_statementsAdapter();
+        return createMCSClosureAdapter();
       }
       @Override
       public Adapter caseElement(Element object)
@@ -758,31 +778,31 @@ public class McsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.constant_declaration <em>constant declaration</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.theorem_statement <em>theorem statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.constant_declaration
+   * @see org.osate.xtext.aadl2.mcs.mcs.theorem_statement
    * @generated
    */
-  public Adapter createconstant_declarationAdapter()
+  public Adapter createtheorem_statementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.constant_identifier <em>constant identifier</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.type_declaration <em>type declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.constant_identifier
+   * @see org.osate.xtext.aadl2.mcs.mcs.type_declaration
    * @generated
    */
-  public Adapter createconstant_identifierAdapter()
+  public Adapter createtype_declarationAdapter()
   {
     return null;
   }
@@ -803,6 +823,51 @@ public class McsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.function_declaration <em>function declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.xtext.aadl2.mcs.mcs.function_declaration
+   * @generated
+   */
+  public Adapter createfunction_declarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.argument <em>argument</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.xtext.aadl2.mcs.mcs.argument
+   * @generated
+   */
+  public Adapter createargumentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.XExpression <em>XExpression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.xtext.aadl2.mcs.mcs.XExpression
+   * @generated
+   */
+  public Adapter createXExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.basic_type <em>basic type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -813,6 +878,21 @@ public class McsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createbasic_typeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedFunctionType <em>Unnamed Function Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedFunctionType
+   * @generated
+   */
+  public Adapter createUnnamedFunctionTypeAdapter()
   {
     return null;
   }
@@ -833,16 +913,16 @@ public class McsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.theorem_statements <em>theorem statements</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.MCSClosure <em>MCS Closure</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.theorem_statements
+   * @see org.osate.xtext.aadl2.mcs.mcs.MCSClosure
    * @generated
    */
-  public Adapter createtheorem_statementsAdapter()
+  public Adapter createMCSClosureAdapter()
   {
     return null;
   }

@@ -18,7 +18,7 @@ public class MCSStandaloneSetupGenerated implements ISetup {
 
 	@Override
 	public Injector createInjectorAndDoEMFRegistration() {
-		org.osate.xtext.aadl2.Aadl2StandaloneSetup.doSetup();
+		org.eclipse.xtext.xbase.XbaseStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);
@@ -39,6 +39,7 @@ public class MCSStandaloneSetupGenerated implements ISetup {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("mcs", resourceFactory);
 		org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("mcs", serviceProvider);
 		
+
 
 
 

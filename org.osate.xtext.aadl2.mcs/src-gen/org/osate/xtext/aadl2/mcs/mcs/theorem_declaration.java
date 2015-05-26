@@ -98,7 +98,7 @@ public interface theorem_declaration extends EObject
 
   /**
    * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.theorem_statements}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.theorem_statement}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
@@ -110,32 +110,32 @@ public interface theorem_declaration extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<theorem_statements> getStatements();
+  EList<theorem_statement> getStatements();
 
   /**
-   * Returns the value of the '<em><b>Endname</b></em>' attribute.
+   * Returns the value of the '<em><b>Endname</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Endname</em>' attribute isn't clear,
+   * If the meaning of the '<em>Endname</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Endname</em>' attribute.
-   * @see #setEndname(String)
+   * @return the value of the '<em>Endname</em>' reference.
+   * @see #setEndname(theorem_declaration)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#gettheorem_declaration_Endname()
    * @model
    * @generated
    */
-  String getEndname();
+  theorem_declaration getEndname();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.theorem_declaration#getEndname <em>Endname</em>}' attribute.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.theorem_declaration#getEndname <em>Endname</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Endname</em>' attribute.
+   * @param value the new value of the '<em>Endname</em>' reference.
    * @see #getEndname()
    * @generated
    */
-  void setEndname(String value);
+  void setEndname(theorem_declaration value);
 
 } // theorem_declaration

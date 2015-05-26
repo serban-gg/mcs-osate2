@@ -20,7 +20,9 @@ import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary;
 import org.osate.xtext.aadl2.mcs.mcs.MCSViewpoint;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.PackageEnforce;
+import org.osate.xtext.aadl2.mcs.mcs.function_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.theorem_declaration;
+import org.osate.xtext.aadl2.mcs.mcs.type_declaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +31,8 @@ import org.osate.xtext.aadl2.mcs.mcs.theorem_declaration;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getTheorems <em>Theorems</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getViewpoints <em>Viewpoints</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getEnforceclauses <em>Enforceclauses</em>}</li>
@@ -39,6 +43,26 @@ import org.osate.xtext.aadl2.mcs.mcs.theorem_declaration;
  */
 public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLibrary
 {
+  /**
+   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypes()
+   * @generated
+   * @ordered
+   */
+  protected EList<type_declaration> types;
+
+  /**
+   * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunctions()
+   * @generated
+   * @ordered
+   */
+  protected EList<function_declaration> functions;
+
   /**
    * The cached value of the '{@link #getTheorems() <em>Theorems</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -95,6 +119,34 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<type_declaration> getTypes()
+  {
+    if (types == null)
+    {
+      types = new EObjectContainmentEList<type_declaration>(type_declaration.class, this, McsPackage.MCS_ANNEX_LIBRARY__TYPES);
+    }
+    return types;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<function_declaration> getFunctions()
+  {
+    if (functions == null)
+    {
+      functions = new EObjectContainmentEList<function_declaration>(function_declaration.class, this, McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS);
+    }
+    return functions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<theorem_declaration> getTheorems()
   {
     if (theorems == null)
@@ -142,6 +194,10 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
   {
     switch (featureID)
     {
+      case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
+        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+      case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
+        return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
       case McsPackage.MCS_ANNEX_LIBRARY__THEOREMS:
         return ((InternalEList<?>)getTheorems()).basicRemove(otherEnd, msgs);
       case McsPackage.MCS_ANNEX_LIBRARY__VIEWPOINTS:
@@ -162,6 +218,10 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
   {
     switch (featureID)
     {
+      case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
+        return getTypes();
+      case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
+        return getFunctions();
       case McsPackage.MCS_ANNEX_LIBRARY__THEOREMS:
         return getTheorems();
       case McsPackage.MCS_ANNEX_LIBRARY__VIEWPOINTS:
@@ -183,6 +243,14 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
   {
     switch (featureID)
     {
+      case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
+        getTypes().clear();
+        getTypes().addAll((Collection<? extends type_declaration>)newValue);
+        return;
+      case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
+        getFunctions().clear();
+        getFunctions().addAll((Collection<? extends function_declaration>)newValue);
+        return;
       case McsPackage.MCS_ANNEX_LIBRARY__THEOREMS:
         getTheorems().clear();
         getTheorems().addAll((Collection<? extends theorem_declaration>)newValue);
@@ -209,6 +277,12 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
   {
     switch (featureID)
     {
+      case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
+        getTypes().clear();
+        return;
+      case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
+        getFunctions().clear();
+        return;
       case McsPackage.MCS_ANNEX_LIBRARY__THEOREMS:
         getTheorems().clear();
         return;
@@ -232,6 +306,10 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
   {
     switch (featureID)
     {
+      case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
+        return types != null && !types.isEmpty();
+      case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
+        return functions != null && !functions.isEmpty();
       case McsPackage.MCS_ANNEX_LIBRARY__THEOREMS:
         return theorems != null && !theorems.isEmpty();
       case McsPackage.MCS_ANNEX_LIBRARY__VIEWPOINTS:

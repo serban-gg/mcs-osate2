@@ -4,26 +4,28 @@ package org.osate.xtext.aadl2.mcs.mcs.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.constant_declaration;
+import org.osate.xtext.aadl2.mcs.mcs.XExpression;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>constant declaration</b></em>'.
+ * An implementation of the model object '<em><b>XExpression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class constant_declarationImpl extends local_declarationImpl implements constant_declaration
+public class XExpressionImpl extends MinimalEObjectImpl.Container implements XExpression
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected constant_declarationImpl()
+  protected XExpressionImpl()
   {
     super();
   }
@@ -36,7 +38,7 @@ public class constant_declarationImpl extends local_declarationImpl implements c
   @Override
   protected EClass eStaticClass()
   {
-    return McsPackage.Literals.CONSTANT_DECLARATION;
+    return McsPackage.Literals.XEXPRESSION;
   }
 
-} //constant_declarationImpl
+} //XExpressionImpl

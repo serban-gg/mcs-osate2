@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.local_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.theorem_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.theorem_statements;
+import org.osate.xtext.aadl2.mcs.mcs.theorem_statement;
 
 /**
  * <!-- begin-user-doc -->
@@ -100,27 +100,17 @@ public class theorem_declarationImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected EList<theorem_statements> statements;
+  protected EList<theorem_statement> statements;
 
   /**
-   * The default value of the '{@link #getEndname() <em>Endname</em>}' attribute.
+   * The cached value of the '{@link #getEndname() <em>Endname</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getEndname()
    * @generated
    * @ordered
    */
-  protected static final String ENDNAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getEndname() <em>Endname</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEndname()
-   * @generated
-   * @ordered
-   */
-  protected String endname = ENDNAME_EDEFAULT;
+  protected theorem_declaration endname;
 
   /**
    * <!-- begin-user-doc -->
@@ -208,11 +198,11 @@ public class theorem_declarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<theorem_statements> getStatements()
+  public EList<theorem_statement> getStatements()
   {
     if (statements == null)
     {
-      statements = new EObjectContainmentEList<theorem_statements>(theorem_statements.class, this, McsPackage.THEOREM_DECLARATION__STATEMENTS);
+      statements = new EObjectContainmentEList<theorem_statement>(theorem_statement.class, this, McsPackage.THEOREM_DECLARATION__STATEMENTS);
     }
     return statements;
   }
@@ -222,7 +212,27 @@ public class theorem_declarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getEndname()
+  public theorem_declaration getEndname()
+  {
+    if (endname != null && endname.eIsProxy())
+    {
+      InternalEObject oldEndname = (InternalEObject)endname;
+      endname = (theorem_declaration)eResolveProxy(oldEndname);
+      if (endname != oldEndname)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, McsPackage.THEOREM_DECLARATION__ENDNAME, oldEndname, endname));
+      }
+    }
+    return endname;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public theorem_declaration basicGetEndname()
   {
     return endname;
   }
@@ -232,9 +242,9 @@ public class theorem_declarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setEndname(String newEndname)
+  public void setEndname(theorem_declaration newEndname)
   {
-    String oldEndname = endname;
+    theorem_declaration oldEndname = endname;
     endname = newEndname;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.THEOREM_DECLARATION__ENDNAME, oldEndname, endname));
@@ -277,7 +287,8 @@ public class theorem_declarationImpl extends MinimalEObjectImpl.Container implem
       case McsPackage.THEOREM_DECLARATION__STATEMENTS:
         return getStatements();
       case McsPackage.THEOREM_DECLARATION__ENDNAME:
-        return getEndname();
+        if (resolve) return getEndname();
+        return basicGetEndname();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -305,10 +316,10 @@ public class theorem_declarationImpl extends MinimalEObjectImpl.Container implem
         return;
       case McsPackage.THEOREM_DECLARATION__STATEMENTS:
         getStatements().clear();
-        getStatements().addAll((Collection<? extends theorem_statements>)newValue);
+        getStatements().addAll((Collection<? extends theorem_statement>)newValue);
         return;
       case McsPackage.THEOREM_DECLARATION__ENDNAME:
-        setEndname((String)newValue);
+        setEndname((theorem_declaration)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -337,7 +348,7 @@ public class theorem_declarationImpl extends MinimalEObjectImpl.Container implem
         getStatements().clear();
         return;
       case McsPackage.THEOREM_DECLARATION__ENDNAME:
-        setEndname(ENDNAME_EDEFAULT);
+        setEndname((theorem_declaration)null);
         return;
     }
     super.eUnset(featureID);
@@ -362,7 +373,7 @@ public class theorem_declarationImpl extends MinimalEObjectImpl.Container implem
       case McsPackage.THEOREM_DECLARATION__STATEMENTS:
         return statements != null && !statements.isEmpty();
       case McsPackage.THEOREM_DECLARATION__ENDNAME:
-        return ENDNAME_EDEFAULT == null ? endname != null : !ENDNAME_EDEFAULT.equals(endname);
+        return endname != null;
     }
     return super.eIsSet(featureID);
   }
@@ -382,8 +393,6 @@ public class theorem_declarationImpl extends MinimalEObjectImpl.Container implem
     result.append(name);
     result.append(", ml: ");
     result.append(ml);
-    result.append(", endname: ");
-    result.append(endname);
     result.append(')');
     return result.toString();
   }

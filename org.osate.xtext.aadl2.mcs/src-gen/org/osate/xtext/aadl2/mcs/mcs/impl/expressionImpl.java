@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.osate.aadl2.PropertyExpression;
+import org.eclipse.xtext.xbase.XExpression;
 
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.expression;
@@ -22,7 +22,7 @@ import org.osate.xtext.aadl2.mcs.mcs.expression;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.expressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.expressionImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,14 +31,14 @@ import org.osate.xtext.aadl2.mcs.mcs.expression;
 public class expressionImpl extends constant_expressionImpl implements expression
 {
   /**
-   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpr()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected PropertyExpression expr;
+  protected XExpression name;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,9 +66,9 @@ public class expressionImpl extends constant_expressionImpl implements expressio
    * <!-- end-user-doc -->
    * @generated
    */
-  public PropertyExpression getExpr()
+  public XExpression getName()
   {
-    return expr;
+    return name;
   }
 
   /**
@@ -76,13 +76,13 @@ public class expressionImpl extends constant_expressionImpl implements expressio
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(PropertyExpression newExpr, NotificationChain msgs)
+  public NotificationChain basicSetName(XExpression newName, NotificationChain msgs)
   {
-    PropertyExpression oldExpr = expr;
-    expr = newExpr;
+    XExpression oldName = name;
+    name = newName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.EXPRESSION__EXPR, oldExpr, newExpr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.EXPRESSION__NAME, oldName, newName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -93,20 +93,20 @@ public class expressionImpl extends constant_expressionImpl implements expressio
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(PropertyExpression newExpr)
+  public void setName(XExpression newName)
   {
-    if (newExpr != expr)
+    if (newName != name)
     {
       NotificationChain msgs = null;
-      if (expr != null)
-        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.EXPRESSION__EXPR, null, msgs);
-      if (newExpr != null)
-        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.EXPRESSION__EXPR, null, msgs);
-      msgs = basicSetExpr(newExpr, msgs);
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.EXPRESSION__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.EXPRESSION__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.EXPRESSION__EXPR, newExpr, newExpr));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.EXPRESSION__NAME, newName, newName));
   }
 
   /**
@@ -119,8 +119,8 @@ public class expressionImpl extends constant_expressionImpl implements expressio
   {
     switch (featureID)
     {
-      case McsPackage.EXPRESSION__EXPR:
-        return basicSetExpr(null, msgs);
+      case McsPackage.EXPRESSION__NAME:
+        return basicSetName(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,8 +135,8 @@ public class expressionImpl extends constant_expressionImpl implements expressio
   {
     switch (featureID)
     {
-      case McsPackage.EXPRESSION__EXPR:
-        return getExpr();
+      case McsPackage.EXPRESSION__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,8 +151,8 @@ public class expressionImpl extends constant_expressionImpl implements expressio
   {
     switch (featureID)
     {
-      case McsPackage.EXPRESSION__EXPR:
-        setExpr((PropertyExpression)newValue);
+      case McsPackage.EXPRESSION__NAME:
+        setName((XExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,8 +168,8 @@ public class expressionImpl extends constant_expressionImpl implements expressio
   {
     switch (featureID)
     {
-      case McsPackage.EXPRESSION__EXPR:
-        setExpr((PropertyExpression)null);
+      case McsPackage.EXPRESSION__NAME:
+        setName((XExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -185,8 +185,8 @@ public class expressionImpl extends constant_expressionImpl implements expressio
   {
     switch (featureID)
     {
-      case McsPackage.EXPRESSION__EXPR:
-        return expr != null;
+      case McsPackage.EXPRESSION__NAME:
+        return name != null;
     }
     return super.eIsSet(featureID);
   }

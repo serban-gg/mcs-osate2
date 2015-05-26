@@ -293,22 +293,22 @@ public interface McsFactory extends EFactory
   local_declaration createlocal_declaration();
 
   /**
-   * Returns a new object of class '<em>constant declaration</em>'.
+   * Returns a new object of class '<em>theorem statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>constant declaration</em>'.
+   * @return a new object of class '<em>theorem statement</em>'.
    * @generated
    */
-  constant_declaration createconstant_declaration();
+  theorem_statement createtheorem_statement();
 
   /**
-   * Returns a new object of class '<em>constant identifier</em>'.
+   * Returns a new object of class '<em>type declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>constant identifier</em>'.
+   * @return a new object of class '<em>type declaration</em>'.
    * @generated
    */
-  constant_identifier createconstant_identifier();
+  type_declaration createtype_declaration();
 
   /**
    * Returns a new object of class '<em>type expression</em>'.
@@ -320,6 +320,33 @@ public interface McsFactory extends EFactory
   type_expression createtype_expression();
 
   /**
+   * Returns a new object of class '<em>function declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>function declaration</em>'.
+   * @generated
+   */
+  function_declaration createfunction_declaration();
+
+  /**
+   * Returns a new object of class '<em>argument</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>argument</em>'.
+   * @generated
+   */
+  argument createargument();
+
+  /**
+   * Returns a new object of class '<em>XExpression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>XExpression</em>'.
+   * @generated
+   */
+  XExpression createXExpression();
+
+  /**
    * Returns a new object of class '<em>basic type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -327,6 +354,15 @@ public interface McsFactory extends EFactory
    * @generated
    */
   basic_type createbasic_type();
+
+  /**
+   * Returns a new object of class '<em>Unnamed Function Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unnamed Function Type</em>'.
+   * @generated
+   */
+  UnnamedFunctionType createUnnamedFunctionType();
 
   /**
    * Returns a new object of class '<em>constant expression</em>'.
@@ -338,13 +374,13 @@ public interface McsFactory extends EFactory
   constant_expression createconstant_expression();
 
   /**
-   * Returns a new object of class '<em>theorem statements</em>'.
+   * Returns a new object of class '<em>MCS Closure</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>theorem statements</em>'.
+   * @return a new object of class '<em>MCS Closure</em>'.
    * @generated
    */
-  theorem_statements createtheorem_statements();
+  MCSClosure createMCSClosure();
 
   /**
    * Returns the package supported by this factory.

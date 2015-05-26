@@ -94,12 +94,16 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.THEOREM_DECLARATION: return createtheorem_declaration();
       case McsPackage.IN_MODES_LIST: return createin_modes_list();
       case McsPackage.LOCAL_DECLARATION: return createlocal_declaration();
-      case McsPackage.CONSTANT_DECLARATION: return createconstant_declaration();
-      case McsPackage.CONSTANT_IDENTIFIER: return createconstant_identifier();
+      case McsPackage.THEOREM_STATEMENT: return createtheorem_statement();
+      case McsPackage.TYPE_DECLARATION: return createtype_declaration();
       case McsPackage.TYPE_EXPRESSION: return createtype_expression();
+      case McsPackage.FUNCTION_DECLARATION: return createfunction_declaration();
+      case McsPackage.ARGUMENT: return createargument();
+      case McsPackage.XEXPRESSION: return createXExpression();
       case McsPackage.BASIC_TYPE: return createbasic_type();
+      case McsPackage.UNNAMED_FUNCTION_TYPE: return createUnnamedFunctionType();
       case McsPackage.CONSTANT_EXPRESSION: return createconstant_expression();
-      case McsPackage.THEOREM_STATEMENTS: return createtheorem_statements();
+      case McsPackage.MCS_CLOSURE: return createMCSClosure();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -440,10 +444,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public constant_declaration createconstant_declaration()
+  public theorem_statement createtheorem_statement()
   {
-    constant_declarationImpl constant_declaration = new constant_declarationImpl();
-    return constant_declaration;
+    theorem_statementImpl theorem_statement = new theorem_statementImpl();
+    return theorem_statement;
   }
 
   /**
@@ -451,10 +455,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public constant_identifier createconstant_identifier()
+  public type_declaration createtype_declaration()
   {
-    constant_identifierImpl constant_identifier = new constant_identifierImpl();
-    return constant_identifier;
+    type_declarationImpl type_declaration = new type_declarationImpl();
+    return type_declaration;
   }
 
   /**
@@ -473,10 +477,54 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public function_declaration createfunction_declaration()
+  {
+    function_declarationImpl function_declaration = new function_declarationImpl();
+    return function_declaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public argument createargument()
+  {
+    argumentImpl argument = new argumentImpl();
+    return argument;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public XExpression createXExpression()
+  {
+    XExpressionImpl xExpression = new XExpressionImpl();
+    return xExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public basic_type createbasic_type()
   {
     basic_typeImpl basic_type = new basic_typeImpl();
     return basic_type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnnamedFunctionType createUnnamedFunctionType()
+  {
+    UnnamedFunctionTypeImpl unnamedFunctionType = new UnnamedFunctionTypeImpl();
+    return unnamedFunctionType;
   }
 
   /**
@@ -495,10 +543,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public theorem_statements createtheorem_statements()
+  public MCSClosure createMCSClosure()
   {
-    theorem_statementsImpl theorem_statements = new theorem_statementsImpl();
-    return theorem_statements;
+    MCSClosureImpl mcsClosure = new MCSClosureImpl();
+    return mcsClosure;
   }
 
   /**
