@@ -11,6 +11,6 @@ public class MCSAntlrTokenFileProvider implements IAntlrTokenFileProvider {
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-    	return classLoader.getResourceAsStream("org/osate/xtext/aadl2/mcs/parser/antlr/internal/InternalMCS.tokens");
+    	return classLoader.getResourceAsStream("org/osate/xtext/aadl2/mcs/parser/antlr/internal/InternalMCSParser.tokens");
 	}
 }

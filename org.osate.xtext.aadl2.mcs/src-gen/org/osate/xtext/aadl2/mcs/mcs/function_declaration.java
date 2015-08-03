@@ -6,6 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.xtext.xbase.XExpression;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>function declaration</b></em>'.
@@ -185,12 +187,12 @@ public interface function_declaration extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Exp body</em>' containment reference.
-   * @see #setExp_body(org.eclipse.xtext.xbase.XExpression)
+   * @see #setExp_body(XExpression)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getfunction_declaration_Exp_body()
    * @model containment="true"
    * @generated
    */
-  org.eclipse.xtext.xbase.XExpression getExp_body();
+  XExpression getExp_body();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.function_declaration#getExp_body <em>Exp body</em>}' containment reference.
@@ -200,6 +202,6 @@ public interface function_declaration extends EObject
    * @see #getExp_body()
    * @generated
    */
-  void setExp_body(org.eclipse.xtext.xbase.XExpression value);
+  void setExp_body(XExpression value);
 
 } // function_declaration

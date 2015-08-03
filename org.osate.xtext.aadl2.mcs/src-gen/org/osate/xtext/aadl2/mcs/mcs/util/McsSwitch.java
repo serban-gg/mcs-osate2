@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.eclipse.xtext.xbase.XExpression;
+
 import org.osate.aadl2.AnnexLibrary;
 import org.osate.aadl2.AnnexSubclause;
 import org.osate.aadl2.Element;
@@ -92,6 +94,20 @@ public class McsSwitch<T> extends Switch<T>
         if (result == null) result = caseAnnexLibrary(mcsAnnexLibrary);
         if (result == null) result = caseNamedElement(mcsAnnexLibrary);
         if (result == null) result = caseElement(mcsAnnexLibrary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.TYPE_DECLARATION:
+      {
+        type_declaration type_declaration = (type_declaration)theEObject;
+        T result = casetype_declaration(type_declaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.CONSTANT_DECLARATION:
+      {
+        constant_declaration constant_declaration = (constant_declaration)theEObject;
+        T result = caseconstant_declaration(constant_declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -221,6 +237,21 @@ public class McsSwitch<T> extends Switch<T>
         element_reference element_reference = (element_reference)theEObject;
         T result = caseelement_reference(element_reference);
         if (result == null) result = caseroot_element(element_reference);
+        if (result == null) result = caseXExpression(element_reference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.CONTAINMENT_PATH_ELEMENT:
+      {
+        ContainmentPathElement containmentPathElement = (ContainmentPathElement)theEObject;
+        T result = caseContainmentPathElement(containmentPathElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.ARRAY_RANGE:
+      {
+        ArrayRange arrayRange = (ArrayRange)theEObject;
+        T result = caseArrayRange(arrayRange);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -228,14 +259,6 @@ public class McsSwitch<T> extends Switch<T>
       {
         PackageEnforce packageEnforce = (PackageEnforce)theEObject;
         T result = casePackageEnforce(packageEnforce);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case McsPackage.EXPRESSION:
-      {
-        expression expression = (expression)theEObject;
-        T result = caseexpression(expression);
-        if (result == null) result = caseconstant_expression(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -250,6 +273,21 @@ public class McsSwitch<T> extends Switch<T>
       {
         string_expression string_expression = (string_expression)theEObject;
         T result = casestring_expression(string_expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.CONSTANT_EXPRESSION:
+      {
+        constant_expression constant_expression = (constant_expression)theEObject;
+        T result = caseconstant_expression(constant_expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.EXPRESSION:
+      {
+        expression expression = (expression)theEObject;
+        T result = caseexpression(expression);
+        if (result == null) result = caseconstant_expression(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -275,6 +313,20 @@ public class McsSwitch<T> extends Switch<T>
       {
         ClassifierScript classifierScript = (ClassifierScript)theEObject;
         T result = caseClassifierScript(classifierScript);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.FUNCTION_DECLARATION:
+      {
+        function_declaration function_declaration = (function_declaration)theEObject;
+        T result = casefunction_declaration(function_declaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.ARGUMENT:
+      {
+        argument argument = (argument)theEObject;
+        T result = caseargument(argument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -306,38 +358,10 @@ public class McsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case McsPackage.TYPE_DECLARATION:
-      {
-        type_declaration type_declaration = (type_declaration)theEObject;
-        T result = casetype_declaration(type_declaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case McsPackage.TYPE_EXPRESSION:
       {
         type_expression type_expression = (type_expression)theEObject;
         T result = casetype_expression(type_expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case McsPackage.FUNCTION_DECLARATION:
-      {
-        function_declaration function_declaration = (function_declaration)theEObject;
-        T result = casefunction_declaration(function_declaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case McsPackage.ARGUMENT:
-      {
-        argument argument = (argument)theEObject;
-        T result = caseargument(argument);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case McsPackage.XEXPRESSION:
-      {
-        XExpression xExpression = (XExpression)theEObject;
-        T result = caseXExpression(xExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -355,10 +379,85 @@ public class McsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case McsPackage.CONSTANT_EXPRESSION:
+      case McsPackage.COMPOSITE_TYPE:
       {
-        constant_expression constant_expression = (constant_expression)theEObject;
-        T result = caseconstant_expression(constant_expression);
+        composite_type composite_type = (composite_type)theEObject;
+        T result = casecomposite_type(composite_type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.SET_TYPE:
+      {
+        set_type set_type = (set_type)theEObject;
+        T result = caseset_type(set_type);
+        if (result == null) result = casecomposite_type(set_type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.LIST_TYPE:
+      {
+        list_type list_type = (list_type)theEObject;
+        T result = caselist_type(list_type);
+        if (result == null) result = casecomposite_type(list_type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.MAP_TYPE:
+      {
+        map_type map_type = (map_type)theEObject;
+        T result = casemap_type(map_type);
+        if (result == null) result = casecomposite_type(map_type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.RECORD_TYPE:
+      {
+        record_type record_type = (record_type)theEObject;
+        T result = caserecord_type(record_type);
+        if (result == null) result = casecomposite_type(record_type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.UNION_TYPE:
+      {
+        union_type union_type = (union_type)theEObject;
+        T result = caseunion_type(union_type);
+        if (result == null) result = casecomposite_type(union_type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.ID_TYPE_PAIR:
+      {
+        id_type_pair id_type_pair = (id_type_pair)theEObject;
+        T result = caseid_type_pair(id_type_pair);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.ELEMENT_TYPE:
+      {
+        element_type element_type = (element_type)theEObject;
+        T result = caseelement_type(element_type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.TCLASSIFIERS:
+      {
+        t_classifiers t_classifiers = (t_classifiers)theEObject;
+        T result = caset_classifiers(t_classifiers);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.TCLASSIFIER_SUBTYPES:
+      {
+        t_classifier_subtypes t_classifier_subtypes = (t_classifier_subtypes)theEObject;
+        T result = caset_classifier_subtypes(t_classifier_subtypes);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case McsPackage.TNAMED_REFERENCES:
+      {
+        t_named_references t_named_references = (t_named_references)theEObject;
+        T result = caset_named_references(t_named_references);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -402,6 +501,38 @@ public class McsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMCSAnnexLibrary(MCSAnnexLibrary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>type declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>type declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casetype_declaration(type_declaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>constant declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>constant declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseconstant_declaration(constant_declaration object)
   {
     return null;
   }
@@ -695,6 +826,38 @@ public class McsSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Containment Path Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Containment Path Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContainmentPathElement(ContainmentPathElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Range</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Range</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayRange(ArrayRange object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Package Enforce</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -706,22 +869,6 @@ public class McsSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePackageEnforce(PackageEnforce object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseexpression(expression object)
   {
     return null;
   }
@@ -754,6 +901,38 @@ public class McsSwitch<T> extends Switch<T>
    * @generated
    */
   public T casestring_expression(string_expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>constant expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>constant expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseconstant_expression(constant_expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseexpression(expression object)
   {
     return null;
   }
@@ -802,6 +981,38 @@ public class McsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseClassifierScript(ClassifierScript object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>function declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>function declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefunction_declaration(function_declaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>argument</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>argument</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseargument(argument object)
   {
     return null;
   }
@@ -871,22 +1082,6 @@ public class McsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>type declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>type declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casetype_declaration(type_declaration object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>type expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -898,54 +1093,6 @@ public class McsSwitch<T> extends Switch<T>
    * @generated
    */
   public T casetype_expression(type_expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>function declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>function declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casefunction_declaration(function_declaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>argument</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>argument</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseargument(argument object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>XExpression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>XExpression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseXExpression(XExpression object)
   {
     return null;
   }
@@ -983,17 +1130,177 @@ public class McsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>constant expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>composite type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>constant expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>composite type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseconstant_expression(constant_expression object)
+  public T casecomposite_type(composite_type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>set type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>set type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseset_type(set_type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>list type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>list type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caselist_type(list_type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>map type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>map type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casemap_type(map_type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>record type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>record type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caserecord_type(record_type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>union type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>union type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseunion_type(union_type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>id type pair</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>id type pair</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseid_type_pair(id_type_pair object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>element type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>element type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseelement_type(element_type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>tclassifiers</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>tclassifiers</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caset_classifiers(t_classifiers object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>tclassifier subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>tclassifier subtypes</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caset_classifier_subtypes(t_classifier_subtypes object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>tnamed references</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>tnamed references</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caset_named_references(t_named_references object)
   {
     return null;
   }
@@ -1058,6 +1365,22 @@ public class McsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAnnexLibrary(AnnexLibrary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>XExpression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>XExpression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseXExpression(XExpression object)
   {
     return null;
   }

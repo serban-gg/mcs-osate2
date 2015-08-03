@@ -17,6 +17,7 @@ import org.osate.aadl2.AnnexLibrary;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary#getTypes <em>Types</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary#getConstants <em>Constants</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary#getTheorems <em>Theorems</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary#getViewpoints <em>Viewpoints</em>}</li>
@@ -45,6 +46,22 @@ public interface MCSAnnexLibrary extends EObject, AnnexLibrary
    * @generated
    */
   EList<type_declaration> getTypes();
+
+  /**
+   * Returns the value of the '<em><b>Constants</b></em>' containment reference list.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.constant_declaration}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Constants</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Constants</em>' containment reference list.
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSAnnexLibrary_Constants()
+   * @model containment="true"
+   * @generated
+   */
+  EList<constant_declaration> getConstants();
 
   /**
    * Returns the value of the '<em><b>Functions</b></em>' containment reference list.

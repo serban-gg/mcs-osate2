@@ -11,8 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.xtext.common.types.JvmType;
-
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.type_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.type_expression;
@@ -26,7 +24,6 @@ import org.osate.xtext.aadl2.mcs.mcs.type_expression;
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.type_declarationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.type_declarationImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.type_declarationImpl#getJavatype <em>Javatype</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,16 +60,6 @@ public class type_declarationImpl extends MinimalEObjectImpl.Container implement
    * @ordered
    */
   protected type_expression type;
-
-  /**
-   * The cached value of the '{@link #getJavatype() <em>Javatype</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getJavatype()
-   * @generated
-   * @ordered
-   */
-  protected JvmType javatype;
 
   /**
    * <!-- begin-user-doc -->
@@ -171,49 +158,6 @@ public class type_declarationImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public JvmType getJavatype()
-  {
-    if (javatype != null && javatype.eIsProxy())
-    {
-      InternalEObject oldJavatype = (InternalEObject)javatype;
-      javatype = (JvmType)eResolveProxy(oldJavatype);
-      if (javatype != oldJavatype)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, McsPackage.TYPE_DECLARATION__JAVATYPE, oldJavatype, javatype));
-      }
-    }
-    return javatype;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public JvmType basicGetJavatype()
-  {
-    return javatype;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setJavatype(JvmType newJavatype)
-  {
-    JvmType oldJavatype = javatype;
-    javatype = newJavatype;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.TYPE_DECLARATION__JAVATYPE, oldJavatype, javatype));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -239,9 +183,6 @@ public class type_declarationImpl extends MinimalEObjectImpl.Container implement
         return getName();
       case McsPackage.TYPE_DECLARATION__TYPE:
         return getType();
-      case McsPackage.TYPE_DECLARATION__JAVATYPE:
-        if (resolve) return getJavatype();
-        return basicGetJavatype();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -261,9 +202,6 @@ public class type_declarationImpl extends MinimalEObjectImpl.Container implement
         return;
       case McsPackage.TYPE_DECLARATION__TYPE:
         setType((type_expression)newValue);
-        return;
-      case McsPackage.TYPE_DECLARATION__JAVATYPE:
-        setJavatype((JvmType)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -285,9 +223,6 @@ public class type_declarationImpl extends MinimalEObjectImpl.Container implement
       case McsPackage.TYPE_DECLARATION__TYPE:
         setType((type_expression)null);
         return;
-      case McsPackage.TYPE_DECLARATION__JAVATYPE:
-        setJavatype((JvmType)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -306,8 +241,6 @@ public class type_declarationImpl extends MinimalEObjectImpl.Container implement
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case McsPackage.TYPE_DECLARATION__TYPE:
         return type != null;
-      case McsPackage.TYPE_DECLARATION__JAVATYPE:
-        return javatype != null;
     }
     return super.eIsSet(featureID);
   }

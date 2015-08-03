@@ -2,6 +2,8 @@
  */
 package org.osate.xtext.aadl2.mcs.mcs;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -50,29 +52,19 @@ public interface AppliesToClause extends EObject
   void setAll(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Category</b></em>' containment reference.
+   * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.ClassifierCategory}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Category</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Category</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Category</em>' containment reference.
-   * @see #setCategory(ClassifierCategory)
+   * @return the value of the '<em>Category</em>' containment reference list.
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getAppliesToClause_Category()
    * @model containment="true"
    * @generated
    */
-  ClassifierCategory getCategory();
-
-  /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.AppliesToClause#getCategory <em>Category</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Category</em>' containment reference.
-   * @see #getCategory()
-   * @generated
-   */
-  void setCategory(ClassifierCategory value);
+  EList<ClassifierCategory> getCategory();
 
 } // AppliesToClause

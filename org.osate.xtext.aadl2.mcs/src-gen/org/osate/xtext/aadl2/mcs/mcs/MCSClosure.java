@@ -4,6 +4,8 @@ package org.osate.xtext.aadl2.mcs.mcs;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.xtext.xbase.XExpression;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>MCS Closure</b></em>'.
@@ -75,12 +77,12 @@ public interface MCSClosure extends XExpression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(org.eclipse.xtext.xbase.XExpression)
+   * @see #setExpression(XExpression)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSClosure_Expression()
    * @model containment="true"
    * @generated
    */
-  org.eclipse.xtext.xbase.XExpression getExpression();
+  XExpression getExpression();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.MCSClosure#getExpression <em>Expression</em>}' containment reference.
@@ -90,6 +92,6 @@ public interface MCSClosure extends XExpression
    * @see #getExpression()
    * @generated
    */
-  void setExpression(org.eclipse.xtext.xbase.XExpression value);
+  void setExpression(XExpression value);
 
 } // MCSClosure

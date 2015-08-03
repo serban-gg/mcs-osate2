@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.osate.aadl2.ComponentCategory;
 import org.osate.aadl2.ComponentImplementation;
 import org.osate.aadl2.ComponentType;
 
@@ -47,7 +48,7 @@ public class ClassifierCategoryImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    * @ordered
    */
-  protected static final String COMPONENT_EDEFAULT = null;
+  protected static final ComponentCategory COMPONENT_EDEFAULT = ComponentCategory.ABSTRACT;
 
   /**
    * The cached value of the '{@link #getComponent() <em>Component</em>}' attribute.
@@ -57,7 +58,7 @@ public class ClassifierCategoryImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    * @ordered
    */
-  protected String component = COMPONENT_EDEFAULT;
+  protected ComponentCategory component = COMPONENT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getCt() <em>Ct</em>}' reference.
@@ -155,7 +156,7 @@ public class ClassifierCategoryImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getComponent()
+  public ComponentCategory getComponent()
   {
     return component;
   }
@@ -165,10 +166,10 @@ public class ClassifierCategoryImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setComponent(String newComponent)
+  public void setComponent(ComponentCategory newComponent)
   {
-    String oldComponent = component;
-    component = newComponent;
+    ComponentCategory oldComponent = component;
+    component = newComponent == null ? COMPONENT_EDEFAULT : newComponent;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CLASSIFIER_CATEGORY__COMPONENT, oldComponent, component));
   }
@@ -408,7 +409,7 @@ public class ClassifierCategoryImpl extends MinimalEObjectImpl.Container impleme
     switch (featureID)
     {
       case McsPackage.CLASSIFIER_CATEGORY__COMPONENT:
-        setComponent((String)newValue);
+        setComponent((ComponentCategory)newValue);
         return;
       case McsPackage.CLASSIFIER_CATEGORY__CT:
         setCt((ComponentType)newValue);
@@ -472,7 +473,7 @@ public class ClassifierCategoryImpl extends MinimalEObjectImpl.Container impleme
     switch (featureID)
     {
       case McsPackage.CLASSIFIER_CATEGORY__COMPONENT:
-        return COMPONENT_EDEFAULT == null ? component != null : !COMPONENT_EDEFAULT.equals(component);
+        return component != COMPONENT_EDEFAULT;
       case McsPackage.CLASSIFIER_CATEGORY__CT:
         return ct != null;
       case McsPackage.CLASSIFIER_CATEGORY__IMPL:

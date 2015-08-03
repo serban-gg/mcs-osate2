@@ -112,12 +112,12 @@ public interface local_declaration extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left expr</em>' containment reference.
-   * @see #setLeft_expr(constant_expression)
+   * @see #setLeft_expr(EObject)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getlocal_declaration_Left_expr()
    * @model containment="true"
    * @generated
    */
-  constant_expression getLeft_expr();
+  EObject getLeft_expr();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.local_declaration#getLeft_expr <em>Left expr</em>}' containment reference.
@@ -127,6 +127,6 @@ public interface local_declaration extends EObject
    * @see #getLeft_expr()
    * @generated
    */
-  void setLeft_expr(constant_expression value);
+  void setLeft_expr(EObject value);
 
 } // local_declaration

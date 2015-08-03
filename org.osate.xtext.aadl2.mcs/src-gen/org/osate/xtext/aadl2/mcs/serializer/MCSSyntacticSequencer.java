@@ -155,6 +155,7 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) '[' declaredFormalParameters+=JvmFormalParameter
 	 *     (rule start) (ambiguity) '[' explicitSyntax?='|'
 	 *     (rule start) (ambiguity) '[' expression=XExpressionInClosure
+	 *     (rule start) (ambiguity) 'classifier' '(' cref=[Classifier|QCREF]
 	 *     (rule start) (ambiguity) 'do' body=XExpression
 	 *     (rule start) (ambiguity) 'false' (rule start)
 	 *     (rule start) (ambiguity) 'for' '(' ';' ';' ')' eachExpression=XExpression
@@ -165,6 +166,8 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'if' '(' if=XExpression
 	 *     (rule start) (ambiguity) 'new' constructor=[JvmConstructor|QualifiedName]
 	 *     (rule start) (ambiguity) 'null' (rule start)
+	 *     (rule start) (ambiguity) 'reference' '(' packageName+=ID
+	 *     (rule start) (ambiguity) 'reference' '(' ref=ContainmentPathElement
 	 *     (rule start) (ambiguity) 'return' (rule start)
 	 *     (rule start) (ambiguity) 'return' expression=XExpression
 	 *     (rule start) (ambiguity) 'switch' '(' declaredParam=JvmFormalParameter
@@ -177,10 +180,13 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'while' '(' predicate=XExpression
 	 *     (rule start) (ambiguity) '{' '}' (rule start)
 	 *     (rule start) (ambiguity) '{' expressions+=XExpressionOrVarDeclaration
+	 *     (rule start) (ambiguity) currentmode?='current_mode'
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|FeatureCallID]
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|IdOrSuper]
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|OpUnary]
 	 *     (rule start) (ambiguity) isTrue?='true'
+	 *     (rule start) (ambiguity) root?='root'
+	 *     (rule start) (ambiguity) self?='self'
 	 *     (rule start) (ambiguity) value=Number
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) {XAssignment.assignable=}
@@ -207,6 +213,7 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) '[' declaredFormalParameters+=JvmFormalParameter
 	 *     (rule start) (ambiguity) '[' explicitSyntax?='|'
 	 *     (rule start) (ambiguity) '[' expression=XExpressionInClosure
+	 *     (rule start) (ambiguity) 'classifier' '(' cref=[Classifier|QCREF]
 	 *     (rule start) (ambiguity) 'do' body=XExpression
 	 *     (rule start) (ambiguity) 'false' ')' (rule start)
 	 *     (rule start) (ambiguity) 'for' '(' ';' ';' ')' eachExpression=XExpression
@@ -217,6 +224,8 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'if' '(' if=XExpression
 	 *     (rule start) (ambiguity) 'new' constructor=[JvmConstructor|QualifiedName]
 	 *     (rule start) (ambiguity) 'null' ')' (rule start)
+	 *     (rule start) (ambiguity) 'reference' '(' packageName+=ID
+	 *     (rule start) (ambiguity) 'reference' '(' ref=ContainmentPathElement
 	 *     (rule start) (ambiguity) 'return' ')' (rule start)
 	 *     (rule start) (ambiguity) 'return' expression=XExpression
 	 *     (rule start) (ambiguity) 'switch' '(' declaredParam=JvmFormalParameter
@@ -229,10 +238,13 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'while' '(' predicate=XExpression
 	 *     (rule start) (ambiguity) '{' '}' ')' (rule start)
 	 *     (rule start) (ambiguity) '{' expressions+=XExpressionOrVarDeclaration
+	 *     (rule start) (ambiguity) currentmode?='current_mode'
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|FeatureCallID]
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|IdOrSuper]
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|OpUnary]
 	 *     (rule start) (ambiguity) isTrue?='true'
+	 *     (rule start) (ambiguity) root?='root'
+	 *     (rule start) (ambiguity) self?='self'
 	 *     (rule start) (ambiguity) value=Number
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) {XAssignment.assignable=}

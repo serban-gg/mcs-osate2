@@ -41,6 +41,24 @@ public interface McsFactory extends EFactory
   MCSAnnexLibrary createMCSAnnexLibrary();
 
   /**
+   * Returns a new object of class '<em>type declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>type declaration</em>'.
+   * @generated
+   */
+  type_declaration createtype_declaration();
+
+  /**
+   * Returns a new object of class '<em>constant declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>constant declaration</em>'.
+   * @generated
+   */
+  constant_declaration createconstant_declaration();
+
+  /**
    * Returns a new object of class '<em>MCS Viewpoint</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -203,6 +221,24 @@ public interface McsFactory extends EFactory
   element_reference createelement_reference();
 
   /**
+   * Returns a new object of class '<em>Containment Path Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Containment Path Element</em>'.
+   * @generated
+   */
+  ContainmentPathElement createContainmentPathElement();
+
+  /**
+   * Returns a new object of class '<em>Array Range</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Range</em>'.
+   * @generated
+   */
+  ArrayRange createArrayRange();
+
+  /**
    * Returns a new object of class '<em>Package Enforce</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -210,15 +246,6 @@ public interface McsFactory extends EFactory
    * @generated
    */
   PackageEnforce createPackageEnforce();
-
-  /**
-   * Returns a new object of class '<em>expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>expression</em>'.
-   * @generated
-   */
-  expression createexpression();
 
   /**
    * Returns a new object of class '<em>assertion expression</em>'.
@@ -237,6 +264,24 @@ public interface McsFactory extends EFactory
    * @generated
    */
   string_expression createstring_expression();
+
+  /**
+   * Returns a new object of class '<em>constant expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>constant expression</em>'.
+   * @generated
+   */
+  constant_expression createconstant_expression();
+
+  /**
+   * Returns a new object of class '<em>expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>expression</em>'.
+   * @generated
+   */
+  expression createexpression();
 
   /**
    * Returns a new object of class '<em>MCS Annex Subclause</em>'.
@@ -264,6 +309,24 @@ public interface McsFactory extends EFactory
    * @generated
    */
   ClassifierScript createClassifierScript();
+
+  /**
+   * Returns a new object of class '<em>function declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>function declaration</em>'.
+   * @generated
+   */
+  function_declaration createfunction_declaration();
+
+  /**
+   * Returns a new object of class '<em>argument</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>argument</em>'.
+   * @generated
+   */
+  argument createargument();
 
   /**
    * Returns a new object of class '<em>theorem declaration</em>'.
@@ -302,15 +365,6 @@ public interface McsFactory extends EFactory
   theorem_statement createtheorem_statement();
 
   /**
-   * Returns a new object of class '<em>type declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>type declaration</em>'.
-   * @generated
-   */
-  type_declaration createtype_declaration();
-
-  /**
    * Returns a new object of class '<em>type expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -318,33 +372,6 @@ public interface McsFactory extends EFactory
    * @generated
    */
   type_expression createtype_expression();
-
-  /**
-   * Returns a new object of class '<em>function declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>function declaration</em>'.
-   * @generated
-   */
-  function_declaration createfunction_declaration();
-
-  /**
-   * Returns a new object of class '<em>argument</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>argument</em>'.
-   * @generated
-   */
-  argument createargument();
-
-  /**
-   * Returns a new object of class '<em>XExpression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>XExpression</em>'.
-   * @generated
-   */
-  XExpression createXExpression();
 
   /**
    * Returns a new object of class '<em>basic type</em>'.
@@ -365,13 +392,103 @@ public interface McsFactory extends EFactory
   UnnamedFunctionType createUnnamedFunctionType();
 
   /**
-   * Returns a new object of class '<em>constant expression</em>'.
+   * Returns a new object of class '<em>composite type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>constant expression</em>'.
+   * @return a new object of class '<em>composite type</em>'.
    * @generated
    */
-  constant_expression createconstant_expression();
+  composite_type createcomposite_type();
+
+  /**
+   * Returns a new object of class '<em>set type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>set type</em>'.
+   * @generated
+   */
+  set_type createset_type();
+
+  /**
+   * Returns a new object of class '<em>list type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>list type</em>'.
+   * @generated
+   */
+  list_type createlist_type();
+
+  /**
+   * Returns a new object of class '<em>map type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>map type</em>'.
+   * @generated
+   */
+  map_type createmap_type();
+
+  /**
+   * Returns a new object of class '<em>record type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>record type</em>'.
+   * @generated
+   */
+  record_type createrecord_type();
+
+  /**
+   * Returns a new object of class '<em>union type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>union type</em>'.
+   * @generated
+   */
+  union_type createunion_type();
+
+  /**
+   * Returns a new object of class '<em>id type pair</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>id type pair</em>'.
+   * @generated
+   */
+  id_type_pair createid_type_pair();
+
+  /**
+   * Returns a new object of class '<em>element type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>element type</em>'.
+   * @generated
+   */
+  element_type createelement_type();
+
+  /**
+   * Returns a new object of class '<em>tclassifiers</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tclassifiers</em>'.
+   * @generated
+   */
+  t_classifiers createt_classifiers();
+
+  /**
+   * Returns a new object of class '<em>tclassifier subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tclassifier subtypes</em>'.
+   * @generated
+   */
+  t_classifier_subtypes createt_classifier_subtypes();
+
+  /**
+   * Returns a new object of class '<em>tnamed references</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tnamed references</em>'.
+   * @generated
+   */
+  t_named_references createt_named_references();
 
   /**
    * Returns a new object of class '<em>MCS Closure</em>'.

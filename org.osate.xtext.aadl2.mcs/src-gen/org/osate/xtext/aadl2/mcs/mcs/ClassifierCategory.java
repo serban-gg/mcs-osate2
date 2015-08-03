@@ -4,6 +4,7 @@ package org.osate.xtext.aadl2.mcs.mcs;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.osate.aadl2.ComponentCategory;
 import org.osate.aadl2.ComponentImplementation;
 import org.osate.aadl2.ComponentType;
 
@@ -32,6 +33,7 @@ public interface ClassifierCategory extends EObject
 {
   /**
    * Returns the value of the '<em><b>Component</b></em>' attribute.
+   * The literals are from the enumeration {@link org.osate.aadl2.ComponentCategory}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Component</em>' attribute isn't clear,
@@ -39,22 +41,24 @@ public interface ClassifierCategory extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Component</em>' attribute.
-   * @see #setComponent(String)
+   * @see org.osate.aadl2.ComponentCategory
+   * @see #setComponent(ComponentCategory)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClassifierCategory_Component()
    * @model
    * @generated
    */
-  String getComponent();
+  ComponentCategory getComponent();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.ClassifierCategory#getComponent <em>Component</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Component</em>' attribute.
+   * @see org.osate.aadl2.ComponentCategory
    * @see #getComponent()
    * @generated
    */
-  void setComponent(String value);
+  void setComponent(ComponentCategory value);
 
   /**
    * Returns the value of the '<em><b>Ct</b></em>' reference.

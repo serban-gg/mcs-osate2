@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.xtext.xbase.XExpression;
 
+import org.eclipse.xtext.xbase.impl.XExpressionImpl;
+
 import org.osate.xtext.aadl2.mcs.mcs.MCSClosure;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.argument;

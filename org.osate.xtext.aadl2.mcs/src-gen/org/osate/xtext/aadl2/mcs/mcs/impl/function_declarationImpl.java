@@ -18,9 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.xtext.xbase.XExpression;
+
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.UnnamedFunctionType;
-import org.osate.xtext.aadl2.mcs.mcs.XExpression;
 import org.osate.xtext.aadl2.mcs.mcs.argument;
 import org.osate.xtext.aadl2.mcs.mcs.function_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.type_declaration;
@@ -125,7 +126,7 @@ public class function_declarationImpl extends MinimalEObjectImpl.Container imple
    * @generated
    * @ordered
    */
-  protected org.eclipse.xtext.xbase.XExpression exp_body;
+  protected XExpression exp_body;
 
   /**
    * <!-- begin-user-doc -->
@@ -377,7 +378,7 @@ public class function_declarationImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public org.eclipse.xtext.xbase.XExpression getExp_body()
+  public XExpression getExp_body()
   {
     return exp_body;
   }
@@ -387,9 +388,9 @@ public class function_declarationImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExp_body(org.eclipse.xtext.xbase.XExpression newExp_body, NotificationChain msgs)
+  public NotificationChain basicSetExp_body(XExpression newExp_body, NotificationChain msgs)
   {
-    org.eclipse.xtext.xbase.XExpression oldExp_body = exp_body;
+    XExpression oldExp_body = exp_body;
     exp_body = newExp_body;
     if (eNotificationRequired())
     {
@@ -404,7 +405,7 @@ public class function_declarationImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExp_body(org.eclipse.xtext.xbase.XExpression newExp_body)
+  public void setExp_body(XExpression newExp_body)
   {
     if (newExp_body != exp_body)
     {
@@ -504,7 +505,7 @@ public class function_declarationImpl extends MinimalEObjectImpl.Container imple
         setClosure((XExpression)newValue);
         return;
       case McsPackage.FUNCTION_DECLARATION__EXP_BODY:
-        setExp_body((org.eclipse.xtext.xbase.XExpression)newValue);
+        setExp_body((XExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -539,7 +540,7 @@ public class function_declarationImpl extends MinimalEObjectImpl.Container imple
         setClosure((XExpression)null);
         return;
       case McsPackage.FUNCTION_DECLARATION__EXP_BODY:
-        setExp_body((org.eclipse.xtext.xbase.XExpression)null);
+        setExp_body((XExpression)null);
         return;
     }
     super.eUnset(featureID);

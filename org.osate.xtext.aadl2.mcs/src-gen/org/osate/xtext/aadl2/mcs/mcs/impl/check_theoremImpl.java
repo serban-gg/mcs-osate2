@@ -20,7 +20,7 @@ import org.osate.xtext.aadl2.mcs.mcs.theorem_declaration;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.check_theoremImpl#getTheo <em>Theo</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.check_theoremImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,14 +29,14 @@ import org.osate.xtext.aadl2.mcs.mcs.theorem_declaration;
 public class check_theoremImpl extends check_statementImpl implements check_theorem
 {
   /**
-   * The cached value of the '{@link #getTheo() <em>Theo</em>}' reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTheo()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected theorem_declaration theo;
+  protected theorem_declaration name;
 
   /**
    * <!-- begin-user-doc -->
@@ -64,19 +64,19 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
    * <!-- end-user-doc -->
    * @generated
    */
-  public theorem_declaration getTheo()
+  public theorem_declaration getName()
   {
-    if (theo != null && theo.eIsProxy())
+    if (name != null && name.eIsProxy())
     {
-      InternalEObject oldTheo = (InternalEObject)theo;
-      theo = (theorem_declaration)eResolveProxy(oldTheo);
-      if (theo != oldTheo)
+      InternalEObject oldName = (InternalEObject)name;
+      name = (theorem_declaration)eResolveProxy(oldName);
+      if (name != oldName)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, McsPackage.CHECK_THEOREM__THEO, oldTheo, theo));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, McsPackage.CHECK_THEOREM__NAME, oldName, name));
       }
     }
-    return theo;
+    return name;
   }
 
   /**
@@ -84,9 +84,9 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
    * <!-- end-user-doc -->
    * @generated
    */
-  public theorem_declaration basicGetTheo()
+  public theorem_declaration basicGetName()
   {
-    return theo;
+    return name;
   }
 
   /**
@@ -94,12 +94,12 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTheo(theorem_declaration newTheo)
+  public void setName(theorem_declaration newName)
   {
-    theorem_declaration oldTheo = theo;
-    theo = newTheo;
+    theorem_declaration oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CHECK_THEOREM__THEO, oldTheo, theo));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CHECK_THEOREM__NAME, oldName, name));
   }
 
   /**
@@ -112,9 +112,9 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
   {
     switch (featureID)
     {
-      case McsPackage.CHECK_THEOREM__THEO:
-        if (resolve) return getTheo();
-        return basicGetTheo();
+      case McsPackage.CHECK_THEOREM__NAME:
+        if (resolve) return getName();
+        return basicGetName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -129,8 +129,8 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
   {
     switch (featureID)
     {
-      case McsPackage.CHECK_THEOREM__THEO:
-        setTheo((theorem_declaration)newValue);
+      case McsPackage.CHECK_THEOREM__NAME:
+        setName((theorem_declaration)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -146,8 +146,8 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
   {
     switch (featureID)
     {
-      case McsPackage.CHECK_THEOREM__THEO:
-        setTheo((theorem_declaration)null);
+      case McsPackage.CHECK_THEOREM__NAME:
+        setName((theorem_declaration)null);
         return;
     }
     super.eUnset(featureID);
@@ -163,8 +163,8 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
   {
     switch (featureID)
     {
-      case McsPackage.CHECK_THEOREM__THEO:
-        return theo != null;
+      case McsPackage.CHECK_THEOREM__NAME:
+        return name != null;
     }
     return super.eIsSet(featureID);
   }

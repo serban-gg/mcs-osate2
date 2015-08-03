@@ -7,25 +7,25 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.XExpression;
+import org.osate.xtext.aadl2.mcs.mcs.composite_type;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>XExpression</b></em>'.
+ * An implementation of the model object '<em><b>composite type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class XExpressionImpl extends MinimalEObjectImpl.Container implements XExpression
+public class composite_typeImpl extends MinimalEObjectImpl.Container implements composite_type
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected XExpressionImpl()
+  protected composite_typeImpl()
   {
     super();
   }
@@ -38,7 +38,7 @@ public class XExpressionImpl extends MinimalEObjectImpl.Container implements XEx
   @Override
   protected EClass eStaticClass()
   {
-    return McsPackage.Literals.XEXPRESSION;
+    return McsPackage.Literals.COMPOSITE_TYPE;
   }
 
-} //XExpressionImpl
+} //composite_typeImpl

@@ -2,14 +2,21 @@
  */
 package org.osate.xtext.aadl2.mcs.mcs.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.osate.xtext.aadl2.mcs.mcs.AppliesToClause;
 import org.osate.xtext.aadl2.mcs.mcs.ClassifierCategory;
@@ -52,14 +59,14 @@ public class AppliesToClauseImpl extends MinimalEObjectImpl.Container implements
   protected boolean all = ALL_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference.
+   * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getCategory()
    * @generated
    * @ordered
    */
-  protected ClassifierCategory category;
+  protected EList<ClassifierCategory> category;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,47 +117,13 @@ public class AppliesToClauseImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClassifierCategory getCategory()
+  public EList<ClassifierCategory> getCategory()
   {
+    if (category == null)
+    {
+      category = new EObjectContainmentEList<ClassifierCategory>(ClassifierCategory.class, this, McsPackage.APPLIES_TO_CLAUSE__CATEGORY);
+    }
     return category;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCategory(ClassifierCategory newCategory, NotificationChain msgs)
-  {
-    ClassifierCategory oldCategory = category;
-    category = newCategory;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.APPLIES_TO_CLAUSE__CATEGORY, oldCategory, newCategory);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCategory(ClassifierCategory newCategory)
-  {
-    if (newCategory != category)
-    {
-      NotificationChain msgs = null;
-      if (category != null)
-        msgs = ((InternalEObject)category).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.APPLIES_TO_CLAUSE__CATEGORY, null, msgs);
-      if (newCategory != null)
-        msgs = ((InternalEObject)newCategory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.APPLIES_TO_CLAUSE__CATEGORY, null, msgs);
-      msgs = basicSetCategory(newCategory, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.APPLIES_TO_CLAUSE__CATEGORY, newCategory, newCategory));
   }
 
   /**
@@ -164,7 +137,7 @@ public class AppliesToClauseImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case McsPackage.APPLIES_TO_CLAUSE__CATEGORY:
-        return basicSetCategory(null, msgs);
+        return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -192,6 +165,7 @@ public class AppliesToClauseImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -201,7 +175,8 @@ public class AppliesToClauseImpl extends MinimalEObjectImpl.Container implements
         setAll((Boolean)newValue);
         return;
       case McsPackage.APPLIES_TO_CLAUSE__CATEGORY:
-        setCategory((ClassifierCategory)newValue);
+        getCategory().clear();
+        getCategory().addAll((Collection<? extends ClassifierCategory>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,7 +196,7 @@ public class AppliesToClauseImpl extends MinimalEObjectImpl.Container implements
         setAll(ALL_EDEFAULT);
         return;
       case McsPackage.APPLIES_TO_CLAUSE__CATEGORY:
-        setCategory((ClassifierCategory)null);
+        getCategory().clear();
         return;
     }
     super.eUnset(featureID);
@@ -240,7 +215,7 @@ public class AppliesToClauseImpl extends MinimalEObjectImpl.Container implements
       case McsPackage.APPLIES_TO_CLAUSE__ALL:
         return all != ALL_EDEFAULT;
       case McsPackage.APPLIES_TO_CLAUSE__CATEGORY:
-        return category != null;
+        return category != null && !category.isEmpty();
     }
     return super.eIsSet(featureID);
   }

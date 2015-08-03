@@ -6,13 +6,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.constant_expression;
 import org.osate.xtext.aadl2.mcs.mcs.local_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.type_expression;
 
@@ -92,7 +92,7 @@ public class local_declarationImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    * @ordered
    */
-  protected constant_expression left_expr;
+  protected EObject left_expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -214,7 +214,7 @@ public class local_declarationImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public constant_expression getLeft_expr()
+  public EObject getLeft_expr()
   {
     return left_expr;
   }
@@ -224,9 +224,9 @@ public class local_declarationImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLeft_expr(constant_expression newLeft_expr, NotificationChain msgs)
+  public NotificationChain basicSetLeft_expr(EObject newLeft_expr, NotificationChain msgs)
   {
-    constant_expression oldLeft_expr = left_expr;
+    EObject oldLeft_expr = left_expr;
     left_expr = newLeft_expr;
     if (eNotificationRequired())
     {
@@ -241,7 +241,7 @@ public class local_declarationImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLeft_expr(constant_expression newLeft_expr)
+  public void setLeft_expr(EObject newLeft_expr)
   {
     if (newLeft_expr != left_expr)
     {
@@ -317,7 +317,7 @@ public class local_declarationImpl extends MinimalEObjectImpl.Container implemen
         setType((type_expression)newValue);
         return;
       case McsPackage.LOCAL_DECLARATION__LEFT_EXPR:
-        setLeft_expr((constant_expression)newValue);
+        setLeft_expr((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -343,7 +343,7 @@ public class local_declarationImpl extends MinimalEObjectImpl.Container implemen
         setType((type_expression)null);
         return;
       case McsPackage.LOCAL_DECLARATION__LEFT_EXPR:
-        setLeft_expr((constant_expression)null);
+        setLeft_expr((EObject)null);
         return;
     }
     super.eUnset(featureID);

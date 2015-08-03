@@ -20,6 +20,7 @@ import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary;
 import org.osate.xtext.aadl2.mcs.mcs.MCSViewpoint;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.PackageEnforce;
+import org.osate.xtext.aadl2.mcs.mcs.constant_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.function_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.theorem_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.type_declaration;
@@ -32,6 +33,7 @@ import org.osate.xtext.aadl2.mcs.mcs.type_declaration;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getConstants <em>Constants</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getTheorems <em>Theorems</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getViewpoints <em>Viewpoints</em>}</li>
@@ -52,6 +54,16 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
    * @ordered
    */
   protected EList<type_declaration> types;
+
+  /**
+   * The cached value of the '{@link #getConstants() <em>Constants</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConstants()
+   * @generated
+   * @ordered
+   */
+  protected EList<constant_declaration> constants;
 
   /**
    * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
@@ -133,6 +145,20 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<constant_declaration> getConstants()
+  {
+    if (constants == null)
+    {
+      constants = new EObjectContainmentEList<constant_declaration>(constant_declaration.class, this, McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS);
+    }
+    return constants;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<function_declaration> getFunctions()
   {
     if (functions == null)
@@ -196,6 +222,8 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
     {
       case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
         return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+      case McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS:
+        return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
       case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
         return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
       case McsPackage.MCS_ANNEX_LIBRARY__THEOREMS:
@@ -220,6 +248,8 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
     {
       case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
         return getTypes();
+      case McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS:
+        return getConstants();
       case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
         return getFunctions();
       case McsPackage.MCS_ANNEX_LIBRARY__THEOREMS:
@@ -246,6 +276,10 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
       case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
         getTypes().clear();
         getTypes().addAll((Collection<? extends type_declaration>)newValue);
+        return;
+      case McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS:
+        getConstants().clear();
+        getConstants().addAll((Collection<? extends constant_declaration>)newValue);
         return;
       case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
         getFunctions().clear();
@@ -280,6 +314,9 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
       case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
         getTypes().clear();
         return;
+      case McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS:
+        getConstants().clear();
+        return;
       case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
         getFunctions().clear();
         return;
@@ -308,6 +345,8 @@ public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLib
     {
       case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
         return types != null && !types.isEmpty();
+      case McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS:
+        return constants != null && !constants.isEmpty();
       case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
         return functions != null && !functions.isEmpty();
       case McsPackage.MCS_ANNEX_LIBRARY__THEOREMS:

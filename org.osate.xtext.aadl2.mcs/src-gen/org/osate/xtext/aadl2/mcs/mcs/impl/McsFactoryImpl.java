@@ -66,6 +66,8 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
     {
       case McsPackage.MCS_GRAMMAR_ROOT: return createMCSGrammarRoot();
       case McsPackage.MCS_ANNEX_LIBRARY: return createMCSAnnexLibrary();
+      case McsPackage.TYPE_DECLARATION: return createtype_declaration();
+      case McsPackage.CONSTANT_DECLARATION: return createconstant_declaration();
       case McsPackage.MCS_VIEWPOINT: return createMCSViewpoint();
       case McsPackage.ENFORCEMENT_POLICY: return createEnforcement_policy();
       case McsPackage.PACKAGE_SCRIPT: return createPackageScript();
@@ -84,25 +86,36 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.CHECK_ASSERTION: return createcheck_assertion();
       case McsPackage.ROOT_ELEMENT: return createroot_element();
       case McsPackage.ELEMENT_REFERENCE: return createelement_reference();
+      case McsPackage.CONTAINMENT_PATH_ELEMENT: return createContainmentPathElement();
+      case McsPackage.ARRAY_RANGE: return createArrayRange();
       case McsPackage.PACKAGE_ENFORCE: return createPackageEnforce();
-      case McsPackage.EXPRESSION: return createexpression();
       case McsPackage.ASSERTION_EXPRESSION: return createassertion_expression();
       case McsPackage.STRING_EXPRESSION: return createstring_expression();
+      case McsPackage.CONSTANT_EXPRESSION: return createconstant_expression();
+      case McsPackage.EXPRESSION: return createexpression();
       case McsPackage.MCS_ANNEX_SUBCLAUSE: return createMCSAnnexSubclause();
       case McsPackage.CLASSIFIER_ENFORCE: return createClassifierEnforce();
       case McsPackage.CLASSIFIER_SCRIPT: return createClassifierScript();
+      case McsPackage.FUNCTION_DECLARATION: return createfunction_declaration();
+      case McsPackage.ARGUMENT: return createargument();
       case McsPackage.THEOREM_DECLARATION: return createtheorem_declaration();
       case McsPackage.IN_MODES_LIST: return createin_modes_list();
       case McsPackage.LOCAL_DECLARATION: return createlocal_declaration();
       case McsPackage.THEOREM_STATEMENT: return createtheorem_statement();
-      case McsPackage.TYPE_DECLARATION: return createtype_declaration();
       case McsPackage.TYPE_EXPRESSION: return createtype_expression();
-      case McsPackage.FUNCTION_DECLARATION: return createfunction_declaration();
-      case McsPackage.ARGUMENT: return createargument();
-      case McsPackage.XEXPRESSION: return createXExpression();
       case McsPackage.BASIC_TYPE: return createbasic_type();
       case McsPackage.UNNAMED_FUNCTION_TYPE: return createUnnamedFunctionType();
-      case McsPackage.CONSTANT_EXPRESSION: return createconstant_expression();
+      case McsPackage.COMPOSITE_TYPE: return createcomposite_type();
+      case McsPackage.SET_TYPE: return createset_type();
+      case McsPackage.LIST_TYPE: return createlist_type();
+      case McsPackage.MAP_TYPE: return createmap_type();
+      case McsPackage.RECORD_TYPE: return createrecord_type();
+      case McsPackage.UNION_TYPE: return createunion_type();
+      case McsPackage.ID_TYPE_PAIR: return createid_type_pair();
+      case McsPackage.ELEMENT_TYPE: return createelement_type();
+      case McsPackage.TCLASSIFIERS: return createt_classifiers();
+      case McsPackage.TCLASSIFIER_SUBTYPES: return createt_classifier_subtypes();
+      case McsPackage.TNAMED_REFERENCES: return createt_named_references();
       case McsPackage.MCS_CLOSURE: return createMCSClosure();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -129,6 +142,28 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
   {
     MCSAnnexLibraryImpl mcsAnnexLibrary = new MCSAnnexLibraryImpl();
     return mcsAnnexLibrary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public type_declaration createtype_declaration()
+  {
+    type_declarationImpl type_declaration = new type_declarationImpl();
+    return type_declaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public constant_declaration createconstant_declaration()
+  {
+    constant_declarationImpl constant_declaration = new constant_declarationImpl();
+    return constant_declaration;
   }
 
   /**
@@ -334,10 +369,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PackageEnforce createPackageEnforce()
+  public ContainmentPathElement createContainmentPathElement()
   {
-    PackageEnforceImpl packageEnforce = new PackageEnforceImpl();
-    return packageEnforce;
+    ContainmentPathElementImpl containmentPathElement = new ContainmentPathElementImpl();
+    return containmentPathElement;
   }
 
   /**
@@ -345,10 +380,21 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public expression createexpression()
+  public ArrayRange createArrayRange()
   {
-    expressionImpl expression = new expressionImpl();
-    return expression;
+    ArrayRangeImpl arrayRange = new ArrayRangeImpl();
+    return arrayRange;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageEnforce createPackageEnforce()
+  {
+    PackageEnforceImpl packageEnforce = new PackageEnforceImpl();
+    return packageEnforce;
   }
 
   /**
@@ -371,6 +417,28 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
   {
     string_expressionImpl string_expression = new string_expressionImpl();
     return string_expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public constant_expression createconstant_expression()
+  {
+    constant_expressionImpl constant_expression = new constant_expressionImpl();
+    return constant_expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public expression createexpression()
+  {
+    expressionImpl expression = new expressionImpl();
+    return expression;
   }
 
   /**
@@ -404,6 +472,28 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
   {
     ClassifierScriptImpl classifierScript = new ClassifierScriptImpl();
     return classifierScript;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public function_declaration createfunction_declaration()
+  {
+    function_declarationImpl function_declaration = new function_declarationImpl();
+    return function_declaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public argument createargument()
+  {
+    argumentImpl argument = new argumentImpl();
+    return argument;
   }
 
   /**
@@ -455,54 +545,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public type_declaration createtype_declaration()
-  {
-    type_declarationImpl type_declaration = new type_declarationImpl();
-    return type_declaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public type_expression createtype_expression()
   {
     type_expressionImpl type_expression = new type_expressionImpl();
     return type_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public function_declaration createfunction_declaration()
-  {
-    function_declarationImpl function_declaration = new function_declarationImpl();
-    return function_declaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public argument createargument()
-  {
-    argumentImpl argument = new argumentImpl();
-    return argument;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public XExpression createXExpression()
-  {
-    XExpressionImpl xExpression = new XExpressionImpl();
-    return xExpression;
   }
 
   /**
@@ -532,10 +578,120 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public constant_expression createconstant_expression()
+  public composite_type createcomposite_type()
   {
-    constant_expressionImpl constant_expression = new constant_expressionImpl();
-    return constant_expression;
+    composite_typeImpl composite_type = new composite_typeImpl();
+    return composite_type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public set_type createset_type()
+  {
+    set_typeImpl set_type = new set_typeImpl();
+    return set_type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public list_type createlist_type()
+  {
+    list_typeImpl list_type = new list_typeImpl();
+    return list_type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public map_type createmap_type()
+  {
+    map_typeImpl map_type = new map_typeImpl();
+    return map_type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public record_type createrecord_type()
+  {
+    record_typeImpl record_type = new record_typeImpl();
+    return record_type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public union_type createunion_type()
+  {
+    union_typeImpl union_type = new union_typeImpl();
+    return union_type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public id_type_pair createid_type_pair()
+  {
+    id_type_pairImpl id_type_pair = new id_type_pairImpl();
+    return id_type_pair;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public element_type createelement_type()
+  {
+    element_typeImpl element_type = new element_typeImpl();
+    return element_type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_classifiers createt_classifiers()
+  {
+    t_classifiersImpl t_classifiers = new t_classifiersImpl();
+    return t_classifiers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_classifier_subtypes createt_classifier_subtypes()
+  {
+    t_classifier_subtypesImpl t_classifier_subtypes = new t_classifier_subtypesImpl();
+    return t_classifier_subtypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_named_references createt_named_references()
+  {
+    t_named_referencesImpl t_named_references = new t_named_referencesImpl();
+    return t_named_references;
   }
 
   /**
