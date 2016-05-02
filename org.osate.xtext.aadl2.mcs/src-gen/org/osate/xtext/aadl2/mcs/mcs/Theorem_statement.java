@@ -1,0 +1,19 @@
+/**
+ */
+package org.osate.xtext.aadl2.mcs.mcs;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Theorem statement</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getTheorem_statement()
+ * @model
+ * @generated
+ */
+public interface Theorem_statement extends EObject
+{
+} // Theorem_statement

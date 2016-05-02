@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
 import org.osate.xtext.aadl2.mcs.mcs.UnnamedFunctionType;
-import org.osate.xtext.aadl2.mcs.mcs.type_expression;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +47,7 @@ public class UnnamedFunctionTypeImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected EList<type_expression> parm;
+  protected EList<Type_expression> parm;
 
   /**
    * The default value of the '{@link #isOutspec() <em>Outspec</em>}' attribute.
@@ -77,7 +77,7 @@ public class UnnamedFunctionTypeImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected type_expression result;
+  protected Type_expression result;
 
   /**
    * <!-- begin-user-doc -->
@@ -105,11 +105,11 @@ public class UnnamedFunctionTypeImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<type_expression> getParm()
+  public EList<Type_expression> getParm()
   {
     if (parm == null)
     {
-      parm = new EObjectContainmentEList<type_expression>(type_expression.class, this, McsPackage.UNNAMED_FUNCTION_TYPE__PARM);
+      parm = new EObjectContainmentEList<Type_expression>(Type_expression.class, this, McsPackage.UNNAMED_FUNCTION_TYPE__PARM);
     }
     return parm;
   }
@@ -142,7 +142,7 @@ public class UnnamedFunctionTypeImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public type_expression getResult()
+  public Type_expression getResult()
   {
     return result;
   }
@@ -152,9 +152,9 @@ public class UnnamedFunctionTypeImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetResult(type_expression newResult, NotificationChain msgs)
+  public NotificationChain basicSetResult(Type_expression newResult, NotificationChain msgs)
   {
-    type_expression oldResult = result;
+    Type_expression oldResult = result;
     result = newResult;
     if (eNotificationRequired())
     {
@@ -169,7 +169,7 @@ public class UnnamedFunctionTypeImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setResult(type_expression newResult)
+  public void setResult(Type_expression newResult)
   {
     if (newResult != result)
     {
@@ -236,13 +236,13 @@ public class UnnamedFunctionTypeImpl extends MinimalEObjectImpl.Container implem
     {
       case McsPackage.UNNAMED_FUNCTION_TYPE__PARM:
         getParm().clear();
-        getParm().addAll((Collection<? extends type_expression>)newValue);
+        getParm().addAll((Collection<? extends Type_expression>)newValue);
         return;
       case McsPackage.UNNAMED_FUNCTION_TYPE__OUTSPEC:
         setOutspec((Boolean)newValue);
         return;
       case McsPackage.UNNAMED_FUNCTION_TYPE__RESULT:
-        setResult((type_expression)newValue);
+        setResult((Type_expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -265,7 +265,7 @@ public class UnnamedFunctionTypeImpl extends MinimalEObjectImpl.Container implem
         setOutspec(OUTSPEC_EDEFAULT);
         return;
       case McsPackage.UNNAMED_FUNCTION_TYPE__RESULT:
-        setResult((type_expression)null);
+        setResult((Type_expression)null);
         return;
     }
     super.eUnset(featureID);

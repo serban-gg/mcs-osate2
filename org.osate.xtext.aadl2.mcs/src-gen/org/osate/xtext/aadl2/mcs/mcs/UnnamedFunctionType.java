@@ -28,7 +28,7 @@ public interface UnnamedFunctionType extends EObject
 {
   /**
    * Returns the value of the '<em><b>Parm</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.type_expression}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Type_expression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Parm</em>' containment reference list isn't clear,
@@ -40,7 +40,7 @@ public interface UnnamedFunctionType extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<type_expression> getParm();
+  EList<Type_expression> getParm();
 
   /**
    * Returns the value of the '<em><b>Outspec</b></em>' attribute.
@@ -77,12 +77,12 @@ public interface UnnamedFunctionType extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Result</em>' containment reference.
-   * @see #setResult(type_expression)
+   * @see #setResult(Type_expression)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getUnnamedFunctionType_Result()
    * @model containment="true"
    * @generated
    */
-  type_expression getResult();
+  Type_expression getResult();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedFunctionType#getResult <em>Result</em>}' containment reference.
@@ -92,6 +92,6 @@ public interface UnnamedFunctionType extends EObject
    * @see #getResult()
    * @generated
    */
-  void setResult(type_expression value);
+  void setResult(Type_expression value);
 
 } // UnnamedFunctionType

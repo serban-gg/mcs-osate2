@@ -24,20 +24,20 @@ AnnexSubclause returns aadl2::AnnexSubclause:
 
 MCSAnnexLibrary returns MCSAnnexLibrary:
 	 {MCSAnnexLibrary}
-	  ('types' (types += type_declaration)+)?
-	  ('constants' (constants += constant_declaration)+)?
-	  ('functions' (functions += function_declaration)+)?
-	 ( 'theorems' (theorems += theorem_declaration)+)?
+	  ('types' (types += Type_declaration)+)?
+	  ('constants' (constants += Constant_declaration)+)?
+	  ('functions' (functions += Function_declaration)+)?
+	 ( 'theorems' (theorems += Theorem_declaration)+)?
     ( viewpoints += MCSViewpoint (viewpoints += MCSViewpoint)* )?
     ( enforceclauses += PackageEnforce (enforceclauses += PackageEnforce)* )?
 ;
 
-type_declaration: 
-	name=ID ':' 'type' type = type_expression ';'
+Type_declaration: 
+	name=ID ':' 'type' type = Type_expression ';'
 ;
 
-constant_declaration :
-	const ?= ('const')? name=ID  (type = type_expression)? ':='  left_expr = constant_expression ';' 
+Constant_declaration :
+	const ?= ('const')? name=ID  (type = Type_expression)? ':='  left_expr = constant_expression ';' 
 ;
 
 MCSViewpoint returns MCSViewpoint:
@@ -55,8 +55,8 @@ PackageScript :
 
 AppliesToClause :
 	'applies' 'to' (all ?= 'all' | 
-					category += ClassifierCategory ( ',' category += ClassifierCategory)* 			
-	)
+					'(' category += ClassifierCategory ( ',' category += ClassifierCategory)* 	')'		
+					)
 ;
 
 ClassifierCategory :
@@ -97,7 +97,7 @@ block_label_id : name = ID;
 check_label_id : name = ID;
 
 check_theorem :
-	'check' 'theorem' name = [theorem_declaration] ('('root = root_element')')? (inmode = ModeSpec )?
+	'check' 'theorem' name = [Theorem_declaration] ('('root = root_element')')? (inmode = ModeSpec )?
 			('fail' str = string_expression)? ';'
 ;
 
@@ -118,11 +118,16 @@ root_element :
 	element_reference
 ;
 
+property_reference: 
+	{property_reference}
+	 (el_ref = element_reference) '#' (exists ?= '?')? (property=[aadl2::Property|QPREF])
+;
+
 element_reference :
 	{element_reference}
 	self ?= 'self' | root ?= 'root' | currentmode ?= 'current_mode' |
 	'classifier' '(' cref = [aadl2::Classifier | QCREF] ')' |
-	'reference' '('   (packageName += ID '::' )* ref = ContainmentPathElement ')' 
+	'reference' '('   (packageName += ID '::' )* ref = ContainmentPathElement ')'
 	; 
 	  
 ContainmentPathElement: // returns aadl2::ContainmentPathElement:
@@ -153,22 +158,49 @@ constant_expression: expression;
 expression :  name = XExpression;						// using XBase expressions
 
 XLiteral returns XExpression:
-	XCollectionLiteral |
+    CollectionTerm |
+//	XCollectionLiteral |
 	XClosure |
-	XBooleanLiteral |
+	BooleanTerm |
+//	XBooleanLiteral |
 	XNumberLiteral |
 	XNullLiteral |
 	XStringLiteral |
 	XTypeLiteral  
-  |   element_reference								// incrementing XBase with AADL specific expression literals
-  ;	
+  | =>  property_reference
+  | element_reference							// incrementing XBase with AADL specific expression literals 
+ ;	
+
+BooleanTerm :  xbool = XBooleanLiteral |
+	          'is_member'  (  member_check = expression)  'in' (collect_expr = expression)
+;
+
+CollectionTerm : xc = XCollectionLiteral |
+				 => query_set = Query_element_set |
+				 set_c = Set_comprehension
+				 ;
+
+Set_comprehension: 
+				'set' '{' result = expression 'for' (var = ID) 'in' set = expression ('|' cond ?= expression)? '}'
+;		
+
+Query_element_set :
+		(direct ?= 'direct')?  'query' '{'    
+		'(' result_types += Element_types ( ',' result_types += Element_types)* ')' 
+		'from' (elem_set = expression) 
+			 (mode_spec ?= ModeSpec )? '}'
+			;
+
+Element_types:  
+	(el_type = Element_type) | '('  el_types += Element_type (',' el_types += Element_type)+ ')';	
+
 
 MCSAnnexSubclause returns MCSAnnexSubclause:       //temporary
 	 {MCSAnnexSubclause}
-	( 'types' (types += type_declaration)+)?
-	( 'constants' (constants += constant_declaration)+)?
-    ( 'functions' (functions += function_declaration)+)?
-	( 'theorems' (theorems += theorem_declaration)+)
+	( 'types' (types += Type_declaration)+)?
+	( 'constants' (constants += Constant_declaration)+)?
+    ( 'functions' (functions += Function_declaration)+)?
+	( 'theorems' (theorems += Theorem_declaration)+)
     ( enforceclauses += ClassifierEnforce (enforceclauses += ClassifierEnforce)* )?	
 ;
 
@@ -181,50 +213,64 @@ ClassifierScript :
 	'endscript' ref = ViewpointReference ';'
 ;
 
-function_declaration:
-	name=ID ('(' (arg += argument) (',' arg += argument)* ')' ('returns' out=type_expression)? |
-			  ':' (ftype = UnnamedFunctionType | typeref = [type_declaration]))
+Function_declaration:
+	name=ID ('(' (arg += Argument)? (',' arg += Argument)* ')' ('returns' out=Type_expression)? |
+			  ':' (ftype = UnnamedFunctionType | typeref = [Type_declaration]))
 			':=' (closure = MCSClosure  |
 				 exp_body = XExpression) ';' 					
 ;
-argument: 
-	{argument} name=ID (':' arg_type = type_expression)?  	
+Argument: 
+	{Argument} name=ID (':' arg_type = Type_expression)?  	
 ;
 
 MCSClosure returns XExpression:
 	=>({MCSClosure} 
 	'[') 
-		=>((declaredFormalParameters+=argument (',' declaredFormalParameters+=argument)*)? explicitSyntax?='|')? 
+		=>((declaredFormalParameters+=Argument (',' declaredFormalParameters+=Argument)*)? explicitSyntax?='|')? 
 		expression=XExpressionInClosure 
 	']';
 
 
-theorem_declaration :
-	'theorem' name=ID ml ?= (in_modes_list)? (locals += local_declaration)* (statements += theorem_statement)*
-	'end' endname = [theorem_declaration] ';'	
+Theorem_declaration :
+	'theorem' name=ID ml ?= (In_modes_list)? (locals += Local_declaration)* (statements += Theorem_statement)*
+	'end' endname = [Theorem_declaration] ';'	
 ;
 
-in_modes_list:
+In_modes_list:
 	'in' 'modes' '('modes += ID (',' modes += ID )*')'
 ;
 
-local_declaration:								// syntax similar to core AADL PropertyConstant
-	const ?= ('const')? name=ID  (type = type_expression)? ':=' (left_expr = MCSClosure | left_expr = constant_expression) ';' 
+Local_declaration:								// syntax similar to core AADL PropertyConstant
+	const ?= ('const')? name=ID  (type = Type_expression)? ':=' (left_expr = MCSClosure | left_expr = constant_expression) ';' 
 ;
 
-theorem_statement: statement = check_statement;    //temporary
+Theorem_statement: 
+	Basic_statement | check_statement
+;   
+
+Basic_statement : 
+//		assignment | 
+		Iteration 
+		; 
+//assignment : 
+//     		var_id = ID ':=' right = expression ;
+     		
+Iteration :
+     		'foreach' var_id = ID 'in' expr = expression 'do' 
+						'{' (local += Local_declaration)* (statements += Theorem_statement )+ '}'
+;
 
 // Type rules
 
-type_expression: 				
-	=> basic = basic_type |
-	 composite = composite_type |
-	 element = element_type
+Type_expression: 				
+	=> basic = Basic_type |
+	 composite = Composite_type |
+	 element = Element_type
 ;
  
  // basic types rules
  
-basic_type: 
+Basic_type: 
 	bool = UnnamedBooleanType | 				// from core AADL
 	string = UnnamedStringType |
 	enumer = UnnamedEnumerationType |
@@ -235,12 +281,12 @@ basic_type:
 	class=UnnamedClassifierType |
 	ref=UnnamedReferenceType |
 	func = UnnamedFunctionType |				// addition to basic types
-	typename = [type_declaration]
+	typename = [Type_declaration]
 ;
 
 UnnamedFunctionType:
-		'(' (parm += type_expression)? (',' parm += type_expression)+ ')' 
-		(outspec ?= 'returns' result=type_expression)?
+		'(' (parm += Type_expression)? (',' parm += Type_expression)+ ')' 
+		(outspec ?= 'returns' result=Type_expression)?
 ;	
 
 UnnamedBooleanType returns aadl2::AadlBoolean:
@@ -352,41 +398,41 @@ QCReference returns aadl2::ClassifierValue:
   
 // composite type rules
 
-composite_type :
-		set_type |
-		list_type |
-		map_type |
-		record_type |
-		union_type
+Composite_type :
+		Set_type |
+		List_type |
+		Map_type |
+		Record_type |
+		Union_type
 ;
 
-set_type:
-	'set' 'of' type = type_expression
+Set_type:
+	'set' 'of' type = Type_expression
 ;
 
-list_type:
-	'list' 'of' type = type_expression
+List_type:
+	'list' 'of' type = Type_expression
 ;
 
-map_type:
-	'map' 'of' type = type_expression
+Map_type:
+	'map' 'of' type = Type_expression
 ;
 
-record_type:
-	'record'  '( '( field += id_type_pair)+ ')'
+Record_type:
+	'record'  '( '( field += Id_type_pair)+ ')'
 ;
 
-union_type:
-	'(' (typename += ID ':')? type += type_expression (',' (typename += ID ':')? type += type_expression )* ')'
+Union_type:
+	'(' (typename += ID ':')? type += Type_expression (',' (typename += ID ':')? type += Type_expression )* ')'
 ;
 
-id_type_pair : 
-	 name=ID ':' type= type_expression
+Id_type_pair : 
+	 name=ID ':' type= Type_expression
 ;
 
 //element type rules
 
-element_type : 
+Element_type : 
 	telem ?= 'T_Element' |		
 	t_class ?= t_classifiers |	
 	t_ref ?= t_named_references
@@ -405,15 +451,14 @@ t_classifier_subtypes:
 ;
 
 t_named_references:
-	t_nref ?= 'T_Named_Reference'
-	;
-/* 	|  											
-	t_named_reference_subtypes	
+	t_nref ?= 'T_Named_Reference' |  t_nref_st ?= t_named_reference_subtypes	
 ;
  
 t_named_reference_subtypes:
-	t_subcomponent_subtypes  | t_connection_subtypes | 
-	t_feature_subtypes | t_flow_spec_subtypes | t_flow_impl_subtypes | 
+	t_subc_st ?= t_subcomponent_subtypes  | 
+	t_connection_subtypes | 
+	t_feature_subtypes | 
+	t_flow_spec_subtypes | t_flow_impl_subtypes | 
 	t_sbcall ?= 'T_Subprogram_Call' | 
 	t_callseq ?= 'T_Call_Sequence' | 
 	t_eeflow ?= 'T_End_To_End_Flow' | 
@@ -421,21 +466,22 @@ t_named_reference_subtypes:
 	t_mode ?= 'T_Mode' | t_req_mode ?= 'T_Required_Mode' | 
 	t_mod_trans ?= 'T_Mode_Transition' | t_mode_trig ?= 'T_Mode_Trigger_Id' 	
 ;
-
+ 
 t_subcomponent_subtypes:
 	t_sub ?= 'T_Subcomponent' | t_annex_sub ?= 'T_Annex_Subcomponent'
-	t_comp_typeref ?= 'T_Component_Type_Ref' | t_component_impl_subtypes
-	
+	| t_comp_typeref ?= 'T_Component_Type_Ref' 
+	| t_cimpl_st ?= t_component_impl_subtypes	
 ;
 
 t_component_impl_subtypes:
 	t_comp_impref ?= 'T_Component_Impl_Ref' |
-	t_abstracyt ?=	'T_Abstract' | t_sys ?= 'T_System' | t_proc ?= 'T_Processor' | t_virt_proc ?= 'T_Virtual_Processor' |
+	t_abstract ?=	'T_Abstract' | t_sys ?= 'T_System' | t_proc ?= 'T_Processor' | t_virt_proc ?= 'T_Virtual_Processor' |
 		t_bus ?= 'T_Bus' | t_vbus ?= 'T_Virtual_Bus' | t_mem ?= 'T_Memory' | t_proc ?= 'T_Process' | 
-		t_tg ?= 'T_Thread_Group' | t_thread ?= 'T_Thread' | t_data ?= 'T__Data' | 
+		t_tg ?= 'T_Thread_Group' | t_t ?= 'T_Thread' | t_d ?= 'T_Data' | 
 		t_subprog ?= 'T_Subprogram' | t_subprog_g ?= 'T_Subprogram_Group' 	
 ;
 
+ 
 t_connection_subtypes:
 	t_conn ?= 'T_Connection' | 
 		t_feat_conn ?= 'T_Feature_Connection' | t_port_conn ?= 'T_Port_Connection' |
@@ -473,7 +519,6 @@ t_flow_impl_subtypes:
 		t_f_i_sink ?= 'T_Flow_Impl_Sink' | t_f_i_path ?= 'T_Flow_Impl_Path' 
 ;
 
-*/
 /*
 terminal SL_COMMENT:
 	'--' !('\n' | '\r')* ('\r'? '\n')?;
@@ -528,4 +573,4 @@ QCREF:
 	(ID '::')* ID ('.' ID)?;
 	
 QPREF:
-	ID ('::' ID)?;
+	ID ( => '::' ID)?;

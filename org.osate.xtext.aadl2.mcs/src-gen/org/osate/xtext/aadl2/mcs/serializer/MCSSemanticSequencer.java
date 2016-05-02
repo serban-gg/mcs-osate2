@@ -81,55 +81,70 @@ import org.osate.aadl2.ReferenceType;
 import org.osate.aadl2.UnitLiteral;
 import org.osate.aadl2.UnitsType;
 import org.osate.xtext.aadl2.mcs.mcs.AppliesToClause;
+import org.osate.xtext.aadl2.mcs.mcs.Argument;
 import org.osate.xtext.aadl2.mcs.mcs.ArrayRange;
+import org.osate.xtext.aadl2.mcs.mcs.Basic_type;
+import org.osate.xtext.aadl2.mcs.mcs.BooleanTerm;
 import org.osate.xtext.aadl2.mcs.mcs.ClassifierCategory;
 import org.osate.xtext.aadl2.mcs.mcs.ClassifierEnforce;
 import org.osate.xtext.aadl2.mcs.mcs.ClassifierScript;
+import org.osate.xtext.aadl2.mcs.mcs.CollectionTerm;
+import org.osate.xtext.aadl2.mcs.mcs.Constant_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.ConstraintsBlock;
 import org.osate.xtext.aadl2.mcs.mcs.ContainmentPathElement;
+import org.osate.xtext.aadl2.mcs.mcs.Element_type;
+import org.osate.xtext.aadl2.mcs.mcs.Element_types;
 import org.osate.xtext.aadl2.mcs.mcs.Enforcement_policy;
 import org.osate.xtext.aadl2.mcs.mcs.FeatureGroupClassifierReference;
+import org.osate.xtext.aadl2.mcs.mcs.Function_declaration;
+import org.osate.xtext.aadl2.mcs.mcs.Id_type_pair;
+import org.osate.xtext.aadl2.mcs.mcs.In_modes_list;
+import org.osate.xtext.aadl2.mcs.mcs.Iteration;
+import org.osate.xtext.aadl2.mcs.mcs.List_type;
+import org.osate.xtext.aadl2.mcs.mcs.Local_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary;
 import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexSubclause;
 import org.osate.xtext.aadl2.mcs.mcs.MCSClosure;
 import org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot;
 import org.osate.xtext.aadl2.mcs.mcs.MCSViewpoint;
+import org.osate.xtext.aadl2.mcs.mcs.Map_type;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.ModeName;
 import org.osate.xtext.aadl2.mcs.mcs.ModeSpec;
 import org.osate.xtext.aadl2.mcs.mcs.PackageEnforce;
 import org.osate.xtext.aadl2.mcs.mcs.PackageScript;
+import org.osate.xtext.aadl2.mcs.mcs.Query_element_set;
+import org.osate.xtext.aadl2.mcs.mcs.Record_type;
+import org.osate.xtext.aadl2.mcs.mcs.Set_comprehension;
+import org.osate.xtext.aadl2.mcs.mcs.Set_type;
+import org.osate.xtext.aadl2.mcs.mcs.Theorem_declaration;
+import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
+import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
+import org.osate.xtext.aadl2.mcs.mcs.Union_type;
 import org.osate.xtext.aadl2.mcs.mcs.UnnamedFunctionType;
 import org.osate.xtext.aadl2.mcs.mcs.ViewpointReference;
-import org.osate.xtext.aadl2.mcs.mcs.argument;
 import org.osate.xtext.aadl2.mcs.mcs.assertion_expression;
-import org.osate.xtext.aadl2.mcs.mcs.basic_type;
 import org.osate.xtext.aadl2.mcs.mcs.block_label_id;
 import org.osate.xtext.aadl2.mcs.mcs.check_assertion;
 import org.osate.xtext.aadl2.mcs.mcs.check_label_id;
 import org.osate.xtext.aadl2.mcs.mcs.check_theorem;
-import org.osate.xtext.aadl2.mcs.mcs.constant_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.element_reference;
-import org.osate.xtext.aadl2.mcs.mcs.element_type;
 import org.osate.xtext.aadl2.mcs.mcs.expression;
-import org.osate.xtext.aadl2.mcs.mcs.function_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.id_type_pair;
-import org.osate.xtext.aadl2.mcs.mcs.in_modes_list;
 import org.osate.xtext.aadl2.mcs.mcs.labelled_check_statement;
-import org.osate.xtext.aadl2.mcs.mcs.list_type;
-import org.osate.xtext.aadl2.mcs.mcs.local_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.map_type;
-import org.osate.xtext.aadl2.mcs.mcs.record_type;
-import org.osate.xtext.aadl2.mcs.mcs.set_type;
+import org.osate.xtext.aadl2.mcs.mcs.property_reference;
 import org.osate.xtext.aadl2.mcs.mcs.string_expression;
+import org.osate.xtext.aadl2.mcs.mcs.t_access_subtypes;
 import org.osate.xtext.aadl2.mcs.mcs.t_classifier_subtypes;
 import org.osate.xtext.aadl2.mcs.mcs.t_classifiers;
+import org.osate.xtext.aadl2.mcs.mcs.t_component_impl_subtypes;
+import org.osate.xtext.aadl2.mcs.mcs.t_connection_subtypes;
+import org.osate.xtext.aadl2.mcs.mcs.t_feature_subtypes;
+import org.osate.xtext.aadl2.mcs.mcs.t_flow_impl_subtypes;
+import org.osate.xtext.aadl2.mcs.mcs.t_flow_spec_subtypes;
+import org.osate.xtext.aadl2.mcs.mcs.t_named_reference_subtypes;
 import org.osate.xtext.aadl2.mcs.mcs.t_named_references;
-import org.osate.xtext.aadl2.mcs.mcs.theorem_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.theorem_statement;
-import org.osate.xtext.aadl2.mcs.mcs.type_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.type_expression;
-import org.osate.xtext.aadl2.mcs.mcs.union_type;
+import org.osate.xtext.aadl2.mcs.mcs.t_port_subtypes;
+import org.osate.xtext.aadl2.mcs.mcs.t_subcomponent_subtypes;
 import org.osate.xtext.aadl2.mcs.services.MCSGrammarAccess;
 
 @SuppressWarnings("all")
@@ -230,8 +245,17 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 			case McsPackage.APPLIES_TO_CLAUSE:
 				sequence_AppliesToClause(context, (AppliesToClause) semanticObject); 
 				return; 
+			case McsPackage.ARGUMENT:
+				sequence_Argument(context, (Argument) semanticObject); 
+				return; 
 			case McsPackage.ARRAY_RANGE:
 				sequence_ArrayRange(context, (ArrayRange) semanticObject); 
+				return; 
+			case McsPackage.BASIC_TYPE:
+				sequence_Basic_type(context, (Basic_type) semanticObject); 
+				return; 
+			case McsPackage.BOOLEAN_TERM:
+				sequence_BooleanTerm(context, (BooleanTerm) semanticObject); 
 				return; 
 			case McsPackage.CLASSIFIER_CATEGORY:
 				sequence_ClassifierCategory(context, (ClassifierCategory) semanticObject); 
@@ -242,17 +266,47 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 			case McsPackage.CLASSIFIER_SCRIPT:
 				sequence_ClassifierScript(context, (ClassifierScript) semanticObject); 
 				return; 
+			case McsPackage.COLLECTION_TERM:
+				sequence_CollectionTerm(context, (CollectionTerm) semanticObject); 
+				return; 
+			case McsPackage.CONSTANT_DECLARATION:
+				sequence_Constant_declaration(context, (Constant_declaration) semanticObject); 
+				return; 
 			case McsPackage.CONSTRAINTS_BLOCK:
 				sequence_ConstraintsBlock(context, (ConstraintsBlock) semanticObject); 
 				return; 
 			case McsPackage.CONTAINMENT_PATH_ELEMENT:
 				sequence_ContainmentPathElement(context, (ContainmentPathElement) semanticObject); 
 				return; 
+			case McsPackage.ELEMENT_TYPE:
+				sequence_Element_type(context, (Element_type) semanticObject); 
+				return; 
+			case McsPackage.ELEMENT_TYPES:
+				sequence_Element_types(context, (Element_types) semanticObject); 
+				return; 
 			case McsPackage.ENFORCEMENT_POLICY:
 				sequence_Enforcement_policy(context, (Enforcement_policy) semanticObject); 
 				return; 
 			case McsPackage.FEATURE_GROUP_CLASSIFIER_REFERENCE:
 				sequence_FeatureGroupClassifierReference(context, (FeatureGroupClassifierReference) semanticObject); 
+				return; 
+			case McsPackage.FUNCTION_DECLARATION:
+				sequence_Function_declaration(context, (Function_declaration) semanticObject); 
+				return; 
+			case McsPackage.ID_TYPE_PAIR:
+				sequence_Id_type_pair(context, (Id_type_pair) semanticObject); 
+				return; 
+			case McsPackage.IN_MODES_LIST:
+				sequence_In_modes_list(context, (In_modes_list) semanticObject); 
+				return; 
+			case McsPackage.ITERATION:
+				sequence_Iteration(context, (Iteration) semanticObject); 
+				return; 
+			case McsPackage.LIST_TYPE:
+				sequence_List_type(context, (List_type) semanticObject); 
+				return; 
+			case McsPackage.LOCAL_DECLARATION:
+				sequence_Local_declaration(context, (Local_declaration) semanticObject); 
 				return; 
 			case McsPackage.MCS_ANNEX_LIBRARY:
 				sequence_MCSAnnexLibrary(context, (MCSAnnexLibrary) semanticObject); 
@@ -269,6 +323,9 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 			case McsPackage.MCS_VIEWPOINT:
 				sequence_MCSViewpoint(context, (MCSViewpoint) semanticObject); 
 				return; 
+			case McsPackage.MAP_TYPE:
+				sequence_Map_type(context, (Map_type) semanticObject); 
+				return; 
 			case McsPackage.MODE_NAME:
 				sequence_ModeName(context, (ModeName) semanticObject); 
 				return; 
@@ -281,20 +338,38 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 			case McsPackage.PACKAGE_SCRIPT:
 				sequence_PackageScript(context, (PackageScript) semanticObject); 
 				return; 
+			case McsPackage.QUERY_ELEMENT_SET:
+				sequence_Query_element_set(context, (Query_element_set) semanticObject); 
+				return; 
+			case McsPackage.RECORD_TYPE:
+				sequence_Record_type(context, (Record_type) semanticObject); 
+				return; 
+			case McsPackage.SET_COMPREHENSION:
+				sequence_Set_comprehension(context, (Set_comprehension) semanticObject); 
+				return; 
+			case McsPackage.SET_TYPE:
+				sequence_Set_type(context, (Set_type) semanticObject); 
+				return; 
+			case McsPackage.THEOREM_DECLARATION:
+				sequence_Theorem_declaration(context, (Theorem_declaration) semanticObject); 
+				return; 
+			case McsPackage.TYPE_DECLARATION:
+				sequence_Type_declaration(context, (Type_declaration) semanticObject); 
+				return; 
+			case McsPackage.TYPE_EXPRESSION:
+				sequence_Type_expression(context, (Type_expression) semanticObject); 
+				return; 
+			case McsPackage.UNION_TYPE:
+				sequence_Union_type(context, (Union_type) semanticObject); 
+				return; 
 			case McsPackage.UNNAMED_FUNCTION_TYPE:
 				sequence_UnnamedFunctionType(context, (UnnamedFunctionType) semanticObject); 
 				return; 
 			case McsPackage.VIEWPOINT_REFERENCE:
 				sequence_ViewpointReference(context, (ViewpointReference) semanticObject); 
 				return; 
-			case McsPackage.ARGUMENT:
-				sequence_argument(context, (argument) semanticObject); 
-				return; 
 			case McsPackage.ASSERTION_EXPRESSION:
 				sequence_assertion_expression(context, (assertion_expression) semanticObject); 
-				return; 
-			case McsPackage.BASIC_TYPE:
-				sequence_basic_type(context, (basic_type) semanticObject); 
 				return; 
 			case McsPackage.BLOCK_LABEL_ID:
 				sequence_block_label_id(context, (block_label_id) semanticObject); 
@@ -308,47 +383,23 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 			case McsPackage.CHECK_THEOREM:
 				sequence_check_theorem(context, (check_theorem) semanticObject); 
 				return; 
-			case McsPackage.CONSTANT_DECLARATION:
-				sequence_constant_declaration(context, (constant_declaration) semanticObject); 
-				return; 
 			case McsPackage.ELEMENT_REFERENCE:
 				sequence_element_reference(context, (element_reference) semanticObject); 
-				return; 
-			case McsPackage.ELEMENT_TYPE:
-				sequence_element_type(context, (element_type) semanticObject); 
 				return; 
 			case McsPackage.EXPRESSION:
 				sequence_expression(context, (expression) semanticObject); 
 				return; 
-			case McsPackage.FUNCTION_DECLARATION:
-				sequence_function_declaration(context, (function_declaration) semanticObject); 
-				return; 
-			case McsPackage.ID_TYPE_PAIR:
-				sequence_id_type_pair(context, (id_type_pair) semanticObject); 
-				return; 
-			case McsPackage.IN_MODES_LIST:
-				sequence_in_modes_list(context, (in_modes_list) semanticObject); 
-				return; 
 			case McsPackage.LABELLED_CHECK_STATEMENT:
 				sequence_labelled_check_statement(context, (labelled_check_statement) semanticObject); 
 				return; 
-			case McsPackage.LIST_TYPE:
-				sequence_list_type(context, (list_type) semanticObject); 
-				return; 
-			case McsPackage.LOCAL_DECLARATION:
-				sequence_local_declaration(context, (local_declaration) semanticObject); 
-				return; 
-			case McsPackage.MAP_TYPE:
-				sequence_map_type(context, (map_type) semanticObject); 
-				return; 
-			case McsPackage.RECORD_TYPE:
-				sequence_record_type(context, (record_type) semanticObject); 
-				return; 
-			case McsPackage.SET_TYPE:
-				sequence_set_type(context, (set_type) semanticObject); 
+			case McsPackage.PROPERTY_REFERENCE:
+				sequence_property_reference(context, (property_reference) semanticObject); 
 				return; 
 			case McsPackage.STRING_EXPRESSION:
 				sequence_string_expression(context, (string_expression) semanticObject); 
+				return; 
+			case McsPackage.TACCESS_SUBTYPES:
+				sequence_t_access_subtypes(context, (t_access_subtypes) semanticObject); 
 				return; 
 			case McsPackage.TCLASSIFIER_SUBTYPES:
 				sequence_t_classifier_subtypes(context, (t_classifier_subtypes) semanticObject); 
@@ -356,23 +407,32 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 			case McsPackage.TCLASSIFIERS:
 				sequence_t_classifiers(context, (t_classifiers) semanticObject); 
 				return; 
+			case McsPackage.TCOMPONENT_IMPL_SUBTYPES:
+				sequence_t_component_impl_subtypes(context, (t_component_impl_subtypes) semanticObject); 
+				return; 
+			case McsPackage.TCONNECTION_SUBTYPES:
+				sequence_t_connection_subtypes(context, (t_connection_subtypes) semanticObject); 
+				return; 
+			case McsPackage.TFEATURE_SUBTYPES:
+				sequence_t_feature_subtypes(context, (t_feature_subtypes) semanticObject); 
+				return; 
+			case McsPackage.TFLOW_IMPL_SUBTYPES:
+				sequence_t_flow_impl_subtypes(context, (t_flow_impl_subtypes) semanticObject); 
+				return; 
+			case McsPackage.TFLOW_SPEC_SUBTYPES:
+				sequence_t_flow_spec_subtypes(context, (t_flow_spec_subtypes) semanticObject); 
+				return; 
+			case McsPackage.TNAMED_REFERENCE_SUBTYPES:
+				sequence_t_named_reference_subtypes(context, (t_named_reference_subtypes) semanticObject); 
+				return; 
 			case McsPackage.TNAMED_REFERENCES:
 				sequence_t_named_references(context, (t_named_references) semanticObject); 
 				return; 
-			case McsPackage.THEOREM_DECLARATION:
-				sequence_theorem_declaration(context, (theorem_declaration) semanticObject); 
+			case McsPackage.TPORT_SUBTYPES:
+				sequence_t_port_subtypes(context, (t_port_subtypes) semanticObject); 
 				return; 
-			case McsPackage.THEOREM_STATEMENT:
-				sequence_theorem_statement(context, (theorem_statement) semanticObject); 
-				return; 
-			case McsPackage.TYPE_DECLARATION:
-				sequence_type_declaration(context, (type_declaration) semanticObject); 
-				return; 
-			case McsPackage.TYPE_EXPRESSION:
-				sequence_type_expression(context, (type_expression) semanticObject); 
-				return; 
-			case McsPackage.UNION_TYPE:
-				sequence_union_type(context, (union_type) semanticObject); 
+			case McsPackage.TSUBCOMPONENT_SUBTYPES:
+				sequence_t_subcomponent_subtypes(context, (t_subcomponent_subtypes) semanticObject); 
 				return; 
 			}
 		else if(semanticObject.eClass().getEPackage() == TypesPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
@@ -615,9 +675,48 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (name=ID arg_type=Type_expression?)
+	 */
+	protected void sequence_Argument(EObject context, Argument semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (lowerBound=INT upperBound=INT?)
 	 */
 	protected void sequence_ArrayRange(EObject context, ArrayRange semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         bool=UnnamedBooleanType | 
+	 *         string=UnnamedStringType | 
+	 *         enumer=UnnamedEnumerationType | 
+	 *         units=UnnamedUnitsType | 
+	 *         integer=UnnamedIntegerType | 
+	 *         real=UnnamedRealType | 
+	 *         range=UnnamedRangeType | 
+	 *         class=UnnamedClassifierType | 
+	 *         ref=UnnamedReferenceType | 
+	 *         func=UnnamedFunctionType | 
+	 *         typename=[Type_declaration|ID]
+	 *     )
+	 */
+	protected void sequence_Basic_type(EObject context, Basic_type semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (xbool=XBooleanLiteral | (member_check=expression collect_expr=expression))
+	 */
+	protected void sequence_BooleanTerm(EObject context, BooleanTerm semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -664,10 +763,28 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (xc=XCollectionLiteral | query_set=Query_element_set | set_c=Set_comprehension)
+	 */
+	protected void sequence_CollectionTerm(EObject context, CollectionTerm semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     namedValue=[PropertyConstant|QPREF]
 	 */
 	protected void sequence_ConstantValue(EObject context, NamedValue semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (const?='const'? name=ID type=Type_expression? left_expr=constant_expression)
+	 */
+	protected void sequence_Constant_declaration(EObject context, Constant_declaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -685,6 +802,24 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (namedElement=[NamedElement|ID] arrayRange+=ArrayRange? path=ContainmentPathElement?)
 	 */
 	protected void sequence_ContainmentPathElement(EObject context, ContainmentPathElement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (telem?='T_Element' | t_class?=t_classifiers | t_ref?=t_named_references)
+	 */
+	protected void sequence_Element_type(EObject context, Element_type semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (el_type=Element_type | (el_types+=Element_type el_types+=Element_type+))
+	 */
+	protected void sequence_Element_types(EObject context, Element_types semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -725,6 +860,47 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         ((arg+=Argument? arg+=Argument* out=Type_expression?) | ftype=UnnamedFunctionType | typeref=[Type_declaration|ID]) 
+	 *         (closure=MCSClosure | exp_body=XExpression)
+	 *     )
+	 */
+	protected void sequence_Function_declaration(EObject context, Function_declaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID type=Type_expression)
+	 */
+	protected void sequence_Id_type_pair(EObject context, Id_type_pair semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__NAME));
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getId_type_pairAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getId_type_pairAccess().getTypeType_expressionParserRuleCall_2_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (modes+=ID modes+=ID*)
+	 */
+	protected void sequence_In_modes_list(EObject context, In_modes_list semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     value=SignedInt
 	 */
 	protected void sequence_IntegerLit(EObject context, IntegerLiteral semanticObject) {
@@ -755,11 +931,45 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (var_id=ID expr=expression local+=Local_declaration* statements+=Theorem_statement+)
+	 */
+	protected void sequence_Iteration(EObject context, Iteration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     type=Type_expression
+	 */
+	protected void sequence_List_type(EObject context, List_type semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.LIST_TYPE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.LIST_TYPE__TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getList_typeAccess().getTypeType_expressionParserRuleCall_2_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (const?='const'? name=ID type=Type_expression? (left_expr=MCSClosure | left_expr=constant_expression))
+	 */
+	protected void sequence_Local_declaration(EObject context, Local_declaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
-	 *         types+=type_declaration* 
-	 *         constants+=constant_declaration* 
-	 *         functions+=function_declaration* 
-	 *         theorems+=theorem_declaration* 
+	 *         types+=Type_declaration* 
+	 *         constants+=Constant_declaration* 
+	 *         functions+=Function_declaration* 
+	 *         theorems+=Theorem_declaration* 
 	 *         (viewpoints+=MCSViewpoint viewpoints+=MCSViewpoint*)? 
 	 *         (enforceclauses+=PackageEnforce enforceclauses+=PackageEnforce*)?
 	 *     )
@@ -772,10 +982,10 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         types+=type_declaration* 
-	 *         constants+=constant_declaration* 
-	 *         functions+=function_declaration* 
-	 *         theorems+=theorem_declaration+ 
+	 *         types+=Type_declaration* 
+	 *         constants+=Constant_declaration* 
+	 *         functions+=Function_declaration* 
+	 *         theorems+=Theorem_declaration+ 
 	 *         (enforceclauses+=ClassifierEnforce enforceclauses+=ClassifierEnforce*)?
 	 *     )
 	 */
@@ -786,7 +996,7 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (((declaredFormalParameters+=argument declaredFormalParameters+=argument*)? explicitSyntax?='|')? expression=XExpressionInClosure)
+	 *     (((declaredFormalParameters+=Argument declaredFormalParameters+=Argument*)? explicitSyntax?='|')? expression=XExpressionInClosure)
 	 */
 	protected void sequence_MCSClosure(EObject context, MCSClosure semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -808,6 +1018,22 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_MCSViewpoint(EObject context, MCSViewpoint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     type=Type_expression
+	 */
+	protected void sequence_Map_type(EObject context, Map_type semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.MAP_TYPE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.MAP_TYPE__TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getMap_typeAccess().getTypeType_expressionParserRuleCall_2_0(), semanticObject.getType());
+		feeder.finish();
 	}
 	
 	
@@ -888,6 +1114,15 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (direct?='direct'? result_types+=Element_types result_types+=Element_types* elem_set=expression mode_spec?=ModeSpec?)
+	 */
+	protected void sequence_Query_element_set(EObject context, Query_element_set semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     value=SignedReal
 	 */
 	protected void sequence_RealLit(EObject context, RealLiteral semanticObject) {
@@ -918,10 +1153,90 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     field+=Id_type_pair+
+	 */
+	protected void sequence_Record_type(EObject context, Record_type semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (result=expression var=ID set=expression cond?=expression?)
+	 */
+	protected void sequence_Set_comprehension(EObject context, Set_comprehension semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     type=Type_expression
+	 */
+	protected void sequence_Set_type(EObject context, Set_type semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.SET_TYPE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.SET_TYPE__TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getSet_typeAccess().getTypeType_expressionParserRuleCall_2_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (op=PlusMinus ownedPropertyExpression+=ConstantValue)
 	 */
 	protected void sequence_SignedConstant(EObject context, Operation semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID ml?=In_modes_list? locals+=Local_declaration* statements+=Theorem_statement* endname=[Theorem_declaration|ID])
+	 */
+	protected void sequence_Theorem_declaration(EObject context, Theorem_declaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID type=Type_expression)
+	 */
+	protected void sequence_Type_declaration(EObject context, Type_declaration semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.TYPE_DECLARATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.TYPE_DECLARATION__NAME));
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.TYPE_DECLARATION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.TYPE_DECLARATION__TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getType_declarationAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getType_declarationAccess().getTypeType_expressionParserRuleCall_3_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (basic=Basic_type | composite=Composite_type | element=Element_type)
+	 */
+	protected void sequence_Type_expression(EObject context, Type_expression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (typename+=ID? type+=Type_expression (typename+=ID? type+=Type_expression)*)
+	 */
+	protected void sequence_Union_type(EObject context, Union_type semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -972,7 +1287,7 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (parm+=type_expression? parm+=type_expression+ (outspec?='returns' result=type_expression)?)
+	 *     (parm+=Type_expression? parm+=Type_expression+ (outspec?='returns' result=Type_expression)?)
 	 */
 	protected void sequence_UnnamedFunctionType(EObject context, UnnamedFunctionType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1044,15 +1359,6 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID arg_type=type_expression?)
-	 */
-	protected void sequence_argument(EObject context, argument semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     expr=expression
 	 */
 	protected void sequence_assertion_expression(EObject context, assertion_expression semanticObject) {
@@ -1064,27 +1370,6 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getAssertion_expressionAccess().getExprExpressionParserRuleCall_0(), semanticObject.getExpr());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         bool=UnnamedBooleanType | 
-	 *         string=UnnamedStringType | 
-	 *         enumer=UnnamedEnumerationType | 
-	 *         units=UnnamedUnitsType | 
-	 *         integer=UnnamedIntegerType | 
-	 *         real=UnnamedRealType | 
-	 *         range=UnnamedRangeType | 
-	 *         class=UnnamedClassifierType | 
-	 *         ref=UnnamedReferenceType | 
-	 *         func=UnnamedFunctionType | 
-	 *         typename=[type_declaration|ID]
-	 *     )
-	 */
-	protected void sequence_basic_type(EObject context, basic_type semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1131,18 +1416,9 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=[theorem_declaration|ID] root=root_element? inmode=ModeSpec? str=string_expression?)
+	 *     (name=[Theorem_declaration|ID] root=root_element? inmode=ModeSpec? str=string_expression?)
 	 */
 	protected void sequence_check_theorem(EObject context, check_theorem semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (const?='const'? name=ID type=type_expression? left_expr=constant_expression)
-	 */
-	protected void sequence_constant_declaration(EObject context, constant_declaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1152,15 +1428,6 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	 *     self?='self'
 	 */
 	protected void sequence_element_reference(EObject context, element_reference semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (telem?='T_Element' | t_class?=t_classifiers | t_ref?=t_named_references)
-	 */
-	protected void sequence_element_type(EObject context, element_type semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1183,47 +1450,6 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         ((arg+=argument arg+=argument* out=type_expression?) | ftype=UnnamedFunctionType | typeref=[type_declaration|ID]) 
-	 *         (closure=MCSClosure | exp_body=XExpression)
-	 *     )
-	 */
-	protected void sequence_function_declaration(EObject context, function_declaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID type=type_expression)
-	 */
-	protected void sequence_id_type_pair(EObject context, id_type_pair semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__NAME));
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getId_type_pairAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getId_type_pairAccess().getTypeType_expressionParserRuleCall_2_0(), semanticObject.getType());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (modes+=ID modes+=ID*)
-	 */
-	protected void sequence_in_modes_list(EObject context, in_modes_list semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (c_label=check_label_id? cs=check_statement)
 	 */
 	protected void sequence_labelled_check_statement(EObject context, labelled_check_statement semanticObject) {
@@ -1233,67 +1459,10 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     type=type_expression
+	 *     (el_ref=element_reference exists?='?'? property=[Property|QPREF])
 	 */
-	protected void sequence_list_type(EObject context, list_type semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.LIST_TYPE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.LIST_TYPE__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getList_typeAccess().getTypeType_expressionParserRuleCall_2_0(), semanticObject.getType());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (const?='const'? name=ID type=type_expression? (left_expr=MCSClosure | left_expr=constant_expression))
-	 */
-	protected void sequence_local_declaration(EObject context, local_declaration semanticObject) {
+	protected void sequence_property_reference(EObject context, property_reference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     type=type_expression
-	 */
-	protected void sequence_map_type(EObject context, map_type semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.MAP_TYPE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.MAP_TYPE__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getMap_typeAccess().getTypeType_expressionParserRuleCall_2_0(), semanticObject.getType());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     field+=id_type_pair+
-	 */
-	protected void sequence_record_type(EObject context, record_type semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     type=type_expression
-	 */
-	protected void sequence_set_type(EObject context, set_type semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.SET_TYPE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.SET_TYPE__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSet_typeAccess().getTypeType_expressionParserRuleCall_2_0(), semanticObject.getType());
-		feeder.finish();
 	}
 	
 	
@@ -1310,6 +1479,21 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getString_expressionAccess().getExprExpressionParserRuleCall_0(), semanticObject.getExpr());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         t_access?='T_Access' | 
+	 *         t_data_acc?='T_Data_Access' | 
+	 *         t_sub_acc?='T_Subprogram_Access' | 
+	 *         t_sub_gr_acc?='T_Subprogram_Group_Access' | 
+	 *         t_bus_acc?='T_Bus_Access'
+	 *     )
+	 */
+	protected void sequence_t_access_subtypes(EObject context, t_access_subtypes semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1338,78 +1522,113 @@ public class MCSSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     t_nref?='T_Named_Reference'
+	 *     (
+	 *         t_comp_impref?='T_Component_Impl_Ref' | 
+	 *         t_abstract?='T_Abstract' | 
+	 *         t_sys?='T_System' | 
+	 *         t_proc?='T_Processor' | 
+	 *         t_virt_proc?='T_Virtual_Processor' | 
+	 *         t_bus?='T_Bus' | 
+	 *         t_vbus?='T_Virtual_Bus' | 
+	 *         t_mem?='T_Memory' | 
+	 *         t_proc?='T_Process' | 
+	 *         t_tg?='T_Thread_Group' | 
+	 *         t_t?='T_Thread' | 
+	 *         t_d?='T_Data' | 
+	 *         t_subprog?='T_Subprogram' | 
+	 *         t_subprog_g?='T_Subprogram_Group'
+	 *     )
+	 */
+	protected void sequence_t_component_impl_subtypes(EObject context, t_component_impl_subtypes semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         t_conn?='T_Connection' | 
+	 *         t_feat_conn?='T_Feature_Connection' | 
+	 *         t_port_conn?='T_Port_Connection' | 
+	 *         t_parm_conn?='T_Parameter_Connection' | 
+	 *         t_acc_con?='T_Access_Connection' | 
+	 *         t_fg_conn?='T_Feature_Group_Connection'
+	 *     )
+	 */
+	protected void sequence_t_connection_subtypes(EObject context, t_connection_subtypes semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (t_feat?='T_Feature' | t_abs_feat?='T_Abstract_Feature' | t_parm?='T_Parameter' | t_fg?='T_Feature_Group')
+	 */
+	protected void sequence_t_feature_subtypes(EObject context, t_feature_subtypes semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (t_f_i?='T_Flow_Impl' | t_f_i_source?='T_Flow_Impl_Source' | t_f_i_sink?='T_Flow_Impl_Sink' | t_f_i_path?='T_Flow_Impl_Path')
+	 */
+	protected void sequence_t_flow_impl_subtypes(EObject context, t_flow_impl_subtypes semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (t_f_spec?='T_Flow_Spec' | t_f_spec_source?='T_Flow_Spec_Source' | t_f_spec_sink?='T_Flow_Spec_Sink' | t_f_spec_path?='T_Flow_Spec_Path')
+	 */
+	protected void sequence_t_flow_spec_subtypes(EObject context, t_flow_spec_subtypes semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         t_subc_st?=t_subcomponent_subtypes | 
+	 *         t_sbcall?='T_Subprogram_Call' | 
+	 *         t_callseq?='T_Call_Sequence' | 
+	 *         t_eeflow?='T_End_To_End_Flow' | 
+	 *         t_proto?='T_Prototype' | 
+	 *         t_mode?='T_Mode' | 
+	 *         t_req_mode?='T_Required_Mode' | 
+	 *         t_mod_trans?='T_Mode_Transition' | 
+	 *         t_mode_trig?='T_Mode_Trigger_Id'
+	 *     )
+	 */
+	protected void sequence_t_named_reference_subtypes(EObject context, t_named_reference_subtypes semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (t_nref?='T_Named_Reference' | t_nref_st?=t_named_reference_subtypes)
 	 */
 	protected void sequence_t_named_references(EObject context, t_named_references semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.TNAMED_REFERENCES__TNREF) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.TNAMED_REFERENCES__TNREF));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getT_named_referencesAccess().getT_nrefT_Named_ReferenceKeyword_0(), semanticObject.isT_nref());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID ml?=in_modes_list? locals+=local_declaration* statements+=theorem_statement* endname=[theorem_declaration|ID])
-	 */
-	protected void sequence_theorem_declaration(EObject context, theorem_declaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     statement=check_statement
+	 *     (t_port?='T_Port' | t_d_port?='T_Data_Port' | t_ev_port?='T_Event_Port' | t_evd_port?='T_Event_Data_Port')
 	 */
-	protected void sequence_theorem_statement(EObject context, theorem_statement semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.THEOREM_STATEMENT__STATEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.THEOREM_STATEMENT__STATEMENT));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTheorem_statementAccess().getStatementCheck_statementParserRuleCall_0(), semanticObject.getStatement());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID type=type_expression)
-	 */
-	protected void sequence_type_declaration(EObject context, type_declaration semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.TYPE_DECLARATION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.TYPE_DECLARATION__NAME));
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.TYPE_DECLARATION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.TYPE_DECLARATION__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getType_declarationAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getType_declarationAccess().getTypeType_expressionParserRuleCall_3_0(), semanticObject.getType());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (basic=basic_type | composite=composite_type | element=element_type)
-	 */
-	protected void sequence_type_expression(EObject context, type_expression semanticObject) {
+	protected void sequence_t_port_subtypes(EObject context, t_port_subtypes semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (typename+=ID? type+=type_expression (typename+=ID? type+=type_expression)*)
+	 *     (t_sub?='T_Subcomponent' | t_annex_sub?='T_Annex_Subcomponent' | t_comp_typeref?='T_Component_Type_Ref' | t_cimpl_st?=t_component_impl_subtypes)
 	 */
-	protected void sequence_union_type(EObject context, union_type semanticObject) {
+	protected void sequence_t_subcomponent_subtypes(EObject context, t_subcomponent_subtypes semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

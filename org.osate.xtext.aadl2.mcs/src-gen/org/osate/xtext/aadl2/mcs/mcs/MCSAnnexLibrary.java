@@ -33,7 +33,7 @@ public interface MCSAnnexLibrary extends EObject, AnnexLibrary
 {
   /**
    * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.type_declaration}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Type_declaration}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
@@ -45,11 +45,11 @@ public interface MCSAnnexLibrary extends EObject, AnnexLibrary
    * @model containment="true"
    * @generated
    */
-  EList<type_declaration> getTypes();
+  EList<Type_declaration> getTypes();
 
   /**
    * Returns the value of the '<em><b>Constants</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.constant_declaration}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Constant_declaration}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Constants</em>' containment reference list isn't clear,
@@ -61,11 +61,11 @@ public interface MCSAnnexLibrary extends EObject, AnnexLibrary
    * @model containment="true"
    * @generated
    */
-  EList<constant_declaration> getConstants();
+  EList<Constant_declaration> getConstants();
 
   /**
    * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.function_declaration}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Function_declaration}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
@@ -77,11 +77,11 @@ public interface MCSAnnexLibrary extends EObject, AnnexLibrary
    * @model containment="true"
    * @generated
    */
-  EList<function_declaration> getFunctions();
+  EList<Function_declaration> getFunctions();
 
   /**
    * Returns the value of the '<em><b>Theorems</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.theorem_declaration}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Theorem_declaration}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Theorems</em>' containment reference list isn't clear,
@@ -93,7 +93,7 @@ public interface MCSAnnexLibrary extends EObject, AnnexLibrary
    * @model containment="true"
    * @generated
    */
-  EList<theorem_declaration> getTheorems();
+  EList<Theorem_declaration> getTheorems();
 
   /**
    * Returns the value of the '<em><b>Viewpoints</b></em>' containment reference list.

@@ -2,7 +2,6 @@
  */
 package org.osate.xtext.aadl2.mcs.mcs;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface check_statement extends EObject
+public interface check_statement extends Theorem_statement
 {
   /**
    * Returns the value of the '<em><b>Root</b></em>' containment reference.

@@ -28,7 +28,7 @@ public interface MCSClosure extends XExpression
 {
   /**
    * Returns the value of the '<em><b>Declared Formal Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.argument}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Argument}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Declared Formal Parameters</em>' containment reference list isn't clear,
@@ -40,7 +40,7 @@ public interface MCSClosure extends XExpression
    * @model containment="true"
    * @generated
    */
-  EList<argument> getDeclaredFormalParameters();
+  EList<Argument> getDeclaredFormalParameters();
 
   /**
    * Returns the value of the '<em><b>Explicit Syntax</b></em>' attribute.

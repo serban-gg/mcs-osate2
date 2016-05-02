@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.ModeSpec;
@@ -32,7 +31,7 @@ import org.osate.xtext.aadl2.mcs.mcs.string_expression;
  *
  * @generated
  */
-public class check_statementImpl extends MinimalEObjectImpl.Container implements check_statement
+public class check_statementImpl extends Theorem_statementImpl implements check_statement
 {
   /**
    * The cached value of the '{@link #getRoot() <em>Root</em>}' containment reference.

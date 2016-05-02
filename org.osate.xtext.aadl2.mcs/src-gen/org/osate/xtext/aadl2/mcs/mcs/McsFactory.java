@@ -41,22 +41,22 @@ public interface McsFactory extends EFactory
   MCSAnnexLibrary createMCSAnnexLibrary();
 
   /**
-   * Returns a new object of class '<em>type declaration</em>'.
+   * Returns a new object of class '<em>Type declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>type declaration</em>'.
+   * @return a new object of class '<em>Type declaration</em>'.
    * @generated
    */
-  type_declaration createtype_declaration();
+  Type_declaration createType_declaration();
 
   /**
-   * Returns a new object of class '<em>constant declaration</em>'.
+   * Returns a new object of class '<em>Constant declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>constant declaration</em>'.
+   * @return a new object of class '<em>Constant declaration</em>'.
    * @generated
    */
-  constant_declaration createconstant_declaration();
+  Constant_declaration createConstant_declaration();
 
   /**
    * Returns a new object of class '<em>MCS Viewpoint</em>'.
@@ -212,6 +212,15 @@ public interface McsFactory extends EFactory
   root_element createroot_element();
 
   /**
+   * Returns a new object of class '<em>property reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>property reference</em>'.
+   * @generated
+   */
+  property_reference createproperty_reference();
+
+  /**
    * Returns a new object of class '<em>element reference</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -284,6 +293,51 @@ public interface McsFactory extends EFactory
   expression createexpression();
 
   /**
+   * Returns a new object of class '<em>Boolean Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Term</em>'.
+   * @generated
+   */
+  BooleanTerm createBooleanTerm();
+
+  /**
+   * Returns a new object of class '<em>Collection Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Collection Term</em>'.
+   * @generated
+   */
+  CollectionTerm createCollectionTerm();
+
+  /**
+   * Returns a new object of class '<em>Set comprehension</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Set comprehension</em>'.
+   * @generated
+   */
+  Set_comprehension createSet_comprehension();
+
+  /**
+   * Returns a new object of class '<em>Query element set</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Query element set</em>'.
+   * @generated
+   */
+  Query_element_set createQuery_element_set();
+
+  /**
+   * Returns a new object of class '<em>Element types</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Element types</em>'.
+   * @generated
+   */
+  Element_types createElement_types();
+
+  /**
    * Returns a new object of class '<em>MCS Annex Subclause</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -311,76 +365,94 @@ public interface McsFactory extends EFactory
   ClassifierScript createClassifierScript();
 
   /**
-   * Returns a new object of class '<em>function declaration</em>'.
+   * Returns a new object of class '<em>Function declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>function declaration</em>'.
+   * @return a new object of class '<em>Function declaration</em>'.
    * @generated
    */
-  function_declaration createfunction_declaration();
+  Function_declaration createFunction_declaration();
 
   /**
-   * Returns a new object of class '<em>argument</em>'.
+   * Returns a new object of class '<em>Argument</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>argument</em>'.
+   * @return a new object of class '<em>Argument</em>'.
    * @generated
    */
-  argument createargument();
+  Argument createArgument();
 
   /**
-   * Returns a new object of class '<em>theorem declaration</em>'.
+   * Returns a new object of class '<em>Theorem declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>theorem declaration</em>'.
+   * @return a new object of class '<em>Theorem declaration</em>'.
    * @generated
    */
-  theorem_declaration createtheorem_declaration();
+  Theorem_declaration createTheorem_declaration();
 
   /**
-   * Returns a new object of class '<em>in modes list</em>'.
+   * Returns a new object of class '<em>In modes list</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>in modes list</em>'.
+   * @return a new object of class '<em>In modes list</em>'.
    * @generated
    */
-  in_modes_list createin_modes_list();
+  In_modes_list createIn_modes_list();
 
   /**
-   * Returns a new object of class '<em>local declaration</em>'.
+   * Returns a new object of class '<em>Local declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>local declaration</em>'.
+   * @return a new object of class '<em>Local declaration</em>'.
    * @generated
    */
-  local_declaration createlocal_declaration();
+  Local_declaration createLocal_declaration();
 
   /**
-   * Returns a new object of class '<em>theorem statement</em>'.
+   * Returns a new object of class '<em>Theorem statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>theorem statement</em>'.
+   * @return a new object of class '<em>Theorem statement</em>'.
    * @generated
    */
-  theorem_statement createtheorem_statement();
+  Theorem_statement createTheorem_statement();
 
   /**
-   * Returns a new object of class '<em>type expression</em>'.
+   * Returns a new object of class '<em>Basic statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>type expression</em>'.
+   * @return a new object of class '<em>Basic statement</em>'.
    * @generated
    */
-  type_expression createtype_expression();
+  Basic_statement createBasic_statement();
 
   /**
-   * Returns a new object of class '<em>basic type</em>'.
+   * Returns a new object of class '<em>Iteration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>basic type</em>'.
+   * @return a new object of class '<em>Iteration</em>'.
    * @generated
    */
-  basic_type createbasic_type();
+  Iteration createIteration();
+
+  /**
+   * Returns a new object of class '<em>Type expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type expression</em>'.
+   * @generated
+   */
+  Type_expression createType_expression();
+
+  /**
+   * Returns a new object of class '<em>Basic type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Basic type</em>'.
+   * @generated
+   */
+  Basic_type createBasic_type();
 
   /**
    * Returns a new object of class '<em>Unnamed Function Type</em>'.
@@ -392,76 +464,76 @@ public interface McsFactory extends EFactory
   UnnamedFunctionType createUnnamedFunctionType();
 
   /**
-   * Returns a new object of class '<em>composite type</em>'.
+   * Returns a new object of class '<em>Composite type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>composite type</em>'.
+   * @return a new object of class '<em>Composite type</em>'.
    * @generated
    */
-  composite_type createcomposite_type();
+  Composite_type createComposite_type();
 
   /**
-   * Returns a new object of class '<em>set type</em>'.
+   * Returns a new object of class '<em>Set type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>set type</em>'.
+   * @return a new object of class '<em>Set type</em>'.
    * @generated
    */
-  set_type createset_type();
+  Set_type createSet_type();
 
   /**
-   * Returns a new object of class '<em>list type</em>'.
+   * Returns a new object of class '<em>List type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>list type</em>'.
+   * @return a new object of class '<em>List type</em>'.
    * @generated
    */
-  list_type createlist_type();
+  List_type createList_type();
 
   /**
-   * Returns a new object of class '<em>map type</em>'.
+   * Returns a new object of class '<em>Map type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>map type</em>'.
+   * @return a new object of class '<em>Map type</em>'.
    * @generated
    */
-  map_type createmap_type();
+  Map_type createMap_type();
 
   /**
-   * Returns a new object of class '<em>record type</em>'.
+   * Returns a new object of class '<em>Record type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>record type</em>'.
+   * @return a new object of class '<em>Record type</em>'.
    * @generated
    */
-  record_type createrecord_type();
+  Record_type createRecord_type();
 
   /**
-   * Returns a new object of class '<em>union type</em>'.
+   * Returns a new object of class '<em>Union type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>union type</em>'.
+   * @return a new object of class '<em>Union type</em>'.
    * @generated
    */
-  union_type createunion_type();
+  Union_type createUnion_type();
 
   /**
-   * Returns a new object of class '<em>id type pair</em>'.
+   * Returns a new object of class '<em>Id type pair</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>id type pair</em>'.
+   * @return a new object of class '<em>Id type pair</em>'.
    * @generated
    */
-  id_type_pair createid_type_pair();
+  Id_type_pair createId_type_pair();
 
   /**
-   * Returns a new object of class '<em>element type</em>'.
+   * Returns a new object of class '<em>Element type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>element type</em>'.
+   * @return a new object of class '<em>Element type</em>'.
    * @generated
    */
-  element_type createelement_type();
+  Element_type createElement_type();
 
   /**
    * Returns a new object of class '<em>tclassifiers</em>'.
@@ -489,6 +561,87 @@ public interface McsFactory extends EFactory
    * @generated
    */
   t_named_references createt_named_references();
+
+  /**
+   * Returns a new object of class '<em>tnamed reference subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tnamed reference subtypes</em>'.
+   * @generated
+   */
+  t_named_reference_subtypes createt_named_reference_subtypes();
+
+  /**
+   * Returns a new object of class '<em>tsubcomponent subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tsubcomponent subtypes</em>'.
+   * @generated
+   */
+  t_subcomponent_subtypes createt_subcomponent_subtypes();
+
+  /**
+   * Returns a new object of class '<em>tcomponent impl subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tcomponent impl subtypes</em>'.
+   * @generated
+   */
+  t_component_impl_subtypes createt_component_impl_subtypes();
+
+  /**
+   * Returns a new object of class '<em>tconnection subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tconnection subtypes</em>'.
+   * @generated
+   */
+  t_connection_subtypes createt_connection_subtypes();
+
+  /**
+   * Returns a new object of class '<em>tfeature subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tfeature subtypes</em>'.
+   * @generated
+   */
+  t_feature_subtypes createt_feature_subtypes();
+
+  /**
+   * Returns a new object of class '<em>taccess subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>taccess subtypes</em>'.
+   * @generated
+   */
+  t_access_subtypes createt_access_subtypes();
+
+  /**
+   * Returns a new object of class '<em>tport subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tport subtypes</em>'.
+   * @generated
+   */
+  t_port_subtypes createt_port_subtypes();
+
+  /**
+   * Returns a new object of class '<em>tflow spec subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tflow spec subtypes</em>'.
+   * @generated
+   */
+  t_flow_spec_subtypes createt_flow_spec_subtypes();
+
+  /**
+   * Returns a new object of class '<em>tflow impl subtypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>tflow impl subtypes</em>'.
+   * @generated
+   */
+  t_flow_impl_subtypes createt_flow_impl_subtypes();
 
   /**
    * Returns a new object of class '<em>MCS Closure</em>'.

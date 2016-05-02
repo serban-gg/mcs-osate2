@@ -21,9 +21,9 @@ import org.eclipse.xtext.xbase.XExpression;
 
 import org.eclipse.xtext.xbase.impl.XExpressionImpl;
 
+import org.osate.xtext.aadl2.mcs.mcs.Argument;
 import org.osate.xtext.aadl2.mcs.mcs.MCSClosure;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.argument;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +50,7 @@ public class MCSClosureImpl extends XExpressionImpl implements MCSClosure
    * @generated
    * @ordered
    */
-  protected EList<argument> declaredFormalParameters;
+  protected EList<Argument> declaredFormalParameters;
 
   /**
    * The default value of the '{@link #isExplicitSyntax() <em>Explicit Syntax</em>}' attribute.
@@ -108,11 +108,11 @@ public class MCSClosureImpl extends XExpressionImpl implements MCSClosure
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<argument> getDeclaredFormalParameters()
+  public EList<Argument> getDeclaredFormalParameters()
   {
     if (declaredFormalParameters == null)
     {
-      declaredFormalParameters = new EObjectContainmentEList<argument>(argument.class, this, McsPackage.MCS_CLOSURE__DECLARED_FORMAL_PARAMETERS);
+      declaredFormalParameters = new EObjectContainmentEList<Argument>(Argument.class, this, McsPackage.MCS_CLOSURE__DECLARED_FORMAL_PARAMETERS);
     }
     return declaredFormalParameters;
   }
@@ -239,7 +239,7 @@ public class MCSClosureImpl extends XExpressionImpl implements MCSClosure
     {
       case McsPackage.MCS_CLOSURE__DECLARED_FORMAL_PARAMETERS:
         getDeclaredFormalParameters().clear();
-        getDeclaredFormalParameters().addAll((Collection<? extends argument>)newValue);
+        getDeclaredFormalParameters().addAll((Collection<? extends Argument>)newValue);
         return;
       case McsPackage.MCS_CLOSURE__EXPLICIT_SYNTAX:
         setExplicitSyntax((Boolean)newValue);

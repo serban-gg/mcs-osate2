@@ -20,6 +20,7 @@ import org.osate.xtext.aadl2.mcs.mcs.t_named_references;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_named_referencesImpl#isT_nref <em>Tnref</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_named_referencesImpl#isT_nref_st <em>Tnref st</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,6 +47,26 @@ public class t_named_referencesImpl extends MinimalEObjectImpl.Container impleme
    * @ordered
    */
   protected boolean t_nref = TNREF_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isT_nref_st() <em>Tnref st</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isT_nref_st()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean TNREF_ST_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isT_nref_st() <em>Tnref st</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isT_nref_st()
+   * @generated
+   * @ordered
+   */
+  protected boolean t_nref_st = TNREF_ST_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,6 +117,29 @@ public class t_named_referencesImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isT_nref_st()
+  {
+    return t_nref_st;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setT_nref_st(boolean newT_nref_st)
+  {
+    boolean oldT_nref_st = t_nref_st;
+    t_nref_st = newT_nref_st;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.TNAMED_REFERENCES__TNREF_ST, oldT_nref_st, t_nref_st));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -103,6 +147,8 @@ public class t_named_referencesImpl extends MinimalEObjectImpl.Container impleme
     {
       case McsPackage.TNAMED_REFERENCES__TNREF:
         return isT_nref();
+      case McsPackage.TNAMED_REFERENCES__TNREF_ST:
+        return isT_nref_st();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,6 +165,9 @@ public class t_named_referencesImpl extends MinimalEObjectImpl.Container impleme
     {
       case McsPackage.TNAMED_REFERENCES__TNREF:
         setT_nref((Boolean)newValue);
+        return;
+      case McsPackage.TNAMED_REFERENCES__TNREF_ST:
+        setT_nref_st((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,6 +186,9 @@ public class t_named_referencesImpl extends MinimalEObjectImpl.Container impleme
       case McsPackage.TNAMED_REFERENCES__TNREF:
         setT_nref(TNREF_EDEFAULT);
         return;
+      case McsPackage.TNAMED_REFERENCES__TNREF_ST:
+        setT_nref_st(TNREF_ST_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -153,6 +205,8 @@ public class t_named_referencesImpl extends MinimalEObjectImpl.Container impleme
     {
       case McsPackage.TNAMED_REFERENCES__TNREF:
         return t_nref != TNREF_EDEFAULT;
+      case McsPackage.TNAMED_REFERENCES__TNREF_ST:
+        return t_nref_st != TNREF_ST_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -170,6 +224,8 @@ public class t_named_referencesImpl extends MinimalEObjectImpl.Container impleme
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (t_nref: ");
     result.append(t_nref);
+    result.append(", t_nref_st: ");
+    result.append(t_nref_st);
     result.append(')');
     return result.toString();
   }

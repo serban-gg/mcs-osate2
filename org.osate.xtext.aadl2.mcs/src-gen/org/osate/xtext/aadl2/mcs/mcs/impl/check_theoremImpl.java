@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.Theorem_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.check_theorem;
-import org.osate.xtext.aadl2.mcs.mcs.theorem_declaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
    * @generated
    * @ordered
    */
-  protected theorem_declaration name;
+  protected Theorem_declaration name;
 
   /**
    * <!-- begin-user-doc -->
@@ -64,12 +64,12 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
    * <!-- end-user-doc -->
    * @generated
    */
-  public theorem_declaration getName()
+  public Theorem_declaration getName()
   {
     if (name != null && name.eIsProxy())
     {
       InternalEObject oldName = (InternalEObject)name;
-      name = (theorem_declaration)eResolveProxy(oldName);
+      name = (Theorem_declaration)eResolveProxy(oldName);
       if (name != oldName)
       {
         if (eNotificationRequired())
@@ -84,7 +84,7 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
    * <!-- end-user-doc -->
    * @generated
    */
-  public theorem_declaration basicGetName()
+  public Theorem_declaration basicGetName()
   {
     return name;
   }
@@ -94,9 +94,9 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(theorem_declaration newName)
+  public void setName(Theorem_declaration newName)
   {
-    theorem_declaration oldName = name;
+    Theorem_declaration oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CHECK_THEOREM__NAME, oldName, name));
@@ -130,7 +130,7 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
     switch (featureID)
     {
       case McsPackage.CHECK_THEOREM__NAME:
-        setName((theorem_declaration)newValue);
+        setName((Theorem_declaration)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -147,7 +147,7 @@ public class check_theoremImpl extends check_statementImpl implements check_theo
     switch (featureID)
     {
       case McsPackage.CHECK_THEOREM__NAME:
-        setName((theorem_declaration)null);
+        setName((Theorem_declaration)null);
         return;
     }
     super.eUnset(featureID);

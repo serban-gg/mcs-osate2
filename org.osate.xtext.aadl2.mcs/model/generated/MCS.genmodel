@@ -19,15 +19,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//MCSAnnexLibrary/viewpoints"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//MCSAnnexLibrary/enforceclauses"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//type_declaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//type_declaration/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//type_declaration/type"/>
+    <genClasses ecoreClass="MCS.ecore#//Type_declaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Type_declaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Type_declaration/type"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//constant_declaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//constant_declaration/const"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//constant_declaration/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//constant_declaration/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//constant_declaration/left_expr"/>
+    <genClasses ecoreClass="MCS.ecore#//Constant_declaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Constant_declaration/const"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Constant_declaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Constant_declaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Constant_declaration/left_expr"/>
     </genClasses>
     <genClasses ecoreClass="MCS.ecore#//MCSViewpoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//MCSViewpoint/name"/>
@@ -94,6 +94,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//check_assertion/expr"/>
     </genClasses>
     <genClasses ecoreClass="MCS.ecore#//root_element"/>
+    <genClasses ecoreClass="MCS.ecore#//property_reference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//property_reference/el_ref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//property_reference/exists"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MCS.ecore#//property_reference/property"/>
+    </genClasses>
     <genClasses ecoreClass="MCS.ecore#//element_reference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//element_reference/self"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//element_reference/root"/>
@@ -124,6 +129,32 @@
     <genClasses ecoreClass="MCS.ecore#//expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//expression/name"/>
     </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//BooleanTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//BooleanTerm/xbool"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//BooleanTerm/member_check"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//BooleanTerm/collect_expr"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//CollectionTerm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//CollectionTerm/xc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//CollectionTerm/query_set"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//CollectionTerm/set_c"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//Set_comprehension">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Set_comprehension/result"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Set_comprehension/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Set_comprehension/set"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Set_comprehension/cond"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//Query_element_set">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Query_element_set/direct"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Query_element_set/result_types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Query_element_set/elem_set"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Query_element_set/mode_spec"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//Element_types">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Element_types/el_type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Element_types/el_types"/>
+    </genClasses>
     <genClasses ecoreClass="MCS.ecore#//MCSAnnexSubclause">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//MCSAnnexSubclause/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//MCSAnnexSubclause/constants"/>
@@ -139,86 +170,91 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//ClassifierScript/c_block"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//ClassifierScript/ref"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//function_declaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//function_declaration/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//function_declaration/arg"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//function_declaration/out"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//function_declaration/ftype"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MCS.ecore#//function_declaration/typeref"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//function_declaration/closure"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//function_declaration/exp_body"/>
+    <genClasses ecoreClass="MCS.ecore#//Function_declaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Function_declaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Function_declaration/arg"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Function_declaration/out"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Function_declaration/ftype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MCS.ecore#//Function_declaration/typeref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Function_declaration/closure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Function_declaration/exp_body"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//argument">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//argument/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//argument/arg_type"/>
+    <genClasses ecoreClass="MCS.ecore#//Argument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Argument/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Argument/arg_type"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//theorem_declaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//theorem_declaration/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//theorem_declaration/ml"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//theorem_declaration/locals"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//theorem_declaration/statements"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MCS.ecore#//theorem_declaration/endname"/>
+    <genClasses ecoreClass="MCS.ecore#//Theorem_declaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Theorem_declaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Theorem_declaration/ml"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Theorem_declaration/locals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Theorem_declaration/statements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MCS.ecore#//Theorem_declaration/endname"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//in_modes_list">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//in_modes_list/modes"/>
+    <genClasses ecoreClass="MCS.ecore#//In_modes_list">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//In_modes_list/modes"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//local_declaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//local_declaration/const"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//local_declaration/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//local_declaration/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//local_declaration/left_expr"/>
+    <genClasses ecoreClass="MCS.ecore#//Local_declaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Local_declaration/const"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Local_declaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Local_declaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Local_declaration/left_expr"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//theorem_statement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//theorem_statement/statement"/>
+    <genClasses ecoreClass="MCS.ecore#//Theorem_statement"/>
+    <genClasses ecoreClass="MCS.ecore#//Basic_statement"/>
+    <genClasses ecoreClass="MCS.ecore#//Iteration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Iteration/var_id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Iteration/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Iteration/local"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Iteration/statements"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//type_expression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//type_expression/basic"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//type_expression/composite"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//type_expression/element"/>
+    <genClasses ecoreClass="MCS.ecore#//Type_expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Type_expression/basic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Type_expression/composite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Type_expression/element"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//basic_type">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/bool"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/string"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/enumer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/units"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/integer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/real"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/range"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/class"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/ref"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/func"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MCS.ecore#//basic_type/typename"/>
+    <genClasses ecoreClass="MCS.ecore#//Basic_type">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/bool"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/string"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/enumer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/units"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/integer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/real"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/range"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/class"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/ref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/func"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MCS.ecore#//Basic_type/typename"/>
     </genClasses>
     <genClasses ecoreClass="MCS.ecore#//UnnamedFunctionType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//UnnamedFunctionType/parm"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//UnnamedFunctionType/outspec"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//UnnamedFunctionType/result"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//composite_type"/>
-    <genClasses ecoreClass="MCS.ecore#//set_type">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//set_type/type"/>
+    <genClasses ecoreClass="MCS.ecore#//Composite_type"/>
+    <genClasses ecoreClass="MCS.ecore#//Set_type">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Set_type/type"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//list_type">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//list_type/type"/>
+    <genClasses ecoreClass="MCS.ecore#//List_type">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//List_type/type"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//map_type">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//map_type/type"/>
+    <genClasses ecoreClass="MCS.ecore#//Map_type">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Map_type/type"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//record_type">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//record_type/field"/>
+    <genClasses ecoreClass="MCS.ecore#//Record_type">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Record_type/field"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//union_type">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//union_type/typename"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//union_type/type"/>
+    <genClasses ecoreClass="MCS.ecore#//Union_type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Union_type/typename"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Union_type/type"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//id_type_pair">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//id_type_pair/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//id_type_pair/type"/>
+    <genClasses ecoreClass="MCS.ecore#//Id_type_pair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Id_type_pair/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//Id_type_pair/type"/>
     </genClasses>
-    <genClasses ecoreClass="MCS.ecore#//element_type">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//element_type/telem"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//element_type/t_class"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//element_type/t_ref"/>
+    <genClasses ecoreClass="MCS.ecore#//Element_type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Element_type/telem"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Element_type/t_class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//Element_type/t_ref"/>
     </genClasses>
     <genClasses ecoreClass="MCS.ecore#//t_classifiers">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_classifiers/t_class"/>
@@ -232,6 +268,78 @@
     </genClasses>
     <genClasses ecoreClass="MCS.ecore#//t_named_references">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_references/t_nref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_references/t_nref_st"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//t_named_reference_subtypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_reference_subtypes/t_subc_st"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_reference_subtypes/t_sbcall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_reference_subtypes/t_callseq"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_reference_subtypes/t_eeflow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_reference_subtypes/t_proto"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_reference_subtypes/t_mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_reference_subtypes/t_req_mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_reference_subtypes/t_mod_trans"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_named_reference_subtypes/t_mode_trig"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//t_subcomponent_subtypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_subcomponent_subtypes/t_sub"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_subcomponent_subtypes/t_annex_sub"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_subcomponent_subtypes/t_comp_typeref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_subcomponent_subtypes/t_cimpl_st"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//t_component_impl_subtypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_comp_impref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_sys"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_proc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_virt_proc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_bus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_vbus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_mem"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_tg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_t"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_d"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_subprog"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_component_impl_subtypes/t_subprog_g"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//t_connection_subtypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_connection_subtypes/t_conn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_connection_subtypes/t_feat_conn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_connection_subtypes/t_port_conn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_connection_subtypes/t_parm_conn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_connection_subtypes/t_acc_con"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_connection_subtypes/t_fg_conn"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//t_feature_subtypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_feature_subtypes/t_feat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_feature_subtypes/t_abs_feat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_feature_subtypes/t_parm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_feature_subtypes/t_fg"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//t_access_subtypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_access_subtypes/t_access"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_access_subtypes/t_data_acc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_access_subtypes/t_sub_acc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_access_subtypes/t_sub_gr_acc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_access_subtypes/t_bus_acc"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//t_port_subtypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_port_subtypes/t_port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_port_subtypes/t_d_port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_port_subtypes/t_ev_port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_port_subtypes/t_evd_port"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//t_flow_spec_subtypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_flow_spec_subtypes/t_f_spec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_flow_spec_subtypes/t_f_spec_source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_flow_spec_subtypes/t_f_spec_sink"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_flow_spec_subtypes/t_f_spec_path"/>
+    </genClasses>
+    <genClasses ecoreClass="MCS.ecore#//t_flow_impl_subtypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_flow_impl_subtypes/t_f_i"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_flow_impl_subtypes/t_f_i_source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_flow_impl_subtypes/t_f_i_sink"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MCS.ecore#//t_flow_impl_subtypes/t_f_i_path"/>
     </genClasses>
     <genClasses ecoreClass="MCS.ecore#//MCSClosure">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MCS.ecore#//MCSClosure/declaredFormalParameters"/>

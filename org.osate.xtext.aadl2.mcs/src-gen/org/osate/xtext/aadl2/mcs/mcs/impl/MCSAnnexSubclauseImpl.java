@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.osate.aadl2.impl.AnnexSubclauseImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.ClassifierEnforce;
+import org.osate.xtext.aadl2.mcs.mcs.Constant_declaration;
+import org.osate.xtext.aadl2.mcs.mcs.Function_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexSubclause;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.constant_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.function_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.theorem_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.type_declaration;
+import org.osate.xtext.aadl2.mcs.mcs.Theorem_declaration;
+import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,7 +51,7 @@ public class MCSAnnexSubclauseImpl extends AnnexSubclauseImpl implements MCSAnne
    * @generated
    * @ordered
    */
-  protected EList<type_declaration> types;
+  protected EList<Type_declaration> types;
 
   /**
    * The cached value of the '{@link #getConstants() <em>Constants</em>}' containment reference list.
@@ -61,7 +61,7 @@ public class MCSAnnexSubclauseImpl extends AnnexSubclauseImpl implements MCSAnne
    * @generated
    * @ordered
    */
-  protected EList<constant_declaration> constants;
+  protected EList<Constant_declaration> constants;
 
   /**
    * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
@@ -71,7 +71,7 @@ public class MCSAnnexSubclauseImpl extends AnnexSubclauseImpl implements MCSAnne
    * @generated
    * @ordered
    */
-  protected EList<function_declaration> functions;
+  protected EList<Function_declaration> functions;
 
   /**
    * The cached value of the '{@link #getTheorems() <em>Theorems</em>}' containment reference list.
@@ -81,7 +81,7 @@ public class MCSAnnexSubclauseImpl extends AnnexSubclauseImpl implements MCSAnne
    * @generated
    * @ordered
    */
-  protected EList<theorem_declaration> theorems;
+  protected EList<Theorem_declaration> theorems;
 
   /**
    * The cached value of the '{@link #getEnforceclauses() <em>Enforceclauses</em>}' containment reference list.
@@ -119,11 +119,11 @@ public class MCSAnnexSubclauseImpl extends AnnexSubclauseImpl implements MCSAnne
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<type_declaration> getTypes()
+  public EList<Type_declaration> getTypes()
   {
     if (types == null)
     {
-      types = new EObjectContainmentEList<type_declaration>(type_declaration.class, this, McsPackage.MCS_ANNEX_SUBCLAUSE__TYPES);
+      types = new EObjectContainmentEList<Type_declaration>(Type_declaration.class, this, McsPackage.MCS_ANNEX_SUBCLAUSE__TYPES);
     }
     return types;
   }
@@ -133,11 +133,11 @@ public class MCSAnnexSubclauseImpl extends AnnexSubclauseImpl implements MCSAnne
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<constant_declaration> getConstants()
+  public EList<Constant_declaration> getConstants()
   {
     if (constants == null)
     {
-      constants = new EObjectContainmentEList<constant_declaration>(constant_declaration.class, this, McsPackage.MCS_ANNEX_SUBCLAUSE__CONSTANTS);
+      constants = new EObjectContainmentEList<Constant_declaration>(Constant_declaration.class, this, McsPackage.MCS_ANNEX_SUBCLAUSE__CONSTANTS);
     }
     return constants;
   }
@@ -147,11 +147,11 @@ public class MCSAnnexSubclauseImpl extends AnnexSubclauseImpl implements MCSAnne
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<function_declaration> getFunctions()
+  public EList<Function_declaration> getFunctions()
   {
     if (functions == null)
     {
-      functions = new EObjectContainmentEList<function_declaration>(function_declaration.class, this, McsPackage.MCS_ANNEX_SUBCLAUSE__FUNCTIONS);
+      functions = new EObjectContainmentEList<Function_declaration>(Function_declaration.class, this, McsPackage.MCS_ANNEX_SUBCLAUSE__FUNCTIONS);
     }
     return functions;
   }
@@ -161,11 +161,11 @@ public class MCSAnnexSubclauseImpl extends AnnexSubclauseImpl implements MCSAnne
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<theorem_declaration> getTheorems()
+  public EList<Theorem_declaration> getTheorems()
   {
     if (theorems == null)
     {
-      theorems = new EObjectContainmentEList<theorem_declaration>(theorem_declaration.class, this, McsPackage.MCS_ANNEX_SUBCLAUSE__THEOREMS);
+      theorems = new EObjectContainmentEList<Theorem_declaration>(Theorem_declaration.class, this, McsPackage.MCS_ANNEX_SUBCLAUSE__THEOREMS);
     }
     return theorems;
   }
@@ -245,19 +245,19 @@ public class MCSAnnexSubclauseImpl extends AnnexSubclauseImpl implements MCSAnne
     {
       case McsPackage.MCS_ANNEX_SUBCLAUSE__TYPES:
         getTypes().clear();
-        getTypes().addAll((Collection<? extends type_declaration>)newValue);
+        getTypes().addAll((Collection<? extends Type_declaration>)newValue);
         return;
       case McsPackage.MCS_ANNEX_SUBCLAUSE__CONSTANTS:
         getConstants().clear();
-        getConstants().addAll((Collection<? extends constant_declaration>)newValue);
+        getConstants().addAll((Collection<? extends Constant_declaration>)newValue);
         return;
       case McsPackage.MCS_ANNEX_SUBCLAUSE__FUNCTIONS:
         getFunctions().clear();
-        getFunctions().addAll((Collection<? extends function_declaration>)newValue);
+        getFunctions().addAll((Collection<? extends Function_declaration>)newValue);
         return;
       case McsPackage.MCS_ANNEX_SUBCLAUSE__THEOREMS:
         getTheorems().clear();
-        getTheorems().addAll((Collection<? extends theorem_declaration>)newValue);
+        getTheorems().addAll((Collection<? extends Theorem_declaration>)newValue);
         return;
       case McsPackage.MCS_ANNEX_SUBCLAUSE__ENFORCECLAUSES:
         getEnforceclauses().clear();

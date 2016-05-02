@@ -30,12 +30,12 @@ public interface check_theorem extends check_statement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' reference.
-   * @see #setName(theorem_declaration)
+   * @see #setName(Theorem_declaration)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getcheck_theorem_Name()
    * @model
    * @generated
    */
-  theorem_declaration getName();
+  Theorem_declaration getName();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.check_theorem#getName <em>Name</em>}' reference.
@@ -45,6 +45,6 @@ public interface check_theorem extends check_statement
    * @see #getName()
    * @generated
    */
-  void setName(theorem_declaration value);
+  void setName(Theorem_declaration value);
 
 } // check_theorem

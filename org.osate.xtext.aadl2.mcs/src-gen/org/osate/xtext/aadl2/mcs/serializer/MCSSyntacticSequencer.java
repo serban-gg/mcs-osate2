@@ -147,23 +147,19 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '#' '[' ']' (rule start)
-	 *     (rule start) (ambiguity) '#' '[' elements+=XExpression
-	 *     (rule start) (ambiguity) '#' '{' '}' (rule start)
-	 *     (rule start) (ambiguity) '#' '{' elements+=XExpression
 	 *     (rule start) (ambiguity) '<' typeArguments+=JvmArgumentTypeReference
 	 *     (rule start) (ambiguity) '[' declaredFormalParameters+=JvmFormalParameter
 	 *     (rule start) (ambiguity) '[' explicitSyntax?='|'
 	 *     (rule start) (ambiguity) '[' expression=XExpressionInClosure
 	 *     (rule start) (ambiguity) 'classifier' '(' cref=[Classifier|QCREF]
 	 *     (rule start) (ambiguity) 'do' body=XExpression
-	 *     (rule start) (ambiguity) 'false' (rule start)
 	 *     (rule start) (ambiguity) 'for' '(' ';' ';' ')' eachExpression=XExpression
 	 *     (rule start) (ambiguity) 'for' '(' ';' ';' updateExpressions+=XExpression
 	 *     (rule start) (ambiguity) 'for' '(' ';' expression=XExpression
 	 *     (rule start) (ambiguity) 'for' '(' declaredParam=JvmFormalParameter
 	 *     (rule start) (ambiguity) 'for' '(' initExpressions+=XExpressionOrVarDeclaration
 	 *     (rule start) (ambiguity) 'if' '(' if=XExpression
+	 *     (rule start) (ambiguity) 'is_member' member_check=expression
 	 *     (rule start) (ambiguity) 'new' constructor=[JvmConstructor|QualifiedName]
 	 *     (rule start) (ambiguity) 'null' (rule start)
 	 *     (rule start) (ambiguity) 'reference' '(' packageName+=ID
@@ -181,14 +177,18 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) '{' '}' (rule start)
 	 *     (rule start) (ambiguity) '{' expressions+=XExpressionOrVarDeclaration
 	 *     (rule start) (ambiguity) currentmode?='current_mode'
+	 *     (rule start) (ambiguity) el_ref=element_reference
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|FeatureCallID]
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|IdOrSuper]
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|OpUnary]
-	 *     (rule start) (ambiguity) isTrue?='true'
+	 *     (rule start) (ambiguity) query_set=Query_element_set
 	 *     (rule start) (ambiguity) root?='root'
 	 *     (rule start) (ambiguity) self?='self'
+	 *     (rule start) (ambiguity) set_c=Set_comprehension
 	 *     (rule start) (ambiguity) value=Number
 	 *     (rule start) (ambiguity) value=STRING
+	 *     (rule start) (ambiguity) xbool=XBooleanLiteral
+	 *     (rule start) (ambiguity) xc=XCollectionLiteral
 	 *     (rule start) (ambiguity) {XAssignment.assignable=}
 	 *     (rule start) (ambiguity) {XBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {XCastedExpression.target=}
@@ -205,23 +205,19 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '#' '[' ']' ')' (rule start)
-	 *     (rule start) (ambiguity) '#' '[' elements+=XExpression
-	 *     (rule start) (ambiguity) '#' '{' '}' ')' (rule start)
-	 *     (rule start) (ambiguity) '#' '{' elements+=XExpression
 	 *     (rule start) (ambiguity) '<' typeArguments+=JvmArgumentTypeReference
 	 *     (rule start) (ambiguity) '[' declaredFormalParameters+=JvmFormalParameter
 	 *     (rule start) (ambiguity) '[' explicitSyntax?='|'
 	 *     (rule start) (ambiguity) '[' expression=XExpressionInClosure
 	 *     (rule start) (ambiguity) 'classifier' '(' cref=[Classifier|QCREF]
 	 *     (rule start) (ambiguity) 'do' body=XExpression
-	 *     (rule start) (ambiguity) 'false' ')' (rule start)
 	 *     (rule start) (ambiguity) 'for' '(' ';' ';' ')' eachExpression=XExpression
 	 *     (rule start) (ambiguity) 'for' '(' ';' ';' updateExpressions+=XExpression
 	 *     (rule start) (ambiguity) 'for' '(' ';' expression=XExpression
 	 *     (rule start) (ambiguity) 'for' '(' declaredParam=JvmFormalParameter
 	 *     (rule start) (ambiguity) 'for' '(' initExpressions+=XExpressionOrVarDeclaration
 	 *     (rule start) (ambiguity) 'if' '(' if=XExpression
+	 *     (rule start) (ambiguity) 'is_member' member_check=expression
 	 *     (rule start) (ambiguity) 'new' constructor=[JvmConstructor|QualifiedName]
 	 *     (rule start) (ambiguity) 'null' ')' (rule start)
 	 *     (rule start) (ambiguity) 'reference' '(' packageName+=ID
@@ -239,14 +235,18 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) '{' '}' ')' (rule start)
 	 *     (rule start) (ambiguity) '{' expressions+=XExpressionOrVarDeclaration
 	 *     (rule start) (ambiguity) currentmode?='current_mode'
+	 *     (rule start) (ambiguity) el_ref=element_reference
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|FeatureCallID]
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|IdOrSuper]
 	 *     (rule start) (ambiguity) feature=[JvmIdentifiableElement|OpUnary]
-	 *     (rule start) (ambiguity) isTrue?='true'
+	 *     (rule start) (ambiguity) query_set=Query_element_set
 	 *     (rule start) (ambiguity) root?='root'
 	 *     (rule start) (ambiguity) self?='self'
+	 *     (rule start) (ambiguity) set_c=Set_comprehension
 	 *     (rule start) (ambiguity) value=Number
 	 *     (rule start) (ambiguity) value=STRING
+	 *     (rule start) (ambiguity) xbool=XBooleanLiteral
+	 *     (rule start) (ambiguity) xc=XCollectionLiteral
 	 *     (rule start) (ambiguity) {XAssignment.assignable=}
 	 *     (rule start) (ambiguity) {XBinaryOperation.leftOperand=}
 	 *     (rule start) (ambiguity) {XCastedExpression.target=}

@@ -66,8 +66,8 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
     {
       case McsPackage.MCS_GRAMMAR_ROOT: return createMCSGrammarRoot();
       case McsPackage.MCS_ANNEX_LIBRARY: return createMCSAnnexLibrary();
-      case McsPackage.TYPE_DECLARATION: return createtype_declaration();
-      case McsPackage.CONSTANT_DECLARATION: return createconstant_declaration();
+      case McsPackage.TYPE_DECLARATION: return createType_declaration();
+      case McsPackage.CONSTANT_DECLARATION: return createConstant_declaration();
       case McsPackage.MCS_VIEWPOINT: return createMCSViewpoint();
       case McsPackage.ENFORCEMENT_POLICY: return createEnforcement_policy();
       case McsPackage.PACKAGE_SCRIPT: return createPackageScript();
@@ -85,6 +85,7 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.MODE_NAME: return createModeName();
       case McsPackage.CHECK_ASSERTION: return createcheck_assertion();
       case McsPackage.ROOT_ELEMENT: return createroot_element();
+      case McsPackage.PROPERTY_REFERENCE: return createproperty_reference();
       case McsPackage.ELEMENT_REFERENCE: return createelement_reference();
       case McsPackage.CONTAINMENT_PATH_ELEMENT: return createContainmentPathElement();
       case McsPackage.ARRAY_RANGE: return createArrayRange();
@@ -93,29 +94,45 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.STRING_EXPRESSION: return createstring_expression();
       case McsPackage.CONSTANT_EXPRESSION: return createconstant_expression();
       case McsPackage.EXPRESSION: return createexpression();
+      case McsPackage.BOOLEAN_TERM: return createBooleanTerm();
+      case McsPackage.COLLECTION_TERM: return createCollectionTerm();
+      case McsPackage.SET_COMPREHENSION: return createSet_comprehension();
+      case McsPackage.QUERY_ELEMENT_SET: return createQuery_element_set();
+      case McsPackage.ELEMENT_TYPES: return createElement_types();
       case McsPackage.MCS_ANNEX_SUBCLAUSE: return createMCSAnnexSubclause();
       case McsPackage.CLASSIFIER_ENFORCE: return createClassifierEnforce();
       case McsPackage.CLASSIFIER_SCRIPT: return createClassifierScript();
-      case McsPackage.FUNCTION_DECLARATION: return createfunction_declaration();
-      case McsPackage.ARGUMENT: return createargument();
-      case McsPackage.THEOREM_DECLARATION: return createtheorem_declaration();
-      case McsPackage.IN_MODES_LIST: return createin_modes_list();
-      case McsPackage.LOCAL_DECLARATION: return createlocal_declaration();
-      case McsPackage.THEOREM_STATEMENT: return createtheorem_statement();
-      case McsPackage.TYPE_EXPRESSION: return createtype_expression();
-      case McsPackage.BASIC_TYPE: return createbasic_type();
+      case McsPackage.FUNCTION_DECLARATION: return createFunction_declaration();
+      case McsPackage.ARGUMENT: return createArgument();
+      case McsPackage.THEOREM_DECLARATION: return createTheorem_declaration();
+      case McsPackage.IN_MODES_LIST: return createIn_modes_list();
+      case McsPackage.LOCAL_DECLARATION: return createLocal_declaration();
+      case McsPackage.THEOREM_STATEMENT: return createTheorem_statement();
+      case McsPackage.BASIC_STATEMENT: return createBasic_statement();
+      case McsPackage.ITERATION: return createIteration();
+      case McsPackage.TYPE_EXPRESSION: return createType_expression();
+      case McsPackage.BASIC_TYPE: return createBasic_type();
       case McsPackage.UNNAMED_FUNCTION_TYPE: return createUnnamedFunctionType();
-      case McsPackage.COMPOSITE_TYPE: return createcomposite_type();
-      case McsPackage.SET_TYPE: return createset_type();
-      case McsPackage.LIST_TYPE: return createlist_type();
-      case McsPackage.MAP_TYPE: return createmap_type();
-      case McsPackage.RECORD_TYPE: return createrecord_type();
-      case McsPackage.UNION_TYPE: return createunion_type();
-      case McsPackage.ID_TYPE_PAIR: return createid_type_pair();
-      case McsPackage.ELEMENT_TYPE: return createelement_type();
+      case McsPackage.COMPOSITE_TYPE: return createComposite_type();
+      case McsPackage.SET_TYPE: return createSet_type();
+      case McsPackage.LIST_TYPE: return createList_type();
+      case McsPackage.MAP_TYPE: return createMap_type();
+      case McsPackage.RECORD_TYPE: return createRecord_type();
+      case McsPackage.UNION_TYPE: return createUnion_type();
+      case McsPackage.ID_TYPE_PAIR: return createId_type_pair();
+      case McsPackage.ELEMENT_TYPE: return createElement_type();
       case McsPackage.TCLASSIFIERS: return createt_classifiers();
       case McsPackage.TCLASSIFIER_SUBTYPES: return createt_classifier_subtypes();
       case McsPackage.TNAMED_REFERENCES: return createt_named_references();
+      case McsPackage.TNAMED_REFERENCE_SUBTYPES: return createt_named_reference_subtypes();
+      case McsPackage.TSUBCOMPONENT_SUBTYPES: return createt_subcomponent_subtypes();
+      case McsPackage.TCOMPONENT_IMPL_SUBTYPES: return createt_component_impl_subtypes();
+      case McsPackage.TCONNECTION_SUBTYPES: return createt_connection_subtypes();
+      case McsPackage.TFEATURE_SUBTYPES: return createt_feature_subtypes();
+      case McsPackage.TACCESS_SUBTYPES: return createt_access_subtypes();
+      case McsPackage.TPORT_SUBTYPES: return createt_port_subtypes();
+      case McsPackage.TFLOW_SPEC_SUBTYPES: return createt_flow_spec_subtypes();
+      case McsPackage.TFLOW_IMPL_SUBTYPES: return createt_flow_impl_subtypes();
       case McsPackage.MCS_CLOSURE: return createMCSClosure();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -149,9 +166,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public type_declaration createtype_declaration()
+  public Type_declaration createType_declaration()
   {
-    type_declarationImpl type_declaration = new type_declarationImpl();
+    Type_declarationImpl type_declaration = new Type_declarationImpl();
     return type_declaration;
   }
 
@@ -160,9 +177,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public constant_declaration createconstant_declaration()
+  public Constant_declaration createConstant_declaration()
   {
-    constant_declarationImpl constant_declaration = new constant_declarationImpl();
+    Constant_declarationImpl constant_declaration = new Constant_declarationImpl();
     return constant_declaration;
   }
 
@@ -358,6 +375,17 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public property_reference createproperty_reference()
+  {
+    property_referenceImpl property_reference = new property_referenceImpl();
+    return property_reference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public element_reference createelement_reference()
   {
     element_referenceImpl element_reference = new element_referenceImpl();
@@ -446,6 +474,61 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public BooleanTerm createBooleanTerm()
+  {
+    BooleanTermImpl booleanTerm = new BooleanTermImpl();
+    return booleanTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CollectionTerm createCollectionTerm()
+  {
+    CollectionTermImpl collectionTerm = new CollectionTermImpl();
+    return collectionTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Set_comprehension createSet_comprehension()
+  {
+    Set_comprehensionImpl set_comprehension = new Set_comprehensionImpl();
+    return set_comprehension;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Query_element_set createQuery_element_set()
+  {
+    Query_element_setImpl query_element_set = new Query_element_setImpl();
+    return query_element_set;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Element_types createElement_types()
+  {
+    Element_typesImpl element_types = new Element_typesImpl();
+    return element_types;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public MCSAnnexSubclause createMCSAnnexSubclause()
   {
     MCSAnnexSubclauseImpl mcsAnnexSubclause = new MCSAnnexSubclauseImpl();
@@ -479,9 +562,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public function_declaration createfunction_declaration()
+  public Function_declaration createFunction_declaration()
   {
-    function_declarationImpl function_declaration = new function_declarationImpl();
+    Function_declarationImpl function_declaration = new Function_declarationImpl();
     return function_declaration;
   }
 
@@ -490,9 +573,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public argument createargument()
+  public Argument createArgument()
   {
-    argumentImpl argument = new argumentImpl();
+    ArgumentImpl argument = new ArgumentImpl();
     return argument;
   }
 
@@ -501,9 +584,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public theorem_declaration createtheorem_declaration()
+  public Theorem_declaration createTheorem_declaration()
   {
-    theorem_declarationImpl theorem_declaration = new theorem_declarationImpl();
+    Theorem_declarationImpl theorem_declaration = new Theorem_declarationImpl();
     return theorem_declaration;
   }
 
@@ -512,9 +595,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public in_modes_list createin_modes_list()
+  public In_modes_list createIn_modes_list()
   {
-    in_modes_listImpl in_modes_list = new in_modes_listImpl();
+    In_modes_listImpl in_modes_list = new In_modes_listImpl();
     return in_modes_list;
   }
 
@@ -523,9 +606,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public local_declaration createlocal_declaration()
+  public Local_declaration createLocal_declaration()
   {
-    local_declarationImpl local_declaration = new local_declarationImpl();
+    Local_declarationImpl local_declaration = new Local_declarationImpl();
     return local_declaration;
   }
 
@@ -534,9 +617,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public theorem_statement createtheorem_statement()
+  public Theorem_statement createTheorem_statement()
   {
-    theorem_statementImpl theorem_statement = new theorem_statementImpl();
+    Theorem_statementImpl theorem_statement = new Theorem_statementImpl();
     return theorem_statement;
   }
 
@@ -545,9 +628,31 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public type_expression createtype_expression()
+  public Basic_statement createBasic_statement()
   {
-    type_expressionImpl type_expression = new type_expressionImpl();
+    Basic_statementImpl basic_statement = new Basic_statementImpl();
+    return basic_statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Iteration createIteration()
+  {
+    IterationImpl iteration = new IterationImpl();
+    return iteration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type_expression createType_expression()
+  {
+    Type_expressionImpl type_expression = new Type_expressionImpl();
     return type_expression;
   }
 
@@ -556,9 +661,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public basic_type createbasic_type()
+  public Basic_type createBasic_type()
   {
-    basic_typeImpl basic_type = new basic_typeImpl();
+    Basic_typeImpl basic_type = new Basic_typeImpl();
     return basic_type;
   }
 
@@ -578,9 +683,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public composite_type createcomposite_type()
+  public Composite_type createComposite_type()
   {
-    composite_typeImpl composite_type = new composite_typeImpl();
+    Composite_typeImpl composite_type = new Composite_typeImpl();
     return composite_type;
   }
 
@@ -589,9 +694,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public set_type createset_type()
+  public Set_type createSet_type()
   {
-    set_typeImpl set_type = new set_typeImpl();
+    Set_typeImpl set_type = new Set_typeImpl();
     return set_type;
   }
 
@@ -600,9 +705,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public list_type createlist_type()
+  public List_type createList_type()
   {
-    list_typeImpl list_type = new list_typeImpl();
+    List_typeImpl list_type = new List_typeImpl();
     return list_type;
   }
 
@@ -611,9 +716,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public map_type createmap_type()
+  public Map_type createMap_type()
   {
-    map_typeImpl map_type = new map_typeImpl();
+    Map_typeImpl map_type = new Map_typeImpl();
     return map_type;
   }
 
@@ -622,9 +727,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public record_type createrecord_type()
+  public Record_type createRecord_type()
   {
-    record_typeImpl record_type = new record_typeImpl();
+    Record_typeImpl record_type = new Record_typeImpl();
     return record_type;
   }
 
@@ -633,9 +738,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public union_type createunion_type()
+  public Union_type createUnion_type()
   {
-    union_typeImpl union_type = new union_typeImpl();
+    Union_typeImpl union_type = new Union_typeImpl();
     return union_type;
   }
 
@@ -644,9 +749,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public id_type_pair createid_type_pair()
+  public Id_type_pair createId_type_pair()
   {
-    id_type_pairImpl id_type_pair = new id_type_pairImpl();
+    Id_type_pairImpl id_type_pair = new Id_type_pairImpl();
     return id_type_pair;
   }
 
@@ -655,9 +760,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public element_type createelement_type()
+  public Element_type createElement_type()
   {
-    element_typeImpl element_type = new element_typeImpl();
+    Element_typeImpl element_type = new Element_typeImpl();
     return element_type;
   }
 
@@ -692,6 +797,105 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
   {
     t_named_referencesImpl t_named_references = new t_named_referencesImpl();
     return t_named_references;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_named_reference_subtypes createt_named_reference_subtypes()
+  {
+    t_named_reference_subtypesImpl t_named_reference_subtypes = new t_named_reference_subtypesImpl();
+    return t_named_reference_subtypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_subcomponent_subtypes createt_subcomponent_subtypes()
+  {
+    t_subcomponent_subtypesImpl t_subcomponent_subtypes = new t_subcomponent_subtypesImpl();
+    return t_subcomponent_subtypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_component_impl_subtypes createt_component_impl_subtypes()
+  {
+    t_component_impl_subtypesImpl t_component_impl_subtypes = new t_component_impl_subtypesImpl();
+    return t_component_impl_subtypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_connection_subtypes createt_connection_subtypes()
+  {
+    t_connection_subtypesImpl t_connection_subtypes = new t_connection_subtypesImpl();
+    return t_connection_subtypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_feature_subtypes createt_feature_subtypes()
+  {
+    t_feature_subtypesImpl t_feature_subtypes = new t_feature_subtypesImpl();
+    return t_feature_subtypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_access_subtypes createt_access_subtypes()
+  {
+    t_access_subtypesImpl t_access_subtypes = new t_access_subtypesImpl();
+    return t_access_subtypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_port_subtypes createt_port_subtypes()
+  {
+    t_port_subtypesImpl t_port_subtypes = new t_port_subtypesImpl();
+    return t_port_subtypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_flow_spec_subtypes createt_flow_spec_subtypes()
+  {
+    t_flow_spec_subtypesImpl t_flow_spec_subtypes = new t_flow_spec_subtypesImpl();
+    return t_flow_spec_subtypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public t_flow_impl_subtypes createt_flow_impl_subtypes()
+  {
+    t_flow_impl_subtypesImpl t_flow_impl_subtypes = new t_flow_impl_subtypesImpl();
+    return t_flow_impl_subtypes;
   }
 
   /**
