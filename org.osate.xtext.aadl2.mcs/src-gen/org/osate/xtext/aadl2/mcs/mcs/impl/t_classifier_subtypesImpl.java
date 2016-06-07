@@ -10,25 +10,25 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.t_classifier_subtypes;
+import org.osate.xtext.aadl2.mcs.mcs.T_classifier_subtypes;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>tclassifier subtypes</b></em>'.
+ * An implementation of the model object '<em><b>Tclassifier subtypes</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_classifier_subtypesImpl#isT_ctype <em>Tctype</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_classifier_subtypesImpl#isT_cimpl <em>Tcimpl</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_classifier_subtypesImpl#isT_fgclass <em>Tfgclass</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_classifier_subtypesImpl#isT_annexclass <em>Tannexclass</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.T_classifier_subtypesImpl#isT_ctype <em>Tctype</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.T_classifier_subtypesImpl#isT_cimpl <em>Tcimpl</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.T_classifier_subtypesImpl#isT_fgclass <em>Tfgclass</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.T_classifier_subtypesImpl#isT_annexclass <em>Tannexclass</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class t_classifier_subtypesImpl extends MinimalEObjectImpl.Container implements t_classifier_subtypes
+public class T_classifier_subtypesImpl extends MinimalEObjectImpl.Container implements T_classifier_subtypes
 {
   /**
    * The default value of the '{@link #isT_ctype() <em>Tctype</em>}' attribute.
@@ -115,7 +115,7 @@ public class t_classifier_subtypesImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected t_classifier_subtypesImpl()
+  protected T_classifier_subtypesImpl()
   {
     super();
   }
@@ -342,4 +342,4 @@ public class t_classifier_subtypesImpl extends MinimalEObjectImpl.Container impl
     return result.toString();
   }
 
-} //t_classifier_subtypesImpl
+} //T_classifier_subtypesImpl

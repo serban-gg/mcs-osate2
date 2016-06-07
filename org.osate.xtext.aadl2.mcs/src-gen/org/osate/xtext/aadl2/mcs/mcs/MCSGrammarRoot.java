@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot#getLib <em>Lib</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot#getFile <em>File</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot#getSubclause <em>Subclause</em>}</li>
  * </ul>
  * </p>
@@ -48,6 +49,32 @@ public interface MCSGrammarRoot extends EObject
    * @generated
    */
   void setLib(MCSAnnexLibrary value);
+
+  /**
+   * Returns the value of the '<em><b>File</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>File</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>File</em>' containment reference.
+   * @see #setFile(MCSFileLibrary)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSGrammarRoot_File()
+   * @model containment="true"
+   * @generated
+   */
+  MCSFileLibrary getFile();
+
+  /**
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot#getFile <em>File</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>File</em>' containment reference.
+   * @see #getFile()
+   * @generated
+   */
+  void setFile(MCSFileLibrary value);
 
   /**
    * Returns the value of the '<em><b>Subclause</b></em>' containment reference.

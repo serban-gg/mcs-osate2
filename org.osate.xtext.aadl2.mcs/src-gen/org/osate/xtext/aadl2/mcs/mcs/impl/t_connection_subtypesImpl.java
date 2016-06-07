@@ -29,7 +29,7 @@ import org.osate.xtext.aadl2.mcs.mcs.t_connection_subtypes;
  *
  * @generated
  */
-public class t_connection_subtypesImpl extends t_named_reference_subtypesImpl implements t_connection_subtypes
+public class t_connection_subtypesImpl extends t_instance_subtypesImpl implements t_connection_subtypes
 {
   /**
    * The default value of the '{@link #isT_conn() <em>Tconn</em>}' attribute.

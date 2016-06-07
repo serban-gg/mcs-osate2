@@ -66,74 +66,73 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
     {
       case McsPackage.MCS_GRAMMAR_ROOT: return createMCSGrammarRoot();
       case McsPackage.MCS_ANNEX_LIBRARY: return createMCSAnnexLibrary();
-      case McsPackage.TYPE_DECLARATION: return createType_declaration();
-      case McsPackage.CONSTANT_DECLARATION: return createConstant_declaration();
-      case McsPackage.MCS_VIEWPOINT: return createMCSViewpoint();
-      case McsPackage.ENFORCEMENT_POLICY: return createEnforcement_policy();
-      case McsPackage.PACKAGE_SCRIPT: return createPackageScript();
-      case McsPackage.APPLIES_TO_CLAUSE: return createAppliesToClause();
-      case McsPackage.CLASSIFIER_CATEGORY: return createClassifierCategory();
-      case McsPackage.FEATURE_GROUP_CLASSIFIER_REFERENCE: return createFeatureGroupClassifierReference();
-      case McsPackage.VIEWPOINT_REFERENCE: return createViewpointReference();
-      case McsPackage.CONSTRAINTS_BLOCK: return createConstraintsBlock();
-      case McsPackage.LABELLED_CHECK_STATEMENT: return createlabelled_check_statement();
-      case McsPackage.CHECK_STATEMENT: return createcheck_statement();
-      case McsPackage.BLOCK_LABEL_ID: return createblock_label_id();
-      case McsPackage.CHECK_LABEL_ID: return createcheck_label_id();
-      case McsPackage.CHECK_THEOREM: return createcheck_theorem();
-      case McsPackage.MODE_SPEC: return createModeSpec();
-      case McsPackage.MODE_NAME: return createModeName();
-      case McsPackage.CHECK_ASSERTION: return createcheck_assertion();
-      case McsPackage.ROOT_ELEMENT: return createroot_element();
-      case McsPackage.PROPERTY_REFERENCE: return createproperty_reference();
-      case McsPackage.ELEMENT_REFERENCE: return createelement_reference();
-      case McsPackage.CONTAINMENT_PATH_ELEMENT: return createContainmentPathElement();
-      case McsPackage.ARRAY_RANGE: return createArrayRange();
-      case McsPackage.PACKAGE_ENFORCE: return createPackageEnforce();
-      case McsPackage.ASSERTION_EXPRESSION: return createassertion_expression();
-      case McsPackage.STRING_EXPRESSION: return createstring_expression();
-      case McsPackage.CONSTANT_EXPRESSION: return createconstant_expression();
-      case McsPackage.EXPRESSION: return createexpression();
-      case McsPackage.BOOLEAN_TERM: return createBooleanTerm();
-      case McsPackage.COLLECTION_TERM: return createCollectionTerm();
-      case McsPackage.SET_COMPREHENSION: return createSet_comprehension();
-      case McsPackage.QUERY_ELEMENT_SET: return createQuery_element_set();
-      case McsPackage.ELEMENT_TYPES: return createElement_types();
+      case McsPackage.MCS_FILE_LIBRARY: return createMCSFileLibrary();
       case McsPackage.MCS_ANNEX_SUBCLAUSE: return createMCSAnnexSubclause();
-      case McsPackage.CLASSIFIER_ENFORCE: return createClassifierEnforce();
-      case McsPackage.CLASSIFIER_SCRIPT: return createClassifierScript();
-      case McsPackage.FUNCTION_DECLARATION: return createFunction_declaration();
-      case McsPackage.ARGUMENT: return createArgument();
-      case McsPackage.THEOREM_DECLARATION: return createTheorem_declaration();
-      case McsPackage.IN_MODES_LIST: return createIn_modes_list();
-      case McsPackage.LOCAL_DECLARATION: return createLocal_declaration();
-      case McsPackage.THEOREM_STATEMENT: return createTheorem_statement();
-      case McsPackage.BASIC_STATEMENT: return createBasic_statement();
-      case McsPackage.ITERATION: return createIteration();
+      case McsPackage.CONSTANT: return createConstant();
+      case McsPackage.FOR_T: return createF_or_T();
+      case McsPackage.THEOREM_ROOT: return createTheorem_root();
+      case McsPackage.DEFINITION_BODY: return createDefinitionBody();
+      case McsPackage.ARG: return createArg();
+      case McsPackage.PARM_STRING: return createParm_string();
+      case McsPackage.CLAIM_TEXT_VAR: return createClaimTextVar();
+      case McsPackage.THEOREM_CALL: return createTheoremCall();
+      case McsPackage.CLASSIFIER_LITERAL: return createClassifier_literal();
+      case McsPackage.REFERENCE_TERM: return createReferenceTerm();
+      case McsPackage.MCS_NAME: return createMcs_name();
+      case McsPackage.MCS_NAME_REF: return createMcs_name_ref();
+      case McsPackage.LET_BINDING: return createLet_binding();
+      case McsPackage.EXPR: return createExpr();
+      case McsPackage.DOMAIN: return createDomain();
       case McsPackage.TYPE_EXPRESSION: return createType_expression();
       case McsPackage.BASIC_TYPE: return createBasic_type();
-      case McsPackage.UNNAMED_FUNCTION_TYPE: return createUnnamedFunctionType();
       case McsPackage.COMPOSITE_TYPE: return createComposite_type();
+      case McsPackage.MAPPING_TYPE: return createMapping_type();
       case McsPackage.SET_TYPE: return createSet_type();
       case McsPackage.LIST_TYPE: return createList_type();
-      case McsPackage.MAP_TYPE: return createMap_type();
       case McsPackage.RECORD_TYPE: return createRecord_type();
       case McsPackage.UNION_TYPE: return createUnion_type();
       case McsPackage.ID_TYPE_PAIR: return createId_type_pair();
       case McsPackage.ELEMENT_TYPE: return createElement_type();
-      case McsPackage.TCLASSIFIERS: return createt_classifiers();
-      case McsPackage.TCLASSIFIER_SUBTYPES: return createt_classifier_subtypes();
-      case McsPackage.TNAMED_REFERENCES: return createt_named_references();
-      case McsPackage.TNAMED_REFERENCE_SUBTYPES: return createt_named_reference_subtypes();
+      case McsPackage.CLASSIFIERS: return createClassifiers();
+      case McsPackage.TCLASSIFIER_SUBTYPES: return createT_classifier_subtypes();
+      case McsPackage.INSTANCES: return createInstances();
+      case McsPackage.TINSTANCE_SUBTYPES: return createt_instance_subtypes();
       case McsPackage.TSUBCOMPONENT_SUBTYPES: return createt_subcomponent_subtypes();
-      case McsPackage.TCOMPONENT_IMPL_SUBTYPES: return createt_component_impl_subtypes();
+      case McsPackage.TCOMPONENT_SUBTYPES: return createt_component_subtypes();
       case McsPackage.TCONNECTION_SUBTYPES: return createt_connection_subtypes();
       case McsPackage.TFEATURE_SUBTYPES: return createt_feature_subtypes();
       case McsPackage.TACCESS_SUBTYPES: return createt_access_subtypes();
       case McsPackage.TPORT_SUBTYPES: return createt_port_subtypes();
       case McsPackage.TFLOW_SPEC_SUBTYPES: return createt_flow_spec_subtypes();
       case McsPackage.TFLOW_IMPL_SUBTYPES: return createt_flow_impl_subtypes();
-      case McsPackage.MCS_CLOSURE: return createMCSClosure();
+      case McsPackage.FUNCTION_BODY: return createFunctionBody();
+      case McsPackage.CLAIM_BODY: return createClaimBody();
+      case McsPackage.CLAIM_STRING: return createClaimString();
+      case McsPackage.CLAIM_ARG: return createClaimArg();
+      case McsPackage.BINARY_EXPR: return createBinaryExpr();
+      case McsPackage.INSTANCE_OF_EXPR: return createInstanceOfExpr();
+      case McsPackage.UNARY_EXPR: return createUnaryExpr();
+      case McsPackage.POST_CAST_EXPR: return createPostCastExpr();
+      case McsPackage.MCS_NAME_EXPR: return createMCSNameExpr();
+      case McsPackage.PKG_EXPR: return createPkgExpr();
+      case McsPackage.COMP_EXPR: return createCompExpr();
+      case McsPackage.REF_EXPR: return createRefExpr();
+      case McsPackage.THIS_EXPR: return createThisExpr();
+      case McsPackage.INT_EXPR: return createIntExpr();
+      case McsPackage.REAL_EXPR: return createRealExpr();
+      case McsPackage.BOOL_EXPR: return createBoolExpr();
+      case McsPackage.STRING_EXPR: return createStringExpr();
+      case McsPackage.RANGE: return createRange();
+      case McsPackage.IF_THEN_ELSE_EXPR: return createIfThenElseExpr();
+      case McsPackage.QUANTIFIED_EXPR: return createQuantifiedExpr();
+      case McsPackage.BUILT_IN_FN_CALL_EXPR: return createBuiltInFnCallExpr();
+      case McsPackage.BUILT_PROPERTY_EXISTS: return createBuiltPropertyExists();
+      case McsPackage.BUILT_PROPERTY_VAL: return createBuiltPropertyVal();
+      case McsPackage.FN_CALL_EXPR: return createFnCallExpr();
+      case McsPackage.FILTER_MAP_EXPR: return createFilterMapExpr();
+      case McsPackage.SET_EXPR: return createSetExpr();
+      case McsPackage.EMPTY: return createEmpty();
+      case McsPackage.LET_EXPR: return createLetExpr();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -166,362 +165,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type_declaration createType_declaration()
+  public MCSFileLibrary createMCSFileLibrary()
   {
-    Type_declarationImpl type_declaration = new Type_declarationImpl();
-    return type_declaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Constant_declaration createConstant_declaration()
-  {
-    Constant_declarationImpl constant_declaration = new Constant_declarationImpl();
-    return constant_declaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MCSViewpoint createMCSViewpoint()
-  {
-    MCSViewpointImpl mcsViewpoint = new MCSViewpointImpl();
-    return mcsViewpoint;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Enforcement_policy createEnforcement_policy()
-  {
-    Enforcement_policyImpl enforcement_policy = new Enforcement_policyImpl();
-    return enforcement_policy;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PackageScript createPackageScript()
-  {
-    PackageScriptImpl packageScript = new PackageScriptImpl();
-    return packageScript;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AppliesToClause createAppliesToClause()
-  {
-    AppliesToClauseImpl appliesToClause = new AppliesToClauseImpl();
-    return appliesToClause;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ClassifierCategory createClassifierCategory()
-  {
-    ClassifierCategoryImpl classifierCategory = new ClassifierCategoryImpl();
-    return classifierCategory;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FeatureGroupClassifierReference createFeatureGroupClassifierReference()
-  {
-    FeatureGroupClassifierReferenceImpl featureGroupClassifierReference = new FeatureGroupClassifierReferenceImpl();
-    return featureGroupClassifierReference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ViewpointReference createViewpointReference()
-  {
-    ViewpointReferenceImpl viewpointReference = new ViewpointReferenceImpl();
-    return viewpointReference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ConstraintsBlock createConstraintsBlock()
-  {
-    ConstraintsBlockImpl constraintsBlock = new ConstraintsBlockImpl();
-    return constraintsBlock;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public labelled_check_statement createlabelled_check_statement()
-  {
-    labelled_check_statementImpl labelled_check_statement = new labelled_check_statementImpl();
-    return labelled_check_statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public check_statement createcheck_statement()
-  {
-    check_statementImpl check_statement = new check_statementImpl();
-    return check_statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public block_label_id createblock_label_id()
-  {
-    block_label_idImpl block_label_id = new block_label_idImpl();
-    return block_label_id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public check_label_id createcheck_label_id()
-  {
-    check_label_idImpl check_label_id = new check_label_idImpl();
-    return check_label_id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public check_theorem createcheck_theorem()
-  {
-    check_theoremImpl check_theorem = new check_theoremImpl();
-    return check_theorem;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ModeSpec createModeSpec()
-  {
-    ModeSpecImpl modeSpec = new ModeSpecImpl();
-    return modeSpec;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ModeName createModeName()
-  {
-    ModeNameImpl modeName = new ModeNameImpl();
-    return modeName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public check_assertion createcheck_assertion()
-  {
-    check_assertionImpl check_assertion = new check_assertionImpl();
-    return check_assertion;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public root_element createroot_element()
-  {
-    root_elementImpl root_element = new root_elementImpl();
-    return root_element;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public property_reference createproperty_reference()
-  {
-    property_referenceImpl property_reference = new property_referenceImpl();
-    return property_reference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public element_reference createelement_reference()
-  {
-    element_referenceImpl element_reference = new element_referenceImpl();
-    return element_reference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ContainmentPathElement createContainmentPathElement()
-  {
-    ContainmentPathElementImpl containmentPathElement = new ContainmentPathElementImpl();
-    return containmentPathElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ArrayRange createArrayRange()
-  {
-    ArrayRangeImpl arrayRange = new ArrayRangeImpl();
-    return arrayRange;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PackageEnforce createPackageEnforce()
-  {
-    PackageEnforceImpl packageEnforce = new PackageEnforceImpl();
-    return packageEnforce;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public assertion_expression createassertion_expression()
-  {
-    assertion_expressionImpl assertion_expression = new assertion_expressionImpl();
-    return assertion_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public string_expression createstring_expression()
-  {
-    string_expressionImpl string_expression = new string_expressionImpl();
-    return string_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public constant_expression createconstant_expression()
-  {
-    constant_expressionImpl constant_expression = new constant_expressionImpl();
-    return constant_expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public expression createexpression()
-  {
-    expressionImpl expression = new expressionImpl();
-    return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BooleanTerm createBooleanTerm()
-  {
-    BooleanTermImpl booleanTerm = new BooleanTermImpl();
-    return booleanTerm;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CollectionTerm createCollectionTerm()
-  {
-    CollectionTermImpl collectionTerm = new CollectionTermImpl();
-    return collectionTerm;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Set_comprehension createSet_comprehension()
-  {
-    Set_comprehensionImpl set_comprehension = new Set_comprehensionImpl();
-    return set_comprehension;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Query_element_set createQuery_element_set()
-  {
-    Query_element_setImpl query_element_set = new Query_element_setImpl();
-    return query_element_set;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Element_types createElement_types()
-  {
-    Element_typesImpl element_types = new Element_typesImpl();
-    return element_types;
+    MCSFileLibraryImpl mcsFileLibrary = new MCSFileLibraryImpl();
+    return mcsFileLibrary;
   }
 
   /**
@@ -540,10 +187,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClassifierEnforce createClassifierEnforce()
+  public Constant createConstant()
   {
-    ClassifierEnforceImpl classifierEnforce = new ClassifierEnforceImpl();
-    return classifierEnforce;
+    ConstantImpl constant = new ConstantImpl();
+    return constant;
   }
 
   /**
@@ -551,10 +198,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClassifierScript createClassifierScript()
+  public F_or_T createF_or_T()
   {
-    ClassifierScriptImpl classifierScript = new ClassifierScriptImpl();
-    return classifierScript;
+    F_or_TImpl f_or_T = new F_or_TImpl();
+    return f_or_T;
   }
 
   /**
@@ -562,10 +209,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Function_declaration createFunction_declaration()
+  public Theorem_root createTheorem_root()
   {
-    Function_declarationImpl function_declaration = new Function_declarationImpl();
-    return function_declaration;
+    Theorem_rootImpl theorem_root = new Theorem_rootImpl();
+    return theorem_root;
   }
 
   /**
@@ -573,10 +220,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Argument createArgument()
+  public DefinitionBody createDefinitionBody()
   {
-    ArgumentImpl argument = new ArgumentImpl();
-    return argument;
+    DefinitionBodyImpl definitionBody = new DefinitionBodyImpl();
+    return definitionBody;
   }
 
   /**
@@ -584,10 +231,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Theorem_declaration createTheorem_declaration()
+  public Arg createArg()
   {
-    Theorem_declarationImpl theorem_declaration = new Theorem_declarationImpl();
-    return theorem_declaration;
+    ArgImpl arg = new ArgImpl();
+    return arg;
   }
 
   /**
@@ -595,10 +242,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public In_modes_list createIn_modes_list()
+  public Parm_string createParm_string()
   {
-    In_modes_listImpl in_modes_list = new In_modes_listImpl();
-    return in_modes_list;
+    Parm_stringImpl parm_string = new Parm_stringImpl();
+    return parm_string;
   }
 
   /**
@@ -606,10 +253,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Local_declaration createLocal_declaration()
+  public ClaimTextVar createClaimTextVar()
   {
-    Local_declarationImpl local_declaration = new Local_declarationImpl();
-    return local_declaration;
+    ClaimTextVarImpl claimTextVar = new ClaimTextVarImpl();
+    return claimTextVar;
   }
 
   /**
@@ -617,10 +264,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Theorem_statement createTheorem_statement()
+  public TheoremCall createTheoremCall()
   {
-    Theorem_statementImpl theorem_statement = new Theorem_statementImpl();
-    return theorem_statement;
+    TheoremCallImpl theoremCall = new TheoremCallImpl();
+    return theoremCall;
   }
 
   /**
@@ -628,10 +275,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Basic_statement createBasic_statement()
+  public Classifier_literal createClassifier_literal()
   {
-    Basic_statementImpl basic_statement = new Basic_statementImpl();
-    return basic_statement;
+    Classifier_literalImpl classifier_literal = new Classifier_literalImpl();
+    return classifier_literal;
   }
 
   /**
@@ -639,10 +286,65 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Iteration createIteration()
+  public ReferenceTerm createReferenceTerm()
   {
-    IterationImpl iteration = new IterationImpl();
-    return iteration;
+    ReferenceTermImpl referenceTerm = new ReferenceTermImpl();
+    return referenceTerm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Mcs_name createMcs_name()
+  {
+    Mcs_nameImpl mcs_name = new Mcs_nameImpl();
+    return mcs_name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Mcs_name_ref createMcs_name_ref()
+  {
+    Mcs_name_refImpl mcs_name_ref = new Mcs_name_refImpl();
+    return mcs_name_ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Let_binding createLet_binding()
+  {
+    Let_bindingImpl let_binding = new Let_bindingImpl();
+    return let_binding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expr createExpr()
+  {
+    ExprImpl expr = new ExprImpl();
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Domain createDomain()
+  {
+    DomainImpl domain = new DomainImpl();
+    return domain;
   }
 
   /**
@@ -672,10 +374,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public UnnamedFunctionType createUnnamedFunctionType()
+  public Composite_type createComposite_type()
   {
-    UnnamedFunctionTypeImpl unnamedFunctionType = new UnnamedFunctionTypeImpl();
-    return unnamedFunctionType;
+    Composite_typeImpl composite_type = new Composite_typeImpl();
+    return composite_type;
   }
 
   /**
@@ -683,10 +385,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Composite_type createComposite_type()
+  public Mapping_type createMapping_type()
   {
-    Composite_typeImpl composite_type = new Composite_typeImpl();
-    return composite_type;
+    Mapping_typeImpl mapping_type = new Mapping_typeImpl();
+    return mapping_type;
   }
 
   /**
@@ -709,17 +411,6 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
   {
     List_typeImpl list_type = new List_typeImpl();
     return list_type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Map_type createMap_type()
-  {
-    Map_typeImpl map_type = new Map_typeImpl();
-    return map_type;
   }
 
   /**
@@ -771,10 +462,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public t_classifiers createt_classifiers()
+  public Classifiers createClassifiers()
   {
-    t_classifiersImpl t_classifiers = new t_classifiersImpl();
-    return t_classifiers;
+    ClassifiersImpl classifiers = new ClassifiersImpl();
+    return classifiers;
   }
 
   /**
@@ -782,9 +473,9 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public t_classifier_subtypes createt_classifier_subtypes()
+  public T_classifier_subtypes createT_classifier_subtypes()
   {
-    t_classifier_subtypesImpl t_classifier_subtypes = new t_classifier_subtypesImpl();
+    T_classifier_subtypesImpl t_classifier_subtypes = new T_classifier_subtypesImpl();
     return t_classifier_subtypes;
   }
 
@@ -793,10 +484,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public t_named_references createt_named_references()
+  public Instances createInstances()
   {
-    t_named_referencesImpl t_named_references = new t_named_referencesImpl();
-    return t_named_references;
+    InstancesImpl instances = new InstancesImpl();
+    return instances;
   }
 
   /**
@@ -804,10 +495,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public t_named_reference_subtypes createt_named_reference_subtypes()
+  public t_instance_subtypes createt_instance_subtypes()
   {
-    t_named_reference_subtypesImpl t_named_reference_subtypes = new t_named_reference_subtypesImpl();
-    return t_named_reference_subtypes;
+    t_instance_subtypesImpl t_instance_subtypes = new t_instance_subtypesImpl();
+    return t_instance_subtypes;
   }
 
   /**
@@ -826,10 +517,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public t_component_impl_subtypes createt_component_impl_subtypes()
+  public t_component_subtypes createt_component_subtypes()
   {
-    t_component_impl_subtypesImpl t_component_impl_subtypes = new t_component_impl_subtypesImpl();
-    return t_component_impl_subtypes;
+    t_component_subtypesImpl t_component_subtypes = new t_component_subtypesImpl();
+    return t_component_subtypes;
   }
 
   /**
@@ -903,10 +594,307 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MCSClosure createMCSClosure()
+  public FunctionBody createFunctionBody()
   {
-    MCSClosureImpl mcsClosure = new MCSClosureImpl();
-    return mcsClosure;
+    FunctionBodyImpl functionBody = new FunctionBodyImpl();
+    return functionBody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ClaimBody createClaimBody()
+  {
+    ClaimBodyImpl claimBody = new ClaimBodyImpl();
+    return claimBody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ClaimString createClaimString()
+  {
+    ClaimStringImpl claimString = new ClaimStringImpl();
+    return claimString;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ClaimArg createClaimArg()
+  {
+    ClaimArgImpl claimArg = new ClaimArgImpl();
+    return claimArg;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BinaryExpr createBinaryExpr()
+  {
+    BinaryExprImpl binaryExpr = new BinaryExprImpl();
+    return binaryExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InstanceOfExpr createInstanceOfExpr()
+  {
+    InstanceOfExprImpl instanceOfExpr = new InstanceOfExprImpl();
+    return instanceOfExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnaryExpr createUnaryExpr()
+  {
+    UnaryExprImpl unaryExpr = new UnaryExprImpl();
+    return unaryExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostCastExpr createPostCastExpr()
+  {
+    PostCastExprImpl postCastExpr = new PostCastExprImpl();
+    return postCastExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MCSNameExpr createMCSNameExpr()
+  {
+    MCSNameExprImpl mcsNameExpr = new MCSNameExprImpl();
+    return mcsNameExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PkgExpr createPkgExpr()
+  {
+    PkgExprImpl pkgExpr = new PkgExprImpl();
+    return pkgExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CompExpr createCompExpr()
+  {
+    CompExprImpl compExpr = new CompExprImpl();
+    return compExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefExpr createRefExpr()
+  {
+    RefExprImpl refExpr = new RefExprImpl();
+    return refExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ThisExpr createThisExpr()
+  {
+    ThisExprImpl thisExpr = new ThisExprImpl();
+    return thisExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntExpr createIntExpr()
+  {
+    IntExprImpl intExpr = new IntExprImpl();
+    return intExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RealExpr createRealExpr()
+  {
+    RealExprImpl realExpr = new RealExprImpl();
+    return realExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BoolExpr createBoolExpr()
+  {
+    BoolExprImpl boolExpr = new BoolExprImpl();
+    return boolExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringExpr createStringExpr()
+  {
+    StringExprImpl stringExpr = new StringExprImpl();
+    return stringExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Range createRange()
+  {
+    RangeImpl range = new RangeImpl();
+    return range;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfThenElseExpr createIfThenElseExpr()
+  {
+    IfThenElseExprImpl ifThenElseExpr = new IfThenElseExprImpl();
+    return ifThenElseExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QuantifiedExpr createQuantifiedExpr()
+  {
+    QuantifiedExprImpl quantifiedExpr = new QuantifiedExprImpl();
+    return quantifiedExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BuiltInFnCallExpr createBuiltInFnCallExpr()
+  {
+    BuiltInFnCallExprImpl builtInFnCallExpr = new BuiltInFnCallExprImpl();
+    return builtInFnCallExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BuiltPropertyExists createBuiltPropertyExists()
+  {
+    BuiltPropertyExistsImpl builtPropertyExists = new BuiltPropertyExistsImpl();
+    return builtPropertyExists;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BuiltPropertyVal createBuiltPropertyVal()
+  {
+    BuiltPropertyValImpl builtPropertyVal = new BuiltPropertyValImpl();
+    return builtPropertyVal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FnCallExpr createFnCallExpr()
+  {
+    FnCallExprImpl fnCallExpr = new FnCallExprImpl();
+    return fnCallExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FilterMapExpr createFilterMapExpr()
+  {
+    FilterMapExprImpl filterMapExpr = new FilterMapExprImpl();
+    return filterMapExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SetExpr createSetExpr()
+  {
+    SetExprImpl setExpr = new SetExprImpl();
+    return setExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Empty createEmpty()
+  {
+    EmptyImpl empty = new EmptyImpl();
+    return empty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LetExpr createLetExpr()
+  {
+    LetExprImpl letExpr = new LetExprImpl();
+    return letExpr;
   }
 
   /**

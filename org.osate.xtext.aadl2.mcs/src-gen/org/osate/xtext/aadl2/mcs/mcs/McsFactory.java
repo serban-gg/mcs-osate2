@@ -41,301 +41,13 @@ public interface McsFactory extends EFactory
   MCSAnnexLibrary createMCSAnnexLibrary();
 
   /**
-   * Returns a new object of class '<em>Type declaration</em>'.
+   * Returns a new object of class '<em>MCS File Library</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type declaration</em>'.
+   * @return a new object of class '<em>MCS File Library</em>'.
    * @generated
    */
-  Type_declaration createType_declaration();
-
-  /**
-   * Returns a new object of class '<em>Constant declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constant declaration</em>'.
-   * @generated
-   */
-  Constant_declaration createConstant_declaration();
-
-  /**
-   * Returns a new object of class '<em>MCS Viewpoint</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>MCS Viewpoint</em>'.
-   * @generated
-   */
-  MCSViewpoint createMCSViewpoint();
-
-  /**
-   * Returns a new object of class '<em>Enforcement policy</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Enforcement policy</em>'.
-   * @generated
-   */
-  Enforcement_policy createEnforcement_policy();
-
-  /**
-   * Returns a new object of class '<em>Package Script</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Package Script</em>'.
-   * @generated
-   */
-  PackageScript createPackageScript();
-
-  /**
-   * Returns a new object of class '<em>Applies To Clause</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Applies To Clause</em>'.
-   * @generated
-   */
-  AppliesToClause createAppliesToClause();
-
-  /**
-   * Returns a new object of class '<em>Classifier Category</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Classifier Category</em>'.
-   * @generated
-   */
-  ClassifierCategory createClassifierCategory();
-
-  /**
-   * Returns a new object of class '<em>Feature Group Classifier Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Feature Group Classifier Reference</em>'.
-   * @generated
-   */
-  FeatureGroupClassifierReference createFeatureGroupClassifierReference();
-
-  /**
-   * Returns a new object of class '<em>Viewpoint Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Viewpoint Reference</em>'.
-   * @generated
-   */
-  ViewpointReference createViewpointReference();
-
-  /**
-   * Returns a new object of class '<em>Constraints Block</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constraints Block</em>'.
-   * @generated
-   */
-  ConstraintsBlock createConstraintsBlock();
-
-  /**
-   * Returns a new object of class '<em>labelled check statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>labelled check statement</em>'.
-   * @generated
-   */
-  labelled_check_statement createlabelled_check_statement();
-
-  /**
-   * Returns a new object of class '<em>check statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>check statement</em>'.
-   * @generated
-   */
-  check_statement createcheck_statement();
-
-  /**
-   * Returns a new object of class '<em>block label id</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>block label id</em>'.
-   * @generated
-   */
-  block_label_id createblock_label_id();
-
-  /**
-   * Returns a new object of class '<em>check label id</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>check label id</em>'.
-   * @generated
-   */
-  check_label_id createcheck_label_id();
-
-  /**
-   * Returns a new object of class '<em>check theorem</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>check theorem</em>'.
-   * @generated
-   */
-  check_theorem createcheck_theorem();
-
-  /**
-   * Returns a new object of class '<em>Mode Spec</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mode Spec</em>'.
-   * @generated
-   */
-  ModeSpec createModeSpec();
-
-  /**
-   * Returns a new object of class '<em>Mode Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mode Name</em>'.
-   * @generated
-   */
-  ModeName createModeName();
-
-  /**
-   * Returns a new object of class '<em>check assertion</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>check assertion</em>'.
-   * @generated
-   */
-  check_assertion createcheck_assertion();
-
-  /**
-   * Returns a new object of class '<em>root element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>root element</em>'.
-   * @generated
-   */
-  root_element createroot_element();
-
-  /**
-   * Returns a new object of class '<em>property reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>property reference</em>'.
-   * @generated
-   */
-  property_reference createproperty_reference();
-
-  /**
-   * Returns a new object of class '<em>element reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>element reference</em>'.
-   * @generated
-   */
-  element_reference createelement_reference();
-
-  /**
-   * Returns a new object of class '<em>Containment Path Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Containment Path Element</em>'.
-   * @generated
-   */
-  ContainmentPathElement createContainmentPathElement();
-
-  /**
-   * Returns a new object of class '<em>Array Range</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Array Range</em>'.
-   * @generated
-   */
-  ArrayRange createArrayRange();
-
-  /**
-   * Returns a new object of class '<em>Package Enforce</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Package Enforce</em>'.
-   * @generated
-   */
-  PackageEnforce createPackageEnforce();
-
-  /**
-   * Returns a new object of class '<em>assertion expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>assertion expression</em>'.
-   * @generated
-   */
-  assertion_expression createassertion_expression();
-
-  /**
-   * Returns a new object of class '<em>string expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>string expression</em>'.
-   * @generated
-   */
-  string_expression createstring_expression();
-
-  /**
-   * Returns a new object of class '<em>constant expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>constant expression</em>'.
-   * @generated
-   */
-  constant_expression createconstant_expression();
-
-  /**
-   * Returns a new object of class '<em>expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>expression</em>'.
-   * @generated
-   */
-  expression createexpression();
-
-  /**
-   * Returns a new object of class '<em>Boolean Term</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Boolean Term</em>'.
-   * @generated
-   */
-  BooleanTerm createBooleanTerm();
-
-  /**
-   * Returns a new object of class '<em>Collection Term</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Collection Term</em>'.
-   * @generated
-   */
-  CollectionTerm createCollectionTerm();
-
-  /**
-   * Returns a new object of class '<em>Set comprehension</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Set comprehension</em>'.
-   * @generated
-   */
-  Set_comprehension createSet_comprehension();
-
-  /**
-   * Returns a new object of class '<em>Query element set</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Query element set</em>'.
-   * @generated
-   */
-  Query_element_set createQuery_element_set();
-
-  /**
-   * Returns a new object of class '<em>Element types</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Element types</em>'.
-   * @generated
-   */
-  Element_types createElement_types();
+  MCSFileLibrary createMCSFileLibrary();
 
   /**
    * Returns a new object of class '<em>MCS Annex Subclause</em>'.
@@ -347,94 +59,139 @@ public interface McsFactory extends EFactory
   MCSAnnexSubclause createMCSAnnexSubclause();
 
   /**
-   * Returns a new object of class '<em>Classifier Enforce</em>'.
+   * Returns a new object of class '<em>Constant</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Classifier Enforce</em>'.
+   * @return a new object of class '<em>Constant</em>'.
    * @generated
    */
-  ClassifierEnforce createClassifierEnforce();
+  Constant createConstant();
 
   /**
-   * Returns a new object of class '<em>Classifier Script</em>'.
+   * Returns a new object of class '<em>For T</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Classifier Script</em>'.
+   * @return a new object of class '<em>For T</em>'.
    * @generated
    */
-  ClassifierScript createClassifierScript();
+  F_or_T createF_or_T();
 
   /**
-   * Returns a new object of class '<em>Function declaration</em>'.
+   * Returns a new object of class '<em>Theorem root</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function declaration</em>'.
+   * @return a new object of class '<em>Theorem root</em>'.
    * @generated
    */
-  Function_declaration createFunction_declaration();
+  Theorem_root createTheorem_root();
 
   /**
-   * Returns a new object of class '<em>Argument</em>'.
+   * Returns a new object of class '<em>Definition Body</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Argument</em>'.
+   * @return a new object of class '<em>Definition Body</em>'.
    * @generated
    */
-  Argument createArgument();
+  DefinitionBody createDefinitionBody();
 
   /**
-   * Returns a new object of class '<em>Theorem declaration</em>'.
+   * Returns a new object of class '<em>Arg</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Theorem declaration</em>'.
+   * @return a new object of class '<em>Arg</em>'.
    * @generated
    */
-  Theorem_declaration createTheorem_declaration();
+  Arg createArg();
 
   /**
-   * Returns a new object of class '<em>In modes list</em>'.
+   * Returns a new object of class '<em>Parm string</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>In modes list</em>'.
+   * @return a new object of class '<em>Parm string</em>'.
    * @generated
    */
-  In_modes_list createIn_modes_list();
+  Parm_string createParm_string();
 
   /**
-   * Returns a new object of class '<em>Local declaration</em>'.
+   * Returns a new object of class '<em>Claim Text Var</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Local declaration</em>'.
+   * @return a new object of class '<em>Claim Text Var</em>'.
    * @generated
    */
-  Local_declaration createLocal_declaration();
+  ClaimTextVar createClaimTextVar();
 
   /**
-   * Returns a new object of class '<em>Theorem statement</em>'.
+   * Returns a new object of class '<em>Theorem Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Theorem statement</em>'.
+   * @return a new object of class '<em>Theorem Call</em>'.
    * @generated
    */
-  Theorem_statement createTheorem_statement();
+  TheoremCall createTheoremCall();
 
   /**
-   * Returns a new object of class '<em>Basic statement</em>'.
+   * Returns a new object of class '<em>Classifier literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Basic statement</em>'.
+   * @return a new object of class '<em>Classifier literal</em>'.
    * @generated
    */
-  Basic_statement createBasic_statement();
+  Classifier_literal createClassifier_literal();
 
   /**
-   * Returns a new object of class '<em>Iteration</em>'.
+   * Returns a new object of class '<em>Reference Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Iteration</em>'.
+   * @return a new object of class '<em>Reference Term</em>'.
    * @generated
    */
-  Iteration createIteration();
+  ReferenceTerm createReferenceTerm();
+
+  /**
+   * Returns a new object of class '<em>Mcs name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mcs name</em>'.
+   * @generated
+   */
+  Mcs_name createMcs_name();
+
+  /**
+   * Returns a new object of class '<em>Mcs name ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mcs name ref</em>'.
+   * @generated
+   */
+  Mcs_name_ref createMcs_name_ref();
+
+  /**
+   * Returns a new object of class '<em>Let binding</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Let binding</em>'.
+   * @generated
+   */
+  Let_binding createLet_binding();
+
+  /**
+   * Returns a new object of class '<em>Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr</em>'.
+   * @generated
+   */
+  Expr createExpr();
+
+  /**
+   * Returns a new object of class '<em>Domain</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Domain</em>'.
+   * @generated
+   */
+  Domain createDomain();
 
   /**
    * Returns a new object of class '<em>Type expression</em>'.
@@ -455,15 +212,6 @@ public interface McsFactory extends EFactory
   Basic_type createBasic_type();
 
   /**
-   * Returns a new object of class '<em>Unnamed Function Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unnamed Function Type</em>'.
-   * @generated
-   */
-  UnnamedFunctionType createUnnamedFunctionType();
-
-  /**
    * Returns a new object of class '<em>Composite type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -471,6 +219,15 @@ public interface McsFactory extends EFactory
    * @generated
    */
   Composite_type createComposite_type();
+
+  /**
+   * Returns a new object of class '<em>Mapping type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mapping type</em>'.
+   * @generated
+   */
+  Mapping_type createMapping_type();
 
   /**
    * Returns a new object of class '<em>Set type</em>'.
@@ -489,15 +246,6 @@ public interface McsFactory extends EFactory
    * @generated
    */
   List_type createList_type();
-
-  /**
-   * Returns a new object of class '<em>Map type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Map type</em>'.
-   * @generated
-   */
-  Map_type createMap_type();
 
   /**
    * Returns a new object of class '<em>Record type</em>'.
@@ -536,40 +284,40 @@ public interface McsFactory extends EFactory
   Element_type createElement_type();
 
   /**
-   * Returns a new object of class '<em>tclassifiers</em>'.
+   * Returns a new object of class '<em>Classifiers</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>tclassifiers</em>'.
+   * @return a new object of class '<em>Classifiers</em>'.
    * @generated
    */
-  t_classifiers createt_classifiers();
+  Classifiers createClassifiers();
 
   /**
-   * Returns a new object of class '<em>tclassifier subtypes</em>'.
+   * Returns a new object of class '<em>Tclassifier subtypes</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>tclassifier subtypes</em>'.
+   * @return a new object of class '<em>Tclassifier subtypes</em>'.
    * @generated
    */
-  t_classifier_subtypes createt_classifier_subtypes();
+  T_classifier_subtypes createT_classifier_subtypes();
 
   /**
-   * Returns a new object of class '<em>tnamed references</em>'.
+   * Returns a new object of class '<em>Instances</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>tnamed references</em>'.
+   * @return a new object of class '<em>Instances</em>'.
    * @generated
    */
-  t_named_references createt_named_references();
+  Instances createInstances();
 
   /**
-   * Returns a new object of class '<em>tnamed reference subtypes</em>'.
+   * Returns a new object of class '<em>tinstance subtypes</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>tnamed reference subtypes</em>'.
+   * @return a new object of class '<em>tinstance subtypes</em>'.
    * @generated
    */
-  t_named_reference_subtypes createt_named_reference_subtypes();
+  t_instance_subtypes createt_instance_subtypes();
 
   /**
    * Returns a new object of class '<em>tsubcomponent subtypes</em>'.
@@ -581,13 +329,13 @@ public interface McsFactory extends EFactory
   t_subcomponent_subtypes createt_subcomponent_subtypes();
 
   /**
-   * Returns a new object of class '<em>tcomponent impl subtypes</em>'.
+   * Returns a new object of class '<em>tcomponent subtypes</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>tcomponent impl subtypes</em>'.
+   * @return a new object of class '<em>tcomponent subtypes</em>'.
    * @generated
    */
-  t_component_impl_subtypes createt_component_impl_subtypes();
+  t_component_subtypes createt_component_subtypes();
 
   /**
    * Returns a new object of class '<em>tconnection subtypes</em>'.
@@ -644,13 +392,256 @@ public interface McsFactory extends EFactory
   t_flow_impl_subtypes createt_flow_impl_subtypes();
 
   /**
-   * Returns a new object of class '<em>MCS Closure</em>'.
+   * Returns a new object of class '<em>Function Body</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>MCS Closure</em>'.
+   * @return a new object of class '<em>Function Body</em>'.
    * @generated
    */
-  MCSClosure createMCSClosure();
+  FunctionBody createFunctionBody();
+
+  /**
+   * Returns a new object of class '<em>Claim Body</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Claim Body</em>'.
+   * @generated
+   */
+  ClaimBody createClaimBody();
+
+  /**
+   * Returns a new object of class '<em>Claim String</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Claim String</em>'.
+   * @generated
+   */
+  ClaimString createClaimString();
+
+  /**
+   * Returns a new object of class '<em>Claim Arg</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Claim Arg</em>'.
+   * @generated
+   */
+  ClaimArg createClaimArg();
+
+  /**
+   * Returns a new object of class '<em>Binary Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binary Expr</em>'.
+   * @generated
+   */
+  BinaryExpr createBinaryExpr();
+
+  /**
+   * Returns a new object of class '<em>Instance Of Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Instance Of Expr</em>'.
+   * @generated
+   */
+  InstanceOfExpr createInstanceOfExpr();
+
+  /**
+   * Returns a new object of class '<em>Unary Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unary Expr</em>'.
+   * @generated
+   */
+  UnaryExpr createUnaryExpr();
+
+  /**
+   * Returns a new object of class '<em>Post Cast Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Post Cast Expr</em>'.
+   * @generated
+   */
+  PostCastExpr createPostCastExpr();
+
+  /**
+   * Returns a new object of class '<em>MCS Name Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>MCS Name Expr</em>'.
+   * @generated
+   */
+  MCSNameExpr createMCSNameExpr();
+
+  /**
+   * Returns a new object of class '<em>Pkg Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pkg Expr</em>'.
+   * @generated
+   */
+  PkgExpr createPkgExpr();
+
+  /**
+   * Returns a new object of class '<em>Comp Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Comp Expr</em>'.
+   * @generated
+   */
+  CompExpr createCompExpr();
+
+  /**
+   * Returns a new object of class '<em>Ref Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Expr</em>'.
+   * @generated
+   */
+  RefExpr createRefExpr();
+
+  /**
+   * Returns a new object of class '<em>This Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>This Expr</em>'.
+   * @generated
+   */
+  ThisExpr createThisExpr();
+
+  /**
+   * Returns a new object of class '<em>Int Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Int Expr</em>'.
+   * @generated
+   */
+  IntExpr createIntExpr();
+
+  /**
+   * Returns a new object of class '<em>Real Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Real Expr</em>'.
+   * @generated
+   */
+  RealExpr createRealExpr();
+
+  /**
+   * Returns a new object of class '<em>Bool Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bool Expr</em>'.
+   * @generated
+   */
+  BoolExpr createBoolExpr();
+
+  /**
+   * Returns a new object of class '<em>String Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Expr</em>'.
+   * @generated
+   */
+  StringExpr createStringExpr();
+
+  /**
+   * Returns a new object of class '<em>Range</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Range</em>'.
+   * @generated
+   */
+  Range createRange();
+
+  /**
+   * Returns a new object of class '<em>If Then Else Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Then Else Expr</em>'.
+   * @generated
+   */
+  IfThenElseExpr createIfThenElseExpr();
+
+  /**
+   * Returns a new object of class '<em>Quantified Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Quantified Expr</em>'.
+   * @generated
+   */
+  QuantifiedExpr createQuantifiedExpr();
+
+  /**
+   * Returns a new object of class '<em>Built In Fn Call Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Built In Fn Call Expr</em>'.
+   * @generated
+   */
+  BuiltInFnCallExpr createBuiltInFnCallExpr();
+
+  /**
+   * Returns a new object of class '<em>Built Property Exists</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Built Property Exists</em>'.
+   * @generated
+   */
+  BuiltPropertyExists createBuiltPropertyExists();
+
+  /**
+   * Returns a new object of class '<em>Built Property Val</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Built Property Val</em>'.
+   * @generated
+   */
+  BuiltPropertyVal createBuiltPropertyVal();
+
+  /**
+   * Returns a new object of class '<em>Fn Call Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fn Call Expr</em>'.
+   * @generated
+   */
+  FnCallExpr createFnCallExpr();
+
+  /**
+   * Returns a new object of class '<em>Filter Map Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Filter Map Expr</em>'.
+   * @generated
+   */
+  FilterMapExpr createFilterMapExpr();
+
+  /**
+   * Returns a new object of class '<em>Set Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Set Expr</em>'.
+   * @generated
+   */
+  SetExpr createSetExpr();
+
+  /**
+   * Returns a new object of class '<em>Empty</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Empty</em>'.
+   * @generated
+   */
+  Empty createEmpty();
+
+  /**
+   * Returns a new object of class '<em>Let Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Let Expr</em>'.
+   * @generated
+   */
+  LetExpr createLetExpr();
 
   /**
    * Returns the package supported by this factory.

@@ -1,19 +1,17 @@
-grammar org.osate.xtext.aadl2.mcs.MCS with org.eclipse.xtext.xbase.Xbase
-// with org.osate.xtext.aadl2.properties.Properties 
-   
+grammar org.osate.xtext.aadl2.mcs.MCS with org.osate.xtext.aadl2.Aadl2
 
 generate mcs "http://www.osate.org/xtext/aadl2/mcs/MCS"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "platform:/resource/org.osate.aadl2/model/aadl2.ecore" as aadl2
-//import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
-import "http://www.eclipse.org/xtext/xbase/Xbase"
+//import "http://www.eclipse.org/xtext/xbase/Xbase"
 
 MCSGrammarRoot :    
-      -> lib = MCSAnnexLibrary 
-      | subclause = MCSAnnexSubclause
+        'annex' lib = MCSAnnexLibrary 
+        | 'file' file = MCSFileLibrary
+        | 'subclause' subclause = MCSAnnexSubclause
 ;
-
+/* 
 AnnexLibrary returns aadl2::AnnexLibrary:
      MCSAnnexLibrary
 ;
@@ -21,256 +19,281 @@ AnnexLibrary returns aadl2::AnnexLibrary:
 AnnexSubclause returns aadl2::AnnexSubclause:
      MCSAnnexSubclause
 ;
+*/
 
 MCSAnnexLibrary returns MCSAnnexLibrary:
 	 {MCSAnnexLibrary}
-	  ('types' (types += Type_declaration)+)?
+	  ('consts' (constants += Constant_declaration)+)?
+	  ('functions' (functions += F_or_T_declaration)+)?
+	 ( 'theorems' (theorems += F_or_T_declaration)+)?
+;
+ 
+MCSFileLibrary:
+	{MCSFileLibrary}
+	  ('with' (importedUnit+=[aadl2::ModelUnit])  
+	                     (',' importedUnit+=[aadl2::ModelUnit])*)
+	  ('import' (files += File_name)+ (',' packs += File_name)*)?
 	  ('constants' (constants += Constant_declaration)+)?
-	  ('functions' (functions += Function_declaration)+)?
-	 ( 'theorems' (theorems += Theorem_declaration)+)?
-    ( viewpoints += MCSViewpoint (viewpoints += MCSViewpoint)* )?
-    ( enforceclauses += PackageEnforce (enforceclauses += PackageEnforce)* )?
+	  ('functions' (functions += F_or_T_declaration)+)?
+	  ('theorems' (theorems += F_or_T_declaration)+)?
+	  ('constraints' (calls += Theorem_call)+)?
 ;
 
-Type_declaration: 
-	name=ID ':' 'type' type = Type_expression ';'
+MCSAnnexSubclause returns MCSAnnexSubclause:       
+	 {MCSAnnexSubclause}
+	(  (calls += Theorem_call)+)?
 ;
 
-Constant_declaration :
-	const ?= ('const')? name=ID  (type = Type_expression)? ':='  left_expr = constant_expression ';' 
+File_name:
+	STRING
 ;
 
-MCSViewpoint returns MCSViewpoint:
-    'viewpoint' name = ID policy = Enforcement_policy (pscript = PackageScript)?
+Constant_declaration returns Constant :
+	name=ID ':' (type = Type_expression)? '='  left_expr = Expr ';' 
+  | 'type' name=ID  '=' type = Type_expression ';'
 ;
 
-Enforcement_policy :
-	(pack ?= 'package' | class ?= 'classifier') 'contract'
-;
-
-PackageScript :
-	'script' (applies += AppliesToClause (c_block += ConstraintsBlock)+)*
-	'endscript' ref = ViewpointReference ';'
-;
-
-AppliesToClause :
-	'applies' 'to' (all ?= 'all' | 
-					'(' category += ClassifierCategory ( ',' category += ClassifierCategory)* 	')'		
-					)
-;
-
-ClassifierCategory :
-	{ClassifierCategory}
-	(component = ComponentCategory (ct = [aadl2::ComponentType|QCREF])?   
-		         (impl ?= 'implementation' (ci = [aadl2::ComponentImplementation|QCREF])? )?
-				| feat_g ?= 'feature group' (ref_to_f = FeatureGroupClassifierReference)? ) 
-;
-
-ComponentCategory returns aadl2::ComponentCategory: 'abstract' | 'bus'|'data'
-	| 'device' | 'memory' | 'process' | 'processor' | 'subprogram'
-	| 'subprogram' 'group' | 'system' | 'thread' 'group'
-	| 'thread' | 'virtual' 'bus' | 'virtual' 'processor';
-
-FeatureGroupClassifierReference: fg = [aadl2::FeatureGroupType|QCREF]
-;
-
-ViewpointReference :
-	(policy = [Enforcement_policy])? vp_ref = [MCSViewpoint]
-;
-
-ConstraintsBlock :
-	 (b_label = block_label_id ':')? '{' (cs +=  labelled_check_statement)+ '}'
-				 	 	
-;
-
-labelled_check_statement:
-	(c_label = check_label_id ':')? cs = check_statement	
+F_or_T_declaration returns F_or_T:
+	name=ID (t_root ?= Theorem_root)? '(' (args+=Parameter (',' args+=Parameter)*)? ')' body=DefinitionBody
 ;
 	
-
-check_statement :
-	check_theorem | check_assertion
+Theorem_root:
+	'<' 'root' ':' ( nilroot ?= 'nil' | classifier = T_classifier_subtypes) '>'
 ;
 
-block_label_id : name = ID;
-
-check_label_id : name = ID;
-
-check_theorem :
-	'check' 'theorem' name = [Theorem_declaration] ('('root = root_element')')? (inmode = ModeSpec )?
-			('fail' str = string_expression)? ';'
+DefinitionBody:
+	{FunctionBody} ':' type=Type_expression '=' expr=Expr
+  | {ClaimBody} '<=' ('**'(claim+=Parm_string)+'**') expr=Expr
 ;
 
-ModeSpec :
-	'in' 'mode' mode = ModeName
+//Arg types are used for functions, claims, and quantifiers
+
+Parameter returns Arg: 
+	(name=ID ':' type=Type_expression)
 ;
 
-ModeName : 
-	name = ID					//temporary
+Parm_string:
+	 {ClaimString} str=STRING 
+| 	 {ClaimArg} arg=[ClaimTextVar] ('%' unit=[aadl2::UnitLiteral])?
 ;
 
-check_assertion :
-	'check' (root = root_element)? (inmode = ModeSpec)? '(' expr = assertion_expression ')' 
-			('fail' str = string_expression)? ';'
+ClaimTextVar: parm?= Parameter | const?=Constant_declaration | letb?=Let_binding;
+
+Theorem_call returns TheoremCall:
+    'check' name = [F_or_T]                   // must be a theorem reference 
+           ('<' ('nil'| croot = Classifier_literal) '>')?
+             '(' (actarg += Expr ( ',' actarg += Expr)*)? ')'
 ;
 
-root_element : 
-	element_reference
+Classifier_literal:
+	classlit = [aadl2::ComponentClassifier| FQCREF] 
+	| Mcs_name
 ;
 
-property_reference: 
-	{property_reference}
-	 (el_ref = element_reference) '#' (exists ?= '?')? (property=[aadl2::Property|QPREF])
+RealTerm returns aadl2::RealLiteral:
+	value=UnsignedReal (unit=[aadl2::UnitLiteral|ID])?
 ;
 
-element_reference :
-	{element_reference}
-	self ?= 'self' | root ?= 'root' | currentmode ?= 'current_mode' |
-	'classifier' '(' cref = [aadl2::Classifier | QCREF] ')' |
-	'reference' '('   (packageName += ID '::' )* ref = ContainmentPathElement ')'
-	; 
-	  
-ContainmentPathElement: // returns aadl2::ContainmentPathElement:
-	(
-		( 
-			namedElement=[aadl2::NamedElement|ID]
-	 		(arrayRange+=ArrayRange)?
-		) 
-		('.' path=ContainmentPathElement)?
-//	 | 	 'annex' namedElement=[aadl2::NamedElement|ID]
-	)
+UnsignedReal returns aadl2::Real:
+	REAL_LIT
 ;
 
-ArrayRange : //returns aadl2::ArrayRange: {aadl2::ArrayRange}
-	'[' lowerBound=INT ('..' upperBound=INT)? 
-	']'
-;
-PackageEnforce returns PackageEnforce:
-    'enforce' viewpoint = [MCSViewpoint] ';'			
- ;
-
-assertion_expression : expr = expression;
-
-string_expression : expr = expression;
-
-constant_expression: expression;
-
-expression :  name = XExpression;						// using XBase expressions
-
-XLiteral returns XExpression:
-    CollectionTerm |
-//	XCollectionLiteral |
-	XClosure |
-	BooleanTerm |
-//	XBooleanLiteral |
-	XNumberLiteral |
-	XNullLiteral |
-	XStringLiteral |
-	XTypeLiteral  
-  | =>  property_reference
-  | element_reference							// incrementing XBase with AADL specific expression literals 
- ;	
-
-BooleanTerm :  xbool = XBooleanLiteral |
-	          'is_member'  (  member_check = expression)  'in' (collect_expr = expression)
+IntegerTerm returns aadl2::IntegerLiteral:
+	value=UnsignedInt (unit=[aadl2::UnitLiteral|ID])?
 ;
 
-CollectionTerm : xc = XCollectionLiteral |
-				 => query_set = Query_element_set |
-				 set_c = Set_comprehension
-				 ;
-
-Set_comprehension: 
-				'set' '{' result = expression 'for' (var = ID) 'in' set = expression ('|' cond ?= expression)? '}'
-;		
-
-Query_element_set :
-		(direct ?= 'direct')?  'query' '{'    
-		'(' result_types += Element_types ( ',' result_types += Element_types)* ')' 
-		'from' (elem_set = expression) 
-			 (mode_spec ?= ModeSpec )? '}'
-			;
-
-Element_types:  
-	(el_type = Element_type) | '('  el_types += Element_type (',' el_types += Element_type)+ ')';	
-
-
-MCSAnnexSubclause returns MCSAnnexSubclause:       //temporary
-	 {MCSAnnexSubclause}
-	( 'types' (types += Type_declaration)+)?
-	( 'constants' (constants += Constant_declaration)+)?
-    ( 'functions' (functions += Function_declaration)+)?
-	( 'theorems' (theorems += Theorem_declaration)+)
-    ( enforceclauses += ClassifierEnforce (enforceclauses += ClassifierEnforce)* )?	
+UnsignedInt returns aadl2::Integer:
+	INTEGER_LIT
 ;
 
-ClassifierEnforce :
-	'enforce' viewpoint = [MCSViewpoint] script = ClassifierScript ';'
+Range returns aadl2::NumericRange:
+	lowerBound=(IntegerTerm | RealTerm  /*| ConstantValue */ )
+	 '..' upperBound=(IntegerTerm |RealTerm /*| ConstantValue */ )
+	;
+
+ReferenceTerm:
+  'reference' '(' 	(root ?= 'root' '.')?
+  path=ContainmentPathElement
+  ')'
+  ;
+
+Mcs_name:
+	name=ID      // global constant, parameter or let binding local
 ;
 
-ClassifierScript : 
-	'script' (c_block += ConstraintsBlock)*
-	'endscript' ref = ViewpointReference ';'
+Mcs_name_ref:
+	Mcs_name  ('.' ( -> builtin+=[BuiltInFnCallExpr] | method+=[FnCallExpr]))* 
 ;
 
-Function_declaration:
-	name=ID ('(' (arg += Argument)? (',' arg += Argument)* ')' ('returns' out=Type_expression)? |
-			  ':' (ftype = UnnamedFunctionType | typeref = [Type_declaration]))
-			':=' (closure = MCSClosure  |
-				 exp_body = XExpression) ';' 					
-;
-Argument: 
-	{Argument} name=ID (':' arg_type = Type_expression)?  	
+Let_binding:
+	name=ID ':' type = Type_expression '=' expr=Expr ';'
 ;
 
-MCSClosure returns XExpression:
-	=>({MCSClosure} 
-	'[') 
-		=>((declaredFormalParameters+=Argument (',' declaredFormalParameters+=Argument)*)? explicitSyntax?='|')? 
-		expression=XExpressionInClosure 
-	']';
-
-
-Theorem_declaration :
-	'theorem' name=ID ml ?= (In_modes_list)? (locals += Local_declaration)* (statements += Theorem_statement)*
-	'end' endname = [Theorem_declaration] ';'	
+Expr:
+	ImpliesExpr // ( '<' newtype = Type_expression '>')?
 ;
 
-In_modes_list:
-	'in' 'modes' '('modes += ID (',' modes += ID )*')'
+ImpliesExpr returns Expr:
+	OrExpr (=>({BinaryExpr.left=current} op='=>') right=ImpliesExpr)?
 ;
 
-Local_declaration:								// syntax similar to core AADL PropertyConstant
-	const ?= ('const')? name=ID  (type = Type_expression)? ':=' (left_expr = MCSClosure | left_expr = constant_expression) ';' 
+OrExpr returns Expr:
+	AndExpr (=>({BinaryExpr.left=current} op='or') right=AndExpr)*
 ;
 
-Theorem_statement: 
-	Basic_statement | check_statement
-;   
+AndExpr returns Expr:
+	InstanceOfExpr (=>({BinaryExpr.left=current} (op='and'|op='andthen')) right=InstanceOfExpr)*
+;
 
-Basic_statement : 
-//		assignment | 
-		Iteration 
-		; 
-//assignment : 
-//     		var_id = ID ':=' right = expression ;
-     		
-Iteration :
-     		'foreach' var_id = ID 'in' expr = expression 'do' 
-						'{' (local += Local_declaration)* (statements += Theorem_statement )+ '}'
+InstanceOfExpr returns Expr:
+	RelationalExpr (=>({InstanceOfExpr.expr=current} 'instanceof') type=Type_expression)?
+;
+
+RelationalOp:
+	'<' | '<=' | '>' | '>=' | '=' | '<>'
+;
+ 
+RelationalExpr returns Expr:
+	PlusExpr (=>({BinaryExpr.left=current} op=RelationalOp) right=PlusExpr)?
+;
+
+PlusExpr returns Expr:
+	TimesExpr (=>({BinaryExpr.left=current} op=('+' | '-')) right=TimesExpr)*
+;
+
+TimesExpr returns Expr:
+	PrefixExpr (=>({BinaryExpr.left=current} op=('*' | '/' | '%')) right=PrefixExpr)*	
+;
+
+PrefixExpr returns Expr:
+	{UnaryExpr} op = ('-' | 'not') expr=PrefixExpr
+//|   {PreCastExpr} '(' type=Type_expression ')' expr=PrefixExpr
+|	{PostCastExpr} expr = Expression_term => ( '<' newtype = Type_expression '>')?
+;
+
+
+Domain:
+	name=ID 'in' expr=Expr					// must be a set expression
+;
+
+Expression_term returns Expr:
+	
+	{MCSNameExpr} (root ?= 'root' | iroot ?='iroot' |   nil ?= 'nil' 
+| 	empty ?= 'empty'	| allmodes ?= 'allmodes' | nameref = Mcs_name_ref)
+|	{PkgExpr} 'package' '(' package = [aadl2::AadlPackage] ')'
+|   {CompExpr} classifier = ComponentClassifierTerm   // rules identical to
+|   {RefExpr} reference = ReferenceTerm			      // Properties.xtext expressions
+//|   {IdExpr} => id = [aadl2::NamedElement | QCREF]
+|	{ThisExpr} 'this' ('.' sub = ContainmentPath)? // from Properties grammar
+|	{IntExpr} val=IntegerTerm
+|   {RealExpr} val=RealTerm
+|	{BoolExpr} val=BooleanLiteral
+|   {StringExpr} val=StringTerm
+|	{Range} val=Range       		// Int and Real Range from AADL.xtext
+|	{IfThenElseExpr} 'if' cond=Expr 'then' then=Expr 'else' else=Expr
+|   {QuantifiedExpr} quant=( 'forall' | 'foreach' | 'exists') 
+								('(' args+=Parameter ')')+ '.' expr=Expr
+|   {BuiltInFnCallExpr} fn=BuiltInFn '(' (args+=(Expr) (',' args+=(Expr))*)? ')'
+|   {BuiltPropertyExists} 'has_property' '(' property=[aadl2::Property|QPREF]
+										(',' modeset = Expr (',' inbind = Expr)?)?
+									  ')'
+|   {BuiltPropertyVal} 'property' '(' property=[aadl2::Property|QPREF]
+									(',' modeset = Expr (',' inbind = Expr)?)?
+							   ')'	
+|	{FnCallExpr} fn=[F_or_T] '(' (args+=(Expr) (',' args+=(Expr))*)? ')'
+|   {TheoremCall} fn=Theorem_call
+								  
+|   (list?='list')? '{' exp=Expr ( ({FilterMapExpr.map=current} 
+						           'for' ('(' args+=(Parameter|Domain) ')')+ 
+						          	 ('|' filter=Expr)?)
+             		      	   | ({SetExpr.exprs+=current} (',' exprs+=Expr)*)) '}'
+|   {Empty} '{' '}'
+|   {LetExpr} binding=Let_binding ';' expr=Expr
+|	'(' Expr ')' ('.' ( -> builtin+=[BuiltInFnCallExpr] | method+=[FnCallExpr]))* 
+;
+
+BuiltInFn:
+// real primary type methods
+	'has_range'| 'range'| 'floor' | 'ceiling'
+// integer and real primary type 
+|	'has_units' | 'unit_literal'
+// range of integer, real primary type 
+|	'upper' | 'lower' | 'has_delta' | 'delta'
+// string primary type 
+|	'concat' | 'eq' | 'case_eq' | 'in'
+// set methods
+| 	'union' | 'intersect' 
+// set and list methods 
+|	'has_member' |	'size' | 'sum' | 'max' | 'min'
+// list methods
+|	'get' | 'sublist' | 'join' | 'as_set'
+// mapping methods
+|	'key' | 'val'
+// T_Element methods
+|	'qualified_name' | 'local_name' | 'path_name_of' | 'package_name'
+|	'is_owned_by' | 'has_parent' | 'parent' | 'owner' | 'equal' | 'element_type'
+//|	'has_property' | 'property' implemented explicitly as exptession terms
+// T_Package methods
+|	'imports' | 'classifiers'
+// T_Classifier methods
+|	'has_extends' | 'extends' | 'category'
+// T_Classifier and I_Component methods
+| 'has_bindings' | 'bindings_map' 
+//	C_Impl methods
+|	'component_type' | 'is_of_type'
+//	C_Feature_Group methods
+|	'has_inverse' | 'inverse'
+//	T_Instance methods
+|	'contaned' | 'in_modes'
+//	I_Component methods
+|	'is_prototype_ref' | 'prototype' | 'is_c_type_instance' | 'c_type'
+|	'class'  // duplicate names | 'has_bindings' | 'bindings_map'
+|	'array_cardinal' | 'modes' | 'modes_map' | 'mode_state_machine' 
+|	'mode_transitions' | 'subcomponents' | 'instances'
+// 	I_Component, I_Feature and I_Call_Sequence methods
+|	'features' | 'flat_features' 
+// 	I_Component and I_Call_Sequence methods
+| 'connections'
+//	I_Subprogram_Call methods
+|	'call_target'
+//	I_Connection methods
+|	'is_bidirectional' | 'source' | 'destination'
+//	I_Feature, I_Flow_Spec I_End_To_End methods
+|	'is_refined' 
+//	I_Feature methods
+| 'is_partial' | 'has_prototype_ref' // % duplicate | 'prototype' | 'array_cardinal'
+|	'has_classifier_type' | 'classifier_type' | 'direction' 
+//	I_Feature group methods
+| 'is_inverse'  // duplicate | 'has_bindings' | 'bindings_map' |	'features' | 'flat_features' 
+//	I_Flow_Spec, I_Flow_Impl methods
+|	'feature'  //duplicate | 'is_refined'
+//	I_Flow_Impl,I_End_To_End_Flow methods
+|	'path'  //duplicate for I_Flow_Impl | 'feature' 
+//	I_End_To_End_Flow methods
+|   'transitive_path' //duplicate |	'is_refined' | 'path' 
+//	I_Prototype methods
+|	'is_component_prototype' | 'type_literal' | 'has_list' | 'is_feature_prototype'
+|	'is_fg_prototype' | 'has_classifier_reference' | 'classifier_reference'
+//	I_Mode methods
+|	'is_initial_mode' | 'is_required_mode' | 'mapped_set'
+//	I_Mode_Transition methods
+| 	'is_named' | 'transition_name' | 'transition_triggers'
+|	'start_mode_state' | 'end_mode_state'
 ;
 
 // Type rules
 
 Type_expression: 				
-	=> basic = Basic_type |
+	 basic = Basic_type |
 	 composite = Composite_type |
 	 element = Element_type
 ;
  
  // basic types rules
  
-Basic_type: 
+Basic_type:
+	ptype = 'property_type' | 
+	pref = 'property_ref' | 
 	bool = UnnamedBooleanType | 				// from core AADL
 	string = UnnamedStringType |
 	enumer = UnnamedEnumerationType |
@@ -280,142 +303,31 @@ Basic_type:
 	range= UnnamedRangeType |  
 	class=UnnamedClassifierType |
 	ref=UnnamedReferenceType |
-	func = UnnamedFunctionType |				// addition to basic types
-	typename = [Type_declaration]
+	typename = [Constant]         // must be a user defined type
 ;
 
-UnnamedFunctionType:
-		'(' (parm += Type_expression)? (',' parm += Type_expression)+ ')' 
-		(outspec ?= 'returns' result=Type_expression)?
-;	
-
-UnnamedBooleanType returns aadl2::AadlBoolean:
-	{aadl2::AadlBoolean}'aadlboolean';
-
-
-UnnamedStringType returns aadl2::AadlString:
-	{aadl2::AadlString}'aadlstring';
- 
-UnnamedEnumerationType returns aadl2::EnumerationType:
-	'enumeration'
-	'(' ownedLiteral+=EnumerationLiteral (',' ownedLiteral+=EnumerationLiteral)* ')';
-
-EnumerationLiteral returns aadl2::EnumerationLiteral:
-	name=ID;
-	
-UnnamedUnitsType returns aadl2::UnitsType:
-	'units'
-	'(' ownedLiteral+=UnitLiteral (',' ownedLiteral+=UnitLiteralConversion)* ')';
-
-UnitLiteral returns aadl2::UnitLiteral:
-	name=ID;
-
-UnitLiteralConversion returns aadl2::UnitLiteral:
-	name=ID '=>' baseUnit=[aadl2::UnitLiteral|ID] '*' factor = NumberValue
-	;
-	
-NumberValue returns aadl2::NumberValue:
-	RealLit | =>IntegerLit ;
-
-// Number: INTEGER_LIT | REAL_LIT;
- 
-RealLit returns aadl2::RealLiteral:
-	value=SignedReal 
-;
-
-IntegerLit returns aadl2::IntegerLiteral:
-	value=SignedInt
- ;
- 	
-SignedInt returns aadl2::Integer:                   // using Xbase Number literals
-	('+'|'-')? Number //INTEGER_LIT 
-	;
-	
-SignedReal returns aadl2::Real:
-	('+'|'-')? Number //REAL_LIT
-	;
-
-
-UnnamedIntegerType returns aadl2::AadlInteger:
-	{aadl2::AadlInteger}
-	'aadlinteger' (range=IntegerRange)? ( (ownedUnitsType=UnnamedUnitsType| ('units' referencedUnitsType=[aadl2::UnitsType|QPREF])))?
-	 ;	
-IntegerRange returns aadl2::NumericRange:
-	lowerBound=(IntegerTerm | SignedConstant | ConstantValue )
-	'..' upperBound = (IntegerTerm | SignedConstant | ConstantValue )
-	;
-	
-IntegerTerm returns aadl2::IntegerLiteral:
-	value=SignedInt (unit=[aadl2::UnitLiteral|ID])?
-	;
-SignedConstant returns aadl2::Operation:
-	op=PlusMinus ownedPropertyExpression+=ConstantValue
-	;
-	
-PlusMinus returns aadl2::OperationKind: '+' | '-';
-	
-ConstantValue returns aadl2::NamedValue:
-  namedValue=[aadl2::PropertyConstant|QPREF]
-  ;
-  
- UnnamedRealType returns aadl2::AadlReal:
-	{aadl2::AadlReal}
-	'aadlreal' (range=RealRange)? ((ownedUnitsType=UnnamedUnitsType| ('units' referencedUnitsType=[aadl2::UnitsType|QPREF])))?
-	 ;
- 
-RealRange returns aadl2::NumericRange:
-	lowerBound=(RealTerm | SignedConstant | ConstantValue )
-	'..' upperBound=(RealTerm | SignedConstant | ConstantValue )
-	;
-RealTerm returns aadl2::RealLiteral:
-	value=SignedReal (unit=[aadl2::UnitLiteral|ID])?
-	;
-UnnamedRangeType returns aadl2::RangeType:
-	{aadl2::RangeType}
-	'range' 'of' (ownedNumberType=(UnnamedIntegerType|UnnamedRealType)
-		| numberType=[aadl2::NumberType|QPREF]
-	)
-	 ;	 
-UnnamedClassifierType returns aadl2::ClassifierType:
-	{aadl2::ClassifierType}
-	'classifier' 
-	('(' classifierReference+=QMReference (',' classifierReference+=QMReference)*')')?
-	 ;
-	 
-UnnamedReferenceType returns aadl2::ReferenceType:
-	'reference' {aadl2::ReferenceType}
-	('(' namedElementReference+=QMReference (',' namedElementReference+=QMReference)* ')')?
-	 ;
-	 
-QMReference returns aadl2::MetaclassReference:
-	('{'  annexName=ID '}' '*' '*' )?
-	( metaclassName+=ID )+
-	 ;
-
-QCReference returns aadl2::ClassifierValue:
-   classifier=[aadl2::ComponentClassifier|FQCREF]
-  ;
-  
 // composite type rules
 
 Composite_type :
+		Mapping_type |
 		Set_type |
 		List_type |
-		Map_type |
 		Record_type |
 		Union_type
 ;
 
+Mapping_type:
+	'(' key=[Type_expression] 'to' val=[Type_expression] ')'
+;
+
 Set_type:
-	'set' 'of' type = Type_expression
+	'{' root_type=[Type_expression] '}'
+|	'set' '<' root_type=[Type_expression] '>'
 ;
 
 List_type:
-	'list' 'of' type = Type_expression
-;
-
-Map_type:
-	'map' 'of' type = Type_expression
+	'(' root_type=[Type_expression] ')'
+|	'list' '<' root_type=[Type_expression] '>'
 ;
 
 Record_type:
@@ -423,7 +335,7 @@ Record_type:
 ;
 
 Union_type:
-	'(' (typename += ID ':')? type += Type_expression (',' (typename += ID ':')? type += Type_expression )* ')'
+	'union' '('  types += [Type_expression] (','type += [Type_expression] )* ')'
 ;
 
 Id_type_pair : 
@@ -433,144 +345,90 @@ Id_type_pair :
 //element type rules
 
 Element_type : 
-	telem ?= 'T_Element' |		
-	t_class ?= t_classifiers |	
-	t_ref ?= t_named_references
+	telem ?= 'T_Element' 
+|	tpack ?= 'T_Package'		
+|	t_class ?= Classifiers 
+|	t_inst ?= Instances
 ;
 
-t_classifiers:
-	t_class ?='T_Classifier' |				
-	t_class_subtype ?= t_classifier_subtypes	
+Classifiers:
+	t_class ?='T_Classifier' 				
+|	t_class_subtype ?= T_classifier_subtypes	
 ;
 
-t_classifier_subtypes:
-	t_ctype ?='T_Component_Type_Classifier' | 
-	t_cimpl ?='T_Component_Impl_Classifier' |
-	t_fgclass ?= 'T_Feature_Group_Classifier' | 
-	t_annexclass ?= 'T_Annex_Classifier'	
+T_classifier_subtypes:
+	t_ctype ?='C_Type'  
+|	t_cimpl ?='C_Impl' 
+|	t_fgclass ?= 'C_Feature_Group'  
+|	t_annexclass ?= 'C_Annex'	
 ;
 
-t_named_references:
-	t_nref ?= 'T_Named_Reference' |  t_nref_st ?= t_named_reference_subtypes	
+Instances:
+	inst ?= 'T_Instance' |  t_inst_st ?= t_instance_subtypes	
 ;
  
-t_named_reference_subtypes:
-	t_subc_st ?= t_subcomponent_subtypes  | 
-	t_connection_subtypes | 
-	t_feature_subtypes | 
-	t_flow_spec_subtypes | t_flow_impl_subtypes | 
-	t_sbcall ?= 'T_Subprogram_Call' | 
-	t_callseq ?= 'T_Call_Sequence' | 
-	t_eeflow ?= 'T_End_To_End_Flow' | 
-	t_proto ?= 'T_Prototype' | 
-	t_mode ?= 'T_Mode' | t_req_mode ?= 'T_Required_Mode' | 
-	t_mod_trans ?= 'T_Mode_Transition' | t_mode_trig ?= 'T_Mode_Trigger_Id' 	
+t_instance_subtypes:
+	t_subc_st ?= t_subcomponent_subtypes   
+|	t_connection_subtypes  
+|	t_feature_subtypes  
+|	t_flow_spec_subtypes | t_flow_impl_subtypes  
+|	t_sbcall ?= 'I_Subprogram_Call'  
+|	t_callseq ?= 'I_Call_Sequence' 
+|	t_eeflow ?= 'I_End_To_End_Flow' 
+|	t_proto ?= 'I_Prototype' 
+|	t_mode ?= 'I_Mode'  
+|	t_mod_trans ?= 'I_Mode_Transition' 
+| 	t_mode_trig ?= 'I_Mode_Trigger_Id' 	
 ;
  
 t_subcomponent_subtypes:
-	t_sub ?= 'T_Subcomponent' | t_annex_sub ?= 'T_Annex_Subcomponent'
-	| t_comp_typeref ?= 'T_Component_Type_Ref' 
-	| t_cimpl_st ?= t_component_impl_subtypes	
+	t_sub ?= 'I_Component' 
+| 	t_cimpl_st ?= t_component_subtypes	
 ;
 
-t_component_impl_subtypes:
-	t_comp_impref ?= 'T_Component_Impl_Ref' |
-	t_abstract ?=	'T_Abstract' | t_sys ?= 'T_System' | t_proc ?= 'T_Processor' | t_virt_proc ?= 'T_Virtual_Processor' |
-		t_bus ?= 'T_Bus' | t_vbus ?= 'T_Virtual_Bus' | t_mem ?= 'T_Memory' | t_proc ?= 'T_Process' | 
-		t_tg ?= 'T_Thread_Group' | t_t ?= 'T_Thread' | t_d ?= 'T_Data' | 
-		t_subprog ?= 'T_Subprogram' | t_subprog_g ?= 'T_Subprogram_Group' 	
+t_component_subtypes:
+	t_annex_sub ?= 'I_Component_Annex' |
+	t_abstract ?=	'I_Abstract' | t_sys ?= 'I_System' | t_dev ?= 'I_Device' |
+	t_proc ?= 'I_Processor' | t_virt_proc ?= 'I_Virtual_Processor' |
+		t_bus ?= 'I_Bus' | t_vbus ?= 'I_Virtual_Bus' | t_mem ?= 'I_Memory' | t_proc ?= 'I_Process' | 
+		t_tg ?= 'I_Thread_Group' | t_t ?= 'I_Thread' | t_d ?= 'I_Data' | 
+		t_subprog ?= 'I_Subprogram' | t_subprog_g ?= 'I_Subprogram_Group' 	
 ;
 
  
 t_connection_subtypes:
-	t_conn ?= 'T_Connection' | 
-		t_feat_conn ?= 'T_Feature_Connection' | t_port_conn ?= 'T_Port_Connection' |
-		t_parm_conn ?= 'T_Parameter_Connection' | t_acc_con ?= 'T_Access_Connection' | 
-		t_fg_conn ?= 'T_Feature_Group_Connection'
+	t_conn ?= 'I_Connection' | 
+		t_feat_conn ?= 'I_Feature_Connection' | t_port_conn ?= 'I_Port_Connection' |
+		t_parm_conn ?= 'I_Parameter_Connection' | t_acc_con ?= 'I_Access_Connection' | 
+		t_fg_conn ?= 'I_Feature_Group_Connection'
 ;
 
 t_feature_subtypes:
-		t_feat ?= 'T_Feature' | 
-		t_abs_feat ?= 'T_Abstract_Feature' | t_parm ?= 'T_Parameter' | t_fg ?= 'T_Feature_Group' | 
+		t_feat ?= 'I_Feature' | 
+		t_abs_feat ?= 'I_Abstract_Feature' | t_parm ?= 'I_Parameter' | t_fg ?= 'I_Feature_Group' | 
 		t_port_subtypes | 
 		t_access_subtypes
 
 ;
 
 t_access_subtypes:
-	t_access ?= 'T_Access' | t_data_acc ?= 'T_Data_Access' | t_sub_acc ?= 'T_Subprogram_Access' |
-		t_sub_gr_acc ?= 'T_Subprogram_Group_Access' | t_bus_acc ?= 'T_Bus_Access'
+	t_access ?= 'I_Access' | t_data_acc ?= 'I_Data_Access' | t_sub_acc ?= 'I_Subprogram_Access' |
+		t_sub_gr_acc ?= 'I_Subprogram_Group_Access' | t_bus_acc ?= 'I_Bus_Access'
 ;
 
 
 t_port_subtypes:
-	t_port ?= 'T_Port' | 
-			t_d_port ?='T_Data_Port' | t_ev_port ?= 'T_Event_Port' | t_evd_port ?= 'T_Event_Data_Port'
+	t_port ?= 'I_Port' | 
+			t_d_port ?='I_Data_Port' | t_ev_port ?= 'I_Event_Port' | t_evd_port ?= 'I_Event_Data_Port'
 	
 ;
 
 t_flow_spec_subtypes:
-		t_f_spec ?= 'T_Flow_Spec' | t_f_spec_source ?= 'T_Flow_Spec_Source' | 
-		t_f_spec_sink ?= 'T_Flow_Spec_Sink' | t_f_spec_path ?= 'T_Flow_Spec_Path'
+		t_f_spec ?= 'I_Flow_Spec' | t_f_spec_source ?= 'I_Flow_Spec_Source' | 
+		t_f_spec_sink ?= 'I_Flow_Spec_Sink' | t_f_spec_path ?= 'I_Flow_Spec_Path'
 ;
 
 t_flow_impl_subtypes:
-		t_f_i ?= 'T_Flow_Impl' | t_f_i_source ?= 'T_Flow_Impl_Source' | 
-		t_f_i_sink ?= 'T_Flow_Impl_Sink' | t_f_i_path ?= 'T_Flow_Impl_Path' 
+		t_f_i ?= 'I_Flow_Impl' | t_f_i_source ?= 'I_Flow_Impl_Source' | 
+		t_f_i_sink ?= 'I_Flow_Impl_Sink' | t_f_i_path ?= 'I_Flow_Impl_Path' 
 ;
-
-/*
-terminal SL_COMMENT:
-	'--' !('\n' | '\r')* ('\r'? '\n')?;
-*/
- 
-/* 
-INTVALUE returns aadl2::Integer:
-	INTEGER_LIT //NUMERAL 	
-;
-
-
-terminal fragment
-EXPONENT  :  ('e'|'E') ('+'|'-')? ( DIGIT )+  ;
-
-terminal fragment
-INT_EXPONENT :  ('e'|'E') ('+')? ( DIGIT )+ ;
-
-
-terminal REAL_LIT : 	
-	(DIGIT)+('_' (DIGIT)+)* ( '.' (DIGIT)+('_' (DIGIT)+)* ( EXPONENT )?)
-  ;
-
-terminal INTEGER_LIT : 
-		(DIGIT)+('_' (DIGIT)+)*
-		(( '#' BASED_INTEGER  '#' ( INT_EXPONENT )? )
-			| (INT_EXPONENT)?
-		)
-  ;
-
-terminal fragment
-DIGIT     :  ( '0'..'9' ) ;
-
-terminal fragment
-EXTENDED_DIGIT     :  ( '0'..'9' | 'a'..'f' | 'A'..'F') ;
-
-terminal fragment
-BASED_INTEGER      :  ( EXTENDED_DIGIT ) ( ('_')? EXTENDED_DIGIT )* ;
-*/
- 
-terminal ID:	('a'..'z'
-        |'A'..'Z'
-        ) ( ('_')? ('a'..'z'
-        |'A'..'Z'
-        |'0'..'9'))*;
-
-
- // fully qualified classifier name (always includes package name
-FQCREF:
-	(ID '::')+ ID ('.' ID)?;
-	        
-QCREF:
-	(ID '::')* ID ('.' ID)?;
-	
-QPREF:
-	ID ( => '::' ID)?;

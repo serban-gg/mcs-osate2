@@ -22,7 +22,7 @@ package org.osate.xtext.aadl2.mcs.mcs;
  * @model
  * @generated
  */
-public interface t_flow_spec_subtypes extends t_named_reference_subtypes
+public interface t_flow_spec_subtypes extends t_instance_subtypes
 {
   /**
    * Returns the value of the '<em><b>Tfspec</b></em>' attribute.

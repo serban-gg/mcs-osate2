@@ -20,8 +20,6 @@ import org.osate.xtext.aadl2.mcs.mcs.t_subcomponent_subtypes;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_subcomponent_subtypesImpl#isT_sub <em>Tsub</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_subcomponent_subtypesImpl#isT_annex_sub <em>Tannex sub</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_subcomponent_subtypesImpl#isT_comp_typeref <em>Tcomp typeref</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_subcomponent_subtypesImpl#isT_cimpl_st <em>Tcimpl st</em>}</li>
  * </ul>
  * </p>
@@ -49,46 +47,6 @@ public class t_subcomponent_subtypesImpl extends MinimalEObjectImpl.Container im
    * @ordered
    */
   protected boolean t_sub = TSUB_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #isT_annex_sub() <em>Tannex sub</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isT_annex_sub()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean TANNEX_SUB_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isT_annex_sub() <em>Tannex sub</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isT_annex_sub()
-   * @generated
-   * @ordered
-   */
-  protected boolean t_annex_sub = TANNEX_SUB_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #isT_comp_typeref() <em>Tcomp typeref</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isT_comp_typeref()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean TCOMP_TYPEREF_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isT_comp_typeref() <em>Tcomp typeref</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isT_comp_typeref()
-   * @generated
-   * @ordered
-   */
-  protected boolean t_comp_typeref = TCOMP_TYPEREF_EDEFAULT;
 
   /**
    * The default value of the '{@link #isT_cimpl_st() <em>Tcimpl st</em>}' attribute.
@@ -159,52 +117,6 @@ public class t_subcomponent_subtypesImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isT_annex_sub()
-  {
-    return t_annex_sub;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setT_annex_sub(boolean newT_annex_sub)
-  {
-    boolean oldT_annex_sub = t_annex_sub;
-    t_annex_sub = newT_annex_sub;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.TSUBCOMPONENT_SUBTYPES__TANNEX_SUB, oldT_annex_sub, t_annex_sub));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isT_comp_typeref()
-  {
-    return t_comp_typeref;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setT_comp_typeref(boolean newT_comp_typeref)
-  {
-    boolean oldT_comp_typeref = t_comp_typeref;
-    t_comp_typeref = newT_comp_typeref;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.TSUBCOMPONENT_SUBTYPES__TCOMP_TYPEREF, oldT_comp_typeref, t_comp_typeref));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public boolean isT_cimpl_st()
   {
     return t_cimpl_st;
@@ -235,10 +147,6 @@ public class t_subcomponent_subtypesImpl extends MinimalEObjectImpl.Container im
     {
       case McsPackage.TSUBCOMPONENT_SUBTYPES__TSUB:
         return isT_sub();
-      case McsPackage.TSUBCOMPONENT_SUBTYPES__TANNEX_SUB:
-        return isT_annex_sub();
-      case McsPackage.TSUBCOMPONENT_SUBTYPES__TCOMP_TYPEREF:
-        return isT_comp_typeref();
       case McsPackage.TSUBCOMPONENT_SUBTYPES__TCIMPL_ST:
         return isT_cimpl_st();
     }
@@ -257,12 +165,6 @@ public class t_subcomponent_subtypesImpl extends MinimalEObjectImpl.Container im
     {
       case McsPackage.TSUBCOMPONENT_SUBTYPES__TSUB:
         setT_sub((Boolean)newValue);
-        return;
-      case McsPackage.TSUBCOMPONENT_SUBTYPES__TANNEX_SUB:
-        setT_annex_sub((Boolean)newValue);
-        return;
-      case McsPackage.TSUBCOMPONENT_SUBTYPES__TCOMP_TYPEREF:
-        setT_comp_typeref((Boolean)newValue);
         return;
       case McsPackage.TSUBCOMPONENT_SUBTYPES__TCIMPL_ST:
         setT_cimpl_st((Boolean)newValue);
@@ -284,12 +186,6 @@ public class t_subcomponent_subtypesImpl extends MinimalEObjectImpl.Container im
       case McsPackage.TSUBCOMPONENT_SUBTYPES__TSUB:
         setT_sub(TSUB_EDEFAULT);
         return;
-      case McsPackage.TSUBCOMPONENT_SUBTYPES__TANNEX_SUB:
-        setT_annex_sub(TANNEX_SUB_EDEFAULT);
-        return;
-      case McsPackage.TSUBCOMPONENT_SUBTYPES__TCOMP_TYPEREF:
-        setT_comp_typeref(TCOMP_TYPEREF_EDEFAULT);
-        return;
       case McsPackage.TSUBCOMPONENT_SUBTYPES__TCIMPL_ST:
         setT_cimpl_st(TCIMPL_ST_EDEFAULT);
         return;
@@ -309,10 +205,6 @@ public class t_subcomponent_subtypesImpl extends MinimalEObjectImpl.Container im
     {
       case McsPackage.TSUBCOMPONENT_SUBTYPES__TSUB:
         return t_sub != TSUB_EDEFAULT;
-      case McsPackage.TSUBCOMPONENT_SUBTYPES__TANNEX_SUB:
-        return t_annex_sub != TANNEX_SUB_EDEFAULT;
-      case McsPackage.TSUBCOMPONENT_SUBTYPES__TCOMP_TYPEREF:
-        return t_comp_typeref != TCOMP_TYPEREF_EDEFAULT;
       case McsPackage.TSUBCOMPONENT_SUBTYPES__TCIMPL_ST:
         return t_cimpl_st != TCIMPL_ST_EDEFAULT;
     }
@@ -332,10 +224,6 @@ public class t_subcomponent_subtypesImpl extends MinimalEObjectImpl.Container im
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (t_sub: ");
     result.append(t_sub);
-    result.append(", t_annex_sub: ");
-    result.append(t_annex_sub);
-    result.append(", t_comp_typeref: ");
-    result.append(t_comp_typeref);
     result.append(", t_cimpl_st: ");
     result.append(t_cimpl_st);
     result.append(')');

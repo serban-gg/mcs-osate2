@@ -22,9 +22,8 @@ import org.osate.aadl2.ReferenceType;
 import org.osate.aadl2.UnitsType;
 
 import org.osate.xtext.aadl2.mcs.mcs.Basic_type;
+import org.osate.xtext.aadl2.mcs.mcs.Constant;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.UnnamedFunctionType;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +32,8 @@ import org.osate.xtext.aadl2.mcs.mcs.UnnamedFunctionType;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getPtype <em>Ptype</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getPref <em>Pref</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getBool <em>Bool</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getString <em>String</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getEnumer <em>Enumer</em>}</li>
@@ -42,7 +43,6 @@ import org.osate.xtext.aadl2.mcs.mcs.UnnamedFunctionType;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getRange <em>Range</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getRef <em>Ref</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getFunc <em>Func</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getTypename <em>Typename</em>}</li>
  * </ul>
  * </p>
@@ -51,6 +51,46 @@ import org.osate.xtext.aadl2.mcs.mcs.UnnamedFunctionType;
  */
 public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basic_type
 {
+  /**
+   * The default value of the '{@link #getPtype() <em>Ptype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPtype()
+   * @generated
+   * @ordered
+   */
+  protected static final String PTYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPtype() <em>Ptype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPtype()
+   * @generated
+   * @ordered
+   */
+  protected String ptype = PTYPE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPref() <em>Pref</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPref()
+   * @generated
+   * @ordered
+   */
+  protected static final String PREF_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPref() <em>Pref</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPref()
+   * @generated
+   * @ordered
+   */
+  protected String pref = PREF_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getBool() <em>Bool</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -142,16 +182,6 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
   protected ReferenceType ref;
 
   /**
-   * The cached value of the '{@link #getFunc() <em>Func</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFunc()
-   * @generated
-   * @ordered
-   */
-  protected UnnamedFunctionType func;
-
-  /**
    * The cached value of the '{@link #getTypename() <em>Typename</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -159,7 +189,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * @generated
    * @ordered
    */
-  protected Type_declaration typename;
+  protected Constant typename;
 
   /**
    * <!-- begin-user-doc -->
@@ -180,6 +210,52 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
   protected EClass eStaticClass()
   {
     return McsPackage.Literals.BASIC_TYPE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getPtype()
+  {
+    return ptype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPtype(String newPtype)
+  {
+    String oldPtype = ptype;
+    ptype = newPtype;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__PTYPE, oldPtype, ptype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getPref()
+  {
+    return pref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPref(String newPref)
+  {
+    String oldPref = pref;
+    pref = newPref;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__PREF, oldPref, pref));
   }
 
   /**
@@ -619,60 +695,12 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public UnnamedFunctionType getFunc()
-  {
-    return func;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFunc(UnnamedFunctionType newFunc, NotificationChain msgs)
-  {
-    UnnamedFunctionType oldFunc = func;
-    func = newFunc;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__FUNC, oldFunc, newFunc);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFunc(UnnamedFunctionType newFunc)
-  {
-    if (newFunc != func)
-    {
-      NotificationChain msgs = null;
-      if (func != null)
-        msgs = ((InternalEObject)func).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.BASIC_TYPE__FUNC, null, msgs);
-      if (newFunc != null)
-        msgs = ((InternalEObject)newFunc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.BASIC_TYPE__FUNC, null, msgs);
-      msgs = basicSetFunc(newFunc, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__FUNC, newFunc, newFunc));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Type_declaration getTypename()
+  public Constant getTypename()
   {
     if (typename != null && typename.eIsProxy())
     {
       InternalEObject oldTypename = (InternalEObject)typename;
-      typename = (Type_declaration)eResolveProxy(oldTypename);
+      typename = (Constant)eResolveProxy(oldTypename);
       if (typename != oldTypename)
       {
         if (eNotificationRequired())
@@ -687,7 +715,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type_declaration basicGetTypename()
+  public Constant basicGetTypename()
   {
     return typename;
   }
@@ -697,9 +725,9 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypename(Type_declaration newTypename)
+  public void setTypename(Constant newTypename)
   {
-    Type_declaration oldTypename = typename;
+    Constant oldTypename = typename;
     typename = newTypename;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__TYPENAME, oldTypename, typename));
@@ -733,8 +761,6 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
         return basicSetClass(null, msgs);
       case McsPackage.BASIC_TYPE__REF:
         return basicSetRef(null, msgs);
-      case McsPackage.BASIC_TYPE__FUNC:
-        return basicSetFunc(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -749,6 +775,10 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
   {
     switch (featureID)
     {
+      case McsPackage.BASIC_TYPE__PTYPE:
+        return getPtype();
+      case McsPackage.BASIC_TYPE__PREF:
+        return getPref();
       case McsPackage.BASIC_TYPE__BOOL:
         return getBool();
       case McsPackage.BASIC_TYPE__STRING:
@@ -767,8 +797,6 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
         return getClass_();
       case McsPackage.BASIC_TYPE__REF:
         return getRef();
-      case McsPackage.BASIC_TYPE__FUNC:
-        return getFunc();
       case McsPackage.BASIC_TYPE__TYPENAME:
         if (resolve) return getTypename();
         return basicGetTypename();
@@ -786,6 +814,12 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
   {
     switch (featureID)
     {
+      case McsPackage.BASIC_TYPE__PTYPE:
+        setPtype((String)newValue);
+        return;
+      case McsPackage.BASIC_TYPE__PREF:
+        setPref((String)newValue);
+        return;
       case McsPackage.BASIC_TYPE__BOOL:
         setBool((AadlBoolean)newValue);
         return;
@@ -813,11 +847,8 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
       case McsPackage.BASIC_TYPE__REF:
         setRef((ReferenceType)newValue);
         return;
-      case McsPackage.BASIC_TYPE__FUNC:
-        setFunc((UnnamedFunctionType)newValue);
-        return;
       case McsPackage.BASIC_TYPE__TYPENAME:
-        setTypename((Type_declaration)newValue);
+        setTypename((Constant)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -833,6 +864,12 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
   {
     switch (featureID)
     {
+      case McsPackage.BASIC_TYPE__PTYPE:
+        setPtype(PTYPE_EDEFAULT);
+        return;
+      case McsPackage.BASIC_TYPE__PREF:
+        setPref(PREF_EDEFAULT);
+        return;
       case McsPackage.BASIC_TYPE__BOOL:
         setBool((AadlBoolean)null);
         return;
@@ -860,11 +897,8 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
       case McsPackage.BASIC_TYPE__REF:
         setRef((ReferenceType)null);
         return;
-      case McsPackage.BASIC_TYPE__FUNC:
-        setFunc((UnnamedFunctionType)null);
-        return;
       case McsPackage.BASIC_TYPE__TYPENAME:
-        setTypename((Type_declaration)null);
+        setTypename((Constant)null);
         return;
     }
     super.eUnset(featureID);
@@ -880,6 +914,10 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
   {
     switch (featureID)
     {
+      case McsPackage.BASIC_TYPE__PTYPE:
+        return PTYPE_EDEFAULT == null ? ptype != null : !PTYPE_EDEFAULT.equals(ptype);
+      case McsPackage.BASIC_TYPE__PREF:
+        return PREF_EDEFAULT == null ? pref != null : !PREF_EDEFAULT.equals(pref);
       case McsPackage.BASIC_TYPE__BOOL:
         return bool != null;
       case McsPackage.BASIC_TYPE__STRING:
@@ -898,12 +936,29 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
         return class_ != null;
       case McsPackage.BASIC_TYPE__REF:
         return ref != null;
-      case McsPackage.BASIC_TYPE__FUNC:
-        return func != null;
       case McsPackage.BASIC_TYPE__TYPENAME:
         return typename != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (ptype: ");
+    result.append(ptype);
+    result.append(", pref: ");
+    result.append(pref);
+    result.append(')');
+    return result.toString();
   }
 
 } //Basic_typeImpl

@@ -22,6 +22,8 @@ import org.osate.aadl2.UnitsType;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getPtype <em>Ptype</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getPref <em>Pref</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getBool <em>Bool</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getString <em>String</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getEnumer <em>Enumer</em>}</li>
@@ -31,7 +33,6 @@ import org.osate.aadl2.UnitsType;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getRange <em>Range</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getClass_ <em>Class</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getRef <em>Ref</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getFunc <em>Func</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getTypename <em>Typename</em>}</li>
  * </ul>
  * </p>
@@ -42,6 +43,58 @@ import org.osate.aadl2.UnitsType;
  */
 public interface Basic_type extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Ptype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ptype</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ptype</em>' attribute.
+   * @see #setPtype(String)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type_Ptype()
+   * @model
+   * @generated
+   */
+  String getPtype();
+
+  /**
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getPtype <em>Ptype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ptype</em>' attribute.
+   * @see #getPtype()
+   * @generated
+   */
+  void setPtype(String value);
+
+  /**
+   * Returns the value of the '<em><b>Pref</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Pref</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pref</em>' attribute.
+   * @see #setPref(String)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type_Pref()
+   * @model
+   * @generated
+   */
+  String getPref();
+
+  /**
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getPref <em>Pref</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pref</em>' attribute.
+   * @see #getPref()
+   * @generated
+   */
+  void setPref(String value);
+
   /**
    * Returns the value of the '<em><b>Bool</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -277,32 +330,6 @@ public interface Basic_type extends EObject
   void setRef(ReferenceType value);
 
   /**
-   * Returns the value of the '<em><b>Func</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Func</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Func</em>' containment reference.
-   * @see #setFunc(UnnamedFunctionType)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type_Func()
-   * @model containment="true"
-   * @generated
-   */
-  UnnamedFunctionType getFunc();
-
-  /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getFunc <em>Func</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Func</em>' containment reference.
-   * @see #getFunc()
-   * @generated
-   */
-  void setFunc(UnnamedFunctionType value);
-
-  /**
    * Returns the value of the '<em><b>Typename</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -311,12 +338,12 @@ public interface Basic_type extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Typename</em>' reference.
-   * @see #setTypename(Type_declaration)
+   * @see #setTypename(Constant)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type_Typename()
    * @model
    * @generated
    */
-  Type_declaration getTypename();
+  Constant getTypename();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getTypename <em>Typename</em>}' reference.
@@ -326,6 +353,6 @@ public interface Basic_type extends EObject
    * @see #getTypename()
    * @generated
    */
-  void setTypename(Type_declaration value);
+  void setTypename(Constant value);
 
 } // Basic_type

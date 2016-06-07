@@ -27,7 +27,7 @@ import org.osate.xtext.aadl2.mcs.mcs.t_feature_subtypes;
  *
  * @generated
  */
-public class t_feature_subtypesImpl extends t_named_reference_subtypesImpl implements t_feature_subtypes
+public class t_feature_subtypesImpl extends t_instance_subtypesImpl implements t_feature_subtypes
 {
   /**
    * The default value of the '{@link #isT_feat() <em>Tfeat</em>}' attribute.

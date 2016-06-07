@@ -27,7 +27,7 @@ import org.osate.xtext.aadl2.mcs.mcs.t_flow_impl_subtypes;
  *
  * @generated
  */
-public class t_flow_impl_subtypesImpl extends t_named_reference_subtypesImpl implements t_flow_impl_subtypes
+public class t_flow_impl_subtypesImpl extends t_instance_subtypesImpl implements t_flow_impl_subtypes
 {
   /**
    * The default value of the '{@link #isT_f_i() <em>Tfi</em>}' attribute.

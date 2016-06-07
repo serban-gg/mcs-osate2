@@ -4,16 +4,11 @@ package org.osate.xtext.aadl2.mcs.mcs.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
@@ -26,7 +21,7 @@ import org.osate.xtext.aadl2.mcs.mcs.Union_type;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Union_typeImpl#getTypename <em>Typename</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Union_typeImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Union_typeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
@@ -36,17 +31,17 @@ import org.osate.xtext.aadl2.mcs.mcs.Union_type;
 public class Union_typeImpl extends Composite_typeImpl implements Union_type
 {
   /**
-   * The cached value of the '{@link #getTypename() <em>Typename</em>}' attribute list.
+   * The cached value of the '{@link #getTypes() <em>Types</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypename()
+   * @see #getTypes()
    * @generated
    * @ordered
    */
-  protected EList<String> typename;
+  protected EList<Type_expression> types;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference list.
+   * The cached value of the '{@link #getType() <em>Type</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
@@ -81,13 +76,13 @@ public class Union_typeImpl extends Composite_typeImpl implements Union_type
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getTypename()
+  public EList<Type_expression> getTypes()
   {
-    if (typename == null)
+    if (types == null)
     {
-      typename = new EDataTypeEList<String>(String.class, this, McsPackage.UNION_TYPE__TYPENAME);
+      types = new EObjectResolvingEList<Type_expression>(Type_expression.class, this, McsPackage.UNION_TYPE__TYPES);
     }
-    return typename;
+    return types;
   }
 
   /**
@@ -99,25 +94,9 @@ public class Union_typeImpl extends Composite_typeImpl implements Union_type
   {
     if (type == null)
     {
-      type = new EObjectContainmentEList<Type_expression>(Type_expression.class, this, McsPackage.UNION_TYPE__TYPE);
+      type = new EObjectResolvingEList<Type_expression>(Type_expression.class, this, McsPackage.UNION_TYPE__TYPE);
     }
     return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case McsPackage.UNION_TYPE__TYPE:
-        return ((InternalEList<?>)getType()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -130,8 +109,8 @@ public class Union_typeImpl extends Composite_typeImpl implements Union_type
   {
     switch (featureID)
     {
-      case McsPackage.UNION_TYPE__TYPENAME:
-        return getTypename();
+      case McsPackage.UNION_TYPE__TYPES:
+        return getTypes();
       case McsPackage.UNION_TYPE__TYPE:
         return getType();
     }
@@ -149,9 +128,9 @@ public class Union_typeImpl extends Composite_typeImpl implements Union_type
   {
     switch (featureID)
     {
-      case McsPackage.UNION_TYPE__TYPENAME:
-        getTypename().clear();
-        getTypename().addAll((Collection<? extends String>)newValue);
+      case McsPackage.UNION_TYPE__TYPES:
+        getTypes().clear();
+        getTypes().addAll((Collection<? extends Type_expression>)newValue);
         return;
       case McsPackage.UNION_TYPE__TYPE:
         getType().clear();
@@ -171,8 +150,8 @@ public class Union_typeImpl extends Composite_typeImpl implements Union_type
   {
     switch (featureID)
     {
-      case McsPackage.UNION_TYPE__TYPENAME:
-        getTypename().clear();
+      case McsPackage.UNION_TYPE__TYPES:
+        getTypes().clear();
         return;
       case McsPackage.UNION_TYPE__TYPE:
         getType().clear();
@@ -191,29 +170,12 @@ public class Union_typeImpl extends Composite_typeImpl implements Union_type
   {
     switch (featureID)
     {
-      case McsPackage.UNION_TYPE__TYPENAME:
-        return typename != null && !typename.isEmpty();
+      case McsPackage.UNION_TYPE__TYPES:
+        return types != null && !types.isEmpty();
       case McsPackage.UNION_TYPE__TYPE:
         return type != null && !type.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (typename: ");
-    result.append(typename);
-    result.append(')');
-    return result.toString();
   }
 
 } //Union_typeImpl

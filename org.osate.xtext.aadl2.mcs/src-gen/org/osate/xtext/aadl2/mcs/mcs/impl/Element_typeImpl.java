@@ -20,8 +20,9 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Element_typeImpl#isTelem <em>Telem</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Element_typeImpl#isTpack <em>Tpack</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Element_typeImpl#isT_class <em>Tclass</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Element_typeImpl#isT_ref <em>Tref</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Element_typeImpl#isT_inst <em>Tinst</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,6 +51,26 @@ public class Element_typeImpl extends MinimalEObjectImpl.Container implements El
   protected boolean telem = TELEM_EDEFAULT;
 
   /**
+   * The default value of the '{@link #isTpack() <em>Tpack</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isTpack()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean TPACK_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isTpack() <em>Tpack</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isTpack()
+   * @generated
+   * @ordered
+   */
+  protected boolean tpack = TPACK_EDEFAULT;
+
+  /**
    * The default value of the '{@link #isT_class() <em>Tclass</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -70,24 +91,24 @@ public class Element_typeImpl extends MinimalEObjectImpl.Container implements El
   protected boolean t_class = TCLASS_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isT_ref() <em>Tref</em>}' attribute.
+   * The default value of the '{@link #isT_inst() <em>Tinst</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isT_ref()
+   * @see #isT_inst()
    * @generated
    * @ordered
    */
-  protected static final boolean TREF_EDEFAULT = false;
+  protected static final boolean TINST_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isT_ref() <em>Tref</em>}' attribute.
+   * The cached value of the '{@link #isT_inst() <em>Tinst</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isT_ref()
+   * @see #isT_inst()
    * @generated
    * @ordered
    */
-  protected boolean t_ref = TREF_EDEFAULT;
+  protected boolean t_inst = TINST_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -138,6 +159,29 @@ public class Element_typeImpl extends MinimalEObjectImpl.Container implements El
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isTpack()
+  {
+    return tpack;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTpack(boolean newTpack)
+  {
+    boolean oldTpack = tpack;
+    tpack = newTpack;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.ELEMENT_TYPE__TPACK, oldTpack, tpack));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isT_class()
   {
     return t_class;
@@ -161,9 +205,9 @@ public class Element_typeImpl extends MinimalEObjectImpl.Container implements El
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isT_ref()
+  public boolean isT_inst()
   {
-    return t_ref;
+    return t_inst;
   }
 
   /**
@@ -171,12 +215,12 @@ public class Element_typeImpl extends MinimalEObjectImpl.Container implements El
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setT_ref(boolean newT_ref)
+  public void setT_inst(boolean newT_inst)
   {
-    boolean oldT_ref = t_ref;
-    t_ref = newT_ref;
+    boolean oldT_inst = t_inst;
+    t_inst = newT_inst;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.ELEMENT_TYPE__TREF, oldT_ref, t_ref));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.ELEMENT_TYPE__TINST, oldT_inst, t_inst));
   }
 
   /**
@@ -191,10 +235,12 @@ public class Element_typeImpl extends MinimalEObjectImpl.Container implements El
     {
       case McsPackage.ELEMENT_TYPE__TELEM:
         return isTelem();
+      case McsPackage.ELEMENT_TYPE__TPACK:
+        return isTpack();
       case McsPackage.ELEMENT_TYPE__TCLASS:
         return isT_class();
-      case McsPackage.ELEMENT_TYPE__TREF:
-        return isT_ref();
+      case McsPackage.ELEMENT_TYPE__TINST:
+        return isT_inst();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -212,11 +258,14 @@ public class Element_typeImpl extends MinimalEObjectImpl.Container implements El
       case McsPackage.ELEMENT_TYPE__TELEM:
         setTelem((Boolean)newValue);
         return;
+      case McsPackage.ELEMENT_TYPE__TPACK:
+        setTpack((Boolean)newValue);
+        return;
       case McsPackage.ELEMENT_TYPE__TCLASS:
         setT_class((Boolean)newValue);
         return;
-      case McsPackage.ELEMENT_TYPE__TREF:
-        setT_ref((Boolean)newValue);
+      case McsPackage.ELEMENT_TYPE__TINST:
+        setT_inst((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +284,14 @@ public class Element_typeImpl extends MinimalEObjectImpl.Container implements El
       case McsPackage.ELEMENT_TYPE__TELEM:
         setTelem(TELEM_EDEFAULT);
         return;
+      case McsPackage.ELEMENT_TYPE__TPACK:
+        setTpack(TPACK_EDEFAULT);
+        return;
       case McsPackage.ELEMENT_TYPE__TCLASS:
         setT_class(TCLASS_EDEFAULT);
         return;
-      case McsPackage.ELEMENT_TYPE__TREF:
-        setT_ref(TREF_EDEFAULT);
+      case McsPackage.ELEMENT_TYPE__TINST:
+        setT_inst(TINST_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -257,10 +309,12 @@ public class Element_typeImpl extends MinimalEObjectImpl.Container implements El
     {
       case McsPackage.ELEMENT_TYPE__TELEM:
         return telem != TELEM_EDEFAULT;
+      case McsPackage.ELEMENT_TYPE__TPACK:
+        return tpack != TPACK_EDEFAULT;
       case McsPackage.ELEMENT_TYPE__TCLASS:
         return t_class != TCLASS_EDEFAULT;
-      case McsPackage.ELEMENT_TYPE__TREF:
-        return t_ref != TREF_EDEFAULT;
+      case McsPackage.ELEMENT_TYPE__TINST:
+        return t_inst != TINST_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -278,10 +332,12 @@ public class Element_typeImpl extends MinimalEObjectImpl.Container implements El
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (telem: ");
     result.append(telem);
+    result.append(", tpack: ");
+    result.append(tpack);
     result.append(", t_class: ");
     result.append(t_class);
-    result.append(", t_ref: ");
-    result.append(t_ref);
+    result.append(", t_inst: ");
+    result.append(t_inst);
     result.append(')');
     return result.toString();
   }

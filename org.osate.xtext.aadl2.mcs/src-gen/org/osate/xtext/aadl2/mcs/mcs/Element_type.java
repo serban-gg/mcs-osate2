@@ -13,8 +13,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isTelem <em>Telem</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isTpack <em>Tpack</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isT_class <em>Tclass</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isT_ref <em>Tref</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isT_inst <em>Tinst</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +52,32 @@ public interface Element_type extends EObject
   void setTelem(boolean value);
 
   /**
+   * Returns the value of the '<em><b>Tpack</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tpack</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tpack</em>' attribute.
+   * @see #setTpack(boolean)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getElement_type_Tpack()
+   * @model
+   * @generated
+   */
+  boolean isTpack();
+
+  /**
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isTpack <em>Tpack</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tpack</em>' attribute.
+   * @see #isTpack()
+   * @generated
+   */
+  void setTpack(boolean value);
+
+  /**
    * Returns the value of the '<em><b>Tclass</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -77,29 +104,29 @@ public interface Element_type extends EObject
   void setT_class(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Tref</b></em>' attribute.
+   * Returns the value of the '<em><b>Tinst</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Tref</em>' attribute isn't clear,
+   * If the meaning of the '<em>Tinst</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tref</em>' attribute.
-   * @see #setT_ref(boolean)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getElement_type_T_ref()
+   * @return the value of the '<em>Tinst</em>' attribute.
+   * @see #setT_inst(boolean)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getElement_type_T_inst()
    * @model
    * @generated
    */
-  boolean isT_ref();
+  boolean isT_inst();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isT_ref <em>Tref</em>}' attribute.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isT_inst <em>Tinst</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Tref</em>' attribute.
-   * @see #isT_ref()
+   * @param value the new value of the '<em>Tinst</em>' attribute.
+   * @see #isT_inst()
    * @generated
    */
-  void setT_ref(boolean value);
+  void setT_inst(boolean value);
 
 } // Element_type

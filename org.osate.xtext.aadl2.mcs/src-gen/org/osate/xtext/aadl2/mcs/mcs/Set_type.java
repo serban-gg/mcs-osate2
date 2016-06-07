@@ -11,7 +11,7 @@ package org.osate.xtext.aadl2.mcs.mcs;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Set_type#getType <em>Type</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Set_type#getRoot_type <em>Root type</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,29 +22,29 @@ package org.osate.xtext.aadl2.mcs.mcs;
 public interface Set_type extends Composite_type
 {
   /**
-   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * Returns the value of the '<em><b>Root type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Root type</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(Type_expression)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getSet_type_Type()
-   * @model containment="true"
+   * @return the value of the '<em>Root type</em>' reference.
+   * @see #setRoot_type(Type_expression)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getSet_type_Root_type()
+   * @model
    * @generated
    */
-  Type_expression getType();
+  Type_expression getRoot_type();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Set_type#getType <em>Type</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Set_type#getRoot_type <em>Root type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' containment reference.
-   * @see #getType()
+   * @param value the new value of the '<em>Root type</em>' reference.
+   * @see #getRoot_type()
    * @generated
    */
-  void setType(Type_expression value);
+  void setRoot_type(Type_expression value);
 
 } // Set_type
