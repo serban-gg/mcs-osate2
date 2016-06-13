@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot#getLib <em>Lib</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot#getFile <em>File</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot#getSubclause <em>Subclause</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSGrammarRoot()
  * @model

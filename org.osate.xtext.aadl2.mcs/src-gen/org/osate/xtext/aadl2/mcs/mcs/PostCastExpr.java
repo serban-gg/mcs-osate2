@@ -10,11 +10,11 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getExpr <em>Expr</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getNewtype <em>Newtype</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getPostCastExpr()
  * @model

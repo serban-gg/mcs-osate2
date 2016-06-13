@@ -15,11 +15,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCallExpr;
+import org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCall;
 import org.osate.xtext.aadl2.mcs.mcs.Expr;
-import org.osate.xtext.aadl2.mcs.mcs.FnCallExpr;
+import org.osate.xtext.aadl2.mcs.mcs.FnCall;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 
 /**
@@ -28,13 +29,13 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ExprImpl#isList <em>List</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ExprImpl#getExp <em>Exp</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ExprImpl#getBuiltin <em>Builtin</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ExprImpl#getMethod <em>Method</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -71,24 +72,24 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   protected Expr exp;
 
   /**
-   * The cached value of the '{@link #getBuiltin() <em>Builtin</em>}' reference list.
+   * The cached value of the '{@link #getBuiltin() <em>Builtin</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBuiltin()
    * @generated
    * @ordered
    */
-  protected EList<BuiltInFnCallExpr> builtin;
+  protected EList<BuiltInFnCall> builtin;
 
   /**
-   * The cached value of the '{@link #getMethod() <em>Method</em>}' reference list.
+   * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMethod()
    * @generated
    * @ordered
    */
-  protected EList<FnCallExpr> method;
+  protected EList<FnCall> method;
 
   /**
    * <!-- begin-user-doc -->
@@ -187,11 +188,11 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<BuiltInFnCallExpr> getBuiltin()
+  public EList<BuiltInFnCall> getBuiltin()
   {
     if (builtin == null)
     {
-      builtin = new EObjectResolvingEList<BuiltInFnCallExpr>(BuiltInFnCallExpr.class, this, McsPackage.EXPR__BUILTIN);
+      builtin = new EObjectContainmentEList<BuiltInFnCall>(BuiltInFnCall.class, this, McsPackage.EXPR__BUILTIN);
     }
     return builtin;
   }
@@ -201,11 +202,11 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<FnCallExpr> getMethod()
+  public EList<FnCall> getMethod()
   {
     if (method == null)
     {
-      method = new EObjectResolvingEList<FnCallExpr>(FnCallExpr.class, this, McsPackage.EXPR__METHOD);
+      method = new EObjectContainmentEList<FnCall>(FnCall.class, this, McsPackage.EXPR__METHOD);
     }
     return method;
   }
@@ -222,6 +223,10 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
     {
       case McsPackage.EXPR__EXP:
         return basicSetExp(null, msgs);
+      case McsPackage.EXPR__BUILTIN:
+        return ((InternalEList<?>)getBuiltin()).basicRemove(otherEnd, msgs);
+      case McsPackage.EXPR__METHOD:
+        return ((InternalEList<?>)getMethod()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -267,11 +272,11 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
         return;
       case McsPackage.EXPR__BUILTIN:
         getBuiltin().clear();
-        getBuiltin().addAll((Collection<? extends BuiltInFnCallExpr>)newValue);
+        getBuiltin().addAll((Collection<? extends BuiltInFnCall>)newValue);
         return;
       case McsPackage.EXPR__METHOD:
         getMethod().clear();
-        getMethod().addAll((Collection<? extends FnCallExpr>)newValue);
+        getMethod().addAll((Collection<? extends FnCall>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

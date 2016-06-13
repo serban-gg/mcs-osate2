@@ -17,13 +17,13 @@ import org.osate.xtext.aadl2.mcs.mcs.t_flow_spec_subtypes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_flow_spec_subtypesImpl#isT_f_spec <em>Tfspec</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_flow_spec_subtypesImpl#isT_f_spec_source <em>Tfspec source</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_flow_spec_subtypesImpl#isT_f_spec_sink <em>Tfspec sink</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_flow_spec_subtypesImpl#isT_f_spec_path <em>Tfspec path</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

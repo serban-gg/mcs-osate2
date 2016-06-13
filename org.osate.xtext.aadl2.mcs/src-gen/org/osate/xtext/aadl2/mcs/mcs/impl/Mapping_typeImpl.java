@@ -3,6 +3,7 @@
 package org.osate.xtext.aadl2.mcs.mcs.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -19,18 +20,18 @@ import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Mapping_typeImpl#getKey <em>Key</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Mapping_typeImpl#getVal <em>Val</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class Mapping_typeImpl extends Composite_typeImpl implements Mapping_type
 {
   /**
-   * The cached value of the '{@link #getKey() <em>Key</em>}' reference.
+   * The cached value of the '{@link #getKey() <em>Key</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getKey()
@@ -40,7 +41,7 @@ public class Mapping_typeImpl extends Composite_typeImpl implements Mapping_type
   protected Type_expression key;
 
   /**
-   * The cached value of the '{@link #getVal() <em>Val</em>}' reference.
+   * The cached value of the '{@link #getVal() <em>Val</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVal()
@@ -77,16 +78,6 @@ public class Mapping_typeImpl extends Composite_typeImpl implements Mapping_type
    */
   public Type_expression getKey()
   {
-    if (key != null && key.eIsProxy())
-    {
-      InternalEObject oldKey = (InternalEObject)key;
-      key = (Type_expression)eResolveProxy(oldKey);
-      if (key != oldKey)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, McsPackage.MAPPING_TYPE__KEY, oldKey, key));
-      }
-    }
     return key;
   }
 
@@ -95,9 +86,16 @@ public class Mapping_typeImpl extends Composite_typeImpl implements Mapping_type
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type_expression basicGetKey()
+  public NotificationChain basicSetKey(Type_expression newKey, NotificationChain msgs)
   {
-    return key;
+    Type_expression oldKey = key;
+    key = newKey;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.MAPPING_TYPE__KEY, oldKey, newKey);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -107,10 +105,18 @@ public class Mapping_typeImpl extends Composite_typeImpl implements Mapping_type
    */
   public void setKey(Type_expression newKey)
   {
-    Type_expression oldKey = key;
-    key = newKey;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.MAPPING_TYPE__KEY, oldKey, key));
+    if (newKey != key)
+    {
+      NotificationChain msgs = null;
+      if (key != null)
+        msgs = ((InternalEObject)key).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.MAPPING_TYPE__KEY, null, msgs);
+      if (newKey != null)
+        msgs = ((InternalEObject)newKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.MAPPING_TYPE__KEY, null, msgs);
+      msgs = basicSetKey(newKey, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.MAPPING_TYPE__KEY, newKey, newKey));
   }
 
   /**
@@ -120,16 +126,6 @@ public class Mapping_typeImpl extends Composite_typeImpl implements Mapping_type
    */
   public Type_expression getVal()
   {
-    if (val != null && val.eIsProxy())
-    {
-      InternalEObject oldVal = (InternalEObject)val;
-      val = (Type_expression)eResolveProxy(oldVal);
-      if (val != oldVal)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, McsPackage.MAPPING_TYPE__VAL, oldVal, val));
-      }
-    }
     return val;
   }
 
@@ -138,9 +134,16 @@ public class Mapping_typeImpl extends Composite_typeImpl implements Mapping_type
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type_expression basicGetVal()
+  public NotificationChain basicSetVal(Type_expression newVal, NotificationChain msgs)
   {
-    return val;
+    Type_expression oldVal = val;
+    val = newVal;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.MAPPING_TYPE__VAL, oldVal, newVal);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -150,10 +153,36 @@ public class Mapping_typeImpl extends Composite_typeImpl implements Mapping_type
    */
   public void setVal(Type_expression newVal)
   {
-    Type_expression oldVal = val;
-    val = newVal;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.MAPPING_TYPE__VAL, oldVal, val));
+    if (newVal != val)
+    {
+      NotificationChain msgs = null;
+      if (val != null)
+        msgs = ((InternalEObject)val).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.MAPPING_TYPE__VAL, null, msgs);
+      if (newVal != null)
+        msgs = ((InternalEObject)newVal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.MAPPING_TYPE__VAL, null, msgs);
+      msgs = basicSetVal(newVal, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.MAPPING_TYPE__VAL, newVal, newVal));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case McsPackage.MAPPING_TYPE__KEY:
+        return basicSetKey(null, msgs);
+      case McsPackage.MAPPING_TYPE__VAL:
+        return basicSetVal(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -167,11 +196,9 @@ public class Mapping_typeImpl extends Composite_typeImpl implements Mapping_type
     switch (featureID)
     {
       case McsPackage.MAPPING_TYPE__KEY:
-        if (resolve) return getKey();
-        return basicGetKey();
+        return getKey();
       case McsPackage.MAPPING_TYPE__VAL:
-        if (resolve) return getVal();
-        return basicGetVal();
+        return getVal();
     }
     return super.eGet(featureID, resolve, coreType);
   }

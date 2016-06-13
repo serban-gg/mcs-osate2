@@ -10,10 +10,10 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.RefExpr#getReference <em>Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getRefExpr()
  * @model
@@ -30,12 +30,12 @@ public interface RefExpr extends Expr
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Reference</em>' containment reference.
-   * @see #setReference(ReferenceTerm)
+   * @see #setReference(RefTerm)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getRefExpr_Reference()
    * @model containment="true"
    * @generated
    */
-  ReferenceTerm getReference();
+  RefTerm getReference();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.RefExpr#getReference <em>Reference</em>}' containment reference.
@@ -45,6 +45,6 @@ public interface RefExpr extends Expr
    * @see #getReference()
    * @generated
    */
-  void setReference(ReferenceTerm value);
+  void setReference(RefTerm value);
 
 } // RefExpr

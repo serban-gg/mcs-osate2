@@ -20,12 +20,12 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.IfThenElseExprImpl#getCond <em>Cond</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.IfThenElseExprImpl#getThen <em>Then</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.IfThenElseExprImpl#getElse <em>Else</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

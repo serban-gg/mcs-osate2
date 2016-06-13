@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_component_subtypes#isT_annex_sub <em>Tannex sub</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_component_subtypes#isT_abstract <em>Tabstract</em>}</li>
@@ -27,7 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_component_subtypes#isT_subprog <em>Tsubprog</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_component_subtypes#isT_subprog_g <em>Tsubprog g</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#gett_component_subtypes()
  * @model

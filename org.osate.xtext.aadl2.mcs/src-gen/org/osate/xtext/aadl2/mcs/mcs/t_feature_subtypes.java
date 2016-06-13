@@ -10,13 +10,13 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_feature_subtypes#isT_feat <em>Tfeat</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_feature_subtypes#isT_abs_feat <em>Tabs feat</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_feature_subtypes#isT_parm <em>Tparm</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_feature_subtypes#isT_fg <em>Tfg</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#gett_feature_subtypes()
  * @model

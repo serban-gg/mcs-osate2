@@ -18,13 +18,13 @@ import org.osate.xtext.aadl2.mcs.mcs.T_classifier_subtypes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.T_classifier_subtypesImpl#isT_ctype <em>Tctype</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.T_classifier_subtypesImpl#isT_cimpl <em>Tcimpl</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.T_classifier_subtypesImpl#isT_fgclass <em>Tfgclass</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.T_classifier_subtypesImpl#isT_annexclass <em>Tannexclass</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

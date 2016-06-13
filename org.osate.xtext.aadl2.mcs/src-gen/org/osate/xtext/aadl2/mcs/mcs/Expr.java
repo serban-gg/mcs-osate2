@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Expr#isList <em>List</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Expr#getExp <em>Exp</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Expr#getBuiltin <em>Builtin</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Expr#getMethod <em>Method</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getExpr()
  * @model
@@ -80,35 +80,35 @@ public interface Expr extends EObject
   void setExp(Expr value);
 
   /**
-   * Returns the value of the '<em><b>Builtin</b></em>' reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCallExpr}.
+   * Returns the value of the '<em><b>Builtin</b></em>' containment reference list.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCall}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Builtin</em>' reference list isn't clear,
+   * If the meaning of the '<em>Builtin</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Builtin</em>' reference list.
+   * @return the value of the '<em>Builtin</em>' containment reference list.
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getExpr_Builtin()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  EList<BuiltInFnCallExpr> getBuiltin();
+  EList<BuiltInFnCall> getBuiltin();
 
   /**
-   * Returns the value of the '<em><b>Method</b></em>' reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.FnCallExpr}.
+   * Returns the value of the '<em><b>Method</b></em>' containment reference list.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.FnCall}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Method</em>' reference list isn't clear,
+   * If the meaning of the '<em>Method</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Method</em>' reference list.
+   * @return the value of the '<em>Method</em>' containment reference list.
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getExpr_Method()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  EList<FnCallExpr> getMethod();
+  EList<FnCall> getMethod();
 
 } // Expr

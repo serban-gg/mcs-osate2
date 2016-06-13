@@ -29,13 +29,13 @@ import org.osate.xtext.aadl2.mcs.mcs.TheoremCall;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremCallImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremCallImpl#getCroot <em>Croot</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremCallImpl#getActarg <em>Actarg</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremCallImpl#getFn <em>Fn</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

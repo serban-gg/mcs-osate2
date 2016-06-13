@@ -3,10 +3,14 @@
 package org.osate.xtext.aadl2.mcs.mcs.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.osate.aadl2.StringLiteral;
 
 import org.osate.xtext.aadl2.mcs.mcs.ClaimString;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
@@ -17,34 +21,24 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimStringImpl#getStr <em>Str</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ClaimStringImpl extends Parm_stringImpl implements ClaimString
+public class ClaimStringImpl extends TextParmImpl implements ClaimString
 {
   /**
-   * The default value of the '{@link #getStr() <em>Str</em>}' attribute.
+   * The cached value of the '{@link #getStr() <em>Str</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getStr()
    * @generated
    * @ordered
    */
-  protected static final String STR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getStr() <em>Str</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStr()
-   * @generated
-   * @ordered
-   */
-  protected String str = STR_EDEFAULT;
+  protected StringLiteral str;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,7 +66,7 @@ public class ClaimStringImpl extends Parm_stringImpl implements ClaimString
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getStr()
+  public StringLiteral getStr()
   {
     return str;
   }
@@ -82,12 +76,53 @@ public class ClaimStringImpl extends Parm_stringImpl implements ClaimString
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setStr(String newStr)
+  public NotificationChain basicSetStr(StringLiteral newStr, NotificationChain msgs)
   {
-    String oldStr = str;
+    StringLiteral oldStr = str;
     str = newStr;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CLAIM_STRING__STR, oldStr, str));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.CLAIM_STRING__STR, oldStr, newStr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStr(StringLiteral newStr)
+  {
+    if (newStr != str)
+    {
+      NotificationChain msgs = null;
+      if (str != null)
+        msgs = ((InternalEObject)str).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.CLAIM_STRING__STR, null, msgs);
+      if (newStr != null)
+        msgs = ((InternalEObject)newStr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.CLAIM_STRING__STR, null, msgs);
+      msgs = basicSetStr(newStr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CLAIM_STRING__STR, newStr, newStr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case McsPackage.CLAIM_STRING__STR:
+        return basicSetStr(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -117,7 +152,7 @@ public class ClaimStringImpl extends Parm_stringImpl implements ClaimString
     switch (featureID)
     {
       case McsPackage.CLAIM_STRING__STR:
-        setStr((String)newValue);
+        setStr((StringLiteral)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,7 +169,7 @@ public class ClaimStringImpl extends Parm_stringImpl implements ClaimString
     switch (featureID)
     {
       case McsPackage.CLAIM_STRING__STR:
-        setStr(STR_EDEFAULT);
+        setStr((StringLiteral)null);
         return;
     }
     super.eUnset(featureID);
@@ -151,26 +186,9 @@ public class ClaimStringImpl extends Parm_stringImpl implements ClaimString
     switch (featureID)
     {
       case McsPackage.CLAIM_STRING__STR:
-        return STR_EDEFAULT == null ? str != null : !STR_EDEFAULT.equals(str);
+        return str != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (str: ");
-    result.append(str);
-    result.append(')');
-    return result.toString();
   }
 
 } //ClaimStringImpl

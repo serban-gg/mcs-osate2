@@ -16,10 +16,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.osate.xtext.aadl2.mcs.mcs.Constant;
+import org.osate.xtext.aadl2.mcs.mcs.Constant_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.F_or_T;
 import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,17 +28,28 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getConstants <em>Constants</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSAnnexLibraryImpl#getTheorems <em>Theorems</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements MCSAnnexLibrary
 {
+  /**
+   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypes()
+   * @generated
+   * @ordered
+   */
+  protected EList<Type_declaration> types;
+
   /**
    * The cached value of the '{@link #getConstants() <em>Constants</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -46,7 +58,7 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected EList<Constant> constants;
+  protected EList<Constant_declaration> constants;
 
   /**
    * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
@@ -94,11 +106,25 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Constant> getConstants()
+  public EList<Type_declaration> getTypes()
+  {
+    if (types == null)
+    {
+      types = new EObjectContainmentEList<Type_declaration>(Type_declaration.class, this, McsPackage.MCS_ANNEX_LIBRARY__TYPES);
+    }
+    return types;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Constant_declaration> getConstants()
   {
     if (constants == null)
     {
-      constants = new EObjectContainmentEList<Constant>(Constant.class, this, McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS);
+      constants = new EObjectContainmentEList<Constant_declaration>(Constant_declaration.class, this, McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS);
     }
     return constants;
   }
@@ -141,6 +167,8 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
+        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
       case McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS:
         return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
       case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
@@ -161,6 +189,8 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
+        return getTypes();
       case McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS:
         return getConstants();
       case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
@@ -182,9 +212,13 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
+        getTypes().clear();
+        getTypes().addAll((Collection<? extends Type_declaration>)newValue);
+        return;
       case McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS:
         getConstants().clear();
-        getConstants().addAll((Collection<? extends Constant>)newValue);
+        getConstants().addAll((Collection<? extends Constant_declaration>)newValue);
         return;
       case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
         getFunctions().clear();
@@ -208,6 +242,9 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
+        getTypes().clear();
+        return;
       case McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS:
         getConstants().clear();
         return;
@@ -231,6 +268,8 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
+      case McsPackage.MCS_ANNEX_LIBRARY__TYPES:
+        return types != null && !types.isEmpty();
       case McsPackage.MCS_ANNEX_LIBRARY__CONSTANTS:
         return constants != null && !constants.isEmpty();
       case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:

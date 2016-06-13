@@ -2,23 +2,15 @@
  */
 package org.osate.xtext.aadl2.mcs.mcs.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.osate.xtext.aadl2.mcs.mcs.Expr;
-import org.osate.xtext.aadl2.mcs.mcs.F_or_T;
+import org.osate.xtext.aadl2.mcs.mcs.FnCall;
 import org.osate.xtext.aadl2.mcs.mcs.FnCallExpr;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 
@@ -28,35 +20,24 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.FnCallExprImpl#getFn <em>Fn</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.FnCallExprImpl#getArgs <em>Args</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class FnCallExprImpl extends ExprImpl implements FnCallExpr
 {
   /**
-   * The cached value of the '{@link #getFn() <em>Fn</em>}' reference.
+   * The cached value of the '{@link #getFn() <em>Fn</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFn()
    * @generated
    * @ordered
    */
-  protected F_or_T fn;
-
-  /**
-   * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getArgs()
-   * @generated
-   * @ordered
-   */
-  protected EList<Expr> args;
+  protected FnCall fn;
 
   /**
    * <!-- begin-user-doc -->
@@ -84,27 +65,7 @@ public class FnCallExprImpl extends ExprImpl implements FnCallExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public F_or_T getFn()
-  {
-    if (fn != null && fn.eIsProxy())
-    {
-      InternalEObject oldFn = (InternalEObject)fn;
-      fn = (F_or_T)eResolveProxy(oldFn);
-      if (fn != oldFn)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, McsPackage.FN_CALL_EXPR__FN, oldFn, fn));
-      }
-    }
-    return fn;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public F_or_T basicGetFn()
+  public FnCall getFn()
   {
     return fn;
   }
@@ -114,12 +75,16 @@ public class FnCallExprImpl extends ExprImpl implements FnCallExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFn(F_or_T newFn)
+  public NotificationChain basicSetFn(FnCall newFn, NotificationChain msgs)
   {
-    F_or_T oldFn = fn;
+    FnCall oldFn = fn;
     fn = newFn;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.FN_CALL_EXPR__FN, oldFn, fn));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.FN_CALL_EXPR__FN, oldFn, newFn);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -127,13 +92,20 @@ public class FnCallExprImpl extends ExprImpl implements FnCallExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expr> getArgs()
+  public void setFn(FnCall newFn)
   {
-    if (args == null)
+    if (newFn != fn)
     {
-      args = new EObjectContainmentEList<Expr>(Expr.class, this, McsPackage.FN_CALL_EXPR__ARGS);
+      NotificationChain msgs = null;
+      if (fn != null)
+        msgs = ((InternalEObject)fn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.FN_CALL_EXPR__FN, null, msgs);
+      if (newFn != null)
+        msgs = ((InternalEObject)newFn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.FN_CALL_EXPR__FN, null, msgs);
+      msgs = basicSetFn(newFn, msgs);
+      if (msgs != null) msgs.dispatch();
     }
-    return args;
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.FN_CALL_EXPR__FN, newFn, newFn));
   }
 
   /**
@@ -146,8 +118,8 @@ public class FnCallExprImpl extends ExprImpl implements FnCallExpr
   {
     switch (featureID)
     {
-      case McsPackage.FN_CALL_EXPR__ARGS:
-        return ((InternalEList<?>)getArgs()).basicRemove(otherEnd, msgs);
+      case McsPackage.FN_CALL_EXPR__FN:
+        return basicSetFn(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -163,10 +135,7 @@ public class FnCallExprImpl extends ExprImpl implements FnCallExpr
     switch (featureID)
     {
       case McsPackage.FN_CALL_EXPR__FN:
-        if (resolve) return getFn();
-        return basicGetFn();
-      case McsPackage.FN_CALL_EXPR__ARGS:
-        return getArgs();
+        return getFn();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -176,18 +145,13 @@ public class FnCallExprImpl extends ExprImpl implements FnCallExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case McsPackage.FN_CALL_EXPR__FN:
-        setFn((F_or_T)newValue);
-        return;
-      case McsPackage.FN_CALL_EXPR__ARGS:
-        getArgs().clear();
-        getArgs().addAll((Collection<? extends Expr>)newValue);
+        setFn((FnCall)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -204,10 +168,7 @@ public class FnCallExprImpl extends ExprImpl implements FnCallExpr
     switch (featureID)
     {
       case McsPackage.FN_CALL_EXPR__FN:
-        setFn((F_or_T)null);
-        return;
-      case McsPackage.FN_CALL_EXPR__ARGS:
-        getArgs().clear();
+        setFn((FnCall)null);
         return;
     }
     super.eUnset(featureID);
@@ -225,8 +186,6 @@ public class FnCallExprImpl extends ExprImpl implements FnCallExpr
     {
       case McsPackage.FN_CALL_EXPR__FN:
         return fn != null;
-      case McsPackage.FN_CALL_EXPR__ARGS:
-        return args != null && !args.isEmpty();
     }
     return super.eIsSet(featureID);
   }

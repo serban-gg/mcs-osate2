@@ -12,22 +12,19 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.osate.aadl2.Aadl2Package;
 
-import org.osate.xtext.aadl2.mcs.mcs.Arg;
 import org.osate.xtext.aadl2.mcs.mcs.Basic_type;
 import org.osate.xtext.aadl2.mcs.mcs.BinaryExpr;
 import org.osate.xtext.aadl2.mcs.mcs.BoolExpr;
+import org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCall;
 import org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCallExpr;
-import org.osate.xtext.aadl2.mcs.mcs.BuiltPropertyExists;
-import org.osate.xtext.aadl2.mcs.mcs.BuiltPropertyVal;
 import org.osate.xtext.aadl2.mcs.mcs.ClaimArg;
 import org.osate.xtext.aadl2.mcs.mcs.ClaimBody;
 import org.osate.xtext.aadl2.mcs.mcs.ClaimString;
-import org.osate.xtext.aadl2.mcs.mcs.ClaimTextVar;
 import org.osate.xtext.aadl2.mcs.mcs.Classifier_literal;
 import org.osate.xtext.aadl2.mcs.mcs.Classifiers;
 import org.osate.xtext.aadl2.mcs.mcs.CompExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Composite_type;
-import org.osate.xtext.aadl2.mcs.mcs.Constant;
+import org.osate.xtext.aadl2.mcs.mcs.Constant_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.DefinitionBody;
 import org.osate.xtext.aadl2.mcs.mcs.Domain;
 import org.osate.xtext.aadl2.mcs.mcs.Element_type;
@@ -35,6 +32,7 @@ import org.osate.xtext.aadl2.mcs.mcs.Empty;
 import org.osate.xtext.aadl2.mcs.mcs.Expr;
 import org.osate.xtext.aadl2.mcs.mcs.F_or_T;
 import org.osate.xtext.aadl2.mcs.mcs.FilterMapExpr;
+import org.osate.xtext.aadl2.mcs.mcs.FnCall;
 import org.osate.xtext.aadl2.mcs.mcs.FnCallExpr;
 import org.osate.xtext.aadl2.mcs.mcs.FunctionBody;
 import org.osate.xtext.aadl2.mcs.mcs.Id_type_pair;
@@ -52,10 +50,12 @@ import org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot;
 import org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Mapping_type;
 import org.osate.xtext.aadl2.mcs.mcs.McsFactory;
+import org.osate.xtext.aadl2.mcs.mcs.McsName;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.Mcs_name;
+import org.osate.xtext.aadl2.mcs.mcs.McsTypedName;
 import org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref;
-import org.osate.xtext.aadl2.mcs.mcs.Parm_string;
+import org.osate.xtext.aadl2.mcs.mcs.Parameter;
+import org.osate.xtext.aadl2.mcs.mcs.ParameterizedString;
 import org.osate.xtext.aadl2.mcs.mcs.PkgExpr;
 import org.osate.xtext.aadl2.mcs.mcs.PostCastExpr;
 import org.osate.xtext.aadl2.mcs.mcs.QuantifiedExpr;
@@ -63,14 +63,16 @@ import org.osate.xtext.aadl2.mcs.mcs.Range;
 import org.osate.xtext.aadl2.mcs.mcs.RealExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Record_type;
 import org.osate.xtext.aadl2.mcs.mcs.RefExpr;
-import org.osate.xtext.aadl2.mcs.mcs.ReferenceTerm;
+import org.osate.xtext.aadl2.mcs.mcs.RefTerm;
 import org.osate.xtext.aadl2.mcs.mcs.SetExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Set_type;
 import org.osate.xtext.aadl2.mcs.mcs.StringExpr;
 import org.osate.xtext.aadl2.mcs.mcs.T_classifier_subtypes;
+import org.osate.xtext.aadl2.mcs.mcs.TextParm;
 import org.osate.xtext.aadl2.mcs.mcs.TheoremCall;
 import org.osate.xtext.aadl2.mcs.mcs.Theorem_root;
 import org.osate.xtext.aadl2.mcs.mcs.ThisExpr;
+import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
 import org.osate.xtext.aadl2.mcs.mcs.UnaryExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Union_type;
@@ -125,7 +127,14 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass constantEClass = null;
+  private EClass type_declarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass constant_declarationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -153,21 +162,35 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass argEClass = null;
+  private EClass parameterizedStringEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass parm_stringEClass = null;
+  private EClass parameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass claimTextVarEClass = null;
+  private EClass textParmEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mcsNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mcsTypedNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -188,14 +211,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass referenceTermEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass mcs_nameEClass = null;
+  private EClass refTermEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -203,6 +219,20 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * @generated
    */
   private EClass mcs_name_refEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass builtInFnCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fnCallEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -531,20 +561,6 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass builtPropertyExistsEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass builtPropertyValEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass fnCallExprEClass = null;
 
   /**
@@ -697,7 +713,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMCSAnnexLibrary_Constants()
+  public EReference getMCSAnnexLibrary_Types()
   {
     return (EReference)mcsAnnexLibraryEClass.getEStructuralFeatures().get(0);
   }
@@ -707,7 +723,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMCSAnnexLibrary_Functions()
+  public EReference getMCSAnnexLibrary_Constants()
   {
     return (EReference)mcsAnnexLibraryEClass.getEStructuralFeatures().get(1);
   }
@@ -717,9 +733,19 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMCSAnnexLibrary_Theorems()
+  public EReference getMCSAnnexLibrary_Functions()
   {
     return (EReference)mcsAnnexLibraryEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMCSAnnexLibrary_Theorems()
+  {
+    return (EReference)mcsAnnexLibraryEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -757,9 +783,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMCSFileLibrary_Packs()
+  public EReference getMCSFileLibrary_Types()
   {
-    return (EAttribute)mcsFileLibraryEClass.getEStructuralFeatures().get(2);
+    return (EReference)mcsFileLibraryEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -827,9 +853,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getConstant()
+  public EClass getType_declaration()
   {
-    return constantEClass;
+    return type_declarationEClass;
   }
 
   /**
@@ -837,9 +863,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getConstant_Name()
+  public EAttribute getType_declaration_Name()
   {
-    return (EAttribute)constantEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)type_declarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -847,9 +873,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstant_Type()
+  public EReference getType_declaration_Type()
   {
-    return (EReference)constantEClass.getEStructuralFeatures().get(1);
+    return (EReference)type_declarationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -857,9 +883,29 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConstant_Left_expr()
+  public EClass getConstant_declaration()
   {
-    return (EReference)constantEClass.getEStructuralFeatures().get(2);
+    return constant_declarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConstant_declaration_Const()
+  {
+    return (EReference)constant_declarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConstant_declaration_Left_expr()
+  {
+    return (EReference)constant_declarationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -967,9 +1013,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getArg()
+  public EClass getParameterizedString()
   {
-    return argEClass;
+    return parameterizedStringEClass;
   }
 
   /**
@@ -977,9 +1023,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getArg_Type()
+  public EReference getParameterizedString_Claim()
   {
-    return (EReference)argEClass.getEStructuralFeatures().get(0);
+    return (EReference)parameterizedStringEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -987,9 +1033,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getParm_string()
+  public EClass getParameter()
   {
-    return parm_stringEClass;
+    return parameterEClass;
   }
 
   /**
@@ -997,9 +1043,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getClaimTextVar()
+  public EClass getTextParm()
   {
-    return claimTextVarEClass;
+    return textParmEClass;
   }
 
   /**
@@ -1007,9 +1053,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClaimTextVar_Parm()
+  public EClass getMcsName()
   {
-    return (EAttribute)claimTextVarEClass.getEStructuralFeatures().get(0);
+    return mcsNameEClass;
   }
 
   /**
@@ -1017,9 +1063,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClaimTextVar_Const()
+  public EReference getMcsName_Type()
   {
-    return (EAttribute)claimTextVarEClass.getEStructuralFeatures().get(1);
+    return (EReference)mcsNameEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1027,9 +1073,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClaimTextVar_Letb()
+  public EClass getMcsTypedName()
   {
-    return (EAttribute)claimTextVarEClass.getEStructuralFeatures().get(2);
+    return mcsTypedNameEClass;
   }
 
   /**
@@ -1107,9 +1153,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getReferenceTerm()
+  public EReference getClassifier_literal_Arg()
   {
-    return referenceTermEClass;
+    return (EReference)classifier_literalEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1117,9 +1163,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getReferenceTerm_Root()
+  public EClass getRefTerm()
   {
-    return (EAttribute)referenceTermEClass.getEStructuralFeatures().get(0);
+    return refTermEClass;
   }
 
   /**
@@ -1127,9 +1173,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMcs_name()
+  public EAttribute getRefTerm_Root()
   {
-    return mcs_nameEClass;
+    return (EAttribute)refTermEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1137,29 +1183,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMcs_name_Name()
+  public EReference getRefTerm_Path()
   {
-    return (EAttribute)mcs_nameEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMcs_name_Builtin()
-  {
-    return (EReference)mcs_nameEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMcs_name_Method()
-  {
-    return (EReference)mcs_nameEClass.getEStructuralFeatures().get(2);
+    return (EReference)refTermEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1177,6 +1203,96 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getMcs_name_ref_Ref()
+  {
+    return (EReference)mcs_name_refEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMcs_name_ref_Builtin()
+  {
+    return (EReference)mcs_name_refEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMcs_name_ref_Method()
+  {
+    return (EReference)mcs_name_refEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBuiltInFnCall()
+  {
+    return builtInFnCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBuiltInFnCall_Fn()
+  {
+    return (EAttribute)builtInFnCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBuiltInFnCall_Args()
+  {
+    return (EReference)builtInFnCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFnCall()
+  {
+    return fnCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFnCall_Fn()
+  {
+    return (EReference)fnCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFnCall_Args()
+  {
+    return (EReference)fnCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getLet_binding()
   {
     return let_bindingEClass;
@@ -1187,19 +1303,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLet_binding_Name()
+  public EReference getLet_binding_Local()
   {
-    return (EAttribute)let_bindingEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLet_binding_Type()
-  {
-    return (EReference)let_bindingEClass.getEStructuralFeatures().get(1);
+    return (EReference)let_bindingEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1209,7 +1315,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    */
   public EReference getLet_binding_Expr()
   {
-    return (EReference)let_bindingEClass.getEStructuralFeatures().get(2);
+    return (EReference)let_bindingEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2417,7 +2523,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClaimBody_Claim()
+  public EReference getClaimBody_String()
   {
     return (EReference)claimBodyEClass.getEStructuralFeatures().get(0);
   }
@@ -2437,9 +2543,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClaimString_Str()
+  public EReference getClaimString_Str()
   {
-    return (EAttribute)claimStringEClass.getEStructuralFeatures().get(0);
+    return (EReference)claimStringEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2667,7 +2773,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMCSNameExpr_Nameref()
+  public EReference getMCSNameExpr_Typednameref()
   {
     return (EReference)mcsNameExprEClass.getEStructuralFeatures().get(5);
   }
@@ -2947,106 +3053,6 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBuiltInFnCallExpr_Fn()
-  {
-    return (EAttribute)builtInFnCallExprEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBuiltInFnCallExpr_Args()
-  {
-    return (EReference)builtInFnCallExprEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getBuiltPropertyExists()
-  {
-    return builtPropertyExistsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBuiltPropertyExists_Property()
-  {
-    return (EReference)builtPropertyExistsEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBuiltPropertyExists_Modeset()
-  {
-    return (EReference)builtPropertyExistsEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBuiltPropertyExists_Inbind()
-  {
-    return (EReference)builtPropertyExistsEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getBuiltPropertyVal()
-  {
-    return builtPropertyValEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBuiltPropertyVal_Property()
-  {
-    return (EReference)builtPropertyValEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBuiltPropertyVal_Modeset()
-  {
-    return (EReference)builtPropertyValEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBuiltPropertyVal_Inbind()
-  {
-    return (EReference)builtPropertyValEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getFnCallExpr()
   {
     return fnCallExprEClass;
@@ -3060,16 +3066,6 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
   public EReference getFnCallExpr_Fn()
   {
     return (EReference)fnCallExprEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getFnCallExpr_Args()
-  {
-    return (EReference)fnCallExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3208,6 +3204,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     createEReference(mcsGrammarRootEClass, MCS_GRAMMAR_ROOT__SUBCLAUSE);
 
     mcsAnnexLibraryEClass = createEClass(MCS_ANNEX_LIBRARY);
+    createEReference(mcsAnnexLibraryEClass, MCS_ANNEX_LIBRARY__TYPES);
     createEReference(mcsAnnexLibraryEClass, MCS_ANNEX_LIBRARY__CONSTANTS);
     createEReference(mcsAnnexLibraryEClass, MCS_ANNEX_LIBRARY__FUNCTIONS);
     createEReference(mcsAnnexLibraryEClass, MCS_ANNEX_LIBRARY__THEOREMS);
@@ -3215,7 +3212,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     mcsFileLibraryEClass = createEClass(MCS_FILE_LIBRARY);
     createEReference(mcsFileLibraryEClass, MCS_FILE_LIBRARY__IMPORTED_UNIT);
     createEAttribute(mcsFileLibraryEClass, MCS_FILE_LIBRARY__FILES);
-    createEAttribute(mcsFileLibraryEClass, MCS_FILE_LIBRARY__PACKS);
+    createEReference(mcsFileLibraryEClass, MCS_FILE_LIBRARY__TYPES);
     createEReference(mcsFileLibraryEClass, MCS_FILE_LIBRARY__CONSTANTS);
     createEReference(mcsFileLibraryEClass, MCS_FILE_LIBRARY__FUNCTIONS);
     createEReference(mcsFileLibraryEClass, MCS_FILE_LIBRARY__THEOREMS);
@@ -3224,10 +3221,13 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     mcsAnnexSubclauseEClass = createEClass(MCS_ANNEX_SUBCLAUSE);
     createEReference(mcsAnnexSubclauseEClass, MCS_ANNEX_SUBCLAUSE__CALLS);
 
-    constantEClass = createEClass(CONSTANT);
-    createEAttribute(constantEClass, CONSTANT__NAME);
-    createEReference(constantEClass, CONSTANT__TYPE);
-    createEReference(constantEClass, CONSTANT__LEFT_EXPR);
+    type_declarationEClass = createEClass(TYPE_DECLARATION);
+    createEAttribute(type_declarationEClass, TYPE_DECLARATION__NAME);
+    createEReference(type_declarationEClass, TYPE_DECLARATION__TYPE);
+
+    constant_declarationEClass = createEClass(CONSTANT_DECLARATION);
+    createEReference(constant_declarationEClass, CONSTANT_DECLARATION__CONST);
+    createEReference(constant_declarationEClass, CONSTANT_DECLARATION__LEFT_EXPR);
 
     f_or_TEClass = createEClass(FOR_T);
     createEAttribute(f_or_TEClass, FOR_T__NAME);
@@ -3242,15 +3242,17 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     definitionBodyEClass = createEClass(DEFINITION_BODY);
     createEReference(definitionBodyEClass, DEFINITION_BODY__EXPR);
 
-    argEClass = createEClass(ARG);
-    createEReference(argEClass, ARG__TYPE);
+    parameterizedStringEClass = createEClass(PARAMETERIZED_STRING);
+    createEReference(parameterizedStringEClass, PARAMETERIZED_STRING__CLAIM);
 
-    parm_stringEClass = createEClass(PARM_STRING);
+    parameterEClass = createEClass(PARAMETER);
 
-    claimTextVarEClass = createEClass(CLAIM_TEXT_VAR);
-    createEAttribute(claimTextVarEClass, CLAIM_TEXT_VAR__PARM);
-    createEAttribute(claimTextVarEClass, CLAIM_TEXT_VAR__CONST);
-    createEAttribute(claimTextVarEClass, CLAIM_TEXT_VAR__LETB);
+    textParmEClass = createEClass(TEXT_PARM);
+
+    mcsNameEClass = createEClass(MCS_NAME);
+    createEReference(mcsNameEClass, MCS_NAME__TYPE);
+
+    mcsTypedNameEClass = createEClass(MCS_TYPED_NAME);
 
     theoremCallEClass = createEClass(THEOREM_CALL);
     createEReference(theoremCallEClass, THEOREM_CALL__NAME);
@@ -3260,20 +3262,27 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
 
     classifier_literalEClass = createEClass(CLASSIFIER_LITERAL);
     createEReference(classifier_literalEClass, CLASSIFIER_LITERAL__CLASSLIT);
+    createEReference(classifier_literalEClass, CLASSIFIER_LITERAL__ARG);
 
-    referenceTermEClass = createEClass(REFERENCE_TERM);
-    createEAttribute(referenceTermEClass, REFERENCE_TERM__ROOT);
-
-    mcs_nameEClass = createEClass(MCS_NAME);
-    createEAttribute(mcs_nameEClass, MCS_NAME__NAME);
-    createEReference(mcs_nameEClass, MCS_NAME__BUILTIN);
-    createEReference(mcs_nameEClass, MCS_NAME__METHOD);
+    refTermEClass = createEClass(REF_TERM);
+    createEAttribute(refTermEClass, REF_TERM__ROOT);
+    createEReference(refTermEClass, REF_TERM__PATH);
 
     mcs_name_refEClass = createEClass(MCS_NAME_REF);
+    createEReference(mcs_name_refEClass, MCS_NAME_REF__REF);
+    createEReference(mcs_name_refEClass, MCS_NAME_REF__BUILTIN);
+    createEReference(mcs_name_refEClass, MCS_NAME_REF__METHOD);
+
+    builtInFnCallEClass = createEClass(BUILT_IN_FN_CALL);
+    createEAttribute(builtInFnCallEClass, BUILT_IN_FN_CALL__FN);
+    createEReference(builtInFnCallEClass, BUILT_IN_FN_CALL__ARGS);
+
+    fnCallEClass = createEClass(FN_CALL);
+    createEReference(fnCallEClass, FN_CALL__FN);
+    createEReference(fnCallEClass, FN_CALL__ARGS);
 
     let_bindingEClass = createEClass(LET_BINDING);
-    createEAttribute(let_bindingEClass, LET_BINDING__NAME);
-    createEReference(let_bindingEClass, LET_BINDING__TYPE);
+    createEReference(let_bindingEClass, LET_BINDING__LOCAL);
     createEReference(let_bindingEClass, LET_BINDING__EXPR);
 
     exprEClass = createEClass(EXPR);
@@ -3421,10 +3430,10 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     createEReference(functionBodyEClass, FUNCTION_BODY__TYPE);
 
     claimBodyEClass = createEClass(CLAIM_BODY);
-    createEReference(claimBodyEClass, CLAIM_BODY__CLAIM);
+    createEReference(claimBodyEClass, CLAIM_BODY__STRING);
 
     claimStringEClass = createEClass(CLAIM_STRING);
-    createEAttribute(claimStringEClass, CLAIM_STRING__STR);
+    createEReference(claimStringEClass, CLAIM_STRING__STR);
 
     claimArgEClass = createEClass(CLAIM_ARG);
     createEReference(claimArgEClass, CLAIM_ARG__ARG);
@@ -3453,7 +3462,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     createEAttribute(mcsNameExprEClass, MCS_NAME_EXPR__NIL);
     createEAttribute(mcsNameExprEClass, MCS_NAME_EXPR__EMPTY);
     createEAttribute(mcsNameExprEClass, MCS_NAME_EXPR__ALLMODES);
-    createEReference(mcsNameExprEClass, MCS_NAME_EXPR__NAMEREF);
+    createEReference(mcsNameExprEClass, MCS_NAME_EXPR__TYPEDNAMEREF);
 
     pkgExprEClass = createEClass(PKG_EXPR);
     createEReference(pkgExprEClass, PKG_EXPR__PACKAGE);
@@ -3493,22 +3502,9 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     createEReference(quantifiedExprEClass, QUANTIFIED_EXPR__EXPR);
 
     builtInFnCallExprEClass = createEClass(BUILT_IN_FN_CALL_EXPR);
-    createEAttribute(builtInFnCallExprEClass, BUILT_IN_FN_CALL_EXPR__FN);
-    createEReference(builtInFnCallExprEClass, BUILT_IN_FN_CALL_EXPR__ARGS);
-
-    builtPropertyExistsEClass = createEClass(BUILT_PROPERTY_EXISTS);
-    createEReference(builtPropertyExistsEClass, BUILT_PROPERTY_EXISTS__PROPERTY);
-    createEReference(builtPropertyExistsEClass, BUILT_PROPERTY_EXISTS__MODESET);
-    createEReference(builtPropertyExistsEClass, BUILT_PROPERTY_EXISTS__INBIND);
-
-    builtPropertyValEClass = createEClass(BUILT_PROPERTY_VAL);
-    createEReference(builtPropertyValEClass, BUILT_PROPERTY_VAL__PROPERTY);
-    createEReference(builtPropertyValEClass, BUILT_PROPERTY_VAL__MODESET);
-    createEReference(builtPropertyValEClass, BUILT_PROPERTY_VAL__INBIND);
 
     fnCallExprEClass = createEClass(FN_CALL_EXPR);
     createEReference(fnCallExprEClass, FN_CALL_EXPR__FN);
-    createEReference(fnCallExprEClass, FN_CALL_EXPR__ARGS);
 
     filterMapExprEClass = createEClass(FILTER_MAP_EXPR);
     createEReference(filterMapExprEClass, FILTER_MAP_EXPR__MAP);
@@ -3558,11 +3554,10 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    argEClass.getESuperTypes().add(theAadl2Package.getParameter());
+    parameterEClass.getESuperTypes().add(theAadl2Package.getParameter());
+    mcsNameEClass.getESuperTypes().add(this.getMcsTypedName());
+    mcsTypedNameEClass.getESuperTypes().add(this.getParameter());
     theoremCallEClass.getESuperTypes().add(this.getExpr());
-    referenceTermEClass.getESuperTypes().add(theAadl2Package.getReferenceValue());
-    mcs_nameEClass.getESuperTypes().add(this.getClassifier_literal());
-    mcs_nameEClass.getESuperTypes().add(this.getMcs_name_ref());
     mapping_typeEClass.getESuperTypes().add(this.getComposite_type());
     set_typeEClass.getESuperTypes().add(this.getComposite_type());
     list_typeEClass.getESuperTypes().add(this.getComposite_type());
@@ -3576,8 +3571,8 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     t_flow_impl_subtypesEClass.getESuperTypes().add(this.gett_instance_subtypes());
     functionBodyEClass.getESuperTypes().add(this.getDefinitionBody());
     claimBodyEClass.getESuperTypes().add(this.getDefinitionBody());
-    claimStringEClass.getESuperTypes().add(this.getParm_string());
-    claimArgEClass.getESuperTypes().add(this.getParm_string());
+    claimStringEClass.getESuperTypes().add(this.getTextParm());
+    claimArgEClass.getESuperTypes().add(this.getTextParm());
     binaryExprEClass.getESuperTypes().add(this.getExpr());
     instanceOfExprEClass.getESuperTypes().add(this.getExpr());
     unaryExprEClass.getESuperTypes().add(this.getExpr());
@@ -3595,8 +3590,6 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     ifThenElseExprEClass.getESuperTypes().add(this.getExpr());
     quantifiedExprEClass.getESuperTypes().add(this.getExpr());
     builtInFnCallExprEClass.getESuperTypes().add(this.getExpr());
-    builtPropertyExistsEClass.getESuperTypes().add(this.getExpr());
-    builtPropertyValEClass.getESuperTypes().add(this.getExpr());
     fnCallExprEClass.getESuperTypes().add(this.getExpr());
     filterMapExprEClass.getESuperTypes().add(this.getExpr());
     setExprEClass.getESuperTypes().add(this.getExpr());
@@ -3610,15 +3603,16 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     initEReference(getMCSGrammarRoot_Subclause(), this.getMCSAnnexSubclause(), null, "subclause", null, 0, 1, MCSGrammarRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mcsAnnexLibraryEClass, MCSAnnexLibrary.class, "MCSAnnexLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMCSAnnexLibrary_Constants(), this.getConstant(), null, "constants", null, 0, -1, MCSAnnexLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMCSAnnexLibrary_Types(), this.getType_declaration(), null, "types", null, 0, -1, MCSAnnexLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMCSAnnexLibrary_Constants(), this.getConstant_declaration(), null, "constants", null, 0, -1, MCSAnnexLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMCSAnnexLibrary_Functions(), this.getF_or_T(), null, "functions", null, 0, -1, MCSAnnexLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMCSAnnexLibrary_Theorems(), this.getF_or_T(), null, "theorems", null, 0, -1, MCSAnnexLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mcsFileLibraryEClass, MCSFileLibrary.class, "MCSFileLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMCSFileLibrary_ImportedUnit(), theAadl2Package.getModelUnit(), null, "importedUnit", null, 0, -1, MCSFileLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMCSFileLibrary_Files(), theEcorePackage.getEString(), "files", null, 0, -1, MCSFileLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMCSFileLibrary_Packs(), theEcorePackage.getEString(), "packs", null, 0, -1, MCSFileLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMCSFileLibrary_Constants(), this.getConstant(), null, "constants", null, 0, -1, MCSFileLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMCSFileLibrary_Types(), this.getType_declaration(), null, "types", null, 0, -1, MCSFileLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMCSFileLibrary_Constants(), this.getConstant_declaration(), null, "constants", null, 0, -1, MCSFileLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMCSFileLibrary_Functions(), this.getF_or_T(), null, "functions", null, 0, -1, MCSFileLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMCSFileLibrary_Theorems(), this.getF_or_T(), null, "theorems", null, 0, -1, MCSFileLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMCSFileLibrary_Calls(), this.getTheoremCall(), null, "calls", null, 0, -1, MCSFileLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3626,33 +3620,38 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     initEClass(mcsAnnexSubclauseEClass, MCSAnnexSubclause.class, "MCSAnnexSubclause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMCSAnnexSubclause_Calls(), this.getTheoremCall(), null, "calls", null, 0, -1, MCSAnnexSubclause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getConstant_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConstant_Type(), this.getType_expression(), null, "type", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConstant_Left_expr(), this.getExpr(), null, "left_expr", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(type_declarationEClass, Type_declaration.class, "Type_declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getType_declaration_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Type_declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getType_declaration_Type(), this.getType_expression(), null, "type", null, 0, 1, Type_declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(constant_declarationEClass, Constant_declaration.class, "Constant_declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConstant_declaration_Const(), this.getMcsTypedName(), null, "const", null, 0, 1, Constant_declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstant_declaration_Left_expr(), this.getExpr(), null, "left_expr", null, 0, 1, Constant_declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(f_or_TEClass, F_or_T.class, "F_or_T", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getF_or_T_Name(), theEcorePackage.getEString(), "name", null, 0, 1, F_or_T.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getF_or_T_T_root(), theEcorePackage.getEBoolean(), "t_root", null, 0, 1, F_or_T.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getF_or_T_Args(), this.getArg(), null, "args", null, 0, -1, F_or_T.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getF_or_T_Args(), this.getParameter(), null, "args", null, 0, -1, F_or_T.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getF_or_T_Body(), this.getDefinitionBody(), null, "body", null, 0, 1, F_or_T.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(theorem_rootEClass, Theorem_root.class, "Theorem_root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTheorem_root_Nilroot(), theEcorePackage.getEBoolean(), "nilroot", null, 0, 1, Theorem_root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTheorem_root_Classifier(), this.getT_classifier_subtypes(), null, "classifier", null, 0, 1, Theorem_root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTheorem_root_Classifier(), this.getClassifiers(), null, "classifier", null, 0, 1, Theorem_root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(definitionBodyEClass, DefinitionBody.class, "DefinitionBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDefinitionBody_Expr(), this.getExpr(), null, "expr", null, 0, 1, DefinitionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(argEClass, Arg.class, "Arg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getArg_Type(), this.getType_expression(), null, "type", null, 0, 1, Arg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(parameterizedStringEClass, ParameterizedString.class, "ParameterizedString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameterizedString_Claim(), this.getTextParm(), null, "claim", null, 0, -1, ParameterizedString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(parm_stringEClass, Parm_string.class, "Parm_string", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(claimTextVarEClass, ClaimTextVar.class, "ClaimTextVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getClaimTextVar_Parm(), theEcorePackage.getEBoolean(), "parm", null, 0, 1, ClaimTextVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getClaimTextVar_Const(), theEcorePackage.getEBoolean(), "const", null, 0, 1, ClaimTextVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getClaimTextVar_Letb(), theEcorePackage.getEBoolean(), "letb", null, 0, 1, ClaimTextVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(textParmEClass, TextParm.class, "TextParm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(mcsNameEClass, McsName.class, "McsName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMcsName_Type(), this.getType_expression(), null, "type", null, 0, 1, McsName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mcsTypedNameEClass, McsTypedName.class, "McsTypedName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(theoremCallEClass, TheoremCall.class, "TheoremCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTheoremCall_Name(), this.getF_or_T(), null, "name", null, 0, 1, TheoremCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3662,27 +3661,34 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
 
     initEClass(classifier_literalEClass, Classifier_literal.class, "Classifier_literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getClassifier_literal_Classlit(), theAadl2Package.getComponentClassifier(), null, "classlit", null, 0, 1, Classifier_literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClassifier_literal_Arg(), this.getMcs_name_ref(), null, "arg", null, 0, 1, Classifier_literal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(referenceTermEClass, ReferenceTerm.class, "ReferenceTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getReferenceTerm_Root(), theEcorePackage.getEBoolean(), "root", null, 0, 1, ReferenceTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(mcs_nameEClass, Mcs_name.class, "Mcs_name", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMcs_name_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Mcs_name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMcs_name_Builtin(), this.getBuiltInFnCallExpr(), null, "builtin", null, 0, -1, Mcs_name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMcs_name_Method(), this.getFnCallExpr(), null, "method", null, 0, -1, Mcs_name.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(refTermEClass, RefTerm.class, "RefTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRefTerm_Root(), theEcorePackage.getEBoolean(), "root", null, 0, 1, RefTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRefTerm_Path(), theAadl2Package.getContainmentPathElement(), null, "path", null, 0, 1, RefTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mcs_name_refEClass, Mcs_name_ref.class, "Mcs_name_ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMcs_name_ref_Ref(), this.getMcsTypedName(), null, "ref", null, 0, 1, Mcs_name_ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMcs_name_ref_Builtin(), this.getBuiltInFnCall(), null, "builtin", null, 0, -1, Mcs_name_ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMcs_name_ref_Method(), this.getFnCall(), null, "method", null, 0, -1, Mcs_name_ref.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(builtInFnCallEClass, BuiltInFnCall.class, "BuiltInFnCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBuiltInFnCall_Fn(), theEcorePackage.getEString(), "fn", null, 0, 1, BuiltInFnCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBuiltInFnCall_Args(), this.getExpr(), null, "args", null, 0, -1, BuiltInFnCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fnCallEClass, FnCall.class, "FnCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFnCall_Fn(), this.getF_or_T(), null, "fn", null, 0, 1, FnCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFnCall_Args(), this.getExpr(), null, "args", null, 0, -1, FnCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(let_bindingEClass, Let_binding.class, "Let_binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLet_binding_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Let_binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLet_binding_Type(), this.getType_expression(), null, "type", null, 0, 1, Let_binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLet_binding_Local(), this.getMcsTypedName(), null, "local", null, 0, 1, Let_binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLet_binding_Expr(), this.getExpr(), null, "expr", null, 0, 1, Let_binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExpr_List(), theEcorePackage.getEBoolean(), "list", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpr_Exp(), this.getExpr(), null, "exp", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpr_Builtin(), this.getBuiltInFnCallExpr(), null, "builtin", null, 0, -1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExpr_Method(), this.getFnCallExpr(), null, "method", null, 0, -1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpr_Builtin(), this.getBuiltInFnCall(), null, "builtin", null, 0, -1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpr_Method(), this.getFnCall(), null, "method", null, 0, -1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDomain_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3705,26 +3711,26 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     initEReference(getBasic_type_Range(), theAadl2Package.getRangeType(), null, "range", null, 0, 1, Basic_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBasic_type_Class(), theAadl2Package.getClassifierType(), null, "class", null, 0, 1, Basic_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBasic_type_Ref(), theAadl2Package.getReferenceType(), null, "ref", null, 0, 1, Basic_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBasic_type_Typename(), this.getConstant(), null, "typename", null, 0, 1, Basic_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBasic_type_Typename(), this.getType_declaration(), null, "typename", null, 0, 1, Basic_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(composite_typeEClass, Composite_type.class, "Composite_type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(mapping_typeEClass, Mapping_type.class, "Mapping_type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMapping_type_Key(), this.getType_expression(), null, "key", null, 0, 1, Mapping_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMapping_type_Val(), this.getType_expression(), null, "val", null, 0, 1, Mapping_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMapping_type_Key(), this.getType_expression(), null, "key", null, 0, 1, Mapping_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMapping_type_Val(), this.getType_expression(), null, "val", null, 0, 1, Mapping_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(set_typeEClass, Set_type.class, "Set_type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSet_type_Root_type(), this.getType_expression(), null, "root_type", null, 0, 1, Set_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSet_type_Root_type(), this.getType_expression(), null, "root_type", null, 0, 1, Set_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(list_typeEClass, List_type.class, "List_type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getList_type_Root_type(), this.getType_expression(), null, "root_type", null, 0, 1, List_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getList_type_Root_type(), this.getType_expression(), null, "root_type", null, 0, 1, List_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(record_typeEClass, Record_type.class, "Record_type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRecord_type_Field(), this.getId_type_pair(), null, "field", null, 0, -1, Record_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(union_typeEClass, Union_type.class, "Union_type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUnion_type_Types(), this.getType_expression(), null, "types", null, 0, -1, Union_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUnion_type_Type(), this.getType_expression(), null, "type", null, 0, -1, Union_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnion_type_Types(), this.getType_expression(), null, "types", null, 0, -1, Union_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnion_type_Type(), this.getType_expression(), null, "type", null, 0, -1, Union_type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(id_type_pairEClass, Id_type_pair.class, "Id_type_pair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getId_type_pair_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Id_type_pair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3823,19 +3829,19 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     initEReference(getFunctionBody_Type(), this.getType_expression(), null, "type", null, 0, 1, FunctionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(claimBodyEClass, ClaimBody.class, "ClaimBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getClaimBody_Claim(), this.getParm_string(), null, "claim", null, 0, -1, ClaimBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClaimBody_String(), this.getParameterizedString(), null, "string", null, 0, -1, ClaimBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(claimStringEClass, ClaimString.class, "ClaimString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getClaimString_Str(), theEcorePackage.getEString(), "str", null, 0, 1, ClaimString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClaimString_Str(), theAadl2Package.getStringLiteral(), null, "str", null, 0, 1, ClaimString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(claimArgEClass, ClaimArg.class, "ClaimArg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getClaimArg_Arg(), this.getClaimTextVar(), null, "arg", null, 0, 1, ClaimArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClaimArg_Arg(), this.getMcsTypedName(), null, "arg", null, 0, 1, ClaimArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClaimArg_Unit(), theAadl2Package.getUnitLiteral(), null, "unit", null, 0, 1, ClaimArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(binaryExprEClass, BinaryExpr.class, "BinaryExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBinaryExpr_Left(), this.getExpr(), null, "left", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBinaryExpr_Op(), theEcorePackage.getEString(), "op", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBinaryExpr_Right(), this.getExpr(), null, "right", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinaryExpr_Right(), theEcorePackage.getEObject(), null, "right", null, 0, 1, BinaryExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(instanceOfExprEClass, InstanceOfExpr.class, "InstanceOfExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInstanceOfExpr_Expr(), this.getExpr(), null, "expr", null, 0, 1, InstanceOfExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3855,7 +3861,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     initEAttribute(getMCSNameExpr_Nil(), theEcorePackage.getEBoolean(), "nil", null, 0, 1, MCSNameExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMCSNameExpr_Empty(), theEcorePackage.getEBoolean(), "empty", null, 0, 1, MCSNameExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMCSNameExpr_Allmodes(), theEcorePackage.getEBoolean(), "allmodes", null, 0, 1, MCSNameExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMCSNameExpr_Nameref(), this.getMcs_name_ref(), null, "nameref", null, 0, 1, MCSNameExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMCSNameExpr_Typednameref(), this.getMcs_name_ref(), null, "typednameref", null, 0, 1, MCSNameExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pkgExprEClass, PkgExpr.class, "PkgExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPkgExpr_Package(), theAadl2Package.getAadlPackage(), null, "package", null, 0, 1, PkgExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3864,7 +3870,7 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
     initEReference(getCompExpr_Classifier(), theAadl2Package.getClassifierValue(), null, "classifier", null, 0, 1, CompExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(refExprEClass, RefExpr.class, "RefExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRefExpr_Reference(), this.getReferenceTerm(), null, "reference", null, 0, 1, RefExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRefExpr_Reference(), this.getRefTerm(), null, "reference", null, 0, 1, RefExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(thisExprEClass, ThisExpr.class, "ThisExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getThisExpr_Sub(), theAadl2Package.getContainedNamedElement(), null, "sub", null, 0, 1, ThisExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3891,26 +3897,13 @@ public class McsPackageImpl extends EPackageImpl implements McsPackage
 
     initEClass(quantifiedExprEClass, QuantifiedExpr.class, "QuantifiedExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQuantifiedExpr_Quant(), theEcorePackage.getEString(), "quant", null, 0, 1, QuantifiedExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getQuantifiedExpr_Args(), this.getArg(), null, "args", null, 0, -1, QuantifiedExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQuantifiedExpr_Args(), theEcorePackage.getEObject(), null, "args", null, 0, -1, QuantifiedExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getQuantifiedExpr_Expr(), this.getExpr(), null, "expr", null, 0, 1, QuantifiedExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(builtInFnCallExprEClass, BuiltInFnCallExpr.class, "BuiltInFnCallExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBuiltInFnCallExpr_Fn(), theEcorePackage.getEString(), "fn", null, 0, 1, BuiltInFnCallExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBuiltInFnCallExpr_Args(), this.getExpr(), null, "args", null, 0, -1, BuiltInFnCallExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(builtPropertyExistsEClass, BuiltPropertyExists.class, "BuiltPropertyExists", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBuiltPropertyExists_Property(), theAadl2Package.getProperty(), null, "property", null, 0, 1, BuiltPropertyExists.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBuiltPropertyExists_Modeset(), this.getExpr(), null, "modeset", null, 0, 1, BuiltPropertyExists.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBuiltPropertyExists_Inbind(), this.getExpr(), null, "inbind", null, 0, 1, BuiltPropertyExists.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(builtPropertyValEClass, BuiltPropertyVal.class, "BuiltPropertyVal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBuiltPropertyVal_Property(), theAadl2Package.getProperty(), null, "property", null, 0, 1, BuiltPropertyVal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBuiltPropertyVal_Modeset(), this.getExpr(), null, "modeset", null, 0, 1, BuiltPropertyVal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBuiltPropertyVal_Inbind(), this.getExpr(), null, "inbind", null, 0, 1, BuiltPropertyVal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fnCallExprEClass, FnCallExpr.class, "FnCallExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFnCallExpr_Fn(), this.getF_or_T(), null, "fn", null, 0, 1, FnCallExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFnCallExpr_Args(), this.getExpr(), null, "args", null, 0, -1, FnCallExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFnCallExpr_Fn(), this.getFnCall(), null, "fn", null, 0, 1, FnCallExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(filterMapExprEClass, FilterMapExpr.class, "FilterMapExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFilterMapExpr_Map(), this.getExpr(), null, "map", null, 0, 1, FilterMapExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

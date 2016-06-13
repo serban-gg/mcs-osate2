@@ -11,10 +11,10 @@ import org.osate.aadl2.AadlPackage;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.PkgExpr#getPackage <em>Package</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getPkgExpr()
  * @model

@@ -21,11 +21,11 @@ import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.PostCastExprImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.PostCastExprImpl#getNewtype <em>Newtype</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -21,11 +21,11 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.DomainImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.DomainImpl#getExpr <em>Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -10,11 +10,11 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getBinding <em>Binding</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr <em>Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getLetExpr()
  * @model

@@ -17,13 +17,13 @@ import org.osate.xtext.aadl2.mcs.mcs.t_port_subtypes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_port_subtypesImpl#isT_port <em>Tport</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_port_subtypesImpl#isT_d_port <em>Tdport</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_port_subtypesImpl#isT_ev_port <em>Tev port</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_port_subtypesImpl#isT_evd_port <em>Tevd port</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

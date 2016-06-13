@@ -20,11 +20,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.osate.aadl2.ModelUnit;
 
-import org.osate.xtext.aadl2.mcs.mcs.Constant;
+import org.osate.xtext.aadl2.mcs.mcs.Constant_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.F_or_T;
 import org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.TheoremCall;
+import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,16 +33,16 @@ import org.osate.xtext.aadl2.mcs.mcs.TheoremCall;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSFileLibraryImpl#getImportedUnit <em>Imported Unit</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSFileLibraryImpl#getFiles <em>Files</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSFileLibraryImpl#getPacks <em>Packs</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSFileLibraryImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSFileLibraryImpl#getConstants <em>Constants</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSFileLibraryImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSFileLibraryImpl#getTheorems <em>Theorems</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSFileLibraryImpl#getCalls <em>Calls</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -68,14 +69,14 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
   protected EList<String> files;
 
   /**
-   * The cached value of the '{@link #getPacks() <em>Packs</em>}' attribute list.
+   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPacks()
+   * @see #getTypes()
    * @generated
    * @ordered
    */
-  protected EList<String> packs;
+  protected EList<Type_declaration> types;
 
   /**
    * The cached value of the '{@link #getConstants() <em>Constants</em>}' containment reference list.
@@ -85,7 +86,7 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    * @ordered
    */
-  protected EList<Constant> constants;
+  protected EList<Constant_declaration> constants;
 
   /**
    * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
@@ -171,13 +172,13 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getPacks()
+  public EList<Type_declaration> getTypes()
   {
-    if (packs == null)
+    if (types == null)
     {
-      packs = new EDataTypeEList<String>(String.class, this, McsPackage.MCS_FILE_LIBRARY__PACKS);
+      types = new EObjectContainmentEList<Type_declaration>(Type_declaration.class, this, McsPackage.MCS_FILE_LIBRARY__TYPES);
     }
-    return packs;
+    return types;
   }
 
   /**
@@ -185,11 +186,11 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Constant> getConstants()
+  public EList<Constant_declaration> getConstants()
   {
     if (constants == null)
     {
-      constants = new EObjectContainmentEList<Constant>(Constant.class, this, McsPackage.MCS_FILE_LIBRARY__CONSTANTS);
+      constants = new EObjectContainmentEList<Constant_declaration>(Constant_declaration.class, this, McsPackage.MCS_FILE_LIBRARY__CONSTANTS);
     }
     return constants;
   }
@@ -246,6 +247,8 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case McsPackage.MCS_FILE_LIBRARY__TYPES:
+        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
       case McsPackage.MCS_FILE_LIBRARY__CONSTANTS:
         return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
       case McsPackage.MCS_FILE_LIBRARY__FUNCTIONS:
@@ -272,8 +275,8 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
         return getImportedUnit();
       case McsPackage.MCS_FILE_LIBRARY__FILES:
         return getFiles();
-      case McsPackage.MCS_FILE_LIBRARY__PACKS:
-        return getPacks();
+      case McsPackage.MCS_FILE_LIBRARY__TYPES:
+        return getTypes();
       case McsPackage.MCS_FILE_LIBRARY__CONSTANTS:
         return getConstants();
       case McsPackage.MCS_FILE_LIBRARY__FUNCTIONS:
@@ -305,13 +308,13 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
         getFiles().clear();
         getFiles().addAll((Collection<? extends String>)newValue);
         return;
-      case McsPackage.MCS_FILE_LIBRARY__PACKS:
-        getPacks().clear();
-        getPacks().addAll((Collection<? extends String>)newValue);
+      case McsPackage.MCS_FILE_LIBRARY__TYPES:
+        getTypes().clear();
+        getTypes().addAll((Collection<? extends Type_declaration>)newValue);
         return;
       case McsPackage.MCS_FILE_LIBRARY__CONSTANTS:
         getConstants().clear();
-        getConstants().addAll((Collection<? extends Constant>)newValue);
+        getConstants().addAll((Collection<? extends Constant_declaration>)newValue);
         return;
       case McsPackage.MCS_FILE_LIBRARY__FUNCTIONS:
         getFunctions().clear();
@@ -345,8 +348,8 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
       case McsPackage.MCS_FILE_LIBRARY__FILES:
         getFiles().clear();
         return;
-      case McsPackage.MCS_FILE_LIBRARY__PACKS:
-        getPacks().clear();
+      case McsPackage.MCS_FILE_LIBRARY__TYPES:
+        getTypes().clear();
         return;
       case McsPackage.MCS_FILE_LIBRARY__CONSTANTS:
         getConstants().clear();
@@ -378,8 +381,8 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
         return importedUnit != null && !importedUnit.isEmpty();
       case McsPackage.MCS_FILE_LIBRARY__FILES:
         return files != null && !files.isEmpty();
-      case McsPackage.MCS_FILE_LIBRARY__PACKS:
-        return packs != null && !packs.isEmpty();
+      case McsPackage.MCS_FILE_LIBRARY__TYPES:
+        return types != null && !types.isEmpty();
       case McsPackage.MCS_FILE_LIBRARY__CONSTANTS:
         return constants != null && !constants.isEmpty();
       case McsPackage.MCS_FILE_LIBRARY__FUNCTIONS:
@@ -405,8 +408,6 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (files: ");
     result.append(files);
-    result.append(", packs: ");
-    result.append(packs);
     result.append(')');
     return result.toString();
   }

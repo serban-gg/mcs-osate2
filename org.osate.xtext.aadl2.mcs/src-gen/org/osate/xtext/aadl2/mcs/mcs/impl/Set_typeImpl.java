@@ -3,6 +3,7 @@
 package org.osate.xtext.aadl2.mcs.mcs.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -19,17 +20,17 @@ import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Set_typeImpl#getRoot_type <em>Root type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class Set_typeImpl extends Composite_typeImpl implements Set_type
 {
   /**
-   * The cached value of the '{@link #getRoot_type() <em>Root type</em>}' reference.
+   * The cached value of the '{@link #getRoot_type() <em>Root type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRoot_type()
@@ -66,16 +67,6 @@ public class Set_typeImpl extends Composite_typeImpl implements Set_type
    */
   public Type_expression getRoot_type()
   {
-    if (root_type != null && root_type.eIsProxy())
-    {
-      InternalEObject oldRoot_type = (InternalEObject)root_type;
-      root_type = (Type_expression)eResolveProxy(oldRoot_type);
-      if (root_type != oldRoot_type)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, McsPackage.SET_TYPE__ROOT_TYPE, oldRoot_type, root_type));
-      }
-    }
     return root_type;
   }
 
@@ -84,9 +75,16 @@ public class Set_typeImpl extends Composite_typeImpl implements Set_type
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type_expression basicGetRoot_type()
+  public NotificationChain basicSetRoot_type(Type_expression newRoot_type, NotificationChain msgs)
   {
-    return root_type;
+    Type_expression oldRoot_type = root_type;
+    root_type = newRoot_type;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.SET_TYPE__ROOT_TYPE, oldRoot_type, newRoot_type);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -96,10 +94,34 @@ public class Set_typeImpl extends Composite_typeImpl implements Set_type
    */
   public void setRoot_type(Type_expression newRoot_type)
   {
-    Type_expression oldRoot_type = root_type;
-    root_type = newRoot_type;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.SET_TYPE__ROOT_TYPE, oldRoot_type, root_type));
+    if (newRoot_type != root_type)
+    {
+      NotificationChain msgs = null;
+      if (root_type != null)
+        msgs = ((InternalEObject)root_type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.SET_TYPE__ROOT_TYPE, null, msgs);
+      if (newRoot_type != null)
+        msgs = ((InternalEObject)newRoot_type).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.SET_TYPE__ROOT_TYPE, null, msgs);
+      msgs = basicSetRoot_type(newRoot_type, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.SET_TYPE__ROOT_TYPE, newRoot_type, newRoot_type));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case McsPackage.SET_TYPE__ROOT_TYPE:
+        return basicSetRoot_type(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -113,8 +135,7 @@ public class Set_typeImpl extends Composite_typeImpl implements Set_type
     switch (featureID)
     {
       case McsPackage.SET_TYPE__ROOT_TYPE:
-        if (resolve) return getRoot_type();
-        return basicGetRoot_type();
+        return getRoot_type();
     }
     return super.eGet(featureID, resolve, coreType);
   }

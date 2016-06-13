@@ -10,15 +10,15 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isRoot <em>Root</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isIroot <em>Iroot</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isNil <em>Nil</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isEmpty <em>Empty</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isAllmodes <em>Allmodes</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#getNameref <em>Nameref</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#getTypednameref <em>Typednameref</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSNameExpr()
  * @model
@@ -157,29 +157,29 @@ public interface MCSNameExpr extends Expr
   void setAllmodes(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Nameref</b></em>' containment reference.
+   * Returns the value of the '<em><b>Typednameref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Nameref</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Typednameref</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Nameref</em>' containment reference.
-   * @see #setNameref(Mcs_name_ref)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSNameExpr_Nameref()
+   * @return the value of the '<em>Typednameref</em>' containment reference.
+   * @see #setTypednameref(Mcs_name_ref)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSNameExpr_Typednameref()
    * @model containment="true"
    * @generated
    */
-  Mcs_name_ref getNameref();
+  Mcs_name_ref getTypednameref();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#getNameref <em>Nameref</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#getTypednameref <em>Typednameref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Nameref</em>' containment reference.
-   * @see #getNameref()
+   * @param value the new value of the '<em>Typednameref</em>' containment reference.
+   * @see #getTypednameref()
    * @generated
    */
-  void setNameref(Mcs_name_ref value);
+  void setTypednameref(Mcs_name_ref value);
 
 } // MCSNameExpr

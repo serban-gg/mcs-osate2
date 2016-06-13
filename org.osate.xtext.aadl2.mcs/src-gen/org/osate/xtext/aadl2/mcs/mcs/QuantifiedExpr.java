@@ -4,6 +4,8 @@ package org.osate.xtext.aadl2.mcs.mcs;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Quantified Expr</b></em>'.
@@ -11,12 +13,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.QuantifiedExpr#getQuant <em>Quant</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.QuantifiedExpr#getArgs <em>Args</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.QuantifiedExpr#getExpr <em>Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getQuantifiedExpr()
  * @model
@@ -52,7 +54,7 @@ public interface QuantifiedExpr extends Expr
 
   /**
    * Returns the value of the '<em><b>Args</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Arg}.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Args</em>' containment reference list isn't clear,
@@ -64,7 +66,7 @@ public interface QuantifiedExpr extends Expr
    * @model containment="true"
    * @generated
    */
-  EList<Arg> getArgs();
+  EList<EObject> getArgs();
 
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.

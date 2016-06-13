@@ -10,13 +10,13 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_port_subtypes#isT_port <em>Tport</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_port_subtypes#isT_d_port <em>Tdport</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_port_subtypes#isT_ev_port <em>Tev port</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_port_subtypes#isT_evd_port <em>Tevd port</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#gett_port_subtypes()
  * @model

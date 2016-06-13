@@ -10,13 +10,13 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_flow_spec_subtypes#isT_f_spec <em>Tfspec</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_flow_spec_subtypes#isT_f_spec_source <em>Tfspec source</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_flow_spec_subtypes#isT_f_spec_sink <em>Tfspec sink</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_flow_spec_subtypes#isT_f_spec_path <em>Tfspec path</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#gett_flow_spec_subtypes()
  * @model

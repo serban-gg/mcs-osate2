@@ -10,11 +10,11 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.InstanceOfExpr#getExpr <em>Expr</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.InstanceOfExpr#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getInstanceOfExpr()
  * @model

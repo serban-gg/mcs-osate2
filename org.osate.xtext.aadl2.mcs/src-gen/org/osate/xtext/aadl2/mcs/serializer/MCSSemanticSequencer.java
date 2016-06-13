@@ -128,6 +128,7 @@ import org.osate.aadl2.Realization;
 import org.osate.aadl2.RecordType;
 import org.osate.aadl2.RecordValue;
 import org.osate.aadl2.ReferenceType;
+import org.osate.aadl2.ReferenceValue;
 import org.osate.aadl2.StringLiteral;
 import org.osate.aadl2.SubprogramAccess;
 import org.osate.aadl2.SubprogramCall;
@@ -165,27 +166,25 @@ import org.osate.aadl2.VirtualProcessorImplementation;
 import org.osate.aadl2.VirtualProcessorPrototype;
 import org.osate.aadl2.VirtualProcessorSubcomponent;
 import org.osate.aadl2.VirtualProcessorType;
-import org.osate.xtext.aadl2.mcs.mcs.Arg;
 import org.osate.xtext.aadl2.mcs.mcs.Basic_type;
 import org.osate.xtext.aadl2.mcs.mcs.BinaryExpr;
 import org.osate.xtext.aadl2.mcs.mcs.BoolExpr;
+import org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCall;
 import org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCallExpr;
-import org.osate.xtext.aadl2.mcs.mcs.BuiltPropertyExists;
-import org.osate.xtext.aadl2.mcs.mcs.BuiltPropertyVal;
 import org.osate.xtext.aadl2.mcs.mcs.ClaimArg;
 import org.osate.xtext.aadl2.mcs.mcs.ClaimBody;
 import org.osate.xtext.aadl2.mcs.mcs.ClaimString;
-import org.osate.xtext.aadl2.mcs.mcs.ClaimTextVar;
 import org.osate.xtext.aadl2.mcs.mcs.Classifier_literal;
 import org.osate.xtext.aadl2.mcs.mcs.Classifiers;
 import org.osate.xtext.aadl2.mcs.mcs.CompExpr;
-import org.osate.xtext.aadl2.mcs.mcs.Constant;
+import org.osate.xtext.aadl2.mcs.mcs.Constant_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.Domain;
 import org.osate.xtext.aadl2.mcs.mcs.Element_type;
 import org.osate.xtext.aadl2.mcs.mcs.Empty;
 import org.osate.xtext.aadl2.mcs.mcs.Expr;
 import org.osate.xtext.aadl2.mcs.mcs.F_or_T;
 import org.osate.xtext.aadl2.mcs.mcs.FilterMapExpr;
+import org.osate.xtext.aadl2.mcs.mcs.FnCall;
 import org.osate.xtext.aadl2.mcs.mcs.FnCallExpr;
 import org.osate.xtext.aadl2.mcs.mcs.FunctionBody;
 import org.osate.xtext.aadl2.mcs.mcs.Id_type_pair;
@@ -202,8 +201,10 @@ import org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary;
 import org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot;
 import org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Mapping_type;
+import org.osate.xtext.aadl2.mcs.mcs.McsName;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.Mcs_name;
+import org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref;
+import org.osate.xtext.aadl2.mcs.mcs.ParameterizedString;
 import org.osate.xtext.aadl2.mcs.mcs.PkgExpr;
 import org.osate.xtext.aadl2.mcs.mcs.PostCastExpr;
 import org.osate.xtext.aadl2.mcs.mcs.QuantifiedExpr;
@@ -211,7 +212,7 @@ import org.osate.xtext.aadl2.mcs.mcs.Range;
 import org.osate.xtext.aadl2.mcs.mcs.RealExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Record_type;
 import org.osate.xtext.aadl2.mcs.mcs.RefExpr;
-import org.osate.xtext.aadl2.mcs.mcs.ReferenceTerm;
+import org.osate.xtext.aadl2.mcs.mcs.RefTerm;
 import org.osate.xtext.aadl2.mcs.mcs.SetExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Set_type;
 import org.osate.xtext.aadl2.mcs.mcs.StringExpr;
@@ -219,6 +220,7 @@ import org.osate.xtext.aadl2.mcs.mcs.T_classifier_subtypes;
 import org.osate.xtext.aadl2.mcs.mcs.TheoremCall;
 import org.osate.xtext.aadl2.mcs.mcs.Theorem_root;
 import org.osate.xtext.aadl2.mcs.mcs.ThisExpr;
+import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
 import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
 import org.osate.xtext.aadl2.mcs.mcs.UnaryExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Union_type;
@@ -243,6 +245,20 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == Aadl2Package.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case Aadl2Package.ENUMERATION_LITERAL:
+				sequence_EnumerationLiteral(context, (EnumerationLiteral) semanticObject); 
+				return; 
+			case Aadl2Package.INTEGER_LITERAL:
+				sequence_IntegerTerm(context, (IntegerLiteral) semanticObject); 
+				return; 
+			case Aadl2Package.NUMERIC_RANGE:
+				sequence_Range(context, (NumericRange) semanticObject); 
+				return; 
+			case Aadl2Package.REAL_LITERAL:
+				sequence_RealTerm(context, (RealLiteral) semanticObject); 
+				return; 
+			}
+		else if(semanticObject.eClass().getEPackage() == Aadl2Package.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case Aadl2Package.AADL_BOOLEAN:
 				if(context == grammarAccess.getBooleanTypeRule() ||
 				   context == grammarAccess.getPropertyTypeRule()) {
@@ -505,9 +521,6 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 					return; 
 				}
 				else break;
-			case Aadl2Package.ENUMERATION_LITERAL:
-				sequence_EnumerationLiteral(context, (EnumerationLiteral) semanticObject); 
-				return; 
 			case Aadl2Package.ENUMERATION_TYPE:
 				if(context == grammarAccess.getEnumerationTypeRule() ||
 				   context == grammarAccess.getPropertyTypeRule()) {
@@ -639,19 +652,8 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 				sequence_ImplementationExtension(context, (ImplementationExtension) semanticObject); 
 				return; 
 			case Aadl2Package.INTEGER_LITERAL:
-				if(context == grammarAccess.getIntegerLitRule() ||
-				   context == grammarAccess.getNumberValueRule()) {
-					sequence_IntegerLit(context, (IntegerLiteral) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getConstantPropertyExpressionRule() ||
-				   context == grammarAccess.getIntegerTermRule() ||
-				   context == grammarAccess.getNumAltRule() ||
-				   context == grammarAccess.getPropertyExpressionRule()) {
-					sequence_IntegerTerm(context, (IntegerLiteral) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_IntegerLit(context, (IntegerLiteral) semanticObject); 
+				return; 
 			case Aadl2Package.LIST_TYPE:
 				sequence_ListType(context, (ListType) semanticObject); 
 				return; 
@@ -731,10 +733,6 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 			case Aadl2Package.NUMERIC_RANGE:
 				if(context == grammarAccess.getIntegerRangeRule()) {
 					sequence_IntegerRange(context, (NumericRange) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getRangeRule()) {
-					sequence_Range(context, (NumericRange) semanticObject); 
 					return; 
 				}
 				else if(context == grammarAccess.getRealRangeRule()) {
@@ -853,19 +851,8 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 				sequence_NumericRangeTerm(context, (RangeValue) semanticObject); 
 				return; 
 			case Aadl2Package.REAL_LITERAL:
-				if(context == grammarAccess.getNumberValueRule() ||
-				   context == grammarAccess.getRealLitRule()) {
-					sequence_RealLit(context, (RealLiteral) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getConstantPropertyExpressionRule() ||
-				   context == grammarAccess.getNumAltRule() ||
-				   context == grammarAccess.getPropertyExpressionRule() ||
-				   context == grammarAccess.getRealTermRule()) {
-					sequence_RealTerm(context, (RealLiteral) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_RealLit(context, (RealLiteral) semanticObject); 
+				return; 
 			case Aadl2Package.REALIZATION:
 				sequence_Realization(context, (Realization) semanticObject); 
 				return; 
@@ -905,6 +892,9 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 					return; 
 				}
 				else break;
+			case Aadl2Package.REFERENCE_VALUE:
+				sequence_ReferenceTerm(context, (ReferenceValue) semanticObject); 
+				return; 
 			case Aadl2Package.STRING_LITERAL:
 				sequence_StringTerm(context, (StringLiteral) semanticObject); 
 				return; 
@@ -1090,74 +1080,69 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 				return; 
 			}
 		else if(semanticObject.eClass().getEPackage() == McsPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case McsPackage.ARG:
-				sequence_Parameter(context, (Arg) semanticObject); 
-				return; 
 			case McsPackage.BASIC_TYPE:
 				sequence_Basic_type(context, (Basic_type) semanticObject); 
 				return; 
 			case McsPackage.BINARY_EXPR:
 				if(context == grammarAccess.getExpression_termRule()) {
-					sequence_AndExpr_Expression_term_ImpliesExpr_OrExpr_PlusExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					sequence_AndExpr_Expression_term_ImpliesExpr_OrExpr_PlusExpr_PrefixExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
 					return; 
 				}
 				else if(context == grammarAccess.getExprRule() ||
 				   context == grammarAccess.getImpliesExprRule()) {
-					sequence_AndExpr_ImpliesExpr_OrExpr_PlusExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					sequence_AndExpr_ImpliesExpr_OrExpr_PlusExpr_PrefixExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
 					return; 
 				}
 				else if(context == grammarAccess.getImpliesExprAccess().getBinaryExprLeftAction_1_0_0_0() ||
 				   context == grammarAccess.getOrExprRule() ||
 				   context == grammarAccess.getOrExprAccess().getBinaryExprLeftAction_1_0_0_0()) {
-					sequence_AndExpr_OrExpr_PlusExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					sequence_AndExpr_OrExpr_PlusExpr_PrefixExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
 					return; 
 				}
 				else if(context == grammarAccess.getAndExprRule() ||
 				   context == grammarAccess.getAndExprAccess().getBinaryExprLeftAction_1_0_0_0()) {
-					sequence_AndExpr_PlusExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					sequence_AndExpr_PlusExpr_PrefixExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
 					return; 
 				}
 				else if(context == grammarAccess.getInstanceOfExprRule() ||
 				   context == grammarAccess.getInstanceOfExprAccess().getInstanceOfExprExprAction_1_0_0_0() ||
 				   context == grammarAccess.getRelationalExprRule()) {
-					sequence_PlusExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					sequence_PlusExpr_PrefixExpr_RelationalExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
 					return; 
 				}
 				else if(context == grammarAccess.getPlusExprRule() ||
 				   context == grammarAccess.getPlusExprAccess().getBinaryExprLeftAction_1_0_0_0() ||
 				   context == grammarAccess.getRelationalExprAccess().getBinaryExprLeftAction_1_0_0_0()) {
-					sequence_PlusExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					sequence_PlusExpr_PrefixExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getPrefixExprRule()) {
+					sequence_PrefixExpr(context, (BinaryExpr) semanticObject); 
 					return; 
 				}
 				else if(context == grammarAccess.getTimesExprRule() ||
 				   context == grammarAccess.getTimesExprAccess().getBinaryExprLeftAction_1_0_0_0()) {
-					sequence_TimesExpr(context, (BinaryExpr) semanticObject); 
+					sequence_PrefixExpr_TimesExpr(context, (BinaryExpr) semanticObject); 
 					return; 
 				}
 				else break;
 			case McsPackage.BOOL_EXPR:
 				sequence_Expression_term(context, (BoolExpr) semanticObject); 
 				return; 
+			case McsPackage.BUILT_IN_FN_CALL:
+				sequence_BuiltInFnCall(context, (BuiltInFnCall) semanticObject); 
+				return; 
 			case McsPackage.BUILT_IN_FN_CALL_EXPR:
 				sequence_Expression_term(context, (BuiltInFnCallExpr) semanticObject); 
 				return; 
-			case McsPackage.BUILT_PROPERTY_EXISTS:
-				sequence_Expression_term(context, (BuiltPropertyExists) semanticObject); 
-				return; 
-			case McsPackage.BUILT_PROPERTY_VAL:
-				sequence_Expression_term(context, (BuiltPropertyVal) semanticObject); 
-				return; 
 			case McsPackage.CLAIM_ARG:
-				sequence_Parm_string(context, (ClaimArg) semanticObject); 
+				sequence_TextParm(context, (ClaimArg) semanticObject); 
 				return; 
 			case McsPackage.CLAIM_BODY:
 				sequence_DefinitionBody(context, (ClaimBody) semanticObject); 
 				return; 
 			case McsPackage.CLAIM_STRING:
-				sequence_Parm_string(context, (ClaimString) semanticObject); 
-				return; 
-			case McsPackage.CLAIM_TEXT_VAR:
-				sequence_ClaimTextVar(context, (ClaimTextVar) semanticObject); 
+				sequence_TextParm(context, (ClaimString) semanticObject); 
 				return; 
 			case McsPackage.CLASSIFIER_LITERAL:
 				sequence_Classifier_literal(context, (Classifier_literal) semanticObject); 
@@ -1168,8 +1153,8 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 			case McsPackage.COMP_EXPR:
 				sequence_Expression_term(context, (CompExpr) semanticObject); 
 				return; 
-			case McsPackage.CONSTANT:
-				sequence_Constant_declaration(context, (Constant) semanticObject); 
+			case McsPackage.CONSTANT_DECLARATION:
+				sequence_Constant_declaration(context, (Constant_declaration) semanticObject); 
 				return; 
 			case McsPackage.DOMAIN:
 				sequence_Domain(context, (Domain) semanticObject); 
@@ -1181,13 +1166,16 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 				sequence_Expression_term(context, (Empty) semanticObject); 
 				return; 
 			case McsPackage.EXPR:
-				sequence_Expression_term_FilterMapExpr_17_3_0_0_SetExpr_17_3_1_0(context, (Expr) semanticObject); 
+				sequence_Expression_term_FilterMapExpr_15_3_0_0_SetExpr_15_3_1_0(context, (Expr) semanticObject); 
 				return; 
 			case McsPackage.FOR_T:
 				sequence_F_or_T_declaration(context, (F_or_T) semanticObject); 
 				return; 
 			case McsPackage.FILTER_MAP_EXPR:
 				sequence_Expression_term(context, (FilterMapExpr) semanticObject); 
+				return; 
+			case McsPackage.FN_CALL:
+				sequence_FnCall(context, (FnCall) semanticObject); 
 				return; 
 			case McsPackage.FN_CALL_EXPR:
 				sequence_Expression_term(context, (FnCallExpr) semanticObject); 
@@ -1252,16 +1240,22 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 				sequence_Mapping_type(context, (Mapping_type) semanticObject); 
 				return; 
 			case McsPackage.MCS_NAME:
-				if(context == grammarAccess.getClassifier_literalRule() ||
-				   context == grammarAccess.getMcs_nameRule()) {
-					sequence_Mcs_name(context, (Mcs_name) semanticObject); 
+				if(context == grammarAccess.getMcsNameRule()) {
+					sequence_McsName(context, (McsName) semanticObject); 
 					return; 
 				}
-				else if(context == grammarAccess.getMcs_name_refRule()) {
-					sequence_Mcs_name_Mcs_name_ref(context, (Mcs_name) semanticObject); 
+				else if(context == grammarAccess.getMcsTypedNameRule() ||
+				   context == grammarAccess.getParameterRule()) {
+					sequence_McsName_McsTypedName(context, (McsName) semanticObject); 
 					return; 
 				}
 				else break;
+			case McsPackage.MCS_NAME_REF:
+				sequence_Mcs_name_ref(context, (Mcs_name_ref) semanticObject); 
+				return; 
+			case McsPackage.PARAMETERIZED_STRING:
+				sequence_ParameterizedString(context, (ParameterizedString) semanticObject); 
+				return; 
 			case McsPackage.PKG_EXPR:
 				sequence_Expression_term(context, (PkgExpr) semanticObject); 
 				return; 
@@ -1282,6 +1276,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 				   context == grammarAccess.getPlusExprRule() ||
 				   context == grammarAccess.getPlusExprAccess().getBinaryExprLeftAction_1_0_0_0() ||
 				   context == grammarAccess.getPrefixExprRule() ||
+				   context == grammarAccess.getPrefixExprAccess().getBinaryExprLeftAction_1_3_0_0_0() ||
 				   context == grammarAccess.getRelationalExprRule() ||
 				   context == grammarAccess.getRelationalExprAccess().getBinaryExprLeftAction_1_0_0_0() ||
 				   context == grammarAccess.getTimesExprRule() ||
@@ -1305,8 +1300,8 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 			case McsPackage.REF_EXPR:
 				sequence_Expression_term(context, (RefExpr) semanticObject); 
 				return; 
-			case McsPackage.REFERENCE_TERM:
-				sequence_ReferenceTerm(context, (ReferenceTerm) semanticObject); 
+			case McsPackage.REF_TERM:
+				sequence_RefTerm(context, (RefTerm) semanticObject); 
 				return; 
 			case McsPackage.SET_EXPR:
 				sequence_Expression_term(context, (SetExpr) semanticObject); 
@@ -1335,6 +1330,9 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 				return; 
 			case McsPackage.THIS_EXPR:
 				sequence_Expression_term(context, (ThisExpr) semanticObject); 
+				return; 
+			case McsPackage.TYPE_DECLARATION:
+				sequence_Type_declaration(context, (Type_declaration) semanticObject); 
 				return; 
 			case McsPackage.TYPE_EXPRESSION:
 				sequence_Type_expression(context, (Type_expression) semanticObject); 
@@ -1402,17 +1400,18 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         (
-	 *             (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
 	 *             (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=PrefixExpr) | 
+	 *             (left=PrefixExpr_BinaryExpr_1_3_0_0_0 op='fail' right=ParameterizedString) | 
+	 *             (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
 	 *             (left=RelationalExpr_BinaryExpr_1_0_0_0 op=RelationalOp right=PlusExpr) | 
 	 *             (left=AndExpr_BinaryExpr_1_0_0_0 (op='and' | op='andthen') right=InstanceOfExpr) | 
 	 *             (left=OrExpr_BinaryExpr_1_0_0_0 op='or' right=AndExpr) | 
 	 *             (left=ImpliesExpr_BinaryExpr_1_0_0_0 op='=>' right=ImpliesExpr)
 	 *         ) 
-	 *         (builtin+=[BuiltInFnCallExpr|ID] | method+=[FnCallExpr|ID])*
+	 *         (builtin+=BuiltInFnCall | method+=FnCall)*
 	 *     )
 	 */
-	protected void sequence_AndExpr_Expression_term_ImpliesExpr_OrExpr_PlusExpr_RelationalExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
+	protected void sequence_AndExpr_Expression_term_ImpliesExpr_OrExpr_PlusExpr_PrefixExpr_RelationalExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1420,15 +1419,16 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
 	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=PrefixExpr) | 
+	 *         (left=PrefixExpr_BinaryExpr_1_3_0_0_0 op='fail' right=ParameterizedString) | 
+	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
 	 *         (left=RelationalExpr_BinaryExpr_1_0_0_0 op=RelationalOp right=PlusExpr) | 
 	 *         (left=AndExpr_BinaryExpr_1_0_0_0 (op='and' | op='andthen') right=InstanceOfExpr) | 
 	 *         (left=OrExpr_BinaryExpr_1_0_0_0 op='or' right=AndExpr) | 
 	 *         (left=ImpliesExpr_BinaryExpr_1_0_0_0 op='=>' right=ImpliesExpr)
 	 *     )
 	 */
-	protected void sequence_AndExpr_ImpliesExpr_OrExpr_PlusExpr_RelationalExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
+	protected void sequence_AndExpr_ImpliesExpr_OrExpr_PlusExpr_PrefixExpr_RelationalExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1436,14 +1436,15 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
 	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=PrefixExpr) | 
+	 *         (left=PrefixExpr_BinaryExpr_1_3_0_0_0 op='fail' right=ParameterizedString) | 
+	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
 	 *         (left=RelationalExpr_BinaryExpr_1_0_0_0 op=RelationalOp right=PlusExpr) | 
 	 *         (left=AndExpr_BinaryExpr_1_0_0_0 (op='and' | op='andthen') right=InstanceOfExpr) | 
 	 *         (left=OrExpr_BinaryExpr_1_0_0_0 op='or' right=AndExpr)
 	 *     )
 	 */
-	protected void sequence_AndExpr_OrExpr_PlusExpr_RelationalExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
+	protected void sequence_AndExpr_OrExpr_PlusExpr_PrefixExpr_RelationalExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1451,13 +1452,14 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
 	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=PrefixExpr) | 
+	 *         (left=PrefixExpr_BinaryExpr_1_3_0_0_0 op='fail' right=ParameterizedString) | 
+	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
 	 *         (left=RelationalExpr_BinaryExpr_1_0_0_0 op=RelationalOp right=PlusExpr) | 
 	 *         (left=AndExpr_BinaryExpr_1_0_0_0 (op='and' | op='andthen') right=InstanceOfExpr)
 	 *     )
 	 */
-	protected void sequence_AndExpr_PlusExpr_RelationalExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
+	protected void sequence_AndExpr_PlusExpr_PrefixExpr_RelationalExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1465,18 +1467,20 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         ptype='property_type' | 
-	 *         pref='property_ref' | 
-	 *         bool=UnnamedBooleanType | 
-	 *         string=UnnamedStringType | 
-	 *         enumer=UnnamedEnumerationType | 
-	 *         units=UnnamedUnitsType | 
-	 *         integer=UnnamedIntegerType | 
-	 *         real=UnnamedRealType | 
-	 *         range=UnnamedRangeType | 
-	 *         class=UnnamedClassifierType | 
-	 *         ref=UnnamedReferenceType | 
-	 *         typename=[Constant|ID]
+	 *         (
+	 *             ptype='property_type' | 
+	 *             pref='property_ref' | 
+	 *             bool=UnnamedBooleanType | 
+	 *             string=UnnamedStringType | 
+	 *             enumer=UnnamedEnumerationType | 
+	 *             units=UnnamedUnitsType | 
+	 *             integer=UnnamedIntegerType | 
+	 *             real=UnnamedRealType | 
+	 *             range=UnnamedRangeType | 
+	 *             class=UnnamedClassifierType | 
+	 *             ref=UnnamedReferenceType | 
+	 *             typename=[Type_declaration|ID]
+	 *         )?
 	 *     )
 	 */
 	protected void sequence_Basic_type(EObject context, Basic_type semanticObject) {
@@ -1486,26 +1490,19 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (parm?=Parameter | const?=Constant_declaration | letb?=Let_binding)
+	 *     (fn=BuiltInFn (args+=Expr args+=Expr*)?)
 	 */
-	protected void sequence_ClaimTextVar(EObject context, ClaimTextVar semanticObject) {
+	protected void sequence_BuiltInFnCall(EObject context, BuiltInFnCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     classlit=[ComponentClassifier|FQCREF]
+	 *     (classlit=[ComponentClassifier|FQCREF] | arg=Mcs_name_ref)
 	 */
 	protected void sequence_Classifier_literal(EObject context, Classifier_literal semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.CLASSIFIER_LITERAL__CLASSLIT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.CLASSIFIER_LITERAL__CLASSLIT));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getClassifier_literalAccess().getClasslitComponentClassifierFQCREFParserRuleCall_0_0_1(), semanticObject.getClasslit());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1520,16 +1517,26 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((name=ID type=Type_expression? left_expr=Expr) | (name=ID type=Type_expression))
+	 *     (const=McsTypedName left_expr=Expr)
 	 */
-	protected void sequence_Constant_declaration(EObject context, Constant semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Constant_declaration(EObject context, Constant_declaration semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.CONSTANT_DECLARATION__CONST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.CONSTANT_DECLARATION__CONST));
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.CONSTANT_DECLARATION__LEFT_EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.CONSTANT_DECLARATION__LEFT_EXPR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getConstant_declarationAccess().getConstMcsTypedNameParserRuleCall_1_0(), semanticObject.getConst());
+		feeder.accept(grammarAccess.getConstant_declarationAccess().getLeft_exprExprParserRuleCall_3_0(), semanticObject.getLeft_expr());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (claim+=Parm_string+ expr=Expr)
+	 *     (string+=ParameterizedString+ expr=Expr)
 	 */
 	protected void sequence_DefinitionBody(EObject context, ClaimBody semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1585,6 +1592,15 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     name=STRING
+	 */
+	protected void sequence_EnumerationLiteral(EObject context, EnumerationLiteral semanticObject) {
+		genericSequencer.createSequence(context, (EObject)semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     val=BooleanLiteral
 	 */
 	protected void sequence_Expression_term(EObject context, BoolExpr semanticObject) {
@@ -1594,27 +1610,9 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (fn=BuiltInFn (args+=Expr args+=Expr*)?)
+	 *     builtin=BuiltInFnCall
 	 */
 	protected void sequence_Expression_term(EObject context, BuiltInFnCallExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (property=[Property|QPREF] (modeset=Expr inbind=Expr?)?)
-	 */
-	protected void sequence_Expression_term(EObject context, BuiltPropertyExists semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (property=[Property|QPREF] (modeset=Expr inbind=Expr?)?)
-	 */
-	protected void sequence_Expression_term(EObject context, BuiltPropertyVal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1639,7 +1637,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (map=Expression_term_FilterMapExpr_17_3_0_0 (args+=Parameter | args+=Domain)+ filter=Expr?)
+	 *     (map=Expression_term_FilterMapExpr_15_3_0_0 (args+=Parameter | args+=Domain)+ filter=Expr?)
 	 */
 	protected void sequence_Expression_term(EObject context, FilterMapExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1650,14 +1648,14 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	 * Constraint:
 	 *     (list?='list'? exp=Expr)
 	 */
-	protected void sequence_Expression_term_FilterMapExpr_17_3_0_0_SetExpr_17_3_1_0(EObject context, Expr semanticObject) {
+	protected void sequence_Expression_term_FilterMapExpr_15_3_0_0_SetExpr_15_3_1_0(EObject context, Expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (fn=[F_or_T|ID] (args+=Expr args+=Expr*)?)
+	 *     fn=FnCall
 	 */
 	protected void sequence_Expression_term(EObject context, FnCallExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1675,7 +1673,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr=InstanceOfExpr_InstanceOfExpr_1_0_0_0 type=Type_expression (builtin+=[BuiltInFnCallExpr|ID] | method+=[FnCallExpr|ID])*)
+	 *     (expr=InstanceOfExpr_InstanceOfExpr_1_0_0_0 type=Type_expression (builtin+=BuiltInFnCall | method+=FnCall)*)
 	 */
 	protected void sequence_Expression_term_InstanceOfExpr(EObject context, InstanceOfExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1708,7 +1706,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	 *         nil?='nil' | 
 	 *         empty?='empty' | 
 	 *         allmodes?='allmodes' | 
-	 *         nameref=Mcs_name_ref
+	 *         typednameref=Mcs_name_ref
 	 *     )
 	 */
 	protected void sequence_Expression_term(EObject context, MCSNameExpr semanticObject) {
@@ -1727,7 +1725,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr=Expression_term newtype=Type_expression? (builtin+=[BuiltInFnCallExpr|ID] | method+=[FnCallExpr|ID])*)
+	 *     (expr=Expression_term newtype=Type_expression? (builtin+=BuiltInFnCall | method+=FnCall)*)
 	 */
 	protected void sequence_Expression_term_PrefixExpr(EObject context, PostCastExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1736,7 +1734,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((op='-' | op='not') expr=PrefixExpr (builtin+=[BuiltInFnCallExpr|ID] | method+=[FnCallExpr|ID])*)
+	 *     ((op='-' | op='not') expr=PrefixExpr (builtin+=BuiltInFnCall | method+=FnCall)*)
 	 */
 	protected void sequence_Expression_term_PrefixExpr(EObject context, UnaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1745,7 +1743,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((quant='forall' | quant='foreach' | quant='exists') args+=Parameter+ expr=Expr)
+	 *     ((quant='forall' | quant='foreach' | quant='exists') (args+=Parameter | args+=Domain)+ expr=Expr)
 	 */
 	protected void sequence_Expression_term(EObject context, QuantifiedExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1772,7 +1770,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     reference=ReferenceTerm
+	 *     reference=RefTerm
 	 */
 	protected void sequence_Expression_term(EObject context, RefExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1781,7 +1779,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((exprs+=Expression_term_SetExpr_17_3_1_0 exprs+=Expr*) | exprs+=Expression_term_SetExpr_17_3_1_0)
+	 *     ((exprs+=Expression_term_SetExpr_15_3_1_0 exprs+=Expr*) | exprs+=Expression_term_SetExpr_15_3_1_0)
 	 */
 	protected void sequence_Expression_term(EObject context, SetExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1820,6 +1818,15 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	 *     (name=ID t_root?=Theorem_root? (args+=Parameter args+=Parameter*)? body=DefinitionBody)
 	 */
 	protected void sequence_F_or_T_declaration(EObject context, F_or_T semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (fn=[F_or_T|ID] (args+=Expr args+=Expr*)?)
+	 */
+	protected void sequence_FnCall(EObject context, FnCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1872,29 +1879,26 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID type=Type_expression expr=Expr)
+	 *     (local=McsTypedName expr=Expr)
 	 */
 	protected void sequence_Let_binding(EObject context, Let_binding semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.LET_BINDING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.LET_BINDING__NAME));
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.LET_BINDING__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.LET_BINDING__TYPE));
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.LET_BINDING__LOCAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.LET_BINDING__LOCAL));
 			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.LET_BINDING__EXPR) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.LET_BINDING__EXPR));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getLet_bindingAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getLet_bindingAccess().getTypeType_expressionParserRuleCall_2_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getLet_bindingAccess().getExprExprParserRuleCall_4_0(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getLet_bindingAccess().getLocalMcsTypedNameParserRuleCall_0_0(), semanticObject.getLocal());
+		feeder.accept(grammarAccess.getLet_bindingAccess().getExprExprParserRuleCall_2_0(), semanticObject.getExpr());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (root_type=[Type_expression|ID] | root_type=[Type_expression|ID])
+	 *     (root_type=Type_expression | root_type=Type_expression)
 	 */
 	protected void sequence_List_type(EObject context, List_type semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1903,7 +1907,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (constants+=Constant_declaration* functions+=F_or_T_declaration* theorems+=F_or_T_declaration*)
+	 *     (types+=Type_declaration* constants+=Constant_declaration* functions+=F_or_T_declaration* theorems+=F_or_T_declaration*)
 	 */
 	protected void sequence_MCSAnnexLibrary(EObject context, MCSAnnexLibrary semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1924,7 +1928,8 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	 *     (
 	 *         importedUnit+=[ModelUnit|ID] 
 	 *         importedUnit+=[ModelUnit|ID]* 
-	 *         (files+=File_name+ packs+=File_name*)? 
+	 *         (files+=File_name files+=File_name*)? 
+	 *         types+=Type_declaration* 
 	 *         constants+=Constant_declaration* 
 	 *         functions+=F_or_T_declaration* 
 	 *         theorems+=F_or_T_declaration* 
@@ -1947,7 +1952,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (key=[Type_expression|ID] val=[Type_expression|ID])
+	 *     (key=Type_expression val=Type_expression)
 	 */
 	protected void sequence_Mapping_type(EObject context, Mapping_type semanticObject) {
 		if(errorAcceptor != null) {
@@ -1958,8 +1963,8 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getMapping_typeAccess().getKeyType_expressionIDTerminalRuleCall_1_0_1(), semanticObject.getKey());
-		feeder.accept(grammarAccess.getMapping_typeAccess().getValType_expressionIDTerminalRuleCall_3_0_1(), semanticObject.getVal());
+		feeder.accept(grammarAccess.getMapping_typeAccess().getKeyType_expressionParserRuleCall_1_0(), semanticObject.getKey());
+		feeder.accept(grammarAccess.getMapping_typeAccess().getValType_expressionParserRuleCall_3_0(), semanticObject.getVal());
 		feeder.finish();
 	}
 	
@@ -1968,16 +1973,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	 * Constraint:
 	 *     name=ID
 	 */
-	protected void sequence_Mcs_name(EObject context, Mcs_name semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID (builtin+=[BuiltInFnCallExpr|ID] | method+=[FnCallExpr|ID])*)
-	 */
-	protected void sequence_Mcs_name_Mcs_name_ref(EObject context, Mcs_name semanticObject) {
+	protected void sequence_McsName(EObject context, McsName semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1986,45 +1982,39 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	 * Constraint:
 	 *     (name=ID type=Type_expression)
 	 */
-	protected void sequence_Parameter(EObject context, Arg semanticObject) {
+	protected void sequence_McsName_McsTypedName(EObject context, McsName semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (arg=[ClaimTextVar|ID] unit=[UnitLiteral|ID]?)
+	 *     (ref=[McsTypedName|ID] (builtin+=BuiltInFnCall | method+=FnCall)*)
 	 */
-	protected void sequence_Parm_string(EObject context, ClaimArg semanticObject) {
+	protected void sequence_Mcs_name_ref(EObject context, Mcs_name_ref semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     str=STRING
+	 *     claim+=TextParm+
 	 */
-	protected void sequence_Parm_string(EObject context, ClaimString semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.CLAIM_STRING__STR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.CLAIM_STRING__STR));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getParm_stringAccess().getStrSTRINGTerminalRuleCall_0_1_0(), semanticObject.getStr());
-		feeder.finish();
+	protected void sequence_ParameterizedString(EObject context, ParameterizedString semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
 	 *     (
-	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
 	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=PrefixExpr) | 
+	 *         (left=PrefixExpr_BinaryExpr_1_3_0_0_0 op='fail' right=ParameterizedString) | 
+	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
 	 *         (left=RelationalExpr_BinaryExpr_1_0_0_0 op=RelationalOp right=PlusExpr)
 	 *     )
 	 */
-	protected void sequence_PlusExpr_RelationalExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
+	protected void sequence_PlusExpr_PrefixExpr_RelationalExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2032,11 +2022,21 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr) | 
-	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=PrefixExpr)
+	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=PrefixExpr) | 
+	 *         (left=PrefixExpr_BinaryExpr_1_3_0_0_0 op='fail' right=ParameterizedString) | 
+	 *         (left=PlusExpr_BinaryExpr_1_0_0_0 (op='+' | op='-') right=TimesExpr)
 	 *     )
 	 */
-	protected void sequence_PlusExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
+	protected void sequence_PlusExpr_PrefixExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (left=PrefixExpr_BinaryExpr_1_3_0_0_0 op='fail' right=ParameterizedString)
+	 */
+	protected void sequence_PrefixExpr(EObject context, BinaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2046,6 +2046,18 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	 *     (expr=Expression_term newtype=Type_expression?)
 	 */
 	protected void sequence_PrefixExpr(EObject context, PostCastExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=PrefixExpr) | 
+	 *         (left=PrefixExpr_BinaryExpr_1_3_0_0_0 op='fail' right=ParameterizedString)
+	 *     )
+	 */
+	protected void sequence_PrefixExpr_TimesExpr(EObject context, BinaryExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2090,14 +2102,14 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	 * Constraint:
 	 *     (root?='root'? path=ContainmentPathElement)
 	 */
-	protected void sequence_ReferenceTerm(EObject context, ReferenceTerm semanticObject) {
+	protected void sequence_RefTerm(EObject context, RefTerm semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (root_type=[Type_expression|ID] | root_type=[Type_expression|ID])
+	 *     (root_type=Type_expression | root_type=Type_expression)
 	 */
 	protected void sequence_Set_type(EObject context, Set_type semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2115,6 +2127,31 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (arg=[McsTypedName|ID] unit=[UnitLiteral|ID]?)
+	 */
+	protected void sequence_TextParm(EObject context, ClaimArg semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     str=StringTerm
+	 */
+	protected void sequence_TextParm(EObject context, ClaimString semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.CLAIM_STRING__STR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.CLAIM_STRING__STR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getTextParmAccess().getStrStringTermParserRuleCall_0_1_0(), semanticObject.getStr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=[F_or_T|ID] croot=Classifier_literal? (actarg+=Expr actarg+=Expr*)?)
 	 */
 	protected void sequence_Theorem_call(EObject context, TheoremCall semanticObject) {
@@ -2124,7 +2161,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (nilroot?='nil' | classifier=T_classifier_subtypes)
+	 *     (nilroot?='nil' | classifier=Classifiers)
 	 */
 	protected void sequence_Theorem_root(EObject context, Theorem_root semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2133,10 +2170,20 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (left=TimesExpr_BinaryExpr_1_0_0_0 (op='*' | op='/' | op='%') right=PrefixExpr)
+	 *     (name=ID type=Type_expression)
 	 */
-	protected void sequence_TimesExpr(EObject context, BinaryExpr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Type_declaration(EObject context, Type_declaration semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.TYPE_DECLARATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.TYPE_DECLARATION__NAME));
+			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.TYPE_DECLARATION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.TYPE_DECLARATION__TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getType_declarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getType_declarationAccess().getTypeType_expressionParserRuleCall_3_0(), semanticObject.getType());
+		feeder.finish();
 	}
 	
 	
@@ -2151,7 +2198,7 @@ public class MCSSemanticSequencer extends Aadl2SemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (types+=[Type_expression|ID] type+=[Type_expression|ID]*)
+	 *     (types+=Type_expression type+=Type_expression*)
 	 */
 	protected void sequence_Union_type(EObject context, Union_type semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

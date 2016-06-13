@@ -21,6 +21,7 @@ import org.osate.aadl2.UnitsType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getPtype <em>Ptype</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getPref <em>Pref</em>}</li>
@@ -35,7 +36,6 @@ import org.osate.aadl2.UnitsType;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getRef <em>Ref</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getTypename <em>Typename</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type()
  * @model
@@ -338,12 +338,12 @@ public interface Basic_type extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Typename</em>' reference.
-   * @see #setTypename(Constant)
+   * @see #setTypename(Type_declaration)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type_Typename()
    * @model
    * @generated
    */
-  Constant getTypename();
+  Type_declaration getTypename();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getTypename <em>Typename</em>}' reference.
@@ -353,6 +353,6 @@ public interface Basic_type extends EObject
    * @see #getTypename()
    * @generated
    */
-  void setTypename(Constant value);
+  void setTypename(Type_declaration value);
 
 } // Basic_type

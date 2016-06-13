@@ -17,13 +17,13 @@ import org.osate.xtext.aadl2.mcs.mcs.t_feature_subtypes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_feature_subtypesImpl#isT_feat <em>Tfeat</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_feature_subtypesImpl#isT_abs_feat <em>Tabs feat</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_feature_subtypesImpl#isT_parm <em>Tparm</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_feature_subtypesImpl#isT_fg <em>Tfg</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

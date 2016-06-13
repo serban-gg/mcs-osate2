@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.osate.aadl2.UnitLiteral;
 
 import org.osate.xtext.aadl2.mcs.mcs.ClaimArg;
-import org.osate.xtext.aadl2.mcs.mcs.ClaimTextVar;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.McsTypedName;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,15 +22,15 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimArgImpl#getArg <em>Arg</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimArgImpl#getUnit <em>Unit</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ClaimArgImpl extends Parm_stringImpl implements ClaimArg
+public class ClaimArgImpl extends TextParmImpl implements ClaimArg
 {
   /**
    * The cached value of the '{@link #getArg() <em>Arg</em>}' reference.
@@ -40,7 +40,7 @@ public class ClaimArgImpl extends Parm_stringImpl implements ClaimArg
    * @generated
    * @ordered
    */
-  protected ClaimTextVar arg;
+  protected McsTypedName arg;
 
   /**
    * The cached value of the '{@link #getUnit() <em>Unit</em>}' reference.
@@ -78,12 +78,12 @@ public class ClaimArgImpl extends Parm_stringImpl implements ClaimArg
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClaimTextVar getArg()
+  public McsTypedName getArg()
   {
     if (arg != null && arg.eIsProxy())
     {
       InternalEObject oldArg = (InternalEObject)arg;
-      arg = (ClaimTextVar)eResolveProxy(oldArg);
+      arg = (McsTypedName)eResolveProxy(oldArg);
       if (arg != oldArg)
       {
         if (eNotificationRequired())
@@ -98,7 +98,7 @@ public class ClaimArgImpl extends Parm_stringImpl implements ClaimArg
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClaimTextVar basicGetArg()
+  public McsTypedName basicGetArg()
   {
     return arg;
   }
@@ -108,9 +108,9 @@ public class ClaimArgImpl extends Parm_stringImpl implements ClaimArg
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setArg(ClaimTextVar newArg)
+  public void setArg(McsTypedName newArg)
   {
-    ClaimTextVar oldArg = arg;
+    McsTypedName oldArg = arg;
     arg = newArg;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CLAIM_ARG__ARG, oldArg, arg));
@@ -190,7 +190,7 @@ public class ClaimArgImpl extends Parm_stringImpl implements ClaimArg
     switch (featureID)
     {
       case McsPackage.CLAIM_ARG__ARG:
-        setArg((ClaimTextVar)newValue);
+        setArg((McsTypedName)newValue);
         return;
       case McsPackage.CLAIM_ARG__UNIT:
         setUnit((UnitLiteral)newValue);
@@ -210,7 +210,7 @@ public class ClaimArgImpl extends Parm_stringImpl implements ClaimArg
     switch (featureID)
     {
       case McsPackage.CLAIM_ARG__ARG:
-        setArg((ClaimTextVar)null);
+        setArg((McsTypedName)null);
         return;
       case McsPackage.CLAIM_ARG__UNIT:
         setUnit((UnitLiteral)null);

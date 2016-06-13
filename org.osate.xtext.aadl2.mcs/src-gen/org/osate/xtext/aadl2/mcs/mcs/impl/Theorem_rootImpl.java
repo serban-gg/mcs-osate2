@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.osate.xtext.aadl2.mcs.mcs.Classifiers;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.T_classifier_subtypes;
 import org.osate.xtext.aadl2.mcs.mcs.Theorem_root;
 
 /**
@@ -21,11 +21,11 @@ import org.osate.xtext.aadl2.mcs.mcs.Theorem_root;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Theorem_rootImpl#isNilroot <em>Nilroot</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Theorem_rootImpl#getClassifier <em>Classifier</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -59,7 +59,7 @@ public class Theorem_rootImpl extends MinimalEObjectImpl.Container implements Th
    * @generated
    * @ordered
    */
-  protected T_classifier_subtypes classifier;
+  protected Classifiers classifier;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,7 +110,7 @@ public class Theorem_rootImpl extends MinimalEObjectImpl.Container implements Th
    * <!-- end-user-doc -->
    * @generated
    */
-  public T_classifier_subtypes getClassifier()
+  public Classifiers getClassifier()
   {
     return classifier;
   }
@@ -120,9 +120,9 @@ public class Theorem_rootImpl extends MinimalEObjectImpl.Container implements Th
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetClassifier(T_classifier_subtypes newClassifier, NotificationChain msgs)
+  public NotificationChain basicSetClassifier(Classifiers newClassifier, NotificationChain msgs)
   {
-    T_classifier_subtypes oldClassifier = classifier;
+    Classifiers oldClassifier = classifier;
     classifier = newClassifier;
     if (eNotificationRequired())
     {
@@ -137,7 +137,7 @@ public class Theorem_rootImpl extends MinimalEObjectImpl.Container implements Th
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setClassifier(T_classifier_subtypes newClassifier)
+  public void setClassifier(Classifiers newClassifier)
   {
     if (newClassifier != classifier)
     {
@@ -201,7 +201,7 @@ public class Theorem_rootImpl extends MinimalEObjectImpl.Container implements Th
         setNilroot((Boolean)newValue);
         return;
       case McsPackage.THEOREM_ROOT__CLASSIFIER:
-        setClassifier((T_classifier_subtypes)newValue);
+        setClassifier((Classifiers)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,7 +221,7 @@ public class Theorem_rootImpl extends MinimalEObjectImpl.Container implements Th
         setNilroot(NILROOT_EDEFAULT);
         return;
       case McsPackage.THEOREM_ROOT__CLASSIFIER:
-        setClassifier((T_classifier_subtypes)null);
+        setClassifier((Classifiers)null);
         return;
     }
     super.eUnset(featureID);

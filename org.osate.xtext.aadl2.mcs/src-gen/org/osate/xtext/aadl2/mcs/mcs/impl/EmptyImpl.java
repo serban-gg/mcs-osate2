@@ -11,8 +11,6 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Empty</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

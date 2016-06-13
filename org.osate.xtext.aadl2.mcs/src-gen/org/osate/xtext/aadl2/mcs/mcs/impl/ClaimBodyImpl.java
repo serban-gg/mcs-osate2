@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.osate.xtext.aadl2.mcs.mcs.ClaimBody;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.Parm_string;
+import org.osate.xtext.aadl2.mcs.mcs.ParameterizedString;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,24 +24,24 @@ import org.osate.xtext.aadl2.mcs.mcs.Parm_string;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimBodyImpl#getClaim <em>Claim</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimBodyImpl#getString <em>String</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ClaimBodyImpl extends DefinitionBodyImpl implements ClaimBody
 {
   /**
-   * The cached value of the '{@link #getClaim() <em>Claim</em>}' containment reference list.
+   * The cached value of the '{@link #getString() <em>String</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClaim()
+   * @see #getString()
    * @generated
    * @ordered
    */
-  protected EList<Parm_string> claim;
+  protected EList<ParameterizedString> string;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,13 +69,13 @@ public class ClaimBodyImpl extends DefinitionBodyImpl implements ClaimBody
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Parm_string> getClaim()
+  public EList<ParameterizedString> getString()
   {
-    if (claim == null)
+    if (string == null)
     {
-      claim = new EObjectContainmentEList<Parm_string>(Parm_string.class, this, McsPackage.CLAIM_BODY__CLAIM);
+      string = new EObjectContainmentEList<ParameterizedString>(ParameterizedString.class, this, McsPackage.CLAIM_BODY__STRING);
     }
-    return claim;
+    return string;
   }
 
   /**
@@ -88,8 +88,8 @@ public class ClaimBodyImpl extends DefinitionBodyImpl implements ClaimBody
   {
     switch (featureID)
     {
-      case McsPackage.CLAIM_BODY__CLAIM:
-        return ((InternalEList<?>)getClaim()).basicRemove(otherEnd, msgs);
+      case McsPackage.CLAIM_BODY__STRING:
+        return ((InternalEList<?>)getString()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -104,8 +104,8 @@ public class ClaimBodyImpl extends DefinitionBodyImpl implements ClaimBody
   {
     switch (featureID)
     {
-      case McsPackage.CLAIM_BODY__CLAIM:
-        return getClaim();
+      case McsPackage.CLAIM_BODY__STRING:
+        return getString();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,9 +121,9 @@ public class ClaimBodyImpl extends DefinitionBodyImpl implements ClaimBody
   {
     switch (featureID)
     {
-      case McsPackage.CLAIM_BODY__CLAIM:
-        getClaim().clear();
-        getClaim().addAll((Collection<? extends Parm_string>)newValue);
+      case McsPackage.CLAIM_BODY__STRING:
+        getString().clear();
+        getString().addAll((Collection<? extends ParameterizedString>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -139,8 +139,8 @@ public class ClaimBodyImpl extends DefinitionBodyImpl implements ClaimBody
   {
     switch (featureID)
     {
-      case McsPackage.CLAIM_BODY__CLAIM:
-        getClaim().clear();
+      case McsPackage.CLAIM_BODY__STRING:
+        getString().clear();
         return;
     }
     super.eUnset(featureID);
@@ -156,8 +156,8 @@ public class ClaimBodyImpl extends DefinitionBodyImpl implements ClaimBody
   {
     switch (featureID)
     {
-      case McsPackage.CLAIM_BODY__CLAIM:
-        return claim != null && !claim.isEmpty();
+      case McsPackage.CLAIM_BODY__STRING:
+        return string != null && !string.isEmpty();
     }
     return super.eIsSet(featureID);
   }

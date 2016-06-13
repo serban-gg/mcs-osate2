@@ -20,11 +20,11 @@ import org.osate.xtext.aadl2.mcs.mcs.UnaryExpr;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.UnaryExprImpl#getOp <em>Op</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.UnaryExprImpl#getExpr <em>Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

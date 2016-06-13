@@ -10,6 +10,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -22,12 +23,18 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MCSGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_AadlPackage___PropertiesKeyword_3_0_NoneKeyword_3_1_1_0_SemicolonKeyword_3_1_1_1__q;
+	protected AbstractElementAlias match_AbstractFeature_FeatureKeyword_2_1_0_or_PrototypeKeyword_2_0_0;
+	protected AbstractElementAlias match_Basic_type_BoolKeyword_1_3_or_StringKeyword_1_5;
+	protected AbstractElementAlias match_Constant_declaration_ConstKeyword_0_q;
 	protected AbstractElementAlias match_Theorem_call___LessThanSignKeyword_2_0_NilKeyword_2_1_0_GreaterThanSignKeyword_2_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MCSGrammarAccess) access;
 		match_AadlPackage___PropertiesKeyword_3_0_NoneKeyword_3_1_1_0_SemicolonKeyword_3_1_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAadlPackageAccess().getPropertiesKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getAadlPackageAccess().getNoneKeyword_3_1_1_0()), new TokenAlias(false, false, grammarAccess.getAadlPackageAccess().getSemicolonKeyword_3_1_1_1()));
+		match_AbstractFeature_FeatureKeyword_2_1_0_or_PrototypeKeyword_2_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAbstractFeatureAccess().getFeatureKeyword_2_1_0()), new TokenAlias(false, false, grammarAccess.getAbstractFeatureAccess().getPrototypeKeyword_2_0_0()));
+		match_Basic_type_BoolKeyword_1_3_or_StringKeyword_1_5 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getBasic_typeAccess().getBoolKeyword_1_3()), new TokenAlias(false, false, grammarAccess.getBasic_typeAccess().getStringKeyword_1_5()));
+		match_Constant_declaration_ConstKeyword_0_q = new TokenAlias(false, true, grammarAccess.getConstant_declarationAccess().getConstKeyword_0());
 		match_Theorem_call___LessThanSignKeyword_2_0_NilKeyword_2_1_0_GreaterThanSignKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getTheorem_callAccess().getLessThanSignKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getTheorem_callAccess().getNilKeyword_2_1_0()), new TokenAlias(false, false, grammarAccess.getTheorem_callAccess().getGreaterThanSignKeyword_2_2()));
 	}
 	
@@ -118,6 +125,12 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_AadlPackage___PropertiesKeyword_3_0_NoneKeyword_3_1_1_0_SemicolonKeyword_3_1_1_1__q.equals(syntax))
 				emit_AadlPackage___PropertiesKeyword_3_0_NoneKeyword_3_1_1_0_SemicolonKeyword_3_1_1_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_AbstractFeature_FeatureKeyword_2_1_0_or_PrototypeKeyword_2_0_0.equals(syntax))
+				emit_AbstractFeature_FeatureKeyword_2_1_0_or_PrototypeKeyword_2_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Basic_type_BoolKeyword_1_3_or_StringKeyword_1_5.equals(syntax))
+				emit_Basic_type_BoolKeyword_1_3_or_StringKeyword_1_5(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Constant_declaration_ConstKeyword_0_q.equals(syntax))
+				emit_Constant_declaration_ConstKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Theorem_call___LessThanSignKeyword_2_0_NilKeyword_2_1_0_GreaterThanSignKeyword_2_2__q.equals(syntax))
 				emit_Theorem_call___LessThanSignKeyword_2_0_NilKeyword_2_1_0_GreaterThanSignKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -133,6 +146,50 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ownedPublicSection=PublicPackageSection (ambiguity) 'end' PNAME ';' (rule end)
 	 */
 	protected void emit_AadlPackage___PropertiesKeyword_3_0_NoneKeyword_3_1_1_0_SemicolonKeyword_3_1_1_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'prototype' | 'feature'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     in?='in' (ambiguity) ';' (rule end)
+	 *     in?='in' (ambiguity) '{' ownedPropertyAssociation+=PropertyAssociation
+	 *     in?='in' (ambiguity) arrayDimension+=ArrayDimension
+	 *     name=ID ':' (ambiguity) ';' (rule end)
+	 *     name=ID ':' (ambiguity) '{' ownedPropertyAssociation+=PropertyAssociation
+	 *     name=ID ':' (ambiguity) arrayDimension+=ArrayDimension
+	 *     out?='out' (ambiguity) ';' (rule end)
+	 *     out?='out' (ambiguity) '{' ownedPropertyAssociation+=PropertyAssociation
+	 *     out?='out' (ambiguity) arrayDimension+=ArrayDimension
+	 *     refined=[AbstractFeature|REFINEDNAME] ':' 'refined' 'to' (ambiguity) ';' (rule end)
+	 *     refined=[AbstractFeature|REFINEDNAME] ':' 'refined' 'to' (ambiguity) '{' ownedPropertyAssociation+=PropertyAssociation
+	 *     refined=[AbstractFeature|REFINEDNAME] ':' 'refined' 'to' (ambiguity) arrayDimension+=ArrayDimension
+	 */
+	protected void emit_AbstractFeature_FeatureKeyword_2_1_0_or_PrototypeKeyword_2_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'bool' | 'string'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 */
+	protected void emit_Basic_type_BoolKeyword_1_3_or_StringKeyword_1_5(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'const'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) const=McsTypedName
+	 */
+	protected void emit_Constant_declaration_ConstKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

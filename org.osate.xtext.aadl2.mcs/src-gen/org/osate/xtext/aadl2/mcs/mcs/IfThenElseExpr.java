@@ -10,12 +10,12 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.IfThenElseExpr#getCond <em>Cond</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.IfThenElseExpr#getThen <em>Then</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.IfThenElseExpr#getElse <em>Else</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getIfThenElseExpr()
  * @model

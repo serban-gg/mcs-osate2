@@ -18,11 +18,11 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClassifiersImpl#isT_class <em>Tclass</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClassifiersImpl#isT_class_subtype <em>Tclass subtype</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

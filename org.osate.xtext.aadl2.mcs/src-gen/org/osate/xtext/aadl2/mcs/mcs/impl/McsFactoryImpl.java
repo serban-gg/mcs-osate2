@@ -68,18 +68,22 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.MCS_ANNEX_LIBRARY: return createMCSAnnexLibrary();
       case McsPackage.MCS_FILE_LIBRARY: return createMCSFileLibrary();
       case McsPackage.MCS_ANNEX_SUBCLAUSE: return createMCSAnnexSubclause();
-      case McsPackage.CONSTANT: return createConstant();
+      case McsPackage.TYPE_DECLARATION: return createType_declaration();
+      case McsPackage.CONSTANT_DECLARATION: return createConstant_declaration();
       case McsPackage.FOR_T: return createF_or_T();
       case McsPackage.THEOREM_ROOT: return createTheorem_root();
       case McsPackage.DEFINITION_BODY: return createDefinitionBody();
-      case McsPackage.ARG: return createArg();
-      case McsPackage.PARM_STRING: return createParm_string();
-      case McsPackage.CLAIM_TEXT_VAR: return createClaimTextVar();
+      case McsPackage.PARAMETERIZED_STRING: return createParameterizedString();
+      case McsPackage.PARAMETER: return createParameter();
+      case McsPackage.TEXT_PARM: return createTextParm();
+      case McsPackage.MCS_NAME: return createMcsName();
+      case McsPackage.MCS_TYPED_NAME: return createMcsTypedName();
       case McsPackage.THEOREM_CALL: return createTheoremCall();
       case McsPackage.CLASSIFIER_LITERAL: return createClassifier_literal();
-      case McsPackage.REFERENCE_TERM: return createReferenceTerm();
-      case McsPackage.MCS_NAME: return createMcs_name();
+      case McsPackage.REF_TERM: return createRefTerm();
       case McsPackage.MCS_NAME_REF: return createMcs_name_ref();
+      case McsPackage.BUILT_IN_FN_CALL: return createBuiltInFnCall();
+      case McsPackage.FN_CALL: return createFnCall();
       case McsPackage.LET_BINDING: return createLet_binding();
       case McsPackage.EXPR: return createExpr();
       case McsPackage.DOMAIN: return createDomain();
@@ -126,8 +130,6 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.IF_THEN_ELSE_EXPR: return createIfThenElseExpr();
       case McsPackage.QUANTIFIED_EXPR: return createQuantifiedExpr();
       case McsPackage.BUILT_IN_FN_CALL_EXPR: return createBuiltInFnCallExpr();
-      case McsPackage.BUILT_PROPERTY_EXISTS: return createBuiltPropertyExists();
-      case McsPackage.BUILT_PROPERTY_VAL: return createBuiltPropertyVal();
       case McsPackage.FN_CALL_EXPR: return createFnCallExpr();
       case McsPackage.FILTER_MAP_EXPR: return createFilterMapExpr();
       case McsPackage.SET_EXPR: return createSetExpr();
@@ -187,10 +189,21 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Constant createConstant()
+  public Type_declaration createType_declaration()
   {
-    ConstantImpl constant = new ConstantImpl();
-    return constant;
+    Type_declarationImpl type_declaration = new Type_declarationImpl();
+    return type_declaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Constant_declaration createConstant_declaration()
+  {
+    Constant_declarationImpl constant_declaration = new Constant_declarationImpl();
+    return constant_declaration;
   }
 
   /**
@@ -231,10 +244,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Arg createArg()
+  public ParameterizedString createParameterizedString()
   {
-    ArgImpl arg = new ArgImpl();
-    return arg;
+    ParameterizedStringImpl parameterizedString = new ParameterizedStringImpl();
+    return parameterizedString;
   }
 
   /**
@@ -242,10 +255,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Parm_string createParm_string()
+  public Parameter createParameter()
   {
-    Parm_stringImpl parm_string = new Parm_stringImpl();
-    return parm_string;
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
   }
 
   /**
@@ -253,10 +266,32 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClaimTextVar createClaimTextVar()
+  public TextParm createTextParm()
   {
-    ClaimTextVarImpl claimTextVar = new ClaimTextVarImpl();
-    return claimTextVar;
+    TextParmImpl textParm = new TextParmImpl();
+    return textParm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public McsName createMcsName()
+  {
+    McsNameImpl mcsName = new McsNameImpl();
+    return mcsName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public McsTypedName createMcsTypedName()
+  {
+    McsTypedNameImpl mcsTypedName = new McsTypedNameImpl();
+    return mcsTypedName;
   }
 
   /**
@@ -286,21 +321,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ReferenceTerm createReferenceTerm()
+  public RefTerm createRefTerm()
   {
-    ReferenceTermImpl referenceTerm = new ReferenceTermImpl();
-    return referenceTerm;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Mcs_name createMcs_name()
-  {
-    Mcs_nameImpl mcs_name = new Mcs_nameImpl();
-    return mcs_name;
+    RefTermImpl refTerm = new RefTermImpl();
+    return refTerm;
   }
 
   /**
@@ -312,6 +336,28 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
   {
     Mcs_name_refImpl mcs_name_ref = new Mcs_name_refImpl();
     return mcs_name_ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BuiltInFnCall createBuiltInFnCall()
+  {
+    BuiltInFnCallImpl builtInFnCall = new BuiltInFnCallImpl();
+    return builtInFnCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FnCall createFnCall()
+  {
+    FnCallImpl fnCall = new FnCallImpl();
+    return fnCall;
   }
 
   /**
@@ -818,28 +864,6 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
   {
     BuiltInFnCallExprImpl builtInFnCallExpr = new BuiltInFnCallExprImpl();
     return builtInFnCallExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BuiltPropertyExists createBuiltPropertyExists()
-  {
-    BuiltPropertyExistsImpl builtPropertyExists = new BuiltPropertyExistsImpl();
-    return builtPropertyExists;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BuiltPropertyVal createBuiltPropertyVal()
-  {
-    BuiltPropertyValImpl builtPropertyVal = new BuiltPropertyValImpl();
-    return builtPropertyVal;
   }
 
   /**

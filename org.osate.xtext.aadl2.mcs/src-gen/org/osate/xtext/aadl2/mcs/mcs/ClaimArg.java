@@ -11,17 +11,17 @@ import org.osate.aadl2.UnitLiteral;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getArg <em>Arg</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getUnit <em>Unit</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClaimArg()
  * @model
  * @generated
  */
-public interface ClaimArg extends Parm_string
+public interface ClaimArg extends TextParm
 {
   /**
    * Returns the value of the '<em><b>Arg</b></em>' reference.
@@ -32,12 +32,12 @@ public interface ClaimArg extends Parm_string
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Arg</em>' reference.
-   * @see #setArg(ClaimTextVar)
+   * @see #setArg(McsTypedName)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClaimArg_Arg()
    * @model
    * @generated
    */
-  ClaimTextVar getArg();
+  McsTypedName getArg();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getArg <em>Arg</em>}' reference.
@@ -47,7 +47,7 @@ public interface ClaimArg extends Parm_string
    * @see #getArg()
    * @generated
    */
-  void setArg(ClaimTextVar value);
+  void setArg(McsTypedName value);
 
   /**
    * Returns the value of the '<em><b>Unit</b></em>' reference.

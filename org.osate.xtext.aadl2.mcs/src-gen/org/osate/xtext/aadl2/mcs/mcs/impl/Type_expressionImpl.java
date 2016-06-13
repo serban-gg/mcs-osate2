@@ -23,12 +23,12 @@ import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Type_expressionImpl#getBasic <em>Basic</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Type_expressionImpl#getComposite <em>Composite</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Type_expressionImpl#getElement <em>Element</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

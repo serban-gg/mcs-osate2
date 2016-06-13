@@ -28,12 +28,12 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.FilterMapExprImpl#getMap <em>Map</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.FilterMapExprImpl#getArgs <em>Args</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.FilterMapExprImpl#getFilter <em>Filter</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

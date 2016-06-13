@@ -18,11 +18,11 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.InstancesImpl#isInst <em>Inst</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.InstancesImpl#isT_inst_st <em>Tinst st</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

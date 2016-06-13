@@ -15,16 +15,16 @@ import org.osate.aadl2.ModelUnit;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary#getImportedUnit <em>Imported Unit</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary#getFiles <em>Files</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary#getPacks <em>Packs</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary#getTypes <em>Types</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary#getConstants <em>Constants</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary#getTheorems <em>Theorems</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary#getCalls <em>Calls</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSFileLibrary()
  * @model
@@ -65,24 +65,24 @@ public interface MCSFileLibrary extends EObject
   EList<String> getFiles();
 
   /**
-   * Returns the value of the '<em><b>Packs</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Types</b></em>' containment reference list.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Type_declaration}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Packs</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Packs</em>' attribute list.
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSFileLibrary_Packs()
-   * @model unique="false"
+   * @return the value of the '<em>Types</em>' containment reference list.
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSFileLibrary_Types()
+   * @model containment="true"
    * @generated
    */
-  EList<String> getPacks();
+  EList<Type_declaration> getTypes();
 
   /**
    * Returns the value of the '<em><b>Constants</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Constant}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Constant_declaration}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Constants</em>' containment reference list isn't clear,
@@ -94,7 +94,7 @@ public interface MCSFileLibrary extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Constant> getConstants();
+  EList<Constant_declaration> getConstants();
 
   /**
    * Returns the value of the '<em><b>Functions</b></em>' containment reference list.

@@ -17,6 +17,7 @@ import org.osate.xtext.aadl2.mcs.mcs.t_access_subtypes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_access_subtypesImpl#isT_access <em>Taccess</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_access_subtypesImpl#isT_data_acc <em>Tdata acc</em>}</li>
@@ -24,7 +25,6 @@ import org.osate.xtext.aadl2.mcs.mcs.t_access_subtypes;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_access_subtypesImpl#isT_sub_gr_acc <em>Tsub gr acc</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_access_subtypesImpl#isT_bus_acc <em>Tbus acc</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

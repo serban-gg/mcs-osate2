@@ -12,18 +12,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.osate.aadl2.ArrayableElement;
 import org.osate.aadl2.ClassifierFeature;
 import org.osate.aadl2.ConnectionEnd;
-import org.osate.aadl2.ContainedNamedElement;
 import org.osate.aadl2.Context;
 import org.osate.aadl2.DirectedFeature;
 import org.osate.aadl2.Element;
 import org.osate.aadl2.Feature;
 import org.osate.aadl2.FeatureConnectionEnd;
 import org.osate.aadl2.NamedElement;
-import org.osate.aadl2.Parameter;
 import org.osate.aadl2.ParameterConnectionEnd;
-import org.osate.aadl2.PropertyExpression;
-import org.osate.aadl2.PropertyValue;
-import org.osate.aadl2.ReferenceValue;
 import org.osate.aadl2.RefinableElement;
 import org.osate.aadl2.StructuralFeature;
 
@@ -113,9 +108,14 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createMCSAnnexSubclauseAdapter();
       }
       @Override
-      public Adapter caseConstant(Constant object)
+      public Adapter caseType_declaration(Type_declaration object)
       {
-        return createConstantAdapter();
+        return createType_declarationAdapter();
+      }
+      @Override
+      public Adapter caseConstant_declaration(Constant_declaration object)
+      {
+        return createConstant_declarationAdapter();
       }
       @Override
       public Adapter caseF_or_T(F_or_T object)
@@ -133,19 +133,29 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createDefinitionBodyAdapter();
       }
       @Override
-      public Adapter caseArg(Arg object)
+      public Adapter caseParameterizedString(ParameterizedString object)
       {
-        return createArgAdapter();
+        return createParameterizedStringAdapter();
       }
       @Override
-      public Adapter caseParm_string(Parm_string object)
+      public Adapter caseParameter(Parameter object)
       {
-        return createParm_stringAdapter();
+        return createParameterAdapter();
       }
       @Override
-      public Adapter caseClaimTextVar(ClaimTextVar object)
+      public Adapter caseTextParm(TextParm object)
       {
-        return createClaimTextVarAdapter();
+        return createTextParmAdapter();
+      }
+      @Override
+      public Adapter caseMcsName(McsName object)
+      {
+        return createMcsNameAdapter();
+      }
+      @Override
+      public Adapter caseMcsTypedName(McsTypedName object)
+      {
+        return createMcsTypedNameAdapter();
       }
       @Override
       public Adapter caseTheoremCall(TheoremCall object)
@@ -158,19 +168,24 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createClassifier_literalAdapter();
       }
       @Override
-      public Adapter caseReferenceTerm(ReferenceTerm object)
+      public Adapter caseRefTerm(RefTerm object)
       {
-        return createReferenceTermAdapter();
-      }
-      @Override
-      public Adapter caseMcs_name(Mcs_name object)
-      {
-        return createMcs_nameAdapter();
+        return createRefTermAdapter();
       }
       @Override
       public Adapter caseMcs_name_ref(Mcs_name_ref object)
       {
         return createMcs_name_refAdapter();
+      }
+      @Override
+      public Adapter caseBuiltInFnCall(BuiltInFnCall object)
+      {
+        return createBuiltInFnCallAdapter();
+      }
+      @Override
+      public Adapter caseFnCall(FnCall object)
+      {
+        return createFnCallAdapter();
       }
       @Override
       public Adapter caseLet_binding(Let_binding object)
@@ -403,16 +418,6 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createBuiltInFnCallExprAdapter();
       }
       @Override
-      public Adapter caseBuiltPropertyExists(BuiltPropertyExists object)
-      {
-        return createBuiltPropertyExistsAdapter();
-      }
-      @Override
-      public Adapter caseBuiltPropertyVal(BuiltPropertyVal object)
-      {
-        return createBuiltPropertyValAdapter();
-      }
-      @Override
       public Adapter caseFnCallExpr(FnCallExpr object)
       {
         return createFnCallExprAdapter();
@@ -498,29 +503,9 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createParameterConnectionEndAdapter();
       }
       @Override
-      public Adapter caseParameter(Parameter object)
+      public Adapter caseAadl2_Parameter(org.osate.aadl2.Parameter object)
       {
-        return createParameterAdapter();
-      }
-      @Override
-      public Adapter caseContainedNamedElement(ContainedNamedElement object)
-      {
-        return createContainedNamedElementAdapter();
-      }
-      @Override
-      public Adapter casePropertyExpression(PropertyExpression object)
-      {
-        return createPropertyExpressionAdapter();
-      }
-      @Override
-      public Adapter casePropertyValue(PropertyValue object)
-      {
-        return createPropertyValueAdapter();
-      }
-      @Override
-      public Adapter caseReferenceValue(ReferenceValue object)
-      {
-        return createReferenceValueAdapter();
+        return createAadl2_ParameterAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -605,16 +590,31 @@ public class McsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Constant <em>Constant</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Type_declaration <em>Type declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Constant
+   * @see org.osate.xtext.aadl2.mcs.mcs.Type_declaration
    * @generated
    */
-  public Adapter createConstantAdapter()
+  public Adapter createType_declarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Constant_declaration <em>Constant declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Constant_declaration
+   * @generated
+   */
+  public Adapter createConstant_declarationAdapter()
   {
     return null;
   }
@@ -665,46 +665,76 @@ public class McsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Arg <em>Arg</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.ParameterizedString <em>Parameterized String</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Arg
+   * @see org.osate.xtext.aadl2.mcs.mcs.ParameterizedString
    * @generated
    */
-  public Adapter createArgAdapter()
+  public Adapter createParameterizedStringAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Parm_string <em>Parm string</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Parm_string
+   * @see org.osate.xtext.aadl2.mcs.mcs.Parameter
    * @generated
    */
-  public Adapter createParm_stringAdapter()
+  public Adapter createParameterAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimTextVar <em>Claim Text Var</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.TextParm <em>Text Parm</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.ClaimTextVar
+   * @see org.osate.xtext.aadl2.mcs.mcs.TextParm
    * @generated
    */
-  public Adapter createClaimTextVarAdapter()
+  public Adapter createTextParmAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.McsName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsName
+   * @generated
+   */
+  public Adapter createMcsNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.McsTypedName <em>Typed Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsTypedName
+   * @generated
+   */
+  public Adapter createMcsTypedNameAdapter()
   {
     return null;
   }
@@ -740,31 +770,16 @@ public class McsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.ReferenceTerm <em>Reference Term</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.RefTerm <em>Ref Term</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.ReferenceTerm
+   * @see org.osate.xtext.aadl2.mcs.mcs.RefTerm
    * @generated
    */
-  public Adapter createReferenceTermAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Mcs_name <em>Mcs name</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Mcs_name
-   * @generated
-   */
-  public Adapter createMcs_nameAdapter()
+  public Adapter createRefTermAdapter()
   {
     return null;
   }
@@ -780,6 +795,36 @@ public class McsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMcs_name_refAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCall <em>Built In Fn Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCall
+   * @generated
+   */
+  public Adapter createBuiltInFnCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.FnCall <em>Fn Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.xtext.aadl2.mcs.mcs.FnCall
+   * @generated
+   */
+  public Adapter createFnCallAdapter()
   {
     return null;
   }
@@ -1475,36 +1520,6 @@ public class McsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.BuiltPropertyExists <em>Built Property Exists</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.BuiltPropertyExists
-   * @generated
-   */
-  public Adapter createBuiltPropertyExistsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.BuiltPropertyVal <em>Built Property Val</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.BuiltPropertyVal
-   * @generated
-   */
-  public Adapter createBuiltPropertyValAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.FnCallExpr <em>Fn Call Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1769,67 +1784,7 @@ public class McsAdapterFactory extends AdapterFactoryImpl
    * @see org.osate.aadl2.Parameter
    * @generated
    */
-  public Adapter createParameterAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.aadl2.ContainedNamedElement <em>Contained Named Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.aadl2.ContainedNamedElement
-   * @generated
-   */
-  public Adapter createContainedNamedElementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.aadl2.PropertyExpression <em>Property Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.aadl2.PropertyExpression
-   * @generated
-   */
-  public Adapter createPropertyExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.aadl2.PropertyValue <em>Property Value</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.aadl2.PropertyValue
-   * @generated
-   */
-  public Adapter createPropertyValueAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.aadl2.ReferenceValue <em>Reference Value</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.aadl2.ReferenceValue
-   * @generated
-   */
-  public Adapter createReferenceValueAdapter()
+  public Adapter createAadl2_ParameterAdapter()
   {
     return null;
   }

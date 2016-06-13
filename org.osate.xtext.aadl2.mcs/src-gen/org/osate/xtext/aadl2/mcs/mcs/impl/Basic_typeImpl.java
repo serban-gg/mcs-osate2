@@ -22,8 +22,8 @@ import org.osate.aadl2.ReferenceType;
 import org.osate.aadl2.UnitsType;
 
 import org.osate.xtext.aadl2.mcs.mcs.Basic_type;
-import org.osate.xtext.aadl2.mcs.mcs.Constant;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +31,7 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getPtype <em>Ptype</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getPref <em>Pref</em>}</li>
@@ -45,7 +46,6 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getTypename <em>Typename</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -189,7 +189,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * @generated
    * @ordered
    */
-  protected Constant typename;
+  protected Type_declaration typename;
 
   /**
    * <!-- begin-user-doc -->
@@ -695,12 +695,12 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public Constant getTypename()
+  public Type_declaration getTypename()
   {
     if (typename != null && typename.eIsProxy())
     {
       InternalEObject oldTypename = (InternalEObject)typename;
-      typename = (Constant)eResolveProxy(oldTypename);
+      typename = (Type_declaration)eResolveProxy(oldTypename);
       if (typename != oldTypename)
       {
         if (eNotificationRequired())
@@ -715,7 +715,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public Constant basicGetTypename()
+  public Type_declaration basicGetTypename()
   {
     return typename;
   }
@@ -725,9 +725,9 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypename(Constant newTypename)
+  public void setTypename(Type_declaration newTypename)
   {
-    Constant oldTypename = typename;
+    Type_declaration oldTypename = typename;
     typename = newTypename;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__TYPENAME, oldTypename, typename));
@@ -848,7 +848,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
         setRef((ReferenceType)newValue);
         return;
       case McsPackage.BASIC_TYPE__TYPENAME:
-        setTypename((Constant)newValue);
+        setTypename((Type_declaration)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -898,7 +898,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
         setRef((ReferenceType)null);
         return;
       case McsPackage.BASIC_TYPE__TYPENAME:
-        setTypename((Constant)null);
+        setTypename((Type_declaration)null);
         return;
     }
     super.eUnset(featureID);

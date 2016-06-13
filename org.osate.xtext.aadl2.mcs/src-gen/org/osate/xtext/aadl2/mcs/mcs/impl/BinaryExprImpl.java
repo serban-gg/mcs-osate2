@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -20,12 +21,12 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.BinaryExprImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.BinaryExprImpl#getOp <em>Op</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.BinaryExprImpl#getRight <em>Right</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -69,7 +70,7 @@ public class BinaryExprImpl extends ExprImpl implements BinaryExpr
    * @generated
    * @ordered
    */
-  protected Expr right;
+  protected EObject right;
 
   /**
    * <!-- begin-user-doc -->
@@ -168,7 +169,7 @@ public class BinaryExprImpl extends ExprImpl implements BinaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getRight()
+  public EObject getRight()
   {
     return right;
   }
@@ -178,9 +179,9 @@ public class BinaryExprImpl extends ExprImpl implements BinaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRight(Expr newRight, NotificationChain msgs)
+  public NotificationChain basicSetRight(EObject newRight, NotificationChain msgs)
   {
-    Expr oldRight = right;
+    EObject oldRight = right;
     right = newRight;
     if (eNotificationRequired())
     {
@@ -195,7 +196,7 @@ public class BinaryExprImpl extends ExprImpl implements BinaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRight(Expr newRight)
+  public void setRight(EObject newRight)
   {
     if (newRight != right)
     {
@@ -266,7 +267,7 @@ public class BinaryExprImpl extends ExprImpl implements BinaryExpr
         setOp((String)newValue);
         return;
       case McsPackage.BINARY_EXPR__RIGHT:
-        setRight((Expr)newValue);
+        setRight((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -289,7 +290,7 @@ public class BinaryExprImpl extends ExprImpl implements BinaryExpr
         setOp(OP_EDEFAULT);
         return;
       case McsPackage.BINARY_EXPR__RIGHT:
-        setRight((Expr)null);
+        setRight((EObject)null);
         return;
     }
     super.eUnset(featureID);

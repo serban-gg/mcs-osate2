@@ -10,13 +10,13 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_flow_impl_subtypes#isT_f_i <em>Tfi</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_flow_impl_subtypes#isT_f_i_source <em>Tfisource</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_flow_impl_subtypes#isT_f_i_sink <em>Tfisink</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_flow_impl_subtypes#isT_f_i_path <em>Tfipath</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#gett_flow_impl_subtypes()
  * @model

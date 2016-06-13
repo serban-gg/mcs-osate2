@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_instance_subtypes#isT_subc_st <em>Tsubc st</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_instance_subtypes#isT_sbcall <em>Tsbcall</em>}</li>
@@ -21,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_instance_subtypes#isT_mod_trans <em>Tmod trans</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_instance_subtypes#isT_mode_trig <em>Tmode trig</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#gett_instance_subtypes()
  * @model

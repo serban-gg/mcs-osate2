@@ -2,6 +2,7 @@
  */
 package org.osate.xtext.aadl2.mcs.mcs;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,12 +11,12 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.BinaryExpr#getLeft <em>Left</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.BinaryExpr#getOp <em>Op</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.BinaryExpr#getRight <em>Right</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBinaryExpr()
  * @model
@@ -84,12 +85,12 @@ public interface BinaryExpr extends Expr
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(Expr)
+   * @see #setRight(EObject)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBinaryExpr_Right()
    * @model containment="true"
    * @generated
    */
-  Expr getRight();
+  EObject getRight();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.BinaryExpr#getRight <em>Right</em>}' containment reference.
@@ -99,6 +100,6 @@ public interface BinaryExpr extends Expr
    * @see #getRight()
    * @generated
    */
-  void setRight(Expr value);
+  void setRight(EObject value);
 
 } // BinaryExpr

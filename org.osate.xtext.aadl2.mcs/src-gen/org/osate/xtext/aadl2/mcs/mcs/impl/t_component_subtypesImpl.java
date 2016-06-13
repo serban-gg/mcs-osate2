@@ -18,6 +18,7 @@ import org.osate.xtext.aadl2.mcs.mcs.t_component_subtypes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_component_subtypesImpl#isT_annex_sub <em>Tannex sub</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_component_subtypesImpl#isT_abstract <em>Tabstract</em>}</li>
@@ -34,7 +35,6 @@ import org.osate.xtext.aadl2.mcs.mcs.t_component_subtypes;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_component_subtypesImpl#isT_subprog <em>Tsubprog</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_component_subtypesImpl#isT_subprog_g <em>Tsubprog g</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

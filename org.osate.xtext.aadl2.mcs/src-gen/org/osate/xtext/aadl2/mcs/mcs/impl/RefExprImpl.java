@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.RefExpr;
-import org.osate.xtext.aadl2.mcs.mcs.ReferenceTerm;
+import org.osate.xtext.aadl2.mcs.mcs.RefTerm;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,10 +20,10 @@ import org.osate.xtext.aadl2.mcs.mcs.ReferenceTerm;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.RefExprImpl#getReference <em>Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -37,7 +37,7 @@ public class RefExprImpl extends ExprImpl implements RefExpr
    * @generated
    * @ordered
    */
-  protected ReferenceTerm reference;
+  protected RefTerm reference;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public class RefExprImpl extends ExprImpl implements RefExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public ReferenceTerm getReference()
+  public RefTerm getReference()
   {
     return reference;
   }
@@ -75,9 +75,9 @@ public class RefExprImpl extends ExprImpl implements RefExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReference(ReferenceTerm newReference, NotificationChain msgs)
+  public NotificationChain basicSetReference(RefTerm newReference, NotificationChain msgs)
   {
-    ReferenceTerm oldReference = reference;
+    RefTerm oldReference = reference;
     reference = newReference;
     if (eNotificationRequired())
     {
@@ -92,7 +92,7 @@ public class RefExprImpl extends ExprImpl implements RefExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setReference(ReferenceTerm newReference)
+  public void setReference(RefTerm newReference)
   {
     if (newReference != reference)
     {
@@ -151,7 +151,7 @@ public class RefExprImpl extends ExprImpl implements RefExpr
     switch (featureID)
     {
       case McsPackage.REF_EXPR__REFERENCE:
-        setReference((ReferenceTerm)newValue);
+        setReference((RefTerm)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,7 +168,7 @@ public class RefExprImpl extends ExprImpl implements RefExpr
     switch (featureID)
     {
       case McsPackage.REF_EXPR__REFERENCE:
-        setReference((ReferenceTerm)null);
+        setReference((RefTerm)null);
         return;
     }
     super.eUnset(featureID);

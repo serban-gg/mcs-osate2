@@ -15,6 +15,7 @@ public class AbstractMCSJavaValidator extends org.osate.xtext.aadl2.validation.A
 	    List<EPackage> result = new ArrayList<EPackage>();
 	    result.add(org.osate.xtext.aadl2.mcs.mcs.McsPackage.eINSTANCE);
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://aadl.info/AADL/2.0"));
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://aadl.info/AADL/2.0"));
 		return result;
 	}
 

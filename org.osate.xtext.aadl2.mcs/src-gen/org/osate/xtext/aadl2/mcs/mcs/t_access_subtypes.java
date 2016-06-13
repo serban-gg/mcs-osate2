@@ -10,6 +10,7 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_access_subtypes#isT_access <em>Taccess</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_access_subtypes#isT_data_acc <em>Tdata acc</em>}</li>
@@ -17,7 +18,6 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_access_subtypes#isT_sub_gr_acc <em>Tsub gr acc</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_access_subtypes#isT_bus_acc <em>Tbus acc</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#gett_access_subtypes()
  * @model

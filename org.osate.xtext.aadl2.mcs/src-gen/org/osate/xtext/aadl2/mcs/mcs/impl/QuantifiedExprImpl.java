@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -17,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.osate.xtext.aadl2.mcs.mcs.Arg;
 import org.osate.xtext.aadl2.mcs.mcs.Expr;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.QuantifiedExpr;
@@ -28,12 +28,12 @@ import org.osate.xtext.aadl2.mcs.mcs.QuantifiedExpr;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.QuantifiedExprImpl#getQuant <em>Quant</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.QuantifiedExprImpl#getArgs <em>Args</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.QuantifiedExprImpl#getExpr <em>Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -67,7 +67,7 @@ public class QuantifiedExprImpl extends ExprImpl implements QuantifiedExpr
    * @generated
    * @ordered
    */
-  protected EList<Arg> args;
+  protected EList<EObject> args;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -128,11 +128,11 @@ public class QuantifiedExprImpl extends ExprImpl implements QuantifiedExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Arg> getArgs()
+  public EList<EObject> getArgs()
   {
     if (args == null)
     {
-      args = new EObjectContainmentEList<Arg>(Arg.class, this, McsPackage.QUANTIFIED_EXPR__ARGS);
+      args = new EObjectContainmentEList<EObject>(EObject.class, this, McsPackage.QUANTIFIED_EXPR__ARGS);
     }
     return args;
   }
@@ -239,7 +239,7 @@ public class QuantifiedExprImpl extends ExprImpl implements QuantifiedExpr
         return;
       case McsPackage.QUANTIFIED_EXPR__ARGS:
         getArgs().clear();
-        getArgs().addAll((Collection<? extends Arg>)newValue);
+        getArgs().addAll((Collection<? extends EObject>)newValue);
         return;
       case McsPackage.QUANTIFIED_EXPR__EXPR:
         setExpr((Expr)newValue);

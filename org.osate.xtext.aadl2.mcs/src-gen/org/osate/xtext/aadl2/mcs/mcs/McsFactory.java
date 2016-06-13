@@ -59,13 +59,22 @@ public interface McsFactory extends EFactory
   MCSAnnexSubclause createMCSAnnexSubclause();
 
   /**
-   * Returns a new object of class '<em>Constant</em>'.
+   * Returns a new object of class '<em>Type declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constant</em>'.
+   * @return a new object of class '<em>Type declaration</em>'.
    * @generated
    */
-  Constant createConstant();
+  Type_declaration createType_declaration();
+
+  /**
+   * Returns a new object of class '<em>Constant declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constant declaration</em>'.
+   * @generated
+   */
+  Constant_declaration createConstant_declaration();
 
   /**
    * Returns a new object of class '<em>For T</em>'.
@@ -95,31 +104,49 @@ public interface McsFactory extends EFactory
   DefinitionBody createDefinitionBody();
 
   /**
-   * Returns a new object of class '<em>Arg</em>'.
+   * Returns a new object of class '<em>Parameterized String</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Arg</em>'.
+   * @return a new object of class '<em>Parameterized String</em>'.
    * @generated
    */
-  Arg createArg();
+  ParameterizedString createParameterizedString();
 
   /**
-   * Returns a new object of class '<em>Parm string</em>'.
+   * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parm string</em>'.
+   * @return a new object of class '<em>Parameter</em>'.
    * @generated
    */
-  Parm_string createParm_string();
+  Parameter createParameter();
 
   /**
-   * Returns a new object of class '<em>Claim Text Var</em>'.
+   * Returns a new object of class '<em>Text Parm</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Claim Text Var</em>'.
+   * @return a new object of class '<em>Text Parm</em>'.
    * @generated
    */
-  ClaimTextVar createClaimTextVar();
+  TextParm createTextParm();
+
+  /**
+   * Returns a new object of class '<em>Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Name</em>'.
+   * @generated
+   */
+  McsName createMcsName();
+
+  /**
+   * Returns a new object of class '<em>Typed Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Typed Name</em>'.
+   * @generated
+   */
+  McsTypedName createMcsTypedName();
 
   /**
    * Returns a new object of class '<em>Theorem Call</em>'.
@@ -140,22 +167,13 @@ public interface McsFactory extends EFactory
   Classifier_literal createClassifier_literal();
 
   /**
-   * Returns a new object of class '<em>Reference Term</em>'.
+   * Returns a new object of class '<em>Ref Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Reference Term</em>'.
+   * @return a new object of class '<em>Ref Term</em>'.
    * @generated
    */
-  ReferenceTerm createReferenceTerm();
-
-  /**
-   * Returns a new object of class '<em>Mcs name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mcs name</em>'.
-   * @generated
-   */
-  Mcs_name createMcs_name();
+  RefTerm createRefTerm();
 
   /**
    * Returns a new object of class '<em>Mcs name ref</em>'.
@@ -165,6 +183,24 @@ public interface McsFactory extends EFactory
    * @generated
    */
   Mcs_name_ref createMcs_name_ref();
+
+  /**
+   * Returns a new object of class '<em>Built In Fn Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Built In Fn Call</em>'.
+   * @generated
+   */
+  BuiltInFnCall createBuiltInFnCall();
+
+  /**
+   * Returns a new object of class '<em>Fn Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fn Call</em>'.
+   * @generated
+   */
+  FnCall createFnCall();
 
   /**
    * Returns a new object of class '<em>Let binding</em>'.
@@ -579,24 +615,6 @@ public interface McsFactory extends EFactory
    * @generated
    */
   BuiltInFnCallExpr createBuiltInFnCallExpr();
-
-  /**
-   * Returns a new object of class '<em>Built Property Exists</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Built Property Exists</em>'.
-   * @generated
-   */
-  BuiltPropertyExists createBuiltPropertyExists();
-
-  /**
-   * Returns a new object of class '<em>Built Property Val</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Built Property Val</em>'.
-   * @generated
-   */
-  BuiltPropertyVal createBuiltPropertyVal();
 
   /**
    * Returns a new object of class '<em>Fn Call Expr</em>'.

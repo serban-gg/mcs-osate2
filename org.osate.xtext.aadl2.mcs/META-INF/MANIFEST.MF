@@ -24,7 +24,7 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
  org.eclipse.xtext.xbase.lib
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.osate.xtext.aadl2.mcs,
  org.osate.xtext.aadl2.mcs.services,
  org.osate.xtext.aadl2.mcs.mcs,

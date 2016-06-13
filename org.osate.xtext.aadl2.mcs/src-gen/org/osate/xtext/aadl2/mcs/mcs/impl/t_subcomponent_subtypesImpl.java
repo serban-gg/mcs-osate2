@@ -18,11 +18,11 @@ import org.osate.xtext.aadl2.mcs.mcs.t_subcomponent_subtypes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_subcomponent_subtypesImpl#isT_sub <em>Tsub</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_subcomponent_subtypesImpl#isT_cimpl_st <em>Tcimpl st</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

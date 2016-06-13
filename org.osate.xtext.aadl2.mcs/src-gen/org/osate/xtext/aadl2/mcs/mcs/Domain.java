@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Domain#getName <em>Name</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Domain#getExpr <em>Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getDomain()
  * @model

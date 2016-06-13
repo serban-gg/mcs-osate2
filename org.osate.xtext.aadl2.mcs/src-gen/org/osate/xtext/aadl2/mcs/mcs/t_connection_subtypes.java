@@ -10,6 +10,7 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_connection_subtypes#isT_conn <em>Tconn</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_connection_subtypes#isT_feat_conn <em>Tfeat conn</em>}</li>
@@ -18,7 +19,6 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_connection_subtypes#isT_acc_con <em>Tacc con</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.t_connection_subtypes#isT_fg_conn <em>Tfg conn</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#gett_connection_subtypes()
  * @model

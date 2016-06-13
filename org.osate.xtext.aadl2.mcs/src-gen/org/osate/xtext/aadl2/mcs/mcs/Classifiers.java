@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Classifiers#isT_class <em>Tclass</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Classifiers#isT_class_subtype <em>Tclass subtype</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClassifiers()
  * @model

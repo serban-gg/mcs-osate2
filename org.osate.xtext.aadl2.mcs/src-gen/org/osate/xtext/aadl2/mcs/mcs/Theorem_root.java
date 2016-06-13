@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Theorem_root#isNilroot <em>Nilroot</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Theorem_root#getClassifier <em>Classifier</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getTheorem_root()
  * @model
@@ -58,12 +58,12 @@ public interface Theorem_root extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Classifier</em>' containment reference.
-   * @see #setClassifier(T_classifier_subtypes)
+   * @see #setClassifier(Classifiers)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getTheorem_root_Classifier()
    * @model containment="true"
    * @generated
    */
-  T_classifier_subtypes getClassifier();
+  Classifiers getClassifier();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Theorem_root#getClassifier <em>Classifier</em>}' containment reference.
@@ -73,6 +73,6 @@ public interface Theorem_root extends EObject
    * @see #getClassifier()
    * @generated
    */
-  void setClassifier(T_classifier_subtypes value);
+  void setClassifier(Classifiers value);
 
 } // Theorem_root

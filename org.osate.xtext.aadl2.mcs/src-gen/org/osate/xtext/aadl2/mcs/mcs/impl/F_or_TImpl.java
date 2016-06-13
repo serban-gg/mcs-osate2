@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.osate.xtext.aadl2.mcs.mcs.Arg;
 import org.osate.xtext.aadl2.mcs.mcs.DefinitionBody;
 import org.osate.xtext.aadl2.mcs.mcs.F_or_T;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.Parameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,13 +29,13 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl#isT_root <em>Troot</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl#getArgs <em>Args</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl#getBody <em>Body</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -89,7 +89,7 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
    * @generated
    * @ordered
    */
-  protected EList<Arg> args;
+  protected EList<Parameter> args;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -173,11 +173,11 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Arg> getArgs()
+  public EList<Parameter> getArgs()
   {
     if (args == null)
     {
-      args = new EObjectContainmentEList<Arg>(Arg.class, this, McsPackage.FOR_T__ARGS);
+      args = new EObjectContainmentEList<Parameter>(Parameter.class, this, McsPackage.FOR_T__ARGS);
     }
     return args;
   }
@@ -289,7 +289,7 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
         return;
       case McsPackage.FOR_T__ARGS:
         getArgs().clear();
-        getArgs().addAll((Collection<? extends Arg>)newValue);
+        getArgs().addAll((Collection<? extends Parameter>)newValue);
         return;
       case McsPackage.FOR_T__BODY:
         setBody((DefinitionBody)newValue);

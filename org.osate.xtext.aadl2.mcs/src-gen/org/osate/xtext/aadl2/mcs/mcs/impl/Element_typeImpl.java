@@ -18,13 +18,13 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Element_typeImpl#isTelem <em>Telem</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Element_typeImpl#isTpack <em>Tpack</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Element_typeImpl#isT_class <em>Tclass</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Element_typeImpl#isT_inst <em>Tinst</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

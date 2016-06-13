@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getName <em>Name</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#isT_root <em>Troot</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getArgs <em>Args</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getBody <em>Body</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getF_or_T()
  * @model
@@ -81,7 +81,7 @@ public interface F_or_T extends EObject
 
   /**
    * Returns the value of the '<em><b>Args</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Arg}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Parameter}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Args</em>' containment reference list isn't clear,
@@ -93,7 +93,7 @@ public interface F_or_T extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Arg> getArgs();
+  EList<Parameter> getArgs();
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

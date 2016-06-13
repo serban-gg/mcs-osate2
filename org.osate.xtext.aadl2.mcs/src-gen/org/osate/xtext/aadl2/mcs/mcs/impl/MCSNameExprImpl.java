@@ -20,15 +20,15 @@ import org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl#isRoot <em>Root</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl#isIroot <em>Iroot</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl#isNil <em>Nil</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl#isEmpty <em>Empty</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl#isAllmodes <em>Allmodes</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl#getNameref <em>Nameref</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl#getTypednameref <em>Typednameref</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -135,14 +135,14 @@ public class MCSNameExprImpl extends ExprImpl implements MCSNameExpr
   protected boolean allmodes = ALLMODES_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getNameref() <em>Nameref</em>}' containment reference.
+   * The cached value of the '{@link #getTypednameref() <em>Typednameref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNameref()
+   * @see #getTypednameref()
    * @generated
    * @ordered
    */
-  protected Mcs_name_ref nameref;
+  protected Mcs_name_ref typednameref;
 
   /**
    * <!-- begin-user-doc -->
@@ -285,9 +285,9 @@ public class MCSNameExprImpl extends ExprImpl implements MCSNameExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Mcs_name_ref getNameref()
+  public Mcs_name_ref getTypednameref()
   {
-    return nameref;
+    return typednameref;
   }
 
   /**
@@ -295,13 +295,13 @@ public class MCSNameExprImpl extends ExprImpl implements MCSNameExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetNameref(Mcs_name_ref newNameref, NotificationChain msgs)
+  public NotificationChain basicSetTypednameref(Mcs_name_ref newTypednameref, NotificationChain msgs)
   {
-    Mcs_name_ref oldNameref = nameref;
-    nameref = newNameref;
+    Mcs_name_ref oldTypednameref = typednameref;
+    typednameref = newTypednameref;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.MCS_NAME_EXPR__NAMEREF, oldNameref, newNameref);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.MCS_NAME_EXPR__TYPEDNAMEREF, oldTypednameref, newTypednameref);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -312,20 +312,20 @@ public class MCSNameExprImpl extends ExprImpl implements MCSNameExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNameref(Mcs_name_ref newNameref)
+  public void setTypednameref(Mcs_name_ref newTypednameref)
   {
-    if (newNameref != nameref)
+    if (newTypednameref != typednameref)
     {
       NotificationChain msgs = null;
-      if (nameref != null)
-        msgs = ((InternalEObject)nameref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.MCS_NAME_EXPR__NAMEREF, null, msgs);
-      if (newNameref != null)
-        msgs = ((InternalEObject)newNameref).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.MCS_NAME_EXPR__NAMEREF, null, msgs);
-      msgs = basicSetNameref(newNameref, msgs);
+      if (typednameref != null)
+        msgs = ((InternalEObject)typednameref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.MCS_NAME_EXPR__TYPEDNAMEREF, null, msgs);
+      if (newTypednameref != null)
+        msgs = ((InternalEObject)newTypednameref).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.MCS_NAME_EXPR__TYPEDNAMEREF, null, msgs);
+      msgs = basicSetTypednameref(newTypednameref, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.MCS_NAME_EXPR__NAMEREF, newNameref, newNameref));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.MCS_NAME_EXPR__TYPEDNAMEREF, newTypednameref, newTypednameref));
   }
 
   /**
@@ -338,8 +338,8 @@ public class MCSNameExprImpl extends ExprImpl implements MCSNameExpr
   {
     switch (featureID)
     {
-      case McsPackage.MCS_NAME_EXPR__NAMEREF:
-        return basicSetNameref(null, msgs);
+      case McsPackage.MCS_NAME_EXPR__TYPEDNAMEREF:
+        return basicSetTypednameref(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -364,8 +364,8 @@ public class MCSNameExprImpl extends ExprImpl implements MCSNameExpr
         return isEmpty();
       case McsPackage.MCS_NAME_EXPR__ALLMODES:
         return isAllmodes();
-      case McsPackage.MCS_NAME_EXPR__NAMEREF:
-        return getNameref();
+      case McsPackage.MCS_NAME_EXPR__TYPEDNAMEREF:
+        return getTypednameref();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -395,8 +395,8 @@ public class MCSNameExprImpl extends ExprImpl implements MCSNameExpr
       case McsPackage.MCS_NAME_EXPR__ALLMODES:
         setAllmodes((Boolean)newValue);
         return;
-      case McsPackage.MCS_NAME_EXPR__NAMEREF:
-        setNameref((Mcs_name_ref)newValue);
+      case McsPackage.MCS_NAME_EXPR__TYPEDNAMEREF:
+        setTypednameref((Mcs_name_ref)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -427,8 +427,8 @@ public class MCSNameExprImpl extends ExprImpl implements MCSNameExpr
       case McsPackage.MCS_NAME_EXPR__ALLMODES:
         setAllmodes(ALLMODES_EDEFAULT);
         return;
-      case McsPackage.MCS_NAME_EXPR__NAMEREF:
-        setNameref((Mcs_name_ref)null);
+      case McsPackage.MCS_NAME_EXPR__TYPEDNAMEREF:
+        setTypednameref((Mcs_name_ref)null);
         return;
     }
     super.eUnset(featureID);
@@ -454,8 +454,8 @@ public class MCSNameExprImpl extends ExprImpl implements MCSNameExpr
         return empty != EMPTY_EDEFAULT;
       case McsPackage.MCS_NAME_EXPR__ALLMODES:
         return allmodes != ALLMODES_EDEFAULT;
-      case McsPackage.MCS_NAME_EXPR__NAMEREF:
-        return nameref != null;
+      case McsPackage.MCS_NAME_EXPR__TYPEDNAMEREF:
+        return typednameref != null;
     }
     return super.eIsSet(featureID);
   }

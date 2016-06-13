@@ -11,10 +11,10 @@ import org.osate.aadl2.StringLiteral;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.StringExpr#getVal <em>Val</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getStringExpr()
  * @model

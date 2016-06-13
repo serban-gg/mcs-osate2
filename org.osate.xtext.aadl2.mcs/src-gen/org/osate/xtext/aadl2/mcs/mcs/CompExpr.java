@@ -11,10 +11,10 @@ import org.osate.aadl2.ClassifierValue;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.CompExpr#getClassifier <em>Classifier</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getCompExpr()
  * @model

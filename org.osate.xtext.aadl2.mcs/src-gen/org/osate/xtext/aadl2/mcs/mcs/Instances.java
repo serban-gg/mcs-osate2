@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Instances#isInst <em>Inst</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Instances#isT_inst_st <em>Tinst st</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getInstances()
  * @model

@@ -17,6 +17,7 @@ import org.osate.xtext.aadl2.mcs.mcs.t_connection_subtypes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_connection_subtypesImpl#isT_conn <em>Tconn</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_connection_subtypesImpl#isT_feat_conn <em>Tfeat conn</em>}</li>
@@ -25,7 +26,6 @@ import org.osate.xtext.aadl2.mcs.mcs.t_connection_subtypes;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_connection_subtypesImpl#isT_acc_con <em>Tacc con</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.t_connection_subtypesImpl#isT_fg_conn <em>Tfg conn</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

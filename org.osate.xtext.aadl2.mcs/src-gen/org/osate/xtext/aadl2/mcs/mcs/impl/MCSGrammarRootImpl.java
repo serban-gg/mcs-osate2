@@ -23,12 +23,12 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSGrammarRootImpl#getLib <em>Lib</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSGrammarRootImpl#getFile <em>File</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSGrammarRootImpl#getSubclause <em>Subclause</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

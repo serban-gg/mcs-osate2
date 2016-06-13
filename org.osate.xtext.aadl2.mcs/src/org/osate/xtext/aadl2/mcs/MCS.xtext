@@ -23,16 +23,18 @@ AnnexSubclause returns aadl2::AnnexSubclause:
 
 MCSAnnexLibrary returns MCSAnnexLibrary:
 	 {MCSAnnexLibrary}
+	  ('types' (types += Type_declaration)+)?
 	  ('consts' (constants += Constant_declaration)+)?
 	  ('functions' (functions += F_or_T_declaration)+)?
-	 ( 'theorems' (theorems += F_or_T_declaration)+)?
+	  ('theorems' (theorems += F_or_T_declaration)+)?
 ;
  
 MCSFileLibrary:
-	{MCSFileLibrary}
+	{MCSFileLibrary} 
 	  ('with' (importedUnit+=[aadl2::ModelUnit])  
 	                     (',' importedUnit+=[aadl2::ModelUnit])*)
-	  ('import' (files += File_name)+ (',' packs += File_name)*)?
+	  ('import' (files += File_name) (',' files += File_name)*)?
+	  ('types' (types += Type_declaration)+)?
 	  ('constants' (constants += Constant_declaration)+)?
 	  ('functions' (functions += F_or_T_declaration)+)?
 	  ('theorems' (theorems += F_or_T_declaration)+)?
@@ -48,9 +50,13 @@ File_name:
 	STRING
 ;
 
-Constant_declaration returns Constant :
-	name=ID ':' (type = Type_expression)? '='  left_expr = Expr ';' 
-  | 'type' name=ID  '=' type = Type_expression ';'
+Type_declaration:
+   'type' name=ID  '=' type = Type_expression ';'	
+;
+
+Constant_declaration :
+   ('const')? const = McsTypedName '='  left_expr = Expr ';' 
+ 
 ;
 
 F_or_T_declaration returns F_or_T:
@@ -58,26 +64,36 @@ F_or_T_declaration returns F_or_T:
 ;
 	
 Theorem_root:
-	'<' 'root' ':' ( nilroot ?= 'nil' | classifier = T_classifier_subtypes) '>'
+	'<' 'root' ':' ( nilroot ?= 'nil' | classifier = Classifiers) '>'
 ;
 
 DefinitionBody:
 	{FunctionBody} ':' type=Type_expression '=' expr=Expr
-  | {ClaimBody} '<=' ('**'(claim+=Parm_string)+'**') expr=Expr
+  | {ClaimBody} '<='  (string += ParameterizedString)+ expr=Expr
+;
+
+ParameterizedString:
+	('**'(claim+=TextParm)+'**')
 ;
 
 //Arg types are used for functions, claims, and quantifiers
 
-Parameter returns Arg: 
-	(name=ID ':' type=Type_expression)
+Parameter: 
+	McsTypedName
 ;
 
-Parm_string:
-	 {ClaimString} str=STRING 
-| 	 {ClaimArg} arg=[ClaimTextVar] ('%' unit=[aadl2::UnitLiteral])?
+TextParm:
+	 {ClaimString} str=StringTerm 
+| 	 {ClaimArg} arg=[McsTypedName] ('%' unit=[aadl2::UnitLiteral])?
 ;
 
-ClaimTextVar: parm?= Parameter | const?=Constant_declaration | letb?=Let_binding;
+McsName:
+	name=ID
+;
+
+McsTypedName: 
+   McsName ':' type=Type_expression 
+;
 
 Theorem_call returns TheoremCall:
     'check' name = [F_or_T]                   // must be a theorem reference 
@@ -87,7 +103,7 @@ Theorem_call returns TheoremCall:
 
 Classifier_literal:
 	classlit = [aadl2::ComponentClassifier| FQCREF] 
-	| Mcs_name
+	| arg = Mcs_name_ref //[ClaimTextVar] //
 ;
 
 RealTerm returns aadl2::RealLiteral:
@@ -111,26 +127,42 @@ Range returns aadl2::NumericRange:
 	 '..' upperBound=(IntegerTerm |RealTerm /*| ConstantValue */ )
 	;
 
-ReferenceTerm:
+RefTerm returns RefTerm:
   'reference' '(' 	(root ?= 'root' '.')?
   path=ContainmentPathElement
   ')'
   ;
 
-Mcs_name:
-	name=ID      // global constant, parameter or let binding local
+Mcs_name_ref:           
+	ref = [McsTypedName] -> ('.' ( builtin+= BuiltInFnCall | method+= FnCall))* 
 ;
 
-Mcs_name_ref:
-	Mcs_name  ('.' ( -> builtin+=[BuiltInFnCallExpr] | method+=[FnCallExpr]))* 
+BuiltInFnCall :
+	fn=BuiltInFn '(' (args+=Expr (',' args+=Expr)*)?  ')'
 ;
+
+FnCall:
+	fn=[F_or_T] '(' (args+=Expr (',' args+=Expr)*)? ')'
+;
+/* 
+PropertyExists:
+  ('has_property' | '#?') '(' property=[aadl2::Property|QPREF]
+						(',' modeset = Expr (',' inbind = Expr)?)?
+				   ')'
+;
+PropertyVal:
+	('property' | '#') '(' property=[aadl2::Property|QPREF]
+						(',' modeset = Expr (',' inbind = Expr)?)?
+				')'
+;
+*/
 
 Let_binding:
-	name=ID ':' type = Type_expression '=' expr=Expr ';'
+	local = McsTypedName '=' expr=Expr
 ;
 
 Expr:
-	ImpliesExpr // ( '<' newtype = Type_expression '>')?
+	ImpliesExpr  
 ;
 
 ImpliesExpr returns Expr:
@@ -166,11 +198,11 @@ TimesExpr returns Expr:
 ;
 
 PrefixExpr returns Expr:
-	{UnaryExpr} op = ('-' | 'not') expr=PrefixExpr
+	{UnaryExpr} op = ('-' | 'not') expr=PrefixExpr 
 //|   {PreCastExpr} '(' type=Type_expression ')' expr=PrefixExpr
 |	{PostCastExpr} expr = Expression_term => ( '<' newtype = Type_expression '>')?
+			 ( =>({BinaryExpr.left=current} op='fail') right=ParameterizedString)?						  
 ;
-
 
 Domain:
 	name=ID 'in' expr=Expr					// must be a set expression
@@ -179,11 +211,10 @@ Domain:
 Expression_term returns Expr:
 	
 	{MCSNameExpr} (root ?= 'root' | iroot ?='iroot' |   nil ?= 'nil' 
-| 	empty ?= 'empty'	| allmodes ?= 'allmodes' | nameref = Mcs_name_ref)
+| 	empty ?= 'empty'	| allmodes ?= 'allmodes' | => typednameref = Mcs_name_ref )
 |	{PkgExpr} 'package' '(' package = [aadl2::AadlPackage] ')'
 |   {CompExpr} classifier = ComponentClassifierTerm   // rules identical to
-|   {RefExpr} reference = ReferenceTerm			      // Properties.xtext expressions
-//|   {IdExpr} => id = [aadl2::NamedElement | QCREF]
+|   {RefExpr} reference = RefTerm			          // Properties.xtext expressions
 |	{ThisExpr} 'this' ('.' sub = ContainmentPath)? // from Properties grammar
 |	{IntExpr} val=IntegerTerm
 |   {RealExpr} val=RealTerm
@@ -192,15 +223,11 @@ Expression_term returns Expr:
 |	{Range} val=Range       		// Int and Real Range from AADL.xtext
 |	{IfThenElseExpr} 'if' cond=Expr 'then' then=Expr 'else' else=Expr
 |   {QuantifiedExpr} quant=( 'forall' | 'foreach' | 'exists') 
-								('(' args+=Parameter ')')+ '.' expr=Expr
-|   {BuiltInFnCallExpr} fn=BuiltInFn '(' (args+=(Expr) (',' args+=(Expr))*)? ')'
-|   {BuiltPropertyExists} 'has_property' '(' property=[aadl2::Property|QPREF]
-										(',' modeset = Expr (',' inbind = Expr)?)?
-									  ')'
-|   {BuiltPropertyVal} 'property' '(' property=[aadl2::Property|QPREF]
-									(',' modeset = Expr (',' inbind = Expr)?)?
-							   ')'	
-|	{FnCallExpr} fn=[F_or_T] '(' (args+=(Expr) (',' args+=(Expr))*)? ')'
+								('(' args+= (Parameter|Domain) ')')+ '.' expr=Expr
+|   {BuiltInFnCallExpr} builtin=BuiltInFnCall
+//|   {BuiltPropertyExists} builtin = PropertyExists
+//|   {BuiltPropertyVal} builtin = PropertyVal	
+|	{FnCallExpr} fn=FnCall
 |   {TheoremCall} fn=Theorem_call
 								  
 |   (list?='list')? '{' exp=Expr ( ({FilterMapExpr.map=current} 
@@ -208,8 +235,8 @@ Expression_term returns Expr:
 						          	 ('|' filter=Expr)?)
              		      	   | ({SetExpr.exprs+=current} (',' exprs+=Expr)*)) '}'
 |   {Empty} '{' '}'
-|   {LetExpr} binding=Let_binding ';' expr=Expr
-|	'(' Expr ')' ('.' ( -> builtin+=[BuiltInFnCallExpr] | method+=[FnCallExpr]))* 
+|   {LetExpr} 'let' binding=Let_binding ';' expr=Expr
+|	'(' Expr ')' ('.' ( -> builtin+=BuiltInFnCall | method+=FnCall))* 
 ;
 
 BuiltInFn:
@@ -220,7 +247,7 @@ BuiltInFn:
 // range of integer, real primary type 
 |	'upper' | 'lower' | 'has_delta' | 'delta'
 // string primary type 
-|	'concat' | 'eq' | 'case_eq' | 'in'
+|	'concat' | 'eq' | 'less' | 'case_eq' | 'case_less'| 'in'
 // set methods
 | 	'union' | 'intersect' 
 // set and list methods 
@@ -232,7 +259,7 @@ BuiltInFn:
 // T_Element methods
 |	'qualified_name' | 'local_name' | 'path_name_of' | 'package_name'
 |	'is_owned_by' | 'has_parent' | 'parent' | 'owner' | 'equal' | 'element_type'
-//|	'has_property' | 'property' implemented explicitly as exptession terms
+|	'has_property' | '#?' | 'property' | '#'
 // T_Package methods
 |	'imports' | 'classifiers'
 // T_Classifier methods
@@ -292,18 +319,20 @@ Type_expression:
  // basic types rules
  
 Basic_type:
-	ptype = 'property_type' | 
-	pref = 'property_ref' | 
-	bool = UnnamedBooleanType | 				// from core AADL
-	string = UnnamedStringType |
-	enumer = UnnamedEnumerationType |
-	units = UnnamedUnitsType |
- 	integer = UnnamedIntegerType |
-	real = UnnamedRealType |
-	range= UnnamedRangeType |  
-	class=UnnamedClassifierType |
-	ref=UnnamedReferenceType |
-	typename = [Constant]         // must be a user defined type
+   {Basic_type}(
+	 ptype = 'property_type' | 
+	 pref = 'property_ref' | 
+	 bool = UnnamedBooleanType | 'bool' |		// from core AADL, shortcuts supported
+	 string = UnnamedStringType | 'string' |
+	 enumer = UnnamedEnumerationType |
+	 units = UnnamedUnitsType |
+ 	 integer = UnnamedIntegerType |
+	 real = UnnamedRealType |
+	 range= UnnamedRangeType |  
+	 class=UnnamedClassifierType |
+	 ref=UnnamedReferenceType |
+	 typename = [Type_declaration]        // must be a user defined type
+   )
 ;
 
 // composite type rules
@@ -317,17 +346,17 @@ Composite_type :
 ;
 
 Mapping_type:
-	'(' key=[Type_expression] 'to' val=[Type_expression] ')'
+	'[' key=Type_expression 'to' val=Type_expression ']'
 ;
 
 Set_type:
-	'{' root_type=[Type_expression] '}'
-|	'set' '<' root_type=[Type_expression] '>'
+	'{' root_type=Type_expression '}'
+|	'set' '<' root_type=Type_expression '>'
 ;
 
 List_type:
-	'(' root_type=[Type_expression] ')'
-|	'list' '<' root_type=[Type_expression] '>'
+	'(' root_type=Type_expression ')'
+|	'list' '<' root_type=Type_expression '>'
 ;
 
 Record_type:
@@ -335,12 +364,15 @@ Record_type:
 ;
 
 Union_type:
-	'union' '('  types += [Type_expression] (','type += [Type_expression] )* ')'
+	'union' '('  types += Type_expression (','type += Type_expression )* ')'
 ;
 
 Id_type_pair : 
-	 name=ID ':' type= Type_expression
+	 name=ID ':' type = Type_expression
 ;
+
+EnumerationLiteral returns aadl2::EnumerationLiteral:
+	name=STRING;
 
 //element type rules
 

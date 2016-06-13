@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isTelem <em>Telem</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isTpack <em>Tpack</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isT_class <em>Tclass</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Element_type#isT_inst <em>Tinst</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getElement_type()
  * @model

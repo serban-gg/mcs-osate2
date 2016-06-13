@@ -2,6 +2,7 @@
  */
 package org.osate.xtext.aadl2.mcs.mcs;
 
+import org.osate.aadl2.StringLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,41 +11,41 @@ package org.osate.xtext.aadl2.mcs.mcs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.ClaimString#getStr <em>Str</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClaimString()
  * @model
  * @generated
  */
-public interface ClaimString extends Parm_string
+public interface ClaimString extends TextParm
 {
   /**
-   * Returns the value of the '<em><b>Str</b></em>' attribute.
+   * Returns the value of the '<em><b>Str</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Str</em>' attribute isn't clear,
+   * If the meaning of the '<em>Str</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Str</em>' attribute.
-   * @see #setStr(String)
+   * @return the value of the '<em>Str</em>' containment reference.
+   * @see #setStr(StringLiteral)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClaimString_Str()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getStr();
+  StringLiteral getStr();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimString#getStr <em>Str</em>}' attribute.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimString#getStr <em>Str</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Str</em>' attribute.
+   * @param value the new value of the '<em>Str</em>' containment reference.
    * @see #getStr()
    * @generated
    */
-  void setStr(String value);
+  void setStr(StringLiteral value);
 
 } // ClaimString

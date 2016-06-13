@@ -24,10 +24,10 @@ import org.osate.xtext.aadl2.mcs.mcs.Record_type;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Record_typeImpl#getField <em>Field</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

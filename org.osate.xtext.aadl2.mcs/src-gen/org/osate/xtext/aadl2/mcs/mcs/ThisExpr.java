@@ -11,10 +11,10 @@ import org.osate.aadl2.ContainedNamedElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.ThisExpr#getSub <em>Sub</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getThisExpr()
  * @model
