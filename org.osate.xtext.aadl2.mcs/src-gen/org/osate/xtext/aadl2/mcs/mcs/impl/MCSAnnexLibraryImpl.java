@@ -11,15 +11,16 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.osate.aadl2.impl.AnnexLibraryImpl;
+
 import org.osate.xtext.aadl2.mcs.mcs.Constant_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.F_or_T;
+import org.osate.xtext.aadl2.mcs.mcs.Function;
 import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.Theorem;
 import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
 
 /**
@@ -38,7 +39,7 @@ import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
  *
  * @generated
  */
-public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements MCSAnnexLibrary
+public class MCSAnnexLibraryImpl extends AnnexLibraryImpl implements MCSAnnexLibrary
 {
   /**
    * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
@@ -68,7 +69,7 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected EList<F_or_T> functions;
+  protected EList<Function> functions;
 
   /**
    * The cached value of the '{@link #getTheorems() <em>Theorems</em>}' containment reference list.
@@ -78,7 +79,7 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected EList<F_or_T> theorems;
+  protected EList<Theorem> theorems;
 
   /**
    * <!-- begin-user-doc -->
@@ -134,11 +135,11 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<F_or_T> getFunctions()
+  public EList<Function> getFunctions()
   {
     if (functions == null)
     {
-      functions = new EObjectContainmentEList<F_or_T>(F_or_T.class, this, McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS);
+      functions = new EObjectContainmentEList<Function>(Function.class, this, McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS);
     }
     return functions;
   }
@@ -148,11 +149,11 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<F_or_T> getTheorems()
+  public EList<Theorem> getTheorems()
   {
     if (theorems == null)
     {
-      theorems = new EObjectContainmentEList<F_or_T>(F_or_T.class, this, McsPackage.MCS_ANNEX_LIBRARY__THEOREMS);
+      theorems = new EObjectContainmentEList<Theorem>(Theorem.class, this, McsPackage.MCS_ANNEX_LIBRARY__THEOREMS);
     }
     return theorems;
   }
@@ -222,11 +223,11 @@ public class MCSAnnexLibraryImpl extends MinimalEObjectImpl.Container implements
         return;
       case McsPackage.MCS_ANNEX_LIBRARY__FUNCTIONS:
         getFunctions().clear();
-        getFunctions().addAll((Collection<? extends F_or_T>)newValue);
+        getFunctions().addAll((Collection<? extends Function>)newValue);
         return;
       case McsPackage.MCS_ANNEX_LIBRARY__THEOREMS:
         getTheorems().clear();
-        getTheorems().addAll((Collection<? extends F_or_T>)newValue);
+        getTheorems().addAll((Collection<? extends Theorem>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

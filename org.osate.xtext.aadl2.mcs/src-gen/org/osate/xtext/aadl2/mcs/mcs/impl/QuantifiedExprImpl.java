@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -20,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.osate.xtext.aadl2.mcs.mcs.Expr;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.Parameter;
 import org.osate.xtext.aadl2.mcs.mcs.QuantifiedExpr;
 
 /**
@@ -67,7 +67,7 @@ public class QuantifiedExprImpl extends ExprImpl implements QuantifiedExpr
    * @generated
    * @ordered
    */
-  protected EList<EObject> args;
+  protected EList<Parameter> args;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -128,11 +128,11 @@ public class QuantifiedExprImpl extends ExprImpl implements QuantifiedExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<EObject> getArgs()
+  public EList<Parameter> getArgs()
   {
     if (args == null)
     {
-      args = new EObjectContainmentEList<EObject>(EObject.class, this, McsPackage.QUANTIFIED_EXPR__ARGS);
+      args = new EObjectContainmentEList<Parameter>(Parameter.class, this, McsPackage.QUANTIFIED_EXPR__ARGS);
     }
     return args;
   }
@@ -239,7 +239,7 @@ public class QuantifiedExprImpl extends ExprImpl implements QuantifiedExpr
         return;
       case McsPackage.QUANTIFIED_EXPR__ARGS:
         getArgs().clear();
-        getArgs().addAll((Collection<? extends EObject>)newValue);
+        getArgs().addAll((Collection<? extends Parameter>)newValue);
         return;
       case McsPackage.QUANTIFIED_EXPR__EXPR:
         setExpr((Expr)newValue);

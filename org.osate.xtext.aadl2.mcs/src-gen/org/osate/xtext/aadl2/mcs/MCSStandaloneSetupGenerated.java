@@ -18,7 +18,7 @@ public class MCSStandaloneSetupGenerated implements ISetup {
 
 	@Override
 	public Injector createInjectorAndDoEMFRegistration() {
-		org.osate.xtext.aadl2.Aadl2StandaloneSetup.doSetup();
+		org.osate.xtext.aadl2.properties.PropertiesStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);

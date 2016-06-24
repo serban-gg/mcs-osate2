@@ -2,7 +2,6 @@
  */
 package org.osate.xtext.aadl2.mcs.mcs;
 
-import org.osate.aadl2.ContainedNamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,12 +30,12 @@ public interface ThisExpr extends Expr
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Sub</em>' containment reference.
-   * @see #setSub(ContainedNamedElement)
+   * @see #setSub(NestedDotID)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getThisExpr_Sub()
    * @model containment="true"
    * @generated
    */
-  ContainedNamedElement getSub();
+  NestedDotID getSub();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.ThisExpr#getSub <em>Sub</em>}' containment reference.
@@ -46,6 +45,6 @@ public interface ThisExpr extends Expr
    * @see #getSub()
    * @generated
    */
-  void setSub(ContainedNamedElement value);
+  void setSub(NestedDotID value);
 
 } // ThisExpr

@@ -1,5 +1,5 @@
-grammar org.osate.xtext.aadl2.mcs.MCS with org.osate.xtext.aadl2.Aadl2
-
+grammar org.osate.xtext.aadl2.mcs.MCS with org.osate.xtext.aadl2.properties.Properties
+//org.osate.xtext.aadl2.Aadl2
 generate mcs "http://www.osate.org/xtext/aadl2/mcs/MCS"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
@@ -8,10 +8,10 @@ import "platform:/resource/org.osate.aadl2/model/aadl2.ecore" as aadl2
 
 MCSGrammarRoot :    
         'annex' lib = MCSAnnexLibrary 
-        | 'file' file = MCSFileLibrary
+        | 'mcs' file = MCSFileLibrary
         | 'subclause' subclause = MCSAnnexSubclause
 ;
-/* 
+
 AnnexLibrary returns aadl2::AnnexLibrary:
      MCSAnnexLibrary
 ;
@@ -19,25 +19,25 @@ AnnexLibrary returns aadl2::AnnexLibrary:
 AnnexSubclause returns aadl2::AnnexSubclause:
      MCSAnnexSubclause
 ;
-*/
+
 
 MCSAnnexLibrary returns MCSAnnexLibrary:
 	 {MCSAnnexLibrary}
 	  ('types' (types += Type_declaration)+)?
-	  ('consts' (constants += Constant_declaration)+)?
-	  ('functions' (functions += F_or_T_declaration)+)?
-	  ('theorems' (theorems += F_or_T_declaration)+)?
+	  ('constants' (constants += Constant_declaration)+)?
+	  ('functions' (functions += Function_declaration)+)?
+	  ('theorems' (theorems += Theorem_declaration)+)?
 ;
  
 MCSFileLibrary:
 	{MCSFileLibrary} 
 	  ('with' (importedUnit+=[aadl2::ModelUnit])  
-	                     (',' importedUnit+=[aadl2::ModelUnit])*)
-	  ('import' (files += File_name) (',' files += File_name)*)?
+	                     (',' importedUnit+=[aadl2::ModelUnit])*)+
+	  ('import' (files += File_name) (',' files += File_name)*)*
 	  ('types' (types += Type_declaration)+)?
 	  ('constants' (constants += Constant_declaration)+)?
-	  ('functions' (functions += F_or_T_declaration)+)?
-	  ('theorems' (theorems += F_or_T_declaration)+)?
+	  ('functions' (functions += Function_declaration)+)?
+	  ('theorems' (theorems += Theorem_declaration)+)?
 	  ('constraints' (calls += Theorem_call)+)?
 ;
 
@@ -59,19 +59,35 @@ Constant_declaration :
  
 ;
 
-F_or_T_declaration returns F_or_T:
+Function_declaration returns Function:
+	name=ID => '(' (args+=Parameter (',' args+=Parameter)*)? ')' body=FunctionBody
+;
+
+Theorem_declaration returns Theorem:
+	name=ID (t_root ?= Theorem_root)? => '(' (args+=Parameter (',' args+=Parameter)*)? ')' body=TheoremBody
+;
+/* 
+F_or_T_declaration returns FuncOrTheorem:
 	name=ID (t_root ?= Theorem_root)? '(' (args+=Parameter (',' args+=Parameter)*)? ')' body=DefinitionBody
 ;
-	
+*/	
 Theorem_root:
 	'<' 'root' ':' ( nilroot ?= 'nil' | classifier = Classifiers) '>'
 ;
 
+FunctionBody:
+	{FunctionBody} ':' type=Type_expression '=' expr=Expr
+;
+
+TheoremBody:
+	{TheoremBody} '<='  (string += ParameterizedString)+ expr=Expr
+;
+/* 
 DefinitionBody:
 	{FunctionBody} ':' type=Type_expression '=' expr=Expr
   | {ClaimBody} '<='  (string += ParameterizedString)+ expr=Expr
 ;
-
+*/
 ParameterizedString:
 	('**'(claim+=TextParm)+'**')
 ;
@@ -84,7 +100,7 @@ Parameter:
 
 TextParm:
 	 {ClaimString} str=StringTerm 
-| 	 {ClaimArg} arg=[McsTypedName] ('%' unit=[aadl2::UnitLiteral])?
+| 	 {ClaimArg} textarg=MCSNameExpr ('%' unit=[aadl2::UnitLiteral])?
 ;
 
 McsName:
@@ -92,18 +108,22 @@ McsName:
 ;
 
 McsTypedName: 
-   McsName ':' type=Type_expression 
+   name=ID (':' type=Type_expression | 'in' expr = Expr) 
+;
+
+Domain:
+	name=ID 'in' expr=Expr					// must be a set expression
 ;
 
 Theorem_call returns TheoremCall:
-    'check' name = [F_or_T]                   // must be a theorem reference 
+    ('check'|'prove') tname = [Theorem]                   // must be a theorem reference 
            ('<' ('nil'| croot = Classifier_literal) '>')?
              '(' (actarg += Expr ( ',' actarg += Expr)*)? ')'
 ;
 
 Classifier_literal:
-	classlit = [aadl2::ComponentClassifier| FQCREF] 
-	| arg = Mcs_name_ref //[ClaimTextVar] //
+	-> classlit = [aadl2::ComponentClassifier| FQCREF] 
+	| nameref = Mcs_name_ref //[ClaimTextVar] //
 ;
 
 RealTerm returns aadl2::RealLiteral:
@@ -122,27 +142,33 @@ UnsignedInt returns aadl2::Integer:
 	INTEGER_LIT
 ;
 
-Range returns aadl2::NumericRange:
-	lowerBound=(IntegerTerm | RealTerm  /*| ConstantValue */ )
-	 '..' upperBound=(IntegerTerm |RealTerm /*| ConstantValue */ )
+Range: 
+	lowerBound=(IntegerTerm | RealTerm) 
+	 '..' upperBound=(IntegerTerm |RealTerm)   
 	;
 
 RefTerm returns RefTerm:
   'reference' '(' 	(root ?= 'root' '.')?
-  path=ContainmentPathElement
+  sub=NestedDotID //ContainmentPath
   ')'
   ;
 
-Mcs_name_ref:           
-	ref = [McsTypedName] -> ('.' ( builtin+= BuiltInFnCall | method+= FnCall))* 
+NestedDotID:
+	base=[aadl2::NamedElement | ID] ('.' sub=NestedDotID)?
 ;
 
+Mcs_name_ref:           
+	ref = [McsTypedName]  ->(chain = MethodChain)?
+;
+MethodChain:
+	{MethodChain} -> ('.' ( builtin+= BuiltInFnCall | method+= FnCall))*
+;
 BuiltInFnCall :
 	fn=BuiltInFn '(' (args+=Expr (',' args+=Expr)*)?  ')'
 ;
 
 FnCall:
-	fn=[F_or_T] '(' (args+=Expr (',' args+=Expr)*)? ')'
+	fn=[Function] '(' (args+=Expr (',' args+=Expr)*)? ')'
 ;
 /* 
 PropertyExists:
@@ -155,14 +181,20 @@ PropertyVal:
 						(',' modeset = Expr (',' inbind = Expr)?)?
 				')'
 ;
-*/
 
-Let_binding:
+
+LetBinding :
 	local = McsTypedName '=' expr=Expr
 ;
 
+*/
+
 Expr:
-	ImpliesExpr  
+	FailExpr  
+;
+
+FailExpr returns Expr:
+	ImpliesExpr (=>({BinaryExpr.left=current} op='fail') right=ParameterizedString)?
 ;
 
 ImpliesExpr returns Expr:
@@ -200,22 +232,27 @@ TimesExpr returns Expr:
 PrefixExpr returns Expr:
 	{UnaryExpr} op = ('-' | 'not') expr=PrefixExpr 
 //|   {PreCastExpr} '(' type=Type_expression ')' expr=PrefixExpr
-|	{PostCastExpr} expr = Expression_term => ( '<' newtype = Type_expression '>')?
-			 ( =>({BinaryExpr.left=current} op='fail') right=ParameterizedString)?						  
+|	PostCastExpr						  
 ;
 
-Domain:
-	name=ID 'in' expr=Expr					// must be a set expression
+PostCastExpr:
+	{PostCastExpr} expr = Expression_term 
+			->(chain = MethodChain)?
+			=> ( '<' newtype = Type_expression '>')?
+;
+
+MCSNameExpr:
+	{MCSNameExpr} (root ?= 'root' | iroot ?='iroot' |   nil ?= 'nil' 
+| 	empty ?= 'empty'	| allmodes ?= 'allmodes' | => typednameref = Mcs_name_ref )
 ;
 
 Expression_term returns Expr:
 	
-	{MCSNameExpr} (root ?= 'root' | iroot ?='iroot' |   nil ?= 'nil' 
-| 	empty ?= 'empty'	| allmodes ?= 'allmodes' | => typednameref = Mcs_name_ref )
+     MCSNameExpr
 |	{PkgExpr} 'package' '(' package = [aadl2::AadlPackage] ')'
 |   {CompExpr} classifier = ComponentClassifierTerm   // rules identical to
 |   {RefExpr} reference = RefTerm			          // Properties.xtext expressions
-|	{ThisExpr} 'this' ('.' sub = ContainmentPath)? // from Properties grammar
+|	{ThisExpr} 'this' ('.' sub = NestedDotID)? // from Properties grammar
 |	{IntExpr} val=IntegerTerm
 |   {RealExpr} val=RealTerm
 |	{BoolExpr} val=BooleanLiteral
@@ -223,20 +260,19 @@ Expression_term returns Expr:
 |	{Range} val=Range       		// Int and Real Range from AADL.xtext
 |	{IfThenElseExpr} 'if' cond=Expr 'then' then=Expr 'else' else=Expr
 |   {QuantifiedExpr} quant=( 'forall' | 'foreach' | 'exists') 
-								('(' args+= (Parameter|Domain) ')')+ '.' expr=Expr
-|   {BuiltInFnCallExpr} builtin=BuiltInFnCall
-//|   {BuiltPropertyExists} builtin = PropertyExists
-//|   {BuiltPropertyVal} builtin = PropertyVal	
+								('(' args+= (Parameter/*|Domain*/) ')')+ '.' expr=Expr
+|   {BuiltInFnCallExpr} builtin=BuiltInFnCall	
 |	{FnCallExpr} fn=FnCall
-|   {TheoremCall} fn=Theorem_call
+|   {TheoremCallExpr} fn=Theorem_call
 								  
-|   (list?='list')? '{' exp=Expr ( ({FilterMapExpr.map=current} 
-						           'for' ('(' args+=(Parameter|Domain) ')')+ 
+|   {FilterSet} (list?='list')? '{' exp=Expr ( ({FilterMapExpr.map=current} 
+						           'for' ('(' args+=(Parameter/*|Domain*/) ')')+ 
 						          	 ('|' filter=Expr)?)
              		      	   | ({SetExpr.exprs+=current} (',' exprs+=Expr)*)) '}'
-|   {Empty} '{' '}'
-|   {LetExpr} 'let' binding=Let_binding ';' expr=Expr
-|	'(' Expr ')' ('.' ( -> builtin+=BuiltInFnCall | method+=FnCall))* 
+|	{MappingExpr} '[' expr1=Expr ',' expr2=Expr ']'
+|   {EmptySetExpr} '{' '}'
+|   {LetExpr} 'let' local = McsTypedName '=' expr1=Expr ';' expr2=Expr
+|	'(' Expr ')'  
 ;
 
 BuiltInFn:
@@ -322,15 +358,13 @@ Basic_type:
    {Basic_type}(
 	 ptype = 'property_type' | 
 	 pref = 'property_ref' | 
-	 bool = UnnamedBooleanType | 'bool' |		// from core AADL, shortcuts supported
-	 string = UnnamedStringType | 'string' |
+	 bool = UnnamedBooleanType |		// from core AADL, shortcuts supported
+	 string = UnnamedStringType | 
 	 enumer = UnnamedEnumerationType |
 	 units = UnnamedUnitsType |
  	 integer = UnnamedIntegerType |
 	 real = UnnamedRealType |
 	 range= UnnamedRangeType |  
-	 class=UnnamedClassifierType |
-	 ref=UnnamedReferenceType |
 	 typename = [Type_declaration]        // must be a user defined type
    )
 ;
@@ -464,3 +498,66 @@ t_flow_impl_subtypes:
 		t_f_i ?= 'I_Flow_Impl' | t_f_i_source ?= 'I_Flow_Impl_Source' | 
 		t_f_i_sink ?= 'I_Flow_Impl_Sink' | t_f_i_path ?= 'I_Flow_Impl_Path' 
 ;
+
+// from AADL.xtext
+
+
+IntegerRange : //;returns aadl2::NumericRange:
+	lowerBound=(IntegerTerm | SignedConstant | ConstantValue )
+	'..' upperBound=(IntegerTerm | SignedConstant | ConstantValue )
+	;
+
+RealRange : //;returns aadl2::NumericRange:
+	lowerBound=(RealTerm | SignedConstant | ConstantValue )
+	'..' upperBound=(RealTerm | SignedConstant | ConstantValue )
+	;
+
+UnnamedIntegerType: //; returns aadl2::AadlInteger:
+//	{aadl2::AadlInteger} 
+{UnnamedIntegerType}
+	('aadlinteger'|'int') (range=IntegerRange)? ( (ownedUnitsType=UnnamedUnitsType| ('units' referencedUnitsType=[aadl2::UnitsType|QPREF])))?
+	 ;
+UnnamedRealType: // returns aadl2::AadlReal:
+//	{aadl2::AadlReal}
+{UnnamedRealType}
+	('aadlreal'|'real')(range=RealRange)? ((ownedUnitsType=UnnamedUnitsType| ('units' referencedUnitsType=[aadl2::UnitsType|QPREF])))?
+	 ;
+	 UnnamedUnitsType returns aadl2::UnitsType:
+	'units'
+	'(' ownedLiteral+=UnitLiteral (',' ownedLiteral+=UnitLiteralConversion)* ')';
+
+UnitLiteral returns aadl2::UnitLiteral:
+	name=ID;
+
+UnitLiteralConversion returns aadl2::UnitLiteral:
+	name=ID '=>' baseUnit=[aadl2::UnitLiteral|ID] STAR factor=NumberValue
+	;
+	 
+UnnamedBooleanType returns aadl2::AadlBoolean:
+	{aadl2::AadlBoolean} ('aadlboolean' | 'bool');
+	 
+NumberValue returns aadl2::NumberValue:
+	RealLit | IntegerLit ;
+
+RealLit returns aadl2::RealLiteral:
+	value=SignedReal ;
+
+IntegerLit returns aadl2::IntegerLiteral:
+	value=SignedInt ;
+	
+	UnnamedStringType returns aadl2::AadlString:
+	{aadl2::AadlString}('aadlstring'|'string');
+	
+UnnamedEnumerationType returns aadl2::EnumerationType:
+	('enumeration'|'enum')
+	'(' ownedLiteral+=EnumerationLiteral (',' ownedLiteral+=EnumerationLiteral)* ')';
+
+UnnamedRangeType: // returns aadl2::RangeType:
+//	{aadl2::RangeType}
+	'range' 'of' (ownedNumberType=(UnnamedIntegerType|UnnamedRealType)
+		| referencedNumberType=[aadl2::NumberType|QPREF]
+	)
+	 ;
+// fully qualified classifier name (always includes package name
+FQCREF:
+	(ID '::')+ ID ->('.' ID)?;

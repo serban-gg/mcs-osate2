@@ -77,13 +77,22 @@ public interface McsFactory extends EFactory
   Constant_declaration createConstant_declaration();
 
   /**
-   * Returns a new object of class '<em>For T</em>'.
+   * Returns a new object of class '<em>Function</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>For T</em>'.
+   * @return a new object of class '<em>Function</em>'.
    * @generated
    */
-  F_or_T createF_or_T();
+  Function createFunction();
+
+  /**
+   * Returns a new object of class '<em>Theorem</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Theorem</em>'.
+   * @generated
+   */
+  Theorem createTheorem();
 
   /**
    * Returns a new object of class '<em>Theorem root</em>'.
@@ -95,13 +104,22 @@ public interface McsFactory extends EFactory
   Theorem_root createTheorem_root();
 
   /**
-   * Returns a new object of class '<em>Definition Body</em>'.
+   * Returns a new object of class '<em>Function Body</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Definition Body</em>'.
+   * @return a new object of class '<em>Function Body</em>'.
    * @generated
    */
-  DefinitionBody createDefinitionBody();
+  FunctionBody createFunctionBody();
+
+  /**
+   * Returns a new object of class '<em>Theorem Body</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Theorem Body</em>'.
+   * @generated
+   */
+  TheoremBody createTheoremBody();
 
   /**
    * Returns a new object of class '<em>Parameterized String</em>'.
@@ -149,6 +167,15 @@ public interface McsFactory extends EFactory
   McsTypedName createMcsTypedName();
 
   /**
+   * Returns a new object of class '<em>Domain</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Domain</em>'.
+   * @generated
+   */
+  Domain createDomain();
+
+  /**
    * Returns a new object of class '<em>Theorem Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -167,6 +194,15 @@ public interface McsFactory extends EFactory
   Classifier_literal createClassifier_literal();
 
   /**
+   * Returns a new object of class '<em>Range</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Range</em>'.
+   * @generated
+   */
+  Range createRange();
+
+  /**
    * Returns a new object of class '<em>Ref Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -176,6 +212,15 @@ public interface McsFactory extends EFactory
   RefTerm createRefTerm();
 
   /**
+   * Returns a new object of class '<em>Nested Dot ID</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nested Dot ID</em>'.
+   * @generated
+   */
+  NestedDotID createNestedDotID();
+
+  /**
    * Returns a new object of class '<em>Mcs name ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -183,6 +228,15 @@ public interface McsFactory extends EFactory
    * @generated
    */
   Mcs_name_ref createMcs_name_ref();
+
+  /**
+   * Returns a new object of class '<em>Method Chain</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method Chain</em>'.
+   * @generated
+   */
+  MethodChain createMethodChain();
 
   /**
    * Returns a new object of class '<em>Built In Fn Call</em>'.
@@ -203,15 +257,6 @@ public interface McsFactory extends EFactory
   FnCall createFnCall();
 
   /**
-   * Returns a new object of class '<em>Let binding</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Let binding</em>'.
-   * @generated
-   */
-  Let_binding createLet_binding();
-
-  /**
    * Returns a new object of class '<em>Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -221,13 +266,22 @@ public interface McsFactory extends EFactory
   Expr createExpr();
 
   /**
-   * Returns a new object of class '<em>Domain</em>'.
+   * Returns a new object of class '<em>Post Cast Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Domain</em>'.
+   * @return a new object of class '<em>Post Cast Expr</em>'.
    * @generated
    */
-  Domain createDomain();
+  PostCastExpr createPostCastExpr();
+
+  /**
+   * Returns a new object of class '<em>MCS Name Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>MCS Name Expr</em>'.
+   * @generated
+   */
+  MCSNameExpr createMCSNameExpr();
 
   /**
    * Returns a new object of class '<em>Type expression</em>'.
@@ -428,22 +482,49 @@ public interface McsFactory extends EFactory
   t_flow_impl_subtypes createt_flow_impl_subtypes();
 
   /**
-   * Returns a new object of class '<em>Function Body</em>'.
+   * Returns a new object of class '<em>Integer Range</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Body</em>'.
+   * @return a new object of class '<em>Integer Range</em>'.
    * @generated
    */
-  FunctionBody createFunctionBody();
+  IntegerRange createIntegerRange();
 
   /**
-   * Returns a new object of class '<em>Claim Body</em>'.
+   * Returns a new object of class '<em>Real Range</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Claim Body</em>'.
+   * @return a new object of class '<em>Real Range</em>'.
    * @generated
    */
-  ClaimBody createClaimBody();
+  RealRange createRealRange();
+
+  /**
+   * Returns a new object of class '<em>Unnamed Integer Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unnamed Integer Type</em>'.
+   * @generated
+   */
+  UnnamedIntegerType createUnnamedIntegerType();
+
+  /**
+   * Returns a new object of class '<em>Unnamed Real Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unnamed Real Type</em>'.
+   * @generated
+   */
+  UnnamedRealType createUnnamedRealType();
+
+  /**
+   * Returns a new object of class '<em>Unnamed Range Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unnamed Range Type</em>'.
+   * @generated
+   */
+  UnnamedRangeType createUnnamedRangeType();
 
   /**
    * Returns a new object of class '<em>Claim String</em>'.
@@ -489,24 +570,6 @@ public interface McsFactory extends EFactory
    * @generated
    */
   UnaryExpr createUnaryExpr();
-
-  /**
-   * Returns a new object of class '<em>Post Cast Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Post Cast Expr</em>'.
-   * @generated
-   */
-  PostCastExpr createPostCastExpr();
-
-  /**
-   * Returns a new object of class '<em>MCS Name Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>MCS Name Expr</em>'.
-   * @generated
-   */
-  MCSNameExpr createMCSNameExpr();
 
   /**
    * Returns a new object of class '<em>Pkg Expr</em>'.
@@ -581,15 +644,6 @@ public interface McsFactory extends EFactory
   StringExpr createStringExpr();
 
   /**
-   * Returns a new object of class '<em>Range</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Range</em>'.
-   * @generated
-   */
-  Range createRange();
-
-  /**
    * Returns a new object of class '<em>If Then Else Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -626,6 +680,24 @@ public interface McsFactory extends EFactory
   FnCallExpr createFnCallExpr();
 
   /**
+   * Returns a new object of class '<em>Theorem Call Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Theorem Call Expr</em>'.
+   * @generated
+   */
+  TheoremCallExpr createTheoremCallExpr();
+
+  /**
+   * Returns a new object of class '<em>Filter Set</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Filter Set</em>'.
+   * @generated
+   */
+  FilterSet createFilterSet();
+
+  /**
    * Returns a new object of class '<em>Filter Map Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -644,13 +716,22 @@ public interface McsFactory extends EFactory
   SetExpr createSetExpr();
 
   /**
-   * Returns a new object of class '<em>Empty</em>'.
+   * Returns a new object of class '<em>Mapping Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Empty</em>'.
+   * @return a new object of class '<em>Mapping Expr</em>'.
    * @generated
    */
-  Empty createEmpty();
+  MappingExpr createMappingExpr();
+
+  /**
+   * Returns a new object of class '<em>Empty Set Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Empty Set Expr</em>'.
+   * @generated
+   */
+  EmptySetExpr createEmptySetExpr();
 
   /**
    * Returns a new object of class '<em>Let Expr</em>'.

@@ -4,8 +4,6 @@ package org.osate.xtext.aadl2.mcs.mcs;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.osate.aadl2.ContainmentPathElement;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Ref Term</b></em>'.
@@ -16,7 +14,7 @@ import org.osate.aadl2.ContainmentPathElement;
  * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.RefTerm#isRoot <em>Root</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.RefTerm#getPath <em>Path</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.RefTerm#getSub <em>Sub</em>}</li>
  * </ul>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getRefTerm()
@@ -52,29 +50,29 @@ public interface RefTerm extends EObject
   void setRoot(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Path</b></em>' containment reference.
+   * Returns the value of the '<em><b>Sub</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Path</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Sub</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Path</em>' containment reference.
-   * @see #setPath(ContainmentPathElement)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getRefTerm_Path()
+   * @return the value of the '<em>Sub</em>' containment reference.
+   * @see #setSub(NestedDotID)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getRefTerm_Sub()
    * @model containment="true"
    * @generated
    */
-  ContainmentPathElement getPath();
+  NestedDotID getSub();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.RefTerm#getPath <em>Path</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.RefTerm#getSub <em>Sub</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path</em>' containment reference.
-   * @see #getPath()
+   * @param value the new value of the '<em>Sub</em>' containment reference.
+   * @see #getSub()
    * @generated
    */
-  void setPath(ContainmentPathElement value);
+  void setSub(NestedDotID value);
 
 } // RefTerm

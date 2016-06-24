@@ -9,15 +9,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="subclause" eType="#//MCSAnnexSubclause"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MCSAnnexLibrary">
+  <eClassifiers xsi:type="ecore:EClass" name="MCSAnnexLibrary" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexLibrary">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//Type_declaration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constants" upperBound="-1"
         eType="#//Constant_declaration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
-        eType="#//F_or_T" containment="true"/>
+        eType="#//Function" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="theorems" upperBound="-1"
-        eType="#//F_or_T" containment="true"/>
+        eType="#//Theorem" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MCSFileLibrary">
     <eStructuralFeatures xsi:type="ecore:EReference" name="importedUnit" unique="false"
@@ -29,13 +29,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="constants" upperBound="-1"
         eType="#//Constant_declaration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
-        eType="#//F_or_T" containment="true"/>
+        eType="#//Function" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="theorems" upperBound="-1"
-        eType="#//F_or_T" containment="true"/>
+        eType="#//Theorem" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="calls" upperBound="-1"
         eType="#//TheoremCall" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MCSAnnexSubclause">
+  <eClassifiers xsi:type="ecore:EClass" name="MCSAnnexSubclause" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AnnexSubclause">
     <eStructuralFeatures xsi:type="ecore:EReference" name="calls" upperBound="-1"
         eType="#//TheoremCall" containment="true"/>
   </eClassifiers>
@@ -50,12 +50,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="left_expr" eType="#//Expr"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="F_or_T">
+  <eClassifiers xsi:type="ecore:EClass" name="Function">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//Parameter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//FunctionBody"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Theorem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="t_root" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//Parameter"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//DefinitionBody"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//TheoremBody"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Theorem_root">
@@ -63,41 +70,70 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" eType="#//Classifiers"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionBody">
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionBody">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type_expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TheoremBody">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="string" upperBound="-1"
+        eType="#//ParameterizedString" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParameterizedString">
     <eStructuralFeatures xsi:type="ecore:EReference" name="claim" upperBound="-1"
         eType="#//TextParm" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Parameter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter"/>
   <eClassifiers xsi:type="ecore:EClass" name="TextParm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="McsName" eSuperTypes="#//McsTypedName">
+  <eClassifiers xsi:type="ecore:EClass" name="McsName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="McsTypedName" eSuperTypes="#//Parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type_expression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="McsTypedName" eSuperTypes="#//Parameter"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TheoremCall" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//F_or_T"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Domain">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TheoremCall">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tname" eType="#//Theorem"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="croot" eType="#//Classifier_literal"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actarg" upperBound="-1"
         eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fn" eType="#//TheoremCall"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Classifier_literal">
     <eStructuralFeatures xsi:type="ecore:EReference" name="classlit" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//ComponentClassifier"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arg" eType="#//Mcs_name_ref"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nameref" eType="#//Mcs_name_ref"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Range" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lowerBound" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NumberValue"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upperBound" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NumberValue"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="val" eType="#//Range" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RefTerm">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="ecore:EClass http://aadl.info/AADL/2.0#//ContainmentPathElement"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sub" eType="#//NestedDotID"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NestedDotID">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sub" eType="#//NestedDotID"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mcs_name_ref">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//McsTypedName"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chain" eType="#//MethodChain"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodChain">
     <eStructuralFeatures xsi:type="ecore:EReference" name="builtin" upperBound="-1"
         eType="#//BuiltInFnCall" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="method" upperBound="-1"
@@ -109,26 +145,26 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FnCall">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fn" eType="#//F_or_T"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fn" eType="#//Function"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//Expr"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Let_binding">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="local" eType="#//McsTypedName"
+  <eClassifiers xsi:type="ecore:EClass" name="Expr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PostCastExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chain" eType="#//MethodChain"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newtype" eType="#//Type_expression"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expr">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="list" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="builtin" upperBound="-1"
-        eType="#//BuiltInFnCall" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="method" upperBound="-1"
-        eType="#//FnCall" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Domain">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MCSNameExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iroot" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nil" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="empty" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allmodes" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typednameref" eType="#//Mcs_name_ref"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type_expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="basic" eType="#//Basic_type"
@@ -141,23 +177,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="Basic_type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ptype" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pref" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bool" eType="ecore:EClass http://aadl.info/AADL/2.0#//AadlBoolean"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bool" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AadlBoolean"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="string" eType="ecore:EClass http://aadl.info/AADL/2.0#//AadlString"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="string" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AadlString"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enumer" eType="ecore:EClass http://aadl.info/AADL/2.0#//EnumerationType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumer" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//EnumerationType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="units" eType="ecore:EClass http://aadl.info/AADL/2.0#//UnitsType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="units" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//UnitsType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="integer" eType="ecore:EClass http://aadl.info/AADL/2.0#//AadlInteger"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="integer" eType="#//UnnamedIntegerType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="real" eType="ecore:EClass http://aadl.info/AADL/2.0#//AadlReal"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="real" eType="#//UnnamedRealType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="ecore:EClass http://aadl.info/AADL/2.0#//RangeType"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="class" eType="ecore:EClass http://aadl.info/AADL/2.0#//ClassifierType"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="ecore:EClass http://aadl.info/AADL/2.0#//ReferenceType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//UnnamedRangeType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typename" eType="#//Type_declaration"/>
   </eClassifiers>
@@ -280,20 +312,44 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="t_f_i_sink" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="t_f_i_path" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionBody" eSuperTypes="#//DefinitionBody">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type_expression"
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerRange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lowerBound" eType="ecore:EClass platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upperBound" eType="ecore:EClass platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ClaimBody" eSuperTypes="#//DefinitionBody">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="string" upperBound="-1"
-        eType="#//ParameterizedString" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RealRange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lowerBound" eType="ecore:EClass platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upperBound" eType="ecore:EClass platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnnamedIntegerType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//IntegerRange"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedUnitsType" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//UnitsType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedUnitsType" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//UnitsType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnnamedRealType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//RealRange"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedUnitsType" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//UnitsType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedUnitsType" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//UnitsType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnnamedRangeType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedNumberType" eType="ecore:EClass platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedNumberType" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NumberType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClaimString" eSuperTypes="#//TextParm">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="str" eType="ecore:EClass http://aadl.info/AADL/2.0#//StringLiteral"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="str" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//StringLiteral"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClaimArg" eSuperTypes="#//TextParm">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arg" eType="#//McsTypedName"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="textarg" eType="#//MCSNameExpr"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//UnitLiteral"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryExpr" eSuperTypes="#//Expr">
@@ -311,25 +367,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PostCastExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="newtype" eType="#//Type_expression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MCSNameExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iroot" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nil" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="empty" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allmodes" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typednameref" eType="#//Mcs_name_ref"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PkgExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="package" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//AadlPackage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" eType="ecore:EClass http://aadl.info/AADL/2.0#//ClassifierValue"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//ClassifierValue"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RefExpr" eSuperTypes="#//Expr">
@@ -337,7 +379,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ThisExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sub" eType="ecore:EClass http://aadl.info/AADL/2.0#//ContainedNamedElement"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sub" eType="#//NestedDotID"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntExpr" eSuperTypes="#//Expr">
@@ -349,15 +391,11 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BoolExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="val" eType="ecore:EClass http://aadl.info/AADL/2.0#//BooleanLiteral"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="val" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//BooleanLiteral"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="val" eType="ecore:EClass http://aadl.info/AADL/2.0#//StringLiteral"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Range" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="val" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NumericRange"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="val" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//StringLiteral"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfThenElseExpr" eSuperTypes="#//Expr">
@@ -367,17 +405,29 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuantifiedExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="quant" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="ecore:EClass platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//Parameter"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BuiltInFnCallExpr" eSuperTypes="#//Expr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuiltInFnCallExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="builtin" eType="#//BuiltInFnCall"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FnCallExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fn" eType="#//FnCall" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TheoremCallExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fn" eType="#//TheoremCall"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterSet" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="list" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expr" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FilterMapExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="map" eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="ecore:EClass platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="map" eType="#//FilterSet"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//Parameter"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//Expr"
         containment="true"/>
@@ -386,10 +436,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="exprs" upperBound="-1"
         eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Empty" eSuperTypes="#//Expr"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LetExpr" eSuperTypes="#//Expr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//Let_binding"
+  <eClassifiers xsi:type="ecore:EClass" name="MappingExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr1" eType="#//Expr"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr2" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EmptySetExpr" eSuperTypes="#//Expr"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LetExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="local" eType="#//McsTypedName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr1" eType="#//Expr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr2" eType="#//Expr"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

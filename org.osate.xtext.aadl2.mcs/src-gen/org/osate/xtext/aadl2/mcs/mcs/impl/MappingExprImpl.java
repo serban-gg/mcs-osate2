@@ -9,55 +9,53 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.Expr;
-import org.osate.xtext.aadl2.mcs.mcs.Let_binding;
+import org.osate.xtext.aadl2.mcs.mcs.MappingExpr;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.McsTypedName;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Let binding</b></em>'.
+ * An implementation of the model object '<em><b>Mapping Expr</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Let_bindingImpl#getLocal <em>Local</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Let_bindingImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MappingExprImpl#getExpr1 <em>Expr1</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.MappingExprImpl#getExpr2 <em>Expr2</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let_binding
+public class MappingExprImpl extends ExprImpl implements MappingExpr
 {
   /**
-   * The cached value of the '{@link #getLocal() <em>Local</em>}' containment reference.
+   * The cached value of the '{@link #getExpr1() <em>Expr1</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLocal()
+   * @see #getExpr1()
    * @generated
    * @ordered
    */
-  protected McsTypedName local;
+  protected Expr expr1;
 
   /**
-   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
+   * The cached value of the '{@link #getExpr2() <em>Expr2</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpr()
+   * @see #getExpr2()
    * @generated
    * @ordered
    */
-  protected Expr expr;
+  protected Expr expr2;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected Let_bindingImpl()
+  protected MappingExprImpl()
   {
     super();
   }
@@ -70,7 +68,7 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
   @Override
   protected EClass eStaticClass()
   {
-    return McsPackage.Literals.LET_BINDING;
+    return McsPackage.Literals.MAPPING_EXPR;
   }
 
   /**
@@ -78,9 +76,9 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
    * <!-- end-user-doc -->
    * @generated
    */
-  public McsTypedName getLocal()
+  public Expr getExpr1()
   {
-    return local;
+    return expr1;
   }
 
   /**
@@ -88,13 +86,13 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLocal(McsTypedName newLocal, NotificationChain msgs)
+  public NotificationChain basicSetExpr1(Expr newExpr1, NotificationChain msgs)
   {
-    McsTypedName oldLocal = local;
-    local = newLocal;
+    Expr oldExpr1 = expr1;
+    expr1 = newExpr1;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.LET_BINDING__LOCAL, oldLocal, newLocal);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.MAPPING_EXPR__EXPR1, oldExpr1, newExpr1);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -105,20 +103,20 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLocal(McsTypedName newLocal)
+  public void setExpr1(Expr newExpr1)
   {
-    if (newLocal != local)
+    if (newExpr1 != expr1)
     {
       NotificationChain msgs = null;
-      if (local != null)
-        msgs = ((InternalEObject)local).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.LET_BINDING__LOCAL, null, msgs);
-      if (newLocal != null)
-        msgs = ((InternalEObject)newLocal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.LET_BINDING__LOCAL, null, msgs);
-      msgs = basicSetLocal(newLocal, msgs);
+      if (expr1 != null)
+        msgs = ((InternalEObject)expr1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.MAPPING_EXPR__EXPR1, null, msgs);
+      if (newExpr1 != null)
+        msgs = ((InternalEObject)newExpr1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.MAPPING_EXPR__EXPR1, null, msgs);
+      msgs = basicSetExpr1(newExpr1, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.LET_BINDING__LOCAL, newLocal, newLocal));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.MAPPING_EXPR__EXPR1, newExpr1, newExpr1));
   }
 
   /**
@@ -126,9 +124,9 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getExpr()
+  public Expr getExpr2()
   {
-    return expr;
+    return expr2;
   }
 
   /**
@@ -136,13 +134,13 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expr newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr2(Expr newExpr2, NotificationChain msgs)
   {
-    Expr oldExpr = expr;
-    expr = newExpr;
+    Expr oldExpr2 = expr2;
+    expr2 = newExpr2;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.LET_BINDING__EXPR, oldExpr, newExpr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.MAPPING_EXPR__EXPR2, oldExpr2, newExpr2);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,20 +151,20 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(Expr newExpr)
+  public void setExpr2(Expr newExpr2)
   {
-    if (newExpr != expr)
+    if (newExpr2 != expr2)
     {
       NotificationChain msgs = null;
-      if (expr != null)
-        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.LET_BINDING__EXPR, null, msgs);
-      if (newExpr != null)
-        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.LET_BINDING__EXPR, null, msgs);
-      msgs = basicSetExpr(newExpr, msgs);
+      if (expr2 != null)
+        msgs = ((InternalEObject)expr2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.MAPPING_EXPR__EXPR2, null, msgs);
+      if (newExpr2 != null)
+        msgs = ((InternalEObject)newExpr2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.MAPPING_EXPR__EXPR2, null, msgs);
+      msgs = basicSetExpr2(newExpr2, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.LET_BINDING__EXPR, newExpr, newExpr));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.MAPPING_EXPR__EXPR2, newExpr2, newExpr2));
   }
 
   /**
@@ -179,10 +177,10 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
   {
     switch (featureID)
     {
-      case McsPackage.LET_BINDING__LOCAL:
-        return basicSetLocal(null, msgs);
-      case McsPackage.LET_BINDING__EXPR:
-        return basicSetExpr(null, msgs);
+      case McsPackage.MAPPING_EXPR__EXPR1:
+        return basicSetExpr1(null, msgs);
+      case McsPackage.MAPPING_EXPR__EXPR2:
+        return basicSetExpr2(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,10 +195,10 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
   {
     switch (featureID)
     {
-      case McsPackage.LET_BINDING__LOCAL:
-        return getLocal();
-      case McsPackage.LET_BINDING__EXPR:
-        return getExpr();
+      case McsPackage.MAPPING_EXPR__EXPR1:
+        return getExpr1();
+      case McsPackage.MAPPING_EXPR__EXPR2:
+        return getExpr2();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -215,11 +213,11 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
   {
     switch (featureID)
     {
-      case McsPackage.LET_BINDING__LOCAL:
-        setLocal((McsTypedName)newValue);
+      case McsPackage.MAPPING_EXPR__EXPR1:
+        setExpr1((Expr)newValue);
         return;
-      case McsPackage.LET_BINDING__EXPR:
-        setExpr((Expr)newValue);
+      case McsPackage.MAPPING_EXPR__EXPR2:
+        setExpr2((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +233,11 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
   {
     switch (featureID)
     {
-      case McsPackage.LET_BINDING__LOCAL:
-        setLocal((McsTypedName)null);
+      case McsPackage.MAPPING_EXPR__EXPR1:
+        setExpr1((Expr)null);
         return;
-      case McsPackage.LET_BINDING__EXPR:
-        setExpr((Expr)null);
+      case McsPackage.MAPPING_EXPR__EXPR2:
+        setExpr2((Expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -255,12 +253,12 @@ public class Let_bindingImpl extends MinimalEObjectImpl.Container implements Let
   {
     switch (featureID)
     {
-      case McsPackage.LET_BINDING__LOCAL:
-        return local != null;
-      case McsPackage.LET_BINDING__EXPR:
-        return expr != null;
+      case McsPackage.MAPPING_EXPR__EXPR1:
+        return expr1 != null;
+      case McsPackage.MAPPING_EXPR__EXPR2:
+        return expr2 != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //Let_bindingImpl
+} //MappingExprImpl

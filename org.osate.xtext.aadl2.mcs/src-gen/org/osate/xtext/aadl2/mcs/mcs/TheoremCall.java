@@ -4,6 +4,8 @@ package org.osate.xtext.aadl2.mcs.mcs;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Theorem Call</b></em>'.
@@ -13,43 +15,42 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getName <em>Name</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getTname <em>Tname</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getCroot <em>Croot</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getActarg <em>Actarg</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getFn <em>Fn</em>}</li>
  * </ul>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getTheoremCall()
  * @model
  * @generated
  */
-public interface TheoremCall extends Expr
+public interface TheoremCall extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' reference.
+   * Returns the value of the '<em><b>Tname</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' reference isn't clear,
+   * If the meaning of the '<em>Tname</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' reference.
-   * @see #setName(F_or_T)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getTheoremCall_Name()
+   * @return the value of the '<em>Tname</em>' reference.
+   * @see #setTname(Theorem)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getTheoremCall_Tname()
    * @model
    * @generated
    */
-  F_or_T getName();
+  Theorem getTname();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getName <em>Name</em>}' reference.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getTname <em>Tname</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' reference.
-   * @see #getName()
+   * @param value the new value of the '<em>Tname</em>' reference.
+   * @see #getTname()
    * @generated
    */
-  void setName(F_or_T value);
+  void setTname(Theorem value);
 
   /**
    * Returns the value of the '<em><b>Croot</b></em>' containment reference.
@@ -92,31 +93,5 @@ public interface TheoremCall extends Expr
    * @generated
    */
   EList<Expr> getActarg();
-
-  /**
-   * Returns the value of the '<em><b>Fn</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Fn</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Fn</em>' containment reference.
-   * @see #setFn(TheoremCall)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getTheoremCall_Fn()
-   * @model containment="true"
-   * @generated
-   */
-  TheoremCall getFn();
-
-  /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getFn <em>Fn</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fn</em>' containment reference.
-   * @see #getFn()
-   * @generated
-   */
-  void setFn(TheoremCall value);
 
 } // TheoremCall

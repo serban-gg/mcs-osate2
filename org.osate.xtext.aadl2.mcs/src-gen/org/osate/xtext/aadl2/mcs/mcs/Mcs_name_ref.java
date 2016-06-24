@@ -2,8 +2,6 @@
  */
 package org.osate.xtext.aadl2.mcs.mcs;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,8 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getRef <em>Ref</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getBuiltin <em>Builtin</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getChain <em>Chain</em>}</li>
  * </ul>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMcs_name_ref()
@@ -53,35 +50,29 @@ public interface Mcs_name_ref extends EObject
   void setRef(McsTypedName value);
 
   /**
-   * Returns the value of the '<em><b>Builtin</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCall}.
+   * Returns the value of the '<em><b>Chain</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Builtin</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Chain</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Builtin</em>' containment reference list.
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMcs_name_ref_Builtin()
+   * @return the value of the '<em>Chain</em>' containment reference.
+   * @see #setChain(MethodChain)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMcs_name_ref_Chain()
    * @model containment="true"
    * @generated
    */
-  EList<BuiltInFnCall> getBuiltin();
+  MethodChain getChain();
 
   /**
-   * Returns the value of the '<em><b>Method</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.FnCall}.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getChain <em>Chain</em>}' containment reference.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Method</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Method</em>' containment reference list.
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMcs_name_ref_Method()
-   * @model containment="true"
+   * @param value the new value of the '<em>Chain</em>' containment reference.
+   * @see #getChain()
    * @generated
    */
-  EList<FnCall> getMethod();
+  void setChain(MethodChain value);
 
 } // Mcs_name_ref

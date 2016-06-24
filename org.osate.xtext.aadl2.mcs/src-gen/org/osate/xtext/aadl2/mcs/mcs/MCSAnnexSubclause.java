@@ -6,6 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.osate.aadl2.AnnexSubclause;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>MCS Annex Subclause</b></em>'.
@@ -22,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface MCSAnnexSubclause extends EObject
+public interface MCSAnnexSubclause extends EObject, AnnexSubclause
 {
   /**
    * Returns the value of the '<em><b>Calls</b></em>' containment reference list.

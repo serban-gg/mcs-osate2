@@ -13,7 +13,7 @@ import org.osate.aadl2.UnitLiteral;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getArg <em>Arg</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getTextarg <em>Textarg</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getUnit <em>Unit</em>}</li>
  * </ul>
  *
@@ -24,30 +24,30 @@ import org.osate.aadl2.UnitLiteral;
 public interface ClaimArg extends TextParm
 {
   /**
-   * Returns the value of the '<em><b>Arg</b></em>' reference.
+   * Returns the value of the '<em><b>Textarg</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Arg</em>' reference isn't clear,
+   * If the meaning of the '<em>Textarg</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Arg</em>' reference.
-   * @see #setArg(McsTypedName)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClaimArg_Arg()
-   * @model
+   * @return the value of the '<em>Textarg</em>' containment reference.
+   * @see #setTextarg(MCSNameExpr)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClaimArg_Textarg()
+   * @model containment="true"
    * @generated
    */
-  McsTypedName getArg();
+  MCSNameExpr getTextarg();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getArg <em>Arg</em>}' reference.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getTextarg <em>Textarg</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Arg</em>' reference.
-   * @see #getArg()
+   * @param value the new value of the '<em>Textarg</em>' containment reference.
+   * @see #getTextarg()
    * @generated
    */
-  void setArg(McsTypedName value);
+  void setTextarg(MCSNameExpr value);
 
   /**
    * Returns the value of the '<em><b>Unit</b></em>' reference.

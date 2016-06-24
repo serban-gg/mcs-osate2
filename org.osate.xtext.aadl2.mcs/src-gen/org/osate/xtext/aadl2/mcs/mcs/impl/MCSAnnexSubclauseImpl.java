@@ -11,10 +11,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.osate.aadl2.impl.AnnexSubclauseImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexSubclause;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
@@ -33,7 +33,7 @@ import org.osate.xtext.aadl2.mcs.mcs.TheoremCall;
  *
  * @generated
  */
-public class MCSAnnexSubclauseImpl extends MinimalEObjectImpl.Container implements MCSAnnexSubclause
+public class MCSAnnexSubclauseImpl extends AnnexSubclauseImpl implements MCSAnnexSubclause
 {
   /**
    * The cached value of the '{@link #getCalls() <em>Calls</em>}' containment reference list.

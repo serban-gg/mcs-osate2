@@ -115,13 +115,58 @@ public interface McsPackage extends EPackage
   int MCS_ANNEX_LIBRARY = 1;
 
   /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_LIBRARY__OWNED_ELEMENT = Aadl2Package.ANNEX_LIBRARY__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_LIBRARY__OWNED_COMMENT = Aadl2Package.ANNEX_LIBRARY__OWNED_COMMENT;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_LIBRARY__NAME = Aadl2Package.ANNEX_LIBRARY__NAME;
+
+  /**
+   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_LIBRARY__QUALIFIED_NAME = Aadl2Package.ANNEX_LIBRARY__QUALIFIED_NAME;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Association</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_LIBRARY__OWNED_PROPERTY_ASSOCIATION = Aadl2Package.ANNEX_LIBRARY__OWNED_PROPERTY_ASSOCIATION;
+
+  /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MCS_ANNEX_LIBRARY__TYPES = 0;
+  int MCS_ANNEX_LIBRARY__TYPES = Aadl2Package.ANNEX_LIBRARY_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Constants</b></em>' containment reference list.
@@ -130,7 +175,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MCS_ANNEX_LIBRARY__CONSTANTS = 1;
+  int MCS_ANNEX_LIBRARY__CONSTANTS = Aadl2Package.ANNEX_LIBRARY_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -139,7 +184,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MCS_ANNEX_LIBRARY__FUNCTIONS = 2;
+  int MCS_ANNEX_LIBRARY__FUNCTIONS = Aadl2Package.ANNEX_LIBRARY_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Theorems</b></em>' containment reference list.
@@ -148,7 +193,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MCS_ANNEX_LIBRARY__THEOREMS = 3;
+  int MCS_ANNEX_LIBRARY__THEOREMS = Aadl2Package.ANNEX_LIBRARY_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>MCS Annex Library</em>' class.
@@ -157,7 +202,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MCS_ANNEX_LIBRARY_FEATURE_COUNT = 4;
+  int MCS_ANNEX_LIBRARY_FEATURE_COUNT = Aadl2Package.ANNEX_LIBRARY_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSFileLibraryImpl <em>MCS File Library</em>}' class.
@@ -252,13 +297,67 @@ public interface McsPackage extends EPackage
   int MCS_ANNEX_SUBCLAUSE = 3;
 
   /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_SUBCLAUSE__OWNED_ELEMENT = Aadl2Package.ANNEX_SUBCLAUSE__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_SUBCLAUSE__OWNED_COMMENT = Aadl2Package.ANNEX_SUBCLAUSE__OWNED_COMMENT;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_SUBCLAUSE__NAME = Aadl2Package.ANNEX_SUBCLAUSE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_SUBCLAUSE__QUALIFIED_NAME = Aadl2Package.ANNEX_SUBCLAUSE__QUALIFIED_NAME;
+
+  /**
+   * The feature id for the '<em><b>Owned Property Association</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_SUBCLAUSE__OWNED_PROPERTY_ASSOCIATION = Aadl2Package.ANNEX_SUBCLAUSE__OWNED_PROPERTY_ASSOCIATION;
+
+  /**
+   * The feature id for the '<em><b>In Mode</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_ANNEX_SUBCLAUSE__IN_MODE = Aadl2Package.ANNEX_SUBCLAUSE__IN_MODE;
+
+  /**
    * The feature id for the '<em><b>Calls</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MCS_ANNEX_SUBCLAUSE__CALLS = 0;
+  int MCS_ANNEX_SUBCLAUSE__CALLS = Aadl2Package.ANNEX_SUBCLAUSE_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>MCS Annex Subclause</em>' class.
@@ -267,7 +366,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MCS_ANNEX_SUBCLAUSE_FEATURE_COUNT = 1;
+  int MCS_ANNEX_SUBCLAUSE_FEATURE_COUNT = Aadl2Package.ANNEX_SUBCLAUSE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Type_declarationImpl <em>Type declaration</em>}' class.
@@ -344,14 +443,14 @@ public interface McsPackage extends EPackage
   int CONSTANT_DECLARATION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl <em>For T</em>}' class.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FunctionImpl <em>Function</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getF_or_T()
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.FunctionImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFunction()
    * @generated
    */
-  int FOR_T = 6;
+  int FUNCTION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -360,16 +459,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_T__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Troot</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FOR_T__TROOT = 1;
+  int FUNCTION__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -378,7 +468,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_T__ARGS = 2;
+  int FUNCTION__ARGS = 1;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -387,16 +477,71 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FOR_T__BODY = 3;
+  int FUNCTION__BODY = 2;
 
   /**
-   * The number of structural features of the '<em>For T</em>' class.
+   * The number of structural features of the '<em>Function</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FOR_T_FEATURE_COUNT = 4;
+  int FUNCTION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremImpl <em>Theorem</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.TheoremImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getTheorem()
+   * @generated
+   */
+  int THEOREM = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEOREM__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Troot</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEOREM__TROOT = 1;
+
+  /**
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEOREM__ARGS = 2;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEOREM__BODY = 3;
+
+  /**
+   * The number of structural features of the '<em>Theorem</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEOREM_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Theorem_rootImpl <em>Theorem root</em>}' class.
@@ -406,7 +551,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getTheorem_root()
    * @generated
    */
-  int THEOREM_ROOT = 7;
+  int THEOREM_ROOT = 8;
 
   /**
    * The feature id for the '<em><b>Nilroot</b></em>' attribute.
@@ -436,14 +581,23 @@ public interface McsPackage extends EPackage
   int THEOREM_ROOT_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.DefinitionBodyImpl <em>Definition Body</em>}' class.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FunctionBodyImpl <em>Function Body</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.DefinitionBodyImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getDefinitionBody()
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.FunctionBodyImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFunctionBody()
    * @generated
    */
-  int DEFINITION_BODY = 8;
+  int FUNCTION_BODY = 9;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_BODY__TYPE = 0;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -452,16 +606,53 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFINITION_BODY__EXPR = 0;
+  int FUNCTION_BODY__EXPR = 1;
 
   /**
-   * The number of structural features of the '<em>Definition Body</em>' class.
+   * The number of structural features of the '<em>Function Body</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFINITION_BODY_FEATURE_COUNT = 1;
+  int FUNCTION_BODY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremBodyImpl <em>Theorem Body</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.TheoremBodyImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getTheoremBody()
+   * @generated
+   */
+  int THEOREM_BODY = 10;
+
+  /**
+   * The feature id for the '<em><b>String</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEOREM_BODY__STRING = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEOREM_BODY__EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Theorem Body</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEOREM_BODY_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.ParameterizedStringImpl <em>Parameterized String</em>}' class.
@@ -471,7 +662,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getParameterizedString()
    * @generated
    */
-  int PARAMETERIZED_STRING = 9;
+  int PARAMETERIZED_STRING = 11;
 
   /**
    * The feature id for the '<em><b>Claim</b></em>' containment reference list.
@@ -499,160 +690,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 10;
-
-  /**
-   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__OWNED_ELEMENT = Aadl2Package.PARAMETER__OWNED_ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__OWNED_COMMENT = Aadl2Package.PARAMETER__OWNED_COMMENT;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__NAME = Aadl2Package.PARAMETER__NAME;
-
-  /**
-   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__QUALIFIED_NAME = Aadl2Package.PARAMETER__QUALIFIED_NAME;
-
-  /**
-   * The feature id for the '<em><b>Owned Property Association</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__OWNED_PROPERTY_ASSOCIATION = Aadl2Package.PARAMETER__OWNED_PROPERTY_ASSOCIATION;
-
-  /**
-   * The feature id for the '<em><b>Refinement Context</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__REFINEMENT_CONTEXT = Aadl2Package.PARAMETER__REFINEMENT_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Refined Element</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__REFINED_ELEMENT = Aadl2Package.PARAMETER__REFINED_ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Featuring Classifier</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__FEATURING_CLASSIFIER = Aadl2Package.PARAMETER__FEATURING_CLASSIFIER;
-
-  /**
-   * The feature id for the '<em><b>Array Dimension</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__ARRAY_DIMENSION = Aadl2Package.PARAMETER__ARRAY_DIMENSION;
-
-  /**
-   * The feature id for the '<em><b>Prototype</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__PROTOTYPE = Aadl2Package.PARAMETER__PROTOTYPE;
-
-  /**
-   * The feature id for the '<em><b>Feature Classifier</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__FEATURE_CLASSIFIER = Aadl2Package.PARAMETER__FEATURE_CLASSIFIER;
-
-  /**
-   * The feature id for the '<em><b>Refined</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__REFINED = Aadl2Package.PARAMETER__REFINED;
-
-  /**
-   * The feature id for the '<em><b>Classifier</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__CLASSIFIER = Aadl2Package.PARAMETER__CLASSIFIER;
-
-  /**
-   * The feature id for the '<em><b>Direction</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__DIRECTION = Aadl2Package.PARAMETER__DIRECTION;
-
-  /**
-   * The feature id for the '<em><b>In</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__IN = Aadl2Package.PARAMETER__IN;
-
-  /**
-   * The feature id for the '<em><b>Out</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__OUT = Aadl2Package.PARAMETER__OUT;
-
-  /**
-   * The feature id for the '<em><b>Data Feature Classifier</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__DATA_FEATURE_CLASSIFIER = Aadl2Package.PARAMETER__DATA_FEATURE_CLASSIFIER;
+  int PARAMETER = 12;
 
   /**
    * The number of structural features of the '<em>Parameter</em>' class.
@@ -661,7 +699,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = Aadl2Package.PARAMETER_FEATURE_COUNT + 0;
+  int PARAMETER_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.TextParmImpl <em>Text Parm</em>}' class.
@@ -671,7 +709,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getTextParm()
    * @generated
    */
-  int TEXT_PARM = 11;
+  int TEXT_PARM = 13;
 
   /**
    * The number of structural features of the '<em>Text Parm</em>' class.
@@ -683,178 +721,6 @@ public interface McsPackage extends EPackage
   int TEXT_PARM_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.McsTypedNameImpl <em>Typed Name</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsTypedNameImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMcsTypedName()
-   * @generated
-   */
-  int MCS_TYPED_NAME = 13;
-
-  /**
-   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__OWNED_ELEMENT = PARAMETER__OWNED_ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__OWNED_COMMENT = PARAMETER__OWNED_COMMENT;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__NAME = PARAMETER__NAME;
-
-  /**
-   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__QUALIFIED_NAME = PARAMETER__QUALIFIED_NAME;
-
-  /**
-   * The feature id for the '<em><b>Owned Property Association</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__OWNED_PROPERTY_ASSOCIATION = PARAMETER__OWNED_PROPERTY_ASSOCIATION;
-
-  /**
-   * The feature id for the '<em><b>Refinement Context</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__REFINEMENT_CONTEXT = PARAMETER__REFINEMENT_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Refined Element</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__REFINED_ELEMENT = PARAMETER__REFINED_ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Featuring Classifier</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__FEATURING_CLASSIFIER = PARAMETER__FEATURING_CLASSIFIER;
-
-  /**
-   * The feature id for the '<em><b>Array Dimension</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__ARRAY_DIMENSION = PARAMETER__ARRAY_DIMENSION;
-
-  /**
-   * The feature id for the '<em><b>Prototype</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__PROTOTYPE = PARAMETER__PROTOTYPE;
-
-  /**
-   * The feature id for the '<em><b>Feature Classifier</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__FEATURE_CLASSIFIER = PARAMETER__FEATURE_CLASSIFIER;
-
-  /**
-   * The feature id for the '<em><b>Refined</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__REFINED = PARAMETER__REFINED;
-
-  /**
-   * The feature id for the '<em><b>Classifier</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__CLASSIFIER = PARAMETER__CLASSIFIER;
-
-  /**
-   * The feature id for the '<em><b>Direction</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__DIRECTION = PARAMETER__DIRECTION;
-
-  /**
-   * The feature id for the '<em><b>In</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__IN = PARAMETER__IN;
-
-  /**
-   * The feature id for the '<em><b>Out</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__OUT = PARAMETER__OUT;
-
-  /**
-   * The feature id for the '<em><b>Data Feature Classifier</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME__DATA_FEATURE_CLASSIFIER = PARAMETER__DATA_FEATURE_CLASSIFIER;
-
-  /**
-   * The number of structural features of the '<em>Typed Name</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_TYPED_NAME_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 0;
-
-  /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.McsNameImpl <em>Name</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -862,25 +728,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMcsName()
    * @generated
    */
-  int MCS_NAME = 12;
-
-  /**
-   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__OWNED_ELEMENT = MCS_TYPED_NAME__OWNED_ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__OWNED_COMMENT = MCS_TYPED_NAME__OWNED_COMMENT;
+  int MCS_NAME = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -889,142 +737,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MCS_NAME__NAME = MCS_TYPED_NAME__NAME;
-
-  /**
-   * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__QUALIFIED_NAME = MCS_TYPED_NAME__QUALIFIED_NAME;
-
-  /**
-   * The feature id for the '<em><b>Owned Property Association</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__OWNED_PROPERTY_ASSOCIATION = MCS_TYPED_NAME__OWNED_PROPERTY_ASSOCIATION;
-
-  /**
-   * The feature id for the '<em><b>Refinement Context</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__REFINEMENT_CONTEXT = MCS_TYPED_NAME__REFINEMENT_CONTEXT;
-
-  /**
-   * The feature id for the '<em><b>Refined Element</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__REFINED_ELEMENT = MCS_TYPED_NAME__REFINED_ELEMENT;
-
-  /**
-   * The feature id for the '<em><b>Featuring Classifier</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__FEATURING_CLASSIFIER = MCS_TYPED_NAME__FEATURING_CLASSIFIER;
-
-  /**
-   * The feature id for the '<em><b>Array Dimension</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__ARRAY_DIMENSION = MCS_TYPED_NAME__ARRAY_DIMENSION;
-
-  /**
-   * The feature id for the '<em><b>Prototype</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__PROTOTYPE = MCS_TYPED_NAME__PROTOTYPE;
-
-  /**
-   * The feature id for the '<em><b>Feature Classifier</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__FEATURE_CLASSIFIER = MCS_TYPED_NAME__FEATURE_CLASSIFIER;
-
-  /**
-   * The feature id for the '<em><b>Refined</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__REFINED = MCS_TYPED_NAME__REFINED;
-
-  /**
-   * The feature id for the '<em><b>Classifier</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__CLASSIFIER = MCS_TYPED_NAME__CLASSIFIER;
-
-  /**
-   * The feature id for the '<em><b>Direction</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__DIRECTION = MCS_TYPED_NAME__DIRECTION;
-
-  /**
-   * The feature id for the '<em><b>In</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__IN = MCS_TYPED_NAME__IN;
-
-  /**
-   * The feature id for the '<em><b>Out</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__OUT = MCS_TYPED_NAME__OUT;
-
-  /**
-   * The feature id for the '<em><b>Data Feature Classifier</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__DATA_FEATURE_CLASSIFIER = MCS_TYPED_NAME__DATA_FEATURE_CLASSIFIER;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME__TYPE = MCS_TYPED_NAME_FEATURE_COUNT + 0;
+  int MCS_NAME__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Name</em>' class.
@@ -1033,62 +746,90 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MCS_NAME_FEATURE_COUNT = MCS_TYPED_NAME_FEATURE_COUNT + 1;
+  int MCS_NAME_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.ExprImpl <em>Expr</em>}' class.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.McsTypedNameImpl <em>Typed Name</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.ExprImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getExpr()
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsTypedNameImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMcsTypedName()
    * @generated
    */
-  int EXPR = 21;
+  int MCS_TYPED_NAME = 15;
 
   /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__LIST = 0;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR__EXP = 1;
+  int MCS_TYPED_NAME__NAME = PARAMETER_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR__BUILTIN = 2;
+  int MCS_TYPED_NAME__TYPE = PARAMETER_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR__METHOD = 3;
+  int MCS_TYPED_NAME__EXPR = PARAMETER_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Expr</em>' class.
+   * The number of structural features of the '<em>Typed Name</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_FEATURE_COUNT = 4;
+  int MCS_TYPED_NAME_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.DomainImpl <em>Domain</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.DomainImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getDomain()
+   * @generated
+   */
+  int DOMAIN = 16;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN__EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Domain</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremCallImpl <em>Theorem Call</em>}' class.
@@ -1098,52 +839,16 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getTheoremCall()
    * @generated
    */
-  int THEOREM_CALL = 14;
+  int THEOREM_CALL = 17;
 
   /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
+   * The feature id for the '<em><b>Tname</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int THEOREM_CALL__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THEOREM_CALL__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THEOREM_CALL__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THEOREM_CALL__METHOD = EXPR__METHOD;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THEOREM_CALL__NAME = EXPR_FEATURE_COUNT + 0;
+  int THEOREM_CALL__TNAME = 0;
 
   /**
    * The feature id for the '<em><b>Croot</b></em>' containment reference.
@@ -1152,7 +857,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int THEOREM_CALL__CROOT = EXPR_FEATURE_COUNT + 1;
+  int THEOREM_CALL__CROOT = 1;
 
   /**
    * The feature id for the '<em><b>Actarg</b></em>' containment reference list.
@@ -1161,16 +866,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int THEOREM_CALL__ACTARG = EXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Fn</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THEOREM_CALL__FN = EXPR_FEATURE_COUNT + 3;
+  int THEOREM_CALL__ACTARG = 2;
 
   /**
    * The number of structural features of the '<em>Theorem Call</em>' class.
@@ -1179,7 +875,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int THEOREM_CALL_FEATURE_COUNT = EXPR_FEATURE_COUNT + 4;
+  int THEOREM_CALL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Classifier_literalImpl <em>Classifier literal</em>}' class.
@@ -1189,7 +885,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getClassifier_literal()
    * @generated
    */
-  int CLASSIFIER_LITERAL = 15;
+  int CLASSIFIER_LITERAL = 18;
 
   /**
    * The feature id for the '<em><b>Classlit</b></em>' reference.
@@ -1201,13 +897,13 @@ public interface McsPackage extends EPackage
   int CLASSIFIER_LITERAL__CLASSLIT = 0;
 
   /**
-   * The feature id for the '<em><b>Arg</b></em>' containment reference.
+   * The feature id for the '<em><b>Nameref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASSIFIER_LITERAL__ARG = 1;
+  int CLASSIFIER_LITERAL__NAMEREF = 1;
 
   /**
    * The number of structural features of the '<em>Classifier literal</em>' class.
@@ -1219,6 +915,71 @@ public interface McsPackage extends EPackage
   int CLASSIFIER_LITERAL_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.ExprImpl <em>Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.ExprImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getExpr()
+   * @generated
+   */
+  int EXPR = 26;
+
+  /**
+   * The number of structural features of the '<em>Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.RangeImpl <em>Range</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.RangeImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getRange()
+   * @generated
+   */
+  int RANGE = 19;
+
+  /**
+   * The feature id for the '<em><b>Lower Bound</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RANGE__LOWER_BOUND = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Upper Bound</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RANGE__UPPER_BOUND = EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RANGE__VAL = EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Range</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RANGE_FEATURE_COUNT = EXPR_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.RefTermImpl <em>Ref Term</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1226,7 +987,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getRefTerm()
    * @generated
    */
-  int REF_TERM = 16;
+  int REF_TERM = 20;
 
   /**
    * The feature id for the '<em><b>Root</b></em>' attribute.
@@ -1238,13 +999,13 @@ public interface McsPackage extends EPackage
   int REF_TERM__ROOT = 0;
 
   /**
-   * The feature id for the '<em><b>Path</b></em>' containment reference.
+   * The feature id for the '<em><b>Sub</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REF_TERM__PATH = 1;
+  int REF_TERM__SUB = 1;
 
   /**
    * The number of structural features of the '<em>Ref Term</em>' class.
@@ -1256,6 +1017,43 @@ public interface McsPackage extends EPackage
   int REF_TERM_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.NestedDotIDImpl <em>Nested Dot ID</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.NestedDotIDImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getNestedDotID()
+   * @generated
+   */
+  int NESTED_DOT_ID = 21;
+
+  /**
+   * The feature id for the '<em><b>Base</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_DOT_ID__BASE = 0;
+
+  /**
+   * The feature id for the '<em><b>Sub</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_DOT_ID__SUB = 1;
+
+  /**
+   * The number of structural features of the '<em>Nested Dot ID</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_DOT_ID_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Mcs_name_refImpl <em>Mcs name ref</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1263,7 +1061,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMcs_name_ref()
    * @generated
    */
-  int MCS_NAME_REF = 17;
+  int MCS_NAME_REF = 22;
 
   /**
    * The feature id for the '<em><b>Ref</b></em>' reference.
@@ -1275,22 +1073,13 @@ public interface McsPackage extends EPackage
   int MCS_NAME_REF__REF = 0;
 
   /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
+   * The feature id for the '<em><b>Chain</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MCS_NAME_REF__BUILTIN = 1;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_REF__METHOD = 2;
+  int MCS_NAME_REF__CHAIN = 1;
 
   /**
    * The number of structural features of the '<em>Mcs name ref</em>' class.
@@ -1299,7 +1088,44 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MCS_NAME_REF_FEATURE_COUNT = 3;
+  int MCS_NAME_REF_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.MethodChainImpl <em>Method Chain</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.MethodChainImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMethodChain()
+   * @generated
+   */
+  int METHOD_CHAIN = 23;
+
+  /**
+   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_CHAIN__BUILTIN = 0;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_CHAIN__METHOD = 1;
+
+  /**
+   * The number of structural features of the '<em>Method Chain</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_CHAIN_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.BuiltInFnCallImpl <em>Built In Fn Call</em>}' class.
@@ -1309,7 +1135,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getBuiltInFnCall()
    * @generated
    */
-  int BUILT_IN_FN_CALL = 18;
+  int BUILT_IN_FN_CALL = 24;
 
   /**
    * The feature id for the '<em><b>Fn</b></em>' attribute.
@@ -1346,7 +1172,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFnCall()
    * @generated
    */
-  int FN_CALL = 19;
+  int FN_CALL = 25;
 
   /**
    * The feature id for the '<em><b>Fn</b></em>' reference.
@@ -1376,23 +1202,14 @@ public interface McsPackage extends EPackage
   int FN_CALL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Let_bindingImpl <em>Let binding</em>}' class.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.PostCastExprImpl <em>Post Cast Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.Let_bindingImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getLet_binding()
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.PostCastExprImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getPostCastExpr()
    * @generated
    */
-  int LET_BINDING = 20;
-
-  /**
-   * The feature id for the '<em><b>Local</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET_BINDING__LOCAL = 0;
+  int POST_CAST_EXPR = 27;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1401,53 +1218,107 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LET_BINDING__EXPR = 1;
+  int POST_CAST_EXPR__EXPR = EXPR_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Let binding</em>' class.
+   * The feature id for the '<em><b>Chain</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LET_BINDING_FEATURE_COUNT = 2;
+  int POST_CAST_EXPR__CHAIN = EXPR_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.DomainImpl <em>Domain</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.DomainImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getDomain()
-   * @generated
-   */
-  int DOMAIN = 22;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Newtype</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN__NAME = 0;
+  int POST_CAST_EXPR__NEWTYPE = EXPR_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * The number of structural features of the '<em>Post Cast Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN__EXPR = 1;
+  int POST_CAST_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 3;
 
   /**
-   * The number of structural features of the '<em>Domain</em>' class.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl <em>MCS Name Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMCSNameExpr()
+   * @generated
+   */
+  int MCS_NAME_EXPR = 28;
+
+  /**
+   * The feature id for the '<em><b>Root</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_FEATURE_COUNT = 2;
+  int MCS_NAME_EXPR__ROOT = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Iroot</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_NAME_EXPR__IROOT = EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Nil</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_NAME_EXPR__NIL = EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Empty</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_NAME_EXPR__EMPTY = EXPR_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Allmodes</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_NAME_EXPR__ALLMODES = EXPR_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Typednameref</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_NAME_EXPR__TYPEDNAMEREF = EXPR_FEATURE_COUNT + 5;
+
+  /**
+   * The number of structural features of the '<em>MCS Name Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MCS_NAME_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Type_expressionImpl <em>Type expression</em>}' class.
@@ -1457,7 +1328,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getType_expression()
    * @generated
    */
-  int TYPE_EXPRESSION = 23;
+  int TYPE_EXPRESSION = 29;
 
   /**
    * The feature id for the '<em><b>Basic</b></em>' containment reference.
@@ -1503,7 +1374,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getBasic_type()
    * @generated
    */
-  int BASIC_TYPE = 24;
+  int BASIC_TYPE = 30;
 
   /**
    * The feature id for the '<em><b>Ptype</b></em>' attribute.
@@ -1587,31 +1458,13 @@ public interface McsPackage extends EPackage
   int BASIC_TYPE__RANGE = 8;
 
   /**
-   * The feature id for the '<em><b>Class</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BASIC_TYPE__CLASS = 9;
-
-  /**
-   * The feature id for the '<em><b>Ref</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BASIC_TYPE__REF = 10;
-
-  /**
    * The feature id for the '<em><b>Typename</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BASIC_TYPE__TYPENAME = 11;
+  int BASIC_TYPE__TYPENAME = 9;
 
   /**
    * The number of structural features of the '<em>Basic type</em>' class.
@@ -1620,7 +1473,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_TYPE_FEATURE_COUNT = 12;
+  int BASIC_TYPE_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Composite_typeImpl <em>Composite type</em>}' class.
@@ -1630,7 +1483,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getComposite_type()
    * @generated
    */
-  int COMPOSITE_TYPE = 25;
+  int COMPOSITE_TYPE = 31;
 
   /**
    * The number of structural features of the '<em>Composite type</em>' class.
@@ -1649,7 +1502,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMapping_type()
    * @generated
    */
-  int MAPPING_TYPE = 26;
+  int MAPPING_TYPE = 32;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' containment reference.
@@ -1686,7 +1539,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getSet_type()
    * @generated
    */
-  int SET_TYPE = 27;
+  int SET_TYPE = 33;
 
   /**
    * The feature id for the '<em><b>Root type</b></em>' containment reference.
@@ -1714,7 +1567,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getList_type()
    * @generated
    */
-  int LIST_TYPE = 28;
+  int LIST_TYPE = 34;
 
   /**
    * The feature id for the '<em><b>Root type</b></em>' containment reference.
@@ -1742,7 +1595,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getRecord_type()
    * @generated
    */
-  int RECORD_TYPE = 29;
+  int RECORD_TYPE = 35;
 
   /**
    * The feature id for the '<em><b>Field</b></em>' containment reference list.
@@ -1770,7 +1623,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getUnion_type()
    * @generated
    */
-  int UNION_TYPE = 30;
+  int UNION_TYPE = 36;
 
   /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -1807,7 +1660,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getId_type_pair()
    * @generated
    */
-  int ID_TYPE_PAIR = 31;
+  int ID_TYPE_PAIR = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1844,7 +1697,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getElement_type()
    * @generated
    */
-  int ELEMENT_TYPE = 32;
+  int ELEMENT_TYPE = 38;
 
   /**
    * The feature id for the '<em><b>Telem</b></em>' attribute.
@@ -1899,7 +1752,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getClassifiers()
    * @generated
    */
-  int CLASSIFIERS = 33;
+  int CLASSIFIERS = 39;
 
   /**
    * The feature id for the '<em><b>Tclass</b></em>' attribute.
@@ -1936,7 +1789,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getT_classifier_subtypes()
    * @generated
    */
-  int TCLASSIFIER_SUBTYPES = 34;
+  int TCLASSIFIER_SUBTYPES = 40;
 
   /**
    * The feature id for the '<em><b>Tctype</b></em>' attribute.
@@ -1991,7 +1844,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getInstances()
    * @generated
    */
-  int INSTANCES = 35;
+  int INSTANCES = 41;
 
   /**
    * The feature id for the '<em><b>Inst</b></em>' attribute.
@@ -2028,7 +1881,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#gett_instance_subtypes()
    * @generated
    */
-  int TINSTANCE_SUBTYPES = 36;
+  int TINSTANCE_SUBTYPES = 42;
 
   /**
    * The feature id for the '<em><b>Tsubc st</b></em>' attribute.
@@ -2119,7 +1972,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#gett_subcomponent_subtypes()
    * @generated
    */
-  int TSUBCOMPONENT_SUBTYPES = 37;
+  int TSUBCOMPONENT_SUBTYPES = 43;
 
   /**
    * The feature id for the '<em><b>Tsub</b></em>' attribute.
@@ -2156,7 +2009,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#gett_component_subtypes()
    * @generated
    */
-  int TCOMPONENT_SUBTYPES = 38;
+  int TCOMPONENT_SUBTYPES = 44;
 
   /**
    * The feature id for the '<em><b>Tannex sub</b></em>' attribute.
@@ -2301,7 +2154,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#gett_connection_subtypes()
    * @generated
    */
-  int TCONNECTION_SUBTYPES = 39;
+  int TCONNECTION_SUBTYPES = 45;
 
   /**
    * The feature id for the '<em><b>Tsubc st</b></em>' attribute.
@@ -2446,7 +2299,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#gett_feature_subtypes()
    * @generated
    */
-  int TFEATURE_SUBTYPES = 40;
+  int TFEATURE_SUBTYPES = 46;
 
   /**
    * The feature id for the '<em><b>Tsubc st</b></em>' attribute.
@@ -2573,7 +2426,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#gett_access_subtypes()
    * @generated
    */
-  int TACCESS_SUBTYPES = 41;
+  int TACCESS_SUBTYPES = 47;
 
   /**
    * The feature id for the '<em><b>Tsubc st</b></em>' attribute.
@@ -2745,7 +2598,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#gett_port_subtypes()
    * @generated
    */
-  int TPORT_SUBTYPES = 42;
+  int TPORT_SUBTYPES = 48;
 
   /**
    * The feature id for the '<em><b>Tsubc st</b></em>' attribute.
@@ -2908,7 +2761,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#gett_flow_spec_subtypes()
    * @generated
    */
-  int TFLOW_SPEC_SUBTYPES = 43;
+  int TFLOW_SPEC_SUBTYPES = 49;
 
   /**
    * The feature id for the '<em><b>Tsubc st</b></em>' attribute.
@@ -3035,7 +2888,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#gett_flow_impl_subtypes()
    * @generated
    */
-  int TFLOW_IMPL_SUBTYPES = 44;
+  int TFLOW_IMPL_SUBTYPES = 50;
 
   /**
    * The feature id for the '<em><b>Tsubc st</b></em>' attribute.
@@ -3155,78 +3008,207 @@ public interface McsPackage extends EPackage
   int TFLOW_IMPL_SUBTYPES_FEATURE_COUNT = TINSTANCE_SUBTYPES_FEATURE_COUNT + 4;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FunctionBodyImpl <em>Function Body</em>}' class.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.IntegerRangeImpl <em>Integer Range</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.FunctionBodyImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFunctionBody()
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.IntegerRangeImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getIntegerRange()
    * @generated
    */
-  int FUNCTION_BODY = 45;
+  int INTEGER_RANGE = 51;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * The feature id for the '<em><b>Lower Bound</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_BODY__EXPR = DEFINITION_BODY__EXPR;
+  int INTEGER_RANGE__LOWER_BOUND = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * The feature id for the '<em><b>Upper Bound</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_BODY__TYPE = DEFINITION_BODY_FEATURE_COUNT + 0;
+  int INTEGER_RANGE__UPPER_BOUND = 1;
 
   /**
-   * The number of structural features of the '<em>Function Body</em>' class.
+   * The number of structural features of the '<em>Integer Range</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_BODY_FEATURE_COUNT = DEFINITION_BODY_FEATURE_COUNT + 1;
+  int INTEGER_RANGE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimBodyImpl <em>Claim Body</em>}' class.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.RealRangeImpl <em>Real Range</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.ClaimBodyImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getClaimBody()
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.RealRangeImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getRealRange()
    * @generated
    */
-  int CLAIM_BODY = 46;
+  int REAL_RANGE = 52;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CLAIM_BODY__EXPR = DEFINITION_BODY__EXPR;
-
-  /**
-   * The feature id for the '<em><b>String</b></em>' containment reference list.
+   * The feature id for the '<em><b>Lower Bound</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLAIM_BODY__STRING = DEFINITION_BODY_FEATURE_COUNT + 0;
+  int REAL_RANGE__LOWER_BOUND = 0;
 
   /**
-   * The number of structural features of the '<em>Claim Body</em>' class.
+   * The feature id for the '<em><b>Upper Bound</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLAIM_BODY_FEATURE_COUNT = DEFINITION_BODY_FEATURE_COUNT + 1;
+  int REAL_RANGE__UPPER_BOUND = 1;
+
+  /**
+   * The number of structural features of the '<em>Real Range</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REAL_RANGE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedIntegerTypeImpl <em>Unnamed Integer Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedIntegerTypeImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getUnnamedIntegerType()
+   * @generated
+   */
+  int UNNAMED_INTEGER_TYPE = 53;
+
+  /**
+   * The feature id for the '<em><b>Range</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_INTEGER_TYPE__RANGE = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Units Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_INTEGER_TYPE__OWNED_UNITS_TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Referenced Units Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_INTEGER_TYPE__REFERENCED_UNITS_TYPE = 2;
+
+  /**
+   * The number of structural features of the '<em>Unnamed Integer Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_INTEGER_TYPE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedRealTypeImpl <em>Unnamed Real Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedRealTypeImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getUnnamedRealType()
+   * @generated
+   */
+  int UNNAMED_REAL_TYPE = 54;
+
+  /**
+   * The feature id for the '<em><b>Range</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_REAL_TYPE__RANGE = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Units Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_REAL_TYPE__OWNED_UNITS_TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Referenced Units Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_REAL_TYPE__REFERENCED_UNITS_TYPE = 2;
+
+  /**
+   * The number of structural features of the '<em>Unnamed Real Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_REAL_TYPE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedRangeTypeImpl <em>Unnamed Range Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedRangeTypeImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getUnnamedRangeType()
+   * @generated
+   */
+  int UNNAMED_RANGE_TYPE = 55;
+
+  /**
+   * The feature id for the '<em><b>Owned Number Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_RANGE_TYPE__OWNED_NUMBER_TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Referenced Number Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_RANGE_TYPE__REFERENCED_NUMBER_TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Unnamed Range Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_RANGE_TYPE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimStringImpl <em>Claim String</em>}' class.
@@ -3236,7 +3218,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getClaimString()
    * @generated
    */
-  int CLAIM_STRING = 47;
+  int CLAIM_STRING = 56;
 
   /**
    * The feature id for the '<em><b>Str</b></em>' containment reference.
@@ -3264,16 +3246,16 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getClaimArg()
    * @generated
    */
-  int CLAIM_ARG = 48;
+  int CLAIM_ARG = 57;
 
   /**
-   * The feature id for the '<em><b>Arg</b></em>' reference.
+   * The feature id for the '<em><b>Textarg</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLAIM_ARG__ARG = TEXT_PARM_FEATURE_COUNT + 0;
+  int CLAIM_ARG__TEXTARG = TEXT_PARM_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Unit</b></em>' reference.
@@ -3301,43 +3283,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getBinaryExpr()
    * @generated
    */
-  int BINARY_EXPR = 49;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINARY_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINARY_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINARY_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINARY_EXPR__METHOD = EXPR__METHOD;
+  int BINARY_EXPR = 58;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3383,43 +3329,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getInstanceOfExpr()
    * @generated
    */
-  int INSTANCE_OF_EXPR = 50;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSTANCE_OF_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSTANCE_OF_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSTANCE_OF_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INSTANCE_OF_EXPR__METHOD = EXPR__METHOD;
+  int INSTANCE_OF_EXPR = 59;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -3456,43 +3366,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getUnaryExpr()
    * @generated
    */
-  int UNARY_EXPR = 51;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPR__METHOD = EXPR__METHOD;
+  int UNARY_EXPR = 60;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -3522,188 +3396,6 @@ public interface McsPackage extends EPackage
   int UNARY_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.PostCastExprImpl <em>Post Cast Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.PostCastExprImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getPostCastExpr()
-   * @generated
-   */
-  int POST_CAST_EXPR = 52;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CAST_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CAST_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CAST_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CAST_EXPR__METHOD = EXPR__METHOD;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CAST_EXPR__EXPR = EXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Newtype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CAST_EXPR__NEWTYPE = EXPR_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Post Cast Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POST_CAST_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl <em>MCS Name Expr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMCSNameExpr()
-   * @generated
-   */
-  int MCS_NAME_EXPR = 53;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR__METHOD = EXPR__METHOD;
-
-  /**
-   * The feature id for the '<em><b>Root</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR__ROOT = EXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Iroot</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR__IROOT = EXPR_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Nil</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR__NIL = EXPR_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR__EMPTY = EXPR_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Allmodes</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR__ALLMODES = EXPR_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Typednameref</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR__TYPEDNAMEREF = EXPR_FEATURE_COUNT + 5;
-
-  /**
-   * The number of structural features of the '<em>MCS Name Expr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MCS_NAME_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 6;
-
-  /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.PkgExprImpl <em>Pkg Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3711,43 +3403,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getPkgExpr()
    * @generated
    */
-  int PKG_EXPR = 54;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PKG_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PKG_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PKG_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PKG_EXPR__METHOD = EXPR__METHOD;
+  int PKG_EXPR = 61;
 
   /**
    * The feature id for the '<em><b>Package</b></em>' reference.
@@ -3775,43 +3431,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getCompExpr()
    * @generated
    */
-  int COMP_EXPR = 55;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMP_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMP_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMP_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMP_EXPR__METHOD = EXPR__METHOD;
+  int COMP_EXPR = 62;
 
   /**
    * The feature id for the '<em><b>Classifier</b></em>' containment reference.
@@ -3839,43 +3459,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getRefExpr()
    * @generated
    */
-  int REF_EXPR = 56;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_EXPR__METHOD = EXPR__METHOD;
+  int REF_EXPR = 63;
 
   /**
    * The feature id for the '<em><b>Reference</b></em>' containment reference.
@@ -3903,43 +3487,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getThisExpr()
    * @generated
    */
-  int THIS_EXPR = 57;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THIS_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THIS_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THIS_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int THIS_EXPR__METHOD = EXPR__METHOD;
+  int THIS_EXPR = 64;
 
   /**
    * The feature id for the '<em><b>Sub</b></em>' containment reference.
@@ -3967,43 +3515,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getIntExpr()
    * @generated
    */
-  int INT_EXPR = 58;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_EXPR__METHOD = EXPR__METHOD;
+  int INT_EXPR = 65;
 
   /**
    * The feature id for the '<em><b>Val</b></em>' containment reference.
@@ -4031,43 +3543,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getRealExpr()
    * @generated
    */
-  int REAL_EXPR = 59;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REAL_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REAL_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REAL_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REAL_EXPR__METHOD = EXPR__METHOD;
+  int REAL_EXPR = 66;
 
   /**
    * The feature id for the '<em><b>Val</b></em>' containment reference.
@@ -4095,43 +3571,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getBoolExpr()
    * @generated
    */
-  int BOOL_EXPR = 60;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_EXPR__METHOD = EXPR__METHOD;
+  int BOOL_EXPR = 67;
 
   /**
    * The feature id for the '<em><b>Val</b></em>' containment reference.
@@ -4159,43 +3599,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getStringExpr()
    * @generated
    */
-  int STRING_EXPR = 61;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_EXPR__METHOD = EXPR__METHOD;
+  int STRING_EXPR = 68;
 
   /**
    * The feature id for the '<em><b>Val</b></em>' containment reference.
@@ -4216,70 +3620,6 @@ public interface McsPackage extends EPackage
   int STRING_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.RangeImpl <em>Range</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.RangeImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getRange()
-   * @generated
-   */
-  int RANGE = 62;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RANGE__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RANGE__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RANGE__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RANGE__METHOD = EXPR__METHOD;
-
-  /**
-   * The feature id for the '<em><b>Val</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RANGE__VAL = EXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Range</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RANGE_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.IfThenElseExprImpl <em>If Then Else Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4287,43 +3627,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getIfThenElseExpr()
    * @generated
    */
-  int IF_THEN_ELSE_EXPR = 63;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_THEN_ELSE_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_THEN_ELSE_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_THEN_ELSE_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF_THEN_ELSE_EXPR__METHOD = EXPR__METHOD;
+  int IF_THEN_ELSE_EXPR = 69;
 
   /**
    * The feature id for the '<em><b>Cond</b></em>' containment reference.
@@ -4369,43 +3673,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getQuantifiedExpr()
    * @generated
    */
-  int QUANTIFIED_EXPR = 64;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTIFIED_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTIFIED_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTIFIED_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTIFIED_EXPR__METHOD = EXPR__METHOD;
+  int QUANTIFIED_EXPR = 70;
 
   /**
    * The feature id for the '<em><b>Quant</b></em>' attribute.
@@ -4451,43 +3719,16 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getBuiltInFnCallExpr()
    * @generated
    */
-  int BUILT_IN_FN_CALL_EXPR = 65;
+  int BUILT_IN_FN_CALL_EXPR = 71;
 
   /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
+   * The feature id for the '<em><b>Builtin</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUILT_IN_FN_CALL_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUILT_IN_FN_CALL_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUILT_IN_FN_CALL_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUILT_IN_FN_CALL_EXPR__METHOD = EXPR__METHOD;
+  int BUILT_IN_FN_CALL_EXPR__BUILTIN = EXPR_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Built In Fn Call Expr</em>' class.
@@ -4496,7 +3737,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUILT_IN_FN_CALL_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 0;
+  int BUILT_IN_FN_CALL_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FnCallExprImpl <em>Fn Call Expr</em>}' class.
@@ -4506,43 +3747,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFnCallExpr()
    * @generated
    */
-  int FN_CALL_EXPR = 66;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_CALL_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_CALL_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_CALL_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_CALL_EXPR__METHOD = EXPR__METHOD;
+  int FN_CALL_EXPR = 72;
 
   /**
    * The feature id for the '<em><b>Fn</b></em>' containment reference.
@@ -4563,14 +3768,42 @@ public interface McsPackage extends EPackage
   int FN_CALL_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FilterMapExprImpl <em>Filter Map Expr</em>}' class.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremCallExprImpl <em>Theorem Call Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.FilterMapExprImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFilterMapExpr()
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.TheoremCallExprImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getTheoremCallExpr()
    * @generated
    */
-  int FILTER_MAP_EXPR = 67;
+  int THEOREM_CALL_EXPR = 73;
+
+  /**
+   * The feature id for the '<em><b>Fn</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEOREM_CALL_EXPR__FN = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Theorem Call Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEOREM_CALL_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FilterSetImpl <em>Filter Set</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.FilterSetImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFilterSet()
+   * @generated
+   */
+  int FILTER_SET = 74;
 
   /**
    * The feature id for the '<em><b>List</b></em>' attribute.
@@ -4579,7 +3812,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FILTER_MAP_EXPR__LIST = EXPR__LIST;
+  int FILTER_SET__LIST = EXPR_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -4588,25 +3821,26 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FILTER_MAP_EXPR__EXP = EXPR__EXP;
+  int FILTER_SET__EXP = EXPR_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
+   * The number of structural features of the '<em>Filter Set</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FILTER_MAP_EXPR__BUILTIN = EXPR__BUILTIN;
+  int FILTER_SET_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FilterMapExprImpl <em>Filter Map Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.FilterMapExprImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFilterMapExpr()
    * @generated
-   * @ordered
    */
-  int FILTER_MAP_EXPR__METHOD = EXPR__METHOD;
+  int FILTER_MAP_EXPR = 75;
 
   /**
    * The feature id for the '<em><b>Map</b></em>' containment reference.
@@ -4652,43 +3886,7 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getSetExpr()
    * @generated
    */
-  int SET_EXPR = 68;
-
-  /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SET_EXPR__LIST = EXPR__LIST;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SET_EXPR__EXP = EXPR__EXP;
-
-  /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SET_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SET_EXPR__METHOD = EXPR__METHOD;
+  int SET_EXPR = 76;
 
   /**
    * The feature id for the '<em><b>Exprs</b></em>' containment reference list.
@@ -4709,59 +3907,60 @@ public interface McsPackage extends EPackage
   int SET_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.EmptyImpl <em>Empty</em>}' class.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.MappingExprImpl <em>Mapping Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.EmptyImpl
-   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getEmpty()
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.MappingExprImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMappingExpr()
    * @generated
    */
-  int EMPTY = 69;
+  int MAPPING_EXPR = 77;
 
   /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
+   * The feature id for the '<em><b>Expr1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EMPTY__LIST = EXPR__LIST;
+  int MAPPING_EXPR__EXPR1 = EXPR_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * The feature id for the '<em><b>Expr2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EMPTY__EXP = EXPR__EXP;
+  int MAPPING_EXPR__EXPR2 = EXPR_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
+   * The number of structural features of the '<em>Mapping Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EMPTY__BUILTIN = EXPR__BUILTIN;
+  int MAPPING_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
+   * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.EmptySetExprImpl <em>Empty Set Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.EmptySetExprImpl
+   * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getEmptySetExpr()
+   * @generated
+   */
+  int EMPTY_SET_EXPR = 78;
+
+  /**
+   * The number of structural features of the '<em>Empty Set Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EMPTY__METHOD = EXPR__METHOD;
-
-  /**
-   * The number of structural features of the '<em>Empty</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EMPTY_FEATURE_COUNT = EXPR_FEATURE_COUNT + 0;
+  int EMPTY_SET_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.LetExprImpl <em>Let Expr</em>}' class.
@@ -4771,61 +3970,34 @@ public interface McsPackage extends EPackage
    * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getLetExpr()
    * @generated
    */
-  int LET_EXPR = 70;
+  int LET_EXPR = 79;
 
   /**
-   * The feature id for the '<em><b>List</b></em>' attribute.
+   * The feature id for the '<em><b>Local</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LET_EXPR__LIST = EXPR__LIST;
+  int LET_EXPR__LOCAL = EXPR_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * The feature id for the '<em><b>Expr1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LET_EXPR__EXP = EXPR__EXP;
+  int LET_EXPR__EXPR1 = EXPR_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Builtin</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expr2</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LET_EXPR__BUILTIN = EXPR__BUILTIN;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET_EXPR__METHOD = EXPR__METHOD;
-
-  /**
-   * The feature id for the '<em><b>Binding</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET_EXPR__BINDING = EXPR_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LET_EXPR__EXPR = EXPR_FEATURE_COUNT + 1;
+  int LET_EXPR__EXPR2 = EXPR_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Let Expr</em>' class.
@@ -4834,7 +4006,7 @@ public interface McsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LET_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
+  int LET_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 3;
 
 
   /**
@@ -5107,58 +4279,101 @@ public interface McsPackage extends EPackage
   EReference getConstant_declaration_Left_expr();
 
   /**
-   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T <em>For T</em>}'.
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Function <em>Function</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>For T</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.F_or_T
+   * @return the meta object for class '<em>Function</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Function
    * @generated
    */
-  EClass getF_or_T();
+  EClass getFunction();
 
   /**
-   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.Function#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.F_or_T#getName()
-   * @see #getF_or_T()
+   * @see org.osate.xtext.aadl2.mcs.mcs.Function#getName()
+   * @see #getFunction()
    * @generated
    */
-  EAttribute getF_or_T_Name();
+  EAttribute getFunction_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#isT_root <em>Troot</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Troot</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.F_or_T#isT_root()
-   * @see #getF_or_T()
-   * @generated
-   */
-  EAttribute getF_or_T_T_root();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getArgs <em>Args</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.Function#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Args</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.F_or_T#getArgs()
-   * @see #getF_or_T()
+   * @see org.osate.xtext.aadl2.mcs.mcs.Function#getArgs()
+   * @see #getFunction()
    * @generated
    */
-  EReference getF_or_T_Args();
+  EReference getFunction_Args();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getBody <em>Body</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Function#getBody <em>Body</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Body</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.F_or_T#getBody()
-   * @see #getF_or_T()
+   * @see org.osate.xtext.aadl2.mcs.mcs.Function#getBody()
+   * @see #getFunction()
    * @generated
    */
-  EReference getF_or_T_Body();
+  EReference getFunction_Body();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Theorem <em>Theorem</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Theorem</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Theorem
+   * @generated
+   */
+  EClass getTheorem();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.Theorem#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Theorem#getName()
+   * @see #getTheorem()
+   * @generated
+   */
+  EAttribute getTheorem_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.Theorem#isT_root <em>Troot</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Troot</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Theorem#isT_root()
+   * @see #getTheorem()
+   * @generated
+   */
+  EAttribute getTheorem_T_root();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.Theorem#getArgs <em>Args</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Theorem#getArgs()
+   * @see #getTheorem()
+   * @generated
+   */
+  EReference getTheorem_Args();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Theorem#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Theorem#getBody()
+   * @see #getTheorem()
+   * @generated
+   */
+  EReference getTheorem_Body();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Theorem_root <em>Theorem root</em>}'.
@@ -5193,25 +4408,68 @@ public interface McsPackage extends EPackage
   EReference getTheorem_root_Classifier();
 
   /**
-   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.DefinitionBody <em>Definition Body</em>}'.
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.FunctionBody <em>Function Body</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Definition Body</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.DefinitionBody
+   * @return the meta object for class '<em>Function Body</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.FunctionBody
    * @generated
    */
-  EClass getDefinitionBody();
+  EClass getFunctionBody();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.DefinitionBody#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.FunctionBody#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.FunctionBody#getType()
+   * @see #getFunctionBody()
+   * @generated
+   */
+  EReference getFunctionBody_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.FunctionBody#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.DefinitionBody#getExpr()
-   * @see #getDefinitionBody()
+   * @see org.osate.xtext.aadl2.mcs.mcs.FunctionBody#getExpr()
+   * @see #getFunctionBody()
    * @generated
    */
-  EReference getDefinitionBody_Expr();
+  EReference getFunctionBody_Expr();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremBody <em>Theorem Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Theorem Body</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.TheoremBody
+   * @generated
+   */
+  EClass getTheoremBody();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremBody#getString <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>String</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.TheoremBody#getString()
+   * @see #getTheoremBody()
+   * @generated
+   */
+  EReference getTheoremBody_String();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremBody#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.TheoremBody#getExpr()
+   * @see #getTheoremBody()
+   * @generated
+   */
+  EReference getTheoremBody_Expr();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.ParameterizedString <em>Parameterized String</em>}'.
@@ -5265,15 +4523,15 @@ public interface McsPackage extends EPackage
   EClass getMcsName();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.McsName#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.McsName#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsName#getType()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsName#getName()
    * @see #getMcsName()
    * @generated
    */
-  EReference getMcsName_Type();
+  EAttribute getMcsName_Name();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.McsTypedName <em>Typed Name</em>}'.
@@ -5286,6 +4544,71 @@ public interface McsPackage extends EPackage
   EClass getMcsTypedName();
 
   /**
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.McsTypedName#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsTypedName#getName()
+   * @see #getMcsTypedName()
+   * @generated
+   */
+  EAttribute getMcsTypedName_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.McsTypedName#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsTypedName#getType()
+   * @see #getMcsTypedName()
+   * @generated
+   */
+  EReference getMcsTypedName_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.McsTypedName#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsTypedName#getExpr()
+   * @see #getMcsTypedName()
+   * @generated
+   */
+  EReference getMcsTypedName_Expr();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Domain <em>Domain</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Domain</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Domain
+   * @generated
+   */
+  EClass getDomain();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.Domain#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Domain#getName()
+   * @see #getDomain()
+   * @generated
+   */
+  EAttribute getDomain_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Domain#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Domain#getExpr()
+   * @see #getDomain()
+   * @generated
+   */
+  EReference getDomain_Expr();
+
+  /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall <em>Theorem Call</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5296,15 +4619,15 @@ public interface McsPackage extends EPackage
   EClass getTheoremCall();
 
   /**
-   * Returns the meta object for the reference '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getTname <em>Tname</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getName()
+   * @return the meta object for the reference '<em>Tname</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getTname()
    * @see #getTheoremCall()
    * @generated
    */
-  EReference getTheoremCall_Name();
+  EReference getTheoremCall_Tname();
 
   /**
    * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getCroot <em>Croot</em>}'.
@@ -5329,17 +4652,6 @@ public interface McsPackage extends EPackage
   EReference getTheoremCall_Actarg();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getFn <em>Fn</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Fn</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.TheoremCall#getFn()
-   * @see #getTheoremCall()
-   * @generated
-   */
-  EReference getTheoremCall_Fn();
-
-  /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Classifier_literal <em>Classifier literal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5361,15 +4673,58 @@ public interface McsPackage extends EPackage
   EReference getClassifier_literal_Classlit();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Classifier_literal#getArg <em>Arg</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Classifier_literal#getNameref <em>Nameref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Arg</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Classifier_literal#getArg()
+   * @return the meta object for the containment reference '<em>Nameref</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Classifier_literal#getNameref()
    * @see #getClassifier_literal()
    * @generated
    */
-  EReference getClassifier_literal_Arg();
+  EReference getClassifier_literal_Nameref();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Range <em>Range</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Range</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Range
+   * @generated
+   */
+  EClass getRange();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Range#getLowerBound <em>Lower Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lower Bound</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Range#getLowerBound()
+   * @see #getRange()
+   * @generated
+   */
+  EReference getRange_LowerBound();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Range#getUpperBound <em>Upper Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Upper Bound</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Range#getUpperBound()
+   * @see #getRange()
+   * @generated
+   */
+  EReference getRange_UpperBound();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Range#getVal <em>Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Val</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Range#getVal()
+   * @see #getRange()
+   * @generated
+   */
+  EReference getRange_Val();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.RefTerm <em>Ref Term</em>}'.
@@ -5393,15 +4748,47 @@ public interface McsPackage extends EPackage
   EAttribute getRefTerm_Root();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.RefTerm#getPath <em>Path</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.RefTerm#getSub <em>Sub</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Path</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.RefTerm#getPath()
+   * @return the meta object for the containment reference '<em>Sub</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.RefTerm#getSub()
    * @see #getRefTerm()
    * @generated
    */
-  EReference getRefTerm_Path();
+  EReference getRefTerm_Sub();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.NestedDotID <em>Nested Dot ID</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Nested Dot ID</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.NestedDotID
+   * @generated
+   */
+  EClass getNestedDotID();
+
+  /**
+   * Returns the meta object for the reference '{@link org.osate.xtext.aadl2.mcs.mcs.NestedDotID#getBase <em>Base</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Base</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.NestedDotID#getBase()
+   * @see #getNestedDotID()
+   * @generated
+   */
+  EReference getNestedDotID_Base();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.NestedDotID#getSub <em>Sub</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sub</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.NestedDotID#getSub()
+   * @see #getNestedDotID()
+   * @generated
+   */
+  EReference getNestedDotID_Sub();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref <em>Mcs name ref</em>}'.
@@ -5425,26 +4812,47 @@ public interface McsPackage extends EPackage
   EReference getMcs_name_ref_Ref();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getBuiltin <em>Builtin</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getChain <em>Chain</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Chain</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getChain()
+   * @see #getMcs_name_ref()
+   * @generated
+   */
+  EReference getMcs_name_ref_Chain();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.MethodChain <em>Method Chain</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Method Chain</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MethodChain
+   * @generated
+   */
+  EClass getMethodChain();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.MethodChain#getBuiltin <em>Builtin</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Builtin</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getBuiltin()
-   * @see #getMcs_name_ref()
+   * @see org.osate.xtext.aadl2.mcs.mcs.MethodChain#getBuiltin()
+   * @see #getMethodChain()
    * @generated
    */
-  EReference getMcs_name_ref_Builtin();
+  EReference getMethodChain_Builtin();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getMethod <em>Method</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.MethodChain#getMethod <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Method</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref#getMethod()
-   * @see #getMcs_name_ref()
+   * @see org.osate.xtext.aadl2.mcs.mcs.MethodChain#getMethod()
+   * @see #getMethodChain()
    * @generated
    */
-  EReference getMcs_name_ref_Method();
+  EReference getMethodChain_Method();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCall <em>Built In Fn Call</em>}'.
@@ -5511,38 +4919,6 @@ public interface McsPackage extends EPackage
   EReference getFnCall_Args();
 
   /**
-   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Let_binding <em>Let binding</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Let binding</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Let_binding
-   * @generated
-   */
-  EClass getLet_binding();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Let_binding#getLocal <em>Local</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Local</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Let_binding#getLocal()
-   * @see #getLet_binding()
-   * @generated
-   */
-  EReference getLet_binding_Local();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Let_binding#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Let_binding#getExpr()
-   * @see #getLet_binding()
-   * @generated
-   */
-  EReference getLet_binding_Expr();
-
-  /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Expr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5553,80 +4929,123 @@ public interface McsPackage extends EPackage
   EClass getExpr();
 
   /**
-   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.Expr#isList <em>List</em>}'.
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr <em>Post Cast Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>List</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Expr#isList()
-   * @see #getExpr()
+   * @return the meta object for class '<em>Post Cast Expr</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.PostCastExpr
    * @generated
    */
-  EAttribute getExpr_List();
+  EClass getPostCastExpr();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Expr#getExp <em>Exp</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Expr#getExp()
-   * @see #getExpr()
-   * @generated
-   */
-  EReference getExpr_Exp();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.Expr#getBuiltin <em>Builtin</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Builtin</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Expr#getBuiltin()
-   * @see #getExpr()
-   * @generated
-   */
-  EReference getExpr_Builtin();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.Expr#getMethod <em>Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Method</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Expr#getMethod()
-   * @see #getExpr()
-   * @generated
-   */
-  EReference getExpr_Method();
-
-  /**
-   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Domain <em>Domain</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Domain</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Domain
-   * @generated
-   */
-  EClass getDomain();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.Domain#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Domain#getName()
-   * @see #getDomain()
-   * @generated
-   */
-  EAttribute getDomain_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Domain#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Domain#getExpr()
-   * @see #getDomain()
+   * @see org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getExpr()
+   * @see #getPostCastExpr()
    * @generated
    */
-  EReference getDomain_Expr();
+  EReference getPostCastExpr_Expr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getChain <em>Chain</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Chain</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getChain()
+   * @see #getPostCastExpr()
+   * @generated
+   */
+  EReference getPostCastExpr_Chain();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getNewtype <em>Newtype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Newtype</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getNewtype()
+   * @see #getPostCastExpr()
+   * @generated
+   */
+  EReference getPostCastExpr_Newtype();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr <em>MCS Name Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>MCS Name Expr</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr
+   * @generated
+   */
+  EClass getMCSNameExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isRoot <em>Root</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Root</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isRoot()
+   * @see #getMCSNameExpr()
+   * @generated
+   */
+  EAttribute getMCSNameExpr_Root();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isIroot <em>Iroot</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Iroot</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isIroot()
+   * @see #getMCSNameExpr()
+   * @generated
+   */
+  EAttribute getMCSNameExpr_Iroot();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isNil <em>Nil</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nil</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isNil()
+   * @see #getMCSNameExpr()
+   * @generated
+   */
+  EAttribute getMCSNameExpr_Nil();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isEmpty <em>Empty</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Empty</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isEmpty()
+   * @see #getMCSNameExpr()
+   * @generated
+   */
+  EAttribute getMCSNameExpr_Empty();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isAllmodes <em>Allmodes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Allmodes</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isAllmodes()
+   * @see #getMCSNameExpr()
+   * @generated
+   */
+  EAttribute getMCSNameExpr_Allmodes();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#getTypednameref <em>Typednameref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Typednameref</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#getTypednameref()
+   * @see #getMCSNameExpr()
+   * @generated
+   */
+  EReference getMCSNameExpr_Typednameref();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Type_expression <em>Type expression</em>}'.
@@ -5779,28 +5198,6 @@ public interface McsPackage extends EPackage
    * @generated
    */
   EReference getBasic_type_Range();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getClass_ <em>Class</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Class</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Basic_type#getClass_()
-   * @see #getBasic_type()
-   * @generated
-   */
-  EReference getBasic_type_Class();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getRef <em>Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ref</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Basic_type#getRef()
-   * @see #getBasic_type()
-   * @generated
-   */
-  EReference getBasic_type_Ref();
 
   /**
    * Returns the meta object for the reference '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getTypename <em>Typename</em>}'.
@@ -6806,46 +6203,186 @@ public interface McsPackage extends EPackage
   EAttribute gett_flow_impl_subtypes_T_f_i_path();
 
   /**
-   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.FunctionBody <em>Function Body</em>}'.
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.IntegerRange <em>Integer Range</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Function Body</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.FunctionBody
+   * @return the meta object for class '<em>Integer Range</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.IntegerRange
    * @generated
    */
-  EClass getFunctionBody();
+  EClass getIntegerRange();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.FunctionBody#getType <em>Type</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.IntegerRange#getLowerBound <em>Lower Bound</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.FunctionBody#getType()
-   * @see #getFunctionBody()
+   * @return the meta object for the containment reference '<em>Lower Bound</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.IntegerRange#getLowerBound()
+   * @see #getIntegerRange()
    * @generated
    */
-  EReference getFunctionBody_Type();
+  EReference getIntegerRange_LowerBound();
 
   /**
-   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimBody <em>Claim Body</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.IntegerRange#getUpperBound <em>Upper Bound</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Claim Body</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.ClaimBody
+   * @return the meta object for the containment reference '<em>Upper Bound</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.IntegerRange#getUpperBound()
+   * @see #getIntegerRange()
    * @generated
    */
-  EClass getClaimBody();
+  EReference getIntegerRange_UpperBound();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimBody#getString <em>String</em>}'.
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.RealRange <em>Real Range</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>String</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.ClaimBody#getString()
-   * @see #getClaimBody()
+   * @return the meta object for class '<em>Real Range</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.RealRange
    * @generated
    */
-  EReference getClaimBody_String();
+  EClass getRealRange();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.RealRange#getLowerBound <em>Lower Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lower Bound</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.RealRange#getLowerBound()
+   * @see #getRealRange()
+   * @generated
+   */
+  EReference getRealRange_LowerBound();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.RealRange#getUpperBound <em>Upper Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Upper Bound</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.RealRange#getUpperBound()
+   * @see #getRealRange()
+   * @generated
+   */
+  EReference getRealRange_UpperBound();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedIntegerType <em>Unnamed Integer Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unnamed Integer Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedIntegerType
+   * @generated
+   */
+  EClass getUnnamedIntegerType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedIntegerType#getRange <em>Range</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Range</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedIntegerType#getRange()
+   * @see #getUnnamedIntegerType()
+   * @generated
+   */
+  EReference getUnnamedIntegerType_Range();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedIntegerType#getOwnedUnitsType <em>Owned Units Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Units Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedIntegerType#getOwnedUnitsType()
+   * @see #getUnnamedIntegerType()
+   * @generated
+   */
+  EReference getUnnamedIntegerType_OwnedUnitsType();
+
+  /**
+   * Returns the meta object for the reference '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedIntegerType#getReferencedUnitsType <em>Referenced Units Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Referenced Units Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedIntegerType#getReferencedUnitsType()
+   * @see #getUnnamedIntegerType()
+   * @generated
+   */
+  EReference getUnnamedIntegerType_ReferencedUnitsType();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedRealType <em>Unnamed Real Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unnamed Real Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedRealType
+   * @generated
+   */
+  EClass getUnnamedRealType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedRealType#getRange <em>Range</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Range</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedRealType#getRange()
+   * @see #getUnnamedRealType()
+   * @generated
+   */
+  EReference getUnnamedRealType_Range();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedRealType#getOwnedUnitsType <em>Owned Units Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Units Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedRealType#getOwnedUnitsType()
+   * @see #getUnnamedRealType()
+   * @generated
+   */
+  EReference getUnnamedRealType_OwnedUnitsType();
+
+  /**
+   * Returns the meta object for the reference '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedRealType#getReferencedUnitsType <em>Referenced Units Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Referenced Units Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedRealType#getReferencedUnitsType()
+   * @see #getUnnamedRealType()
+   * @generated
+   */
+  EReference getUnnamedRealType_ReferencedUnitsType();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedRangeType <em>Unnamed Range Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unnamed Range Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedRangeType
+   * @generated
+   */
+  EClass getUnnamedRangeType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedRangeType#getOwnedNumberType <em>Owned Number Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Number Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedRangeType#getOwnedNumberType()
+   * @see #getUnnamedRangeType()
+   * @generated
+   */
+  EReference getUnnamedRangeType_OwnedNumberType();
+
+  /**
+   * Returns the meta object for the reference '{@link org.osate.xtext.aadl2.mcs.mcs.UnnamedRangeType#getReferencedNumberType <em>Referenced Number Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Referenced Number Type</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.UnnamedRangeType#getReferencedNumberType()
+   * @see #getUnnamedRangeType()
+   * @generated
+   */
+  EReference getUnnamedRangeType_ReferencedNumberType();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimString <em>Claim String</em>}'.
@@ -6879,15 +6416,15 @@ public interface McsPackage extends EPackage
   EClass getClaimArg();
 
   /**
-   * Returns the meta object for the reference '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getArg <em>Arg</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getTextarg <em>Textarg</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Arg</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getArg()
+   * @return the meta object for the containment reference '<em>Textarg</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getTextarg()
    * @see #getClaimArg()
    * @generated
    */
-  EReference getClaimArg_Arg();
+  EReference getClaimArg_Textarg();
 
   /**
    * Returns the meta object for the reference '{@link org.osate.xtext.aadl2.mcs.mcs.ClaimArg#getUnit <em>Unit</em>}'.
@@ -7006,114 +6543,6 @@ public interface McsPackage extends EPackage
    * @generated
    */
   EReference getUnaryExpr_Expr();
-
-  /**
-   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr <em>Post Cast Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Post Cast Expr</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.PostCastExpr
-   * @generated
-   */
-  EClass getPostCastExpr();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getExpr()
-   * @see #getPostCastExpr()
-   * @generated
-   */
-  EReference getPostCastExpr_Expr();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getNewtype <em>Newtype</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Newtype</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getNewtype()
-   * @see #getPostCastExpr()
-   * @generated
-   */
-  EReference getPostCastExpr_Newtype();
-
-  /**
-   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr <em>MCS Name Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>MCS Name Expr</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr
-   * @generated
-   */
-  EClass getMCSNameExpr();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isRoot <em>Root</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Root</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isRoot()
-   * @see #getMCSNameExpr()
-   * @generated
-   */
-  EAttribute getMCSNameExpr_Root();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isIroot <em>Iroot</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Iroot</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isIroot()
-   * @see #getMCSNameExpr()
-   * @generated
-   */
-  EAttribute getMCSNameExpr_Iroot();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isNil <em>Nil</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Nil</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isNil()
-   * @see #getMCSNameExpr()
-   * @generated
-   */
-  EAttribute getMCSNameExpr_Nil();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isEmpty <em>Empty</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Empty</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isEmpty()
-   * @see #getMCSNameExpr()
-   * @generated
-   */
-  EAttribute getMCSNameExpr_Empty();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isAllmodes <em>Allmodes</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Allmodes</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#isAllmodes()
-   * @see #getMCSNameExpr()
-   * @generated
-   */
-  EAttribute getMCSNameExpr_Allmodes();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#getTypednameref <em>Typednameref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Typednameref</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr#getTypednameref()
-   * @see #getMCSNameExpr()
-   * @generated
-   */
-  EReference getMCSNameExpr_Typednameref();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.PkgExpr <em>Pkg Expr</em>}'.
@@ -7284,27 +6713,6 @@ public interface McsPackage extends EPackage
   EReference getStringExpr_Val();
 
   /**
-   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Range <em>Range</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Range</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Range
-   * @generated
-   */
-  EClass getRange();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.Range#getVal <em>Val</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Val</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Range#getVal()
-   * @see #getRange()
-   * @generated
-   */
-  EReference getRange_Val();
-
-  /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.IfThenElseExpr <em>If Then Else Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7401,6 +6809,17 @@ public interface McsPackage extends EPackage
   EClass getBuiltInFnCallExpr();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCallExpr#getBuiltin <em>Builtin</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Builtin</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCallExpr#getBuiltin()
+   * @see #getBuiltInFnCallExpr()
+   * @generated
+   */
+  EReference getBuiltInFnCallExpr_Builtin();
+
+  /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.FnCallExpr <em>Fn Call Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7420,6 +6839,59 @@ public interface McsPackage extends EPackage
    * @generated
    */
   EReference getFnCallExpr_Fn();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCallExpr <em>Theorem Call Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Theorem Call Expr</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.TheoremCallExpr
+   * @generated
+   */
+  EClass getTheoremCallExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.TheoremCallExpr#getFn <em>Fn</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Fn</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.TheoremCallExpr#getFn()
+   * @see #getTheoremCallExpr()
+   * @generated
+   */
+  EReference getTheoremCallExpr_Fn();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.FilterSet <em>Filter Set</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Filter Set</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.FilterSet
+   * @generated
+   */
+  EClass getFilterSet();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.xtext.aadl2.mcs.mcs.FilterSet#isList <em>List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>List</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.FilterSet#isList()
+   * @see #getFilterSet()
+   * @generated
+   */
+  EAttribute getFilterSet_List();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.FilterSet#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.FilterSet#getExp()
+   * @see #getFilterSet()
+   * @generated
+   */
+  EReference getFilterSet_Exp();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.FilterMapExpr <em>Filter Map Expr</em>}'.
@@ -7486,14 +6958,46 @@ public interface McsPackage extends EPackage
   EReference getSetExpr_Exprs();
 
   /**
-   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.Empty <em>Empty</em>}'.
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.MappingExpr <em>Mapping Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Empty</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Empty
+   * @return the meta object for class '<em>Mapping Expr</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MappingExpr
    * @generated
    */
-  EClass getEmpty();
+  EClass getMappingExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.MappingExpr#getExpr1 <em>Expr1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr1</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MappingExpr#getExpr1()
+   * @see #getMappingExpr()
+   * @generated
+   */
+  EReference getMappingExpr_Expr1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.MappingExpr#getExpr2 <em>Expr2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr2</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.MappingExpr#getExpr2()
+   * @see #getMappingExpr()
+   * @generated
+   */
+  EReference getMappingExpr_Expr2();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.EmptySetExpr <em>Empty Set Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Empty Set Expr</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.EmptySetExpr
+   * @generated
+   */
+  EClass getEmptySetExpr();
 
   /**
    * Returns the meta object for class '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr <em>Let Expr</em>}'.
@@ -7506,26 +7010,37 @@ public interface McsPackage extends EPackage
   EClass getLetExpr();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getBinding <em>Binding</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getLocal <em>Local</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Binding</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.LetExpr#getBinding()
+   * @return the meta object for the containment reference '<em>Local</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.LetExpr#getLocal()
    * @see #getLetExpr()
    * @generated
    */
-  EReference getLetExpr_Binding();
+  EReference getLetExpr_Local();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr1 <em>Expr1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr()
+   * @return the meta object for the containment reference '<em>Expr1</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr1()
    * @see #getLetExpr()
    * @generated
    */
-  EReference getLetExpr_Expr();
+  EReference getLetExpr_Expr1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr2 <em>Expr2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr2</em>'.
+   * @see org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr2()
+   * @see #getLetExpr()
+   * @generated
+   */
+  EReference getLetExpr_Expr2();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -7763,14 +7278,14 @@ public interface McsPackage extends EPackage
     EReference CONSTANT_DECLARATION__LEFT_EXPR = eINSTANCE.getConstant_declaration_Left_expr();
 
     /**
-     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl <em>For T</em>}' class.
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FunctionImpl <em>Function</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getF_or_T()
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.FunctionImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFunction()
      * @generated
      */
-    EClass FOR_T = eINSTANCE.getF_or_T();
+    EClass FUNCTION = eINSTANCE.getFunction();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -7778,15 +7293,7 @@ public interface McsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FOR_T__NAME = eINSTANCE.getF_or_T_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Troot</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FOR_T__TROOT = eINSTANCE.getF_or_T_T_root();
+    EAttribute FUNCTION__NAME = eINSTANCE.getFunction_Name();
 
     /**
      * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
@@ -7794,7 +7301,7 @@ public interface McsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FOR_T__ARGS = eINSTANCE.getF_or_T_Args();
+    EReference FUNCTION__ARGS = eINSTANCE.getFunction_Args();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
@@ -7802,7 +7309,49 @@ public interface McsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FOR_T__BODY = eINSTANCE.getF_or_T_Body();
+    EReference FUNCTION__BODY = eINSTANCE.getFunction_Body();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremImpl <em>Theorem</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.TheoremImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getTheorem()
+     * @generated
+     */
+    EClass THEOREM = eINSTANCE.getTheorem();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute THEOREM__NAME = eINSTANCE.getTheorem_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Troot</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute THEOREM__TROOT = eINSTANCE.getTheorem_T_root();
+
+    /**
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THEOREM__ARGS = eINSTANCE.getTheorem_Args();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THEOREM__BODY = eINSTANCE.getTheorem_Body();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Theorem_rootImpl <em>Theorem root</em>}' class.
@@ -7831,14 +7380,22 @@ public interface McsPackage extends EPackage
     EReference THEOREM_ROOT__CLASSIFIER = eINSTANCE.getTheorem_root_Classifier();
 
     /**
-     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.DefinitionBodyImpl <em>Definition Body</em>}' class.
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FunctionBodyImpl <em>Function Body</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.DefinitionBodyImpl
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getDefinitionBody()
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.FunctionBodyImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFunctionBody()
      * @generated
      */
-    EClass DEFINITION_BODY = eINSTANCE.getDefinitionBody();
+    EClass FUNCTION_BODY = eINSTANCE.getFunctionBody();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_BODY__TYPE = eINSTANCE.getFunctionBody_Type();
 
     /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
@@ -7846,7 +7403,33 @@ public interface McsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DEFINITION_BODY__EXPR = eINSTANCE.getDefinitionBody_Expr();
+    EReference FUNCTION_BODY__EXPR = eINSTANCE.getFunctionBody_Expr();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremBodyImpl <em>Theorem Body</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.TheoremBodyImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getTheoremBody()
+     * @generated
+     */
+    EClass THEOREM_BODY = eINSTANCE.getTheoremBody();
+
+    /**
+     * The meta object literal for the '<em><b>String</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THEOREM_BODY__STRING = eINSTANCE.getTheoremBody_String();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THEOREM_BODY__EXPR = eINSTANCE.getTheoremBody_Expr();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.ParameterizedStringImpl <em>Parameterized String</em>}' class.
@@ -7897,12 +7480,12 @@ public interface McsPackage extends EPackage
     EClass MCS_NAME = eINSTANCE.getMcsName();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MCS_NAME__TYPE = eINSTANCE.getMcsName_Type();
+    EAttribute MCS_NAME__NAME = eINSTANCE.getMcsName_Name();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.McsTypedNameImpl <em>Typed Name</em>}' class.
@@ -7915,6 +7498,56 @@ public interface McsPackage extends EPackage
     EClass MCS_TYPED_NAME = eINSTANCE.getMcsTypedName();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MCS_TYPED_NAME__NAME = eINSTANCE.getMcsTypedName_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MCS_TYPED_NAME__TYPE = eINSTANCE.getMcsTypedName_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MCS_TYPED_NAME__EXPR = eINSTANCE.getMcsTypedName_Expr();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.DomainImpl <em>Domain</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.DomainImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getDomain()
+     * @generated
+     */
+    EClass DOMAIN = eINSTANCE.getDomain();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOMAIN__NAME = eINSTANCE.getDomain_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DOMAIN__EXPR = eINSTANCE.getDomain_Expr();
+
+    /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremCallImpl <em>Theorem Call</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7925,12 +7558,12 @@ public interface McsPackage extends EPackage
     EClass THEOREM_CALL = eINSTANCE.getTheoremCall();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Tname</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference THEOREM_CALL__NAME = eINSTANCE.getTheoremCall_Name();
+    EReference THEOREM_CALL__TNAME = eINSTANCE.getTheoremCall_Tname();
 
     /**
      * The meta object literal for the '<em><b>Croot</b></em>' containment reference feature.
@@ -7947,14 +7580,6 @@ public interface McsPackage extends EPackage
      * @generated
      */
     EReference THEOREM_CALL__ACTARG = eINSTANCE.getTheoremCall_Actarg();
-
-    /**
-     * The meta object literal for the '<em><b>Fn</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference THEOREM_CALL__FN = eINSTANCE.getTheoremCall_Fn();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Classifier_literalImpl <em>Classifier literal</em>}' class.
@@ -7975,12 +7600,46 @@ public interface McsPackage extends EPackage
     EReference CLASSIFIER_LITERAL__CLASSLIT = eINSTANCE.getClassifier_literal_Classlit();
 
     /**
-     * The meta object literal for the '<em><b>Arg</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Nameref</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASSIFIER_LITERAL__ARG = eINSTANCE.getClassifier_literal_Arg();
+    EReference CLASSIFIER_LITERAL__NAMEREF = eINSTANCE.getClassifier_literal_Nameref();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.RangeImpl <em>Range</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.RangeImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getRange()
+     * @generated
+     */
+    EClass RANGE = eINSTANCE.getRange();
+
+    /**
+     * The meta object literal for the '<em><b>Lower Bound</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RANGE__LOWER_BOUND = eINSTANCE.getRange_LowerBound();
+
+    /**
+     * The meta object literal for the '<em><b>Upper Bound</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RANGE__UPPER_BOUND = eINSTANCE.getRange_UpperBound();
+
+    /**
+     * The meta object literal for the '<em><b>Val</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RANGE__VAL = eINSTANCE.getRange_Val();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.RefTermImpl <em>Ref Term</em>}' class.
@@ -8001,12 +7660,38 @@ public interface McsPackage extends EPackage
     EAttribute REF_TERM__ROOT = eINSTANCE.getRefTerm_Root();
 
     /**
-     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Sub</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REF_TERM__PATH = eINSTANCE.getRefTerm_Path();
+    EReference REF_TERM__SUB = eINSTANCE.getRefTerm_Sub();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.NestedDotIDImpl <em>Nested Dot ID</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.NestedDotIDImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getNestedDotID()
+     * @generated
+     */
+    EClass NESTED_DOT_ID = eINSTANCE.getNestedDotID();
+
+    /**
+     * The meta object literal for the '<em><b>Base</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NESTED_DOT_ID__BASE = eINSTANCE.getNestedDotID_Base();
+
+    /**
+     * The meta object literal for the '<em><b>Sub</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NESTED_DOT_ID__SUB = eINSTANCE.getNestedDotID_Sub();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Mcs_name_refImpl <em>Mcs name ref</em>}' class.
@@ -8027,12 +7712,30 @@ public interface McsPackage extends EPackage
     EReference MCS_NAME_REF__REF = eINSTANCE.getMcs_name_ref_Ref();
 
     /**
+     * The meta object literal for the '<em><b>Chain</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MCS_NAME_REF__CHAIN = eINSTANCE.getMcs_name_ref_Chain();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.MethodChainImpl <em>Method Chain</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.MethodChainImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMethodChain()
+     * @generated
+     */
+    EClass METHOD_CHAIN = eINSTANCE.getMethodChain();
+
+    /**
      * The meta object literal for the '<em><b>Builtin</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MCS_NAME_REF__BUILTIN = eINSTANCE.getMcs_name_ref_Builtin();
+    EReference METHOD_CHAIN__BUILTIN = eINSTANCE.getMethodChain_Builtin();
 
     /**
      * The meta object literal for the '<em><b>Method</b></em>' containment reference list feature.
@@ -8040,7 +7743,7 @@ public interface McsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MCS_NAME_REF__METHOD = eINSTANCE.getMcs_name_ref_Method();
+    EReference METHOD_CHAIN__METHOD = eINSTANCE.getMethodChain_Method();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.BuiltInFnCallImpl <em>Built In Fn Call</em>}' class.
@@ -8095,32 +7798,6 @@ public interface McsPackage extends EPackage
     EReference FN_CALL__ARGS = eINSTANCE.getFnCall_Args();
 
     /**
-     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Let_bindingImpl <em>Let binding</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.Let_bindingImpl
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getLet_binding()
-     * @generated
-     */
-    EClass LET_BINDING = eINSTANCE.getLet_binding();
-
-    /**
-     * The meta object literal for the '<em><b>Local</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET_BINDING__LOCAL = eINSTANCE.getLet_binding_Local();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LET_BINDING__EXPR = eINSTANCE.getLet_binding_Expr();
-
-    /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.ExprImpl <em>Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8131,54 +7808,14 @@ public interface McsPackage extends EPackage
     EClass EXPR = eINSTANCE.getExpr();
 
     /**
-     * The meta object literal for the '<em><b>List</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.PostCastExprImpl <em>Post Cast Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.PostCastExprImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getPostCastExpr()
      * @generated
      */
-    EAttribute EXPR__LIST = eINSTANCE.getExpr_List();
-
-    /**
-     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPR__EXP = eINSTANCE.getExpr_Exp();
-
-    /**
-     * The meta object literal for the '<em><b>Builtin</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPR__BUILTIN = eINSTANCE.getExpr_Builtin();
-
-    /**
-     * The meta object literal for the '<em><b>Method</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPR__METHOD = eINSTANCE.getExpr_Method();
-
-    /**
-     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.DomainImpl <em>Domain</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.DomainImpl
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getDomain()
-     * @generated
-     */
-    EClass DOMAIN = eINSTANCE.getDomain();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DOMAIN__NAME = eINSTANCE.getDomain_Name();
+    EClass POST_CAST_EXPR = eINSTANCE.getPostCastExpr();
 
     /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
@@ -8186,7 +7823,81 @@ public interface McsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DOMAIN__EXPR = eINSTANCE.getDomain_Expr();
+    EReference POST_CAST_EXPR__EXPR = eINSTANCE.getPostCastExpr_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Chain</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POST_CAST_EXPR__CHAIN = eINSTANCE.getPostCastExpr_Chain();
+
+    /**
+     * The meta object literal for the '<em><b>Newtype</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POST_CAST_EXPR__NEWTYPE = eINSTANCE.getPostCastExpr_Newtype();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl <em>MCS Name Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMCSNameExpr()
+     * @generated
+     */
+    EClass MCS_NAME_EXPR = eINSTANCE.getMCSNameExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MCS_NAME_EXPR__ROOT = eINSTANCE.getMCSNameExpr_Root();
+
+    /**
+     * The meta object literal for the '<em><b>Iroot</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MCS_NAME_EXPR__IROOT = eINSTANCE.getMCSNameExpr_Iroot();
+
+    /**
+     * The meta object literal for the '<em><b>Nil</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MCS_NAME_EXPR__NIL = eINSTANCE.getMCSNameExpr_Nil();
+
+    /**
+     * The meta object literal for the '<em><b>Empty</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MCS_NAME_EXPR__EMPTY = eINSTANCE.getMCSNameExpr_Empty();
+
+    /**
+     * The meta object literal for the '<em><b>Allmodes</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MCS_NAME_EXPR__ALLMODES = eINSTANCE.getMCSNameExpr_Allmodes();
+
+    /**
+     * The meta object literal for the '<em><b>Typednameref</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MCS_NAME_EXPR__TYPEDNAMEREF = eINSTANCE.getMCSNameExpr_Typednameref();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.Type_expressionImpl <em>Type expression</em>}' class.
@@ -8303,22 +8014,6 @@ public interface McsPackage extends EPackage
      * @generated
      */
     EReference BASIC_TYPE__RANGE = eINSTANCE.getBasic_type_Range();
-
-    /**
-     * The meta object literal for the '<em><b>Class</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BASIC_TYPE__CLASS = eINSTANCE.getBasic_type_Class();
-
-    /**
-     * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BASIC_TYPE__REF = eINSTANCE.getBasic_type_Ref();
 
     /**
      * The meta object literal for the '<em><b>Typename</b></em>' reference feature.
@@ -9105,40 +8800,150 @@ public interface McsPackage extends EPackage
     EAttribute TFLOW_IMPL_SUBTYPES__TFIPATH = eINSTANCE.gett_flow_impl_subtypes_T_f_i_path();
 
     /**
-     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FunctionBodyImpl <em>Function Body</em>}' class.
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.IntegerRangeImpl <em>Integer Range</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.FunctionBodyImpl
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFunctionBody()
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.IntegerRangeImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getIntegerRange()
      * @generated
      */
-    EClass FUNCTION_BODY = eINSTANCE.getFunctionBody();
+    EClass INTEGER_RANGE = eINSTANCE.getIntegerRange();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Lower Bound</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUNCTION_BODY__TYPE = eINSTANCE.getFunctionBody_Type();
+    EReference INTEGER_RANGE__LOWER_BOUND = eINSTANCE.getIntegerRange_LowerBound();
 
     /**
-     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimBodyImpl <em>Claim Body</em>}' class.
+     * The meta object literal for the '<em><b>Upper Bound</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.ClaimBodyImpl
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getClaimBody()
      * @generated
      */
-    EClass CLAIM_BODY = eINSTANCE.getClaimBody();
+    EReference INTEGER_RANGE__UPPER_BOUND = eINSTANCE.getIntegerRange_UpperBound();
 
     /**
-     * The meta object literal for the '<em><b>String</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.RealRangeImpl <em>Real Range</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.RealRangeImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getRealRange()
+     * @generated
+     */
+    EClass REAL_RANGE = eINSTANCE.getRealRange();
+
+    /**
+     * The meta object literal for the '<em><b>Lower Bound</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLAIM_BODY__STRING = eINSTANCE.getClaimBody_String();
+    EReference REAL_RANGE__LOWER_BOUND = eINSTANCE.getRealRange_LowerBound();
+
+    /**
+     * The meta object literal for the '<em><b>Upper Bound</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REAL_RANGE__UPPER_BOUND = eINSTANCE.getRealRange_UpperBound();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedIntegerTypeImpl <em>Unnamed Integer Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedIntegerTypeImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getUnnamedIntegerType()
+     * @generated
+     */
+    EClass UNNAMED_INTEGER_TYPE = eINSTANCE.getUnnamedIntegerType();
+
+    /**
+     * The meta object literal for the '<em><b>Range</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_INTEGER_TYPE__RANGE = eINSTANCE.getUnnamedIntegerType_Range();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Units Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_INTEGER_TYPE__OWNED_UNITS_TYPE = eINSTANCE.getUnnamedIntegerType_OwnedUnitsType();
+
+    /**
+     * The meta object literal for the '<em><b>Referenced Units Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_INTEGER_TYPE__REFERENCED_UNITS_TYPE = eINSTANCE.getUnnamedIntegerType_ReferencedUnitsType();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedRealTypeImpl <em>Unnamed Real Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedRealTypeImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getUnnamedRealType()
+     * @generated
+     */
+    EClass UNNAMED_REAL_TYPE = eINSTANCE.getUnnamedRealType();
+
+    /**
+     * The meta object literal for the '<em><b>Range</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_REAL_TYPE__RANGE = eINSTANCE.getUnnamedRealType_Range();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Units Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_REAL_TYPE__OWNED_UNITS_TYPE = eINSTANCE.getUnnamedRealType_OwnedUnitsType();
+
+    /**
+     * The meta object literal for the '<em><b>Referenced Units Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_REAL_TYPE__REFERENCED_UNITS_TYPE = eINSTANCE.getUnnamedRealType_ReferencedUnitsType();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedRangeTypeImpl <em>Unnamed Range Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.UnnamedRangeTypeImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getUnnamedRangeType()
+     * @generated
+     */
+    EClass UNNAMED_RANGE_TYPE = eINSTANCE.getUnnamedRangeType();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Number Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_RANGE_TYPE__OWNED_NUMBER_TYPE = eINSTANCE.getUnnamedRangeType_OwnedNumberType();
+
+    /**
+     * The meta object literal for the '<em><b>Referenced Number Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_RANGE_TYPE__REFERENCED_NUMBER_TYPE = eINSTANCE.getUnnamedRangeType_ReferencedNumberType();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimStringImpl <em>Claim String</em>}' class.
@@ -9169,12 +8974,12 @@ public interface McsPackage extends EPackage
     EClass CLAIM_ARG = eINSTANCE.getClaimArg();
 
     /**
-     * The meta object literal for the '<em><b>Arg</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Textarg</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLAIM_ARG__ARG = eINSTANCE.getClaimArg_Arg();
+    EReference CLAIM_ARG__TEXTARG = eINSTANCE.getClaimArg_Textarg();
 
     /**
      * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
@@ -9269,90 +9074,6 @@ public interface McsPackage extends EPackage
      * @generated
      */
     EReference UNARY_EXPR__EXPR = eINSTANCE.getUnaryExpr_Expr();
-
-    /**
-     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.PostCastExprImpl <em>Post Cast Expr</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.PostCastExprImpl
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getPostCastExpr()
-     * @generated
-     */
-    EClass POST_CAST_EXPR = eINSTANCE.getPostCastExpr();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference POST_CAST_EXPR__EXPR = eINSTANCE.getPostCastExpr_Expr();
-
-    /**
-     * The meta object literal for the '<em><b>Newtype</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference POST_CAST_EXPR__NEWTYPE = eINSTANCE.getPostCastExpr_Newtype();
-
-    /**
-     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl <em>MCS Name Expr</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.MCSNameExprImpl
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMCSNameExpr()
-     * @generated
-     */
-    EClass MCS_NAME_EXPR = eINSTANCE.getMCSNameExpr();
-
-    /**
-     * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MCS_NAME_EXPR__ROOT = eINSTANCE.getMCSNameExpr_Root();
-
-    /**
-     * The meta object literal for the '<em><b>Iroot</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MCS_NAME_EXPR__IROOT = eINSTANCE.getMCSNameExpr_Iroot();
-
-    /**
-     * The meta object literal for the '<em><b>Nil</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MCS_NAME_EXPR__NIL = eINSTANCE.getMCSNameExpr_Nil();
-
-    /**
-     * The meta object literal for the '<em><b>Empty</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MCS_NAME_EXPR__EMPTY = eINSTANCE.getMCSNameExpr_Empty();
-
-    /**
-     * The meta object literal for the '<em><b>Allmodes</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MCS_NAME_EXPR__ALLMODES = eINSTANCE.getMCSNameExpr_Allmodes();
-
-    /**
-     * The meta object literal for the '<em><b>Typednameref</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MCS_NAME_EXPR__TYPEDNAMEREF = eINSTANCE.getMCSNameExpr_Typednameref();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.PkgExprImpl <em>Pkg Expr</em>}' class.
@@ -9499,24 +9220,6 @@ public interface McsPackage extends EPackage
     EReference STRING_EXPR__VAL = eINSTANCE.getStringExpr_Val();
 
     /**
-     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.RangeImpl <em>Range</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.RangeImpl
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getRange()
-     * @generated
-     */
-    EClass RANGE = eINSTANCE.getRange();
-
-    /**
-     * The meta object literal for the '<em><b>Val</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RANGE__VAL = eINSTANCE.getRange_Val();
-
-    /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.IfThenElseExprImpl <em>If Then Else Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9595,6 +9298,14 @@ public interface McsPackage extends EPackage
     EClass BUILT_IN_FN_CALL_EXPR = eINSTANCE.getBuiltInFnCallExpr();
 
     /**
+     * The meta object literal for the '<em><b>Builtin</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUILT_IN_FN_CALL_EXPR__BUILTIN = eINSTANCE.getBuiltInFnCallExpr_Builtin();
+
+    /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FnCallExprImpl <em>Fn Call Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9611,6 +9322,50 @@ public interface McsPackage extends EPackage
      * @generated
      */
     EReference FN_CALL_EXPR__FN = eINSTANCE.getFnCallExpr_Fn();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremCallExprImpl <em>Theorem Call Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.TheoremCallExprImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getTheoremCallExpr()
+     * @generated
+     */
+    EClass THEOREM_CALL_EXPR = eINSTANCE.getTheoremCallExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Fn</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference THEOREM_CALL_EXPR__FN = eINSTANCE.getTheoremCallExpr_Fn();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FilterSetImpl <em>Filter Set</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.FilterSetImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getFilterSet()
+     * @generated
+     */
+    EClass FILTER_SET = eINSTANCE.getFilterSet();
+
+    /**
+     * The meta object literal for the '<em><b>List</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILTER_SET__LIST = eINSTANCE.getFilterSet_List();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FILTER_SET__EXP = eINSTANCE.getFilterSet_Exp();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.FilterMapExprImpl <em>Filter Map Expr</em>}' class.
@@ -9665,14 +9420,40 @@ public interface McsPackage extends EPackage
     EReference SET_EXPR__EXPRS = eINSTANCE.getSetExpr_Exprs();
 
     /**
-     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.EmptyImpl <em>Empty</em>}' class.
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.MappingExprImpl <em>Mapping Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.EmptyImpl
-     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getEmpty()
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.MappingExprImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getMappingExpr()
      * @generated
      */
-    EClass EMPTY = eINSTANCE.getEmpty();
+    EClass MAPPING_EXPR = eINSTANCE.getMappingExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Expr1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING_EXPR__EXPR1 = eINSTANCE.getMappingExpr_Expr1();
+
+    /**
+     * The meta object literal for the '<em><b>Expr2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING_EXPR__EXPR2 = eINSTANCE.getMappingExpr_Expr2();
+
+    /**
+     * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.EmptySetExprImpl <em>Empty Set Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.EmptySetExprImpl
+     * @see org.osate.xtext.aadl2.mcs.mcs.impl.McsPackageImpl#getEmptySetExpr()
+     * @generated
+     */
+    EClass EMPTY_SET_EXPR = eINSTANCE.getEmptySetExpr();
 
     /**
      * The meta object literal for the '{@link org.osate.xtext.aadl2.mcs.mcs.impl.LetExprImpl <em>Let Expr</em>}' class.
@@ -9685,20 +9466,28 @@ public interface McsPackage extends EPackage
     EClass LET_EXPR = eINSTANCE.getLetExpr();
 
     /**
-     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Local</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LET_EXPR__BINDING = eINSTANCE.getLetExpr_Binding();
+    EReference LET_EXPR__LOCAL = eINSTANCE.getLetExpr_Local();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Expr1</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LET_EXPR__EXPR = eINSTANCE.getLetExpr_Expr();
+    EReference LET_EXPR__EXPR1 = eINSTANCE.getLetExpr_Expr1();
+
+    /**
+     * The meta object literal for the '<em><b>Expr2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_EXPR__EXPR2 = eINSTANCE.getLetExpr_Expr2();
 
   }
 

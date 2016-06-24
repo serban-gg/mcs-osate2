@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.osate.xtext.aadl2.mcs.mcs.Expr;
-import org.osate.xtext.aadl2.mcs.mcs.F_or_T;
 import org.osate.xtext.aadl2.mcs.mcs.FnCall;
+import org.osate.xtext.aadl2.mcs.mcs.Function;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 
 /**
@@ -47,7 +47,7 @@ public class FnCallImpl extends MinimalEObjectImpl.Container implements FnCall
    * @generated
    * @ordered
    */
-  protected F_or_T fn;
+  protected Function fn;
 
   /**
    * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
@@ -85,12 +85,12 @@ public class FnCallImpl extends MinimalEObjectImpl.Container implements FnCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public F_or_T getFn()
+  public Function getFn()
   {
     if (fn != null && fn.eIsProxy())
     {
       InternalEObject oldFn = (InternalEObject)fn;
-      fn = (F_or_T)eResolveProxy(oldFn);
+      fn = (Function)eResolveProxy(oldFn);
       if (fn != oldFn)
       {
         if (eNotificationRequired())
@@ -105,7 +105,7 @@ public class FnCallImpl extends MinimalEObjectImpl.Container implements FnCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public F_or_T basicGetFn()
+  public Function basicGetFn()
   {
     return fn;
   }
@@ -115,9 +115,9 @@ public class FnCallImpl extends MinimalEObjectImpl.Container implements FnCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFn(F_or_T newFn)
+  public void setFn(Function newFn)
   {
-    F_or_T oldFn = fn;
+    Function oldFn = fn;
     fn = newFn;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.FN_CALL__FN, oldFn, fn));
@@ -184,7 +184,7 @@ public class FnCallImpl extends MinimalEObjectImpl.Container implements FnCall
     switch (featureID)
     {
       case McsPackage.FN_CALL__FN:
-        setFn((F_or_T)newValue);
+        setFn((Function)newValue);
         return;
       case McsPackage.FN_CALL__ARGS:
         getArgs().clear();
@@ -205,7 +205,7 @@ public class FnCallImpl extends MinimalEObjectImpl.Container implements FnCall
     switch (featureID)
     {
       case McsPackage.FN_CALL__FN:
-        setFn((F_or_T)null);
+        setFn((Function)null);
         return;
       case McsPackage.FN_CALL__ARGS:
         getArgs().clear();

@@ -3,6 +3,7 @@
 package org.osate.xtext.aadl2.mcs.mcs.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -13,8 +14,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.osate.aadl2.UnitLiteral;
 
 import org.osate.xtext.aadl2.mcs.mcs.ClaimArg;
+import org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.McsTypedName;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +25,7 @@ import org.osate.xtext.aadl2.mcs.mcs.McsTypedName;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimArgImpl#getArg <em>Arg</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimArgImpl#getTextarg <em>Textarg</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.ClaimArgImpl#getUnit <em>Unit</em>}</li>
  * </ul>
  *
@@ -33,14 +34,14 @@ import org.osate.xtext.aadl2.mcs.mcs.McsTypedName;
 public class ClaimArgImpl extends TextParmImpl implements ClaimArg
 {
   /**
-   * The cached value of the '{@link #getArg() <em>Arg</em>}' reference.
+   * The cached value of the '{@link #getTextarg() <em>Textarg</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArg()
+   * @see #getTextarg()
    * @generated
    * @ordered
    */
-  protected McsTypedName arg;
+  protected MCSNameExpr textarg;
 
   /**
    * The cached value of the '{@link #getUnit() <em>Unit</em>}' reference.
@@ -78,19 +79,9 @@ public class ClaimArgImpl extends TextParmImpl implements ClaimArg
    * <!-- end-user-doc -->
    * @generated
    */
-  public McsTypedName getArg()
+  public MCSNameExpr getTextarg()
   {
-    if (arg != null && arg.eIsProxy())
-    {
-      InternalEObject oldArg = (InternalEObject)arg;
-      arg = (McsTypedName)eResolveProxy(oldArg);
-      if (arg != oldArg)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, McsPackage.CLAIM_ARG__ARG, oldArg, arg));
-      }
-    }
-    return arg;
+    return textarg;
   }
 
   /**
@@ -98,22 +89,37 @@ public class ClaimArgImpl extends TextParmImpl implements ClaimArg
    * <!-- end-user-doc -->
    * @generated
    */
-  public McsTypedName basicGetArg()
+  public NotificationChain basicSetTextarg(MCSNameExpr newTextarg, NotificationChain msgs)
   {
-    return arg;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setArg(McsTypedName newArg)
-  {
-    McsTypedName oldArg = arg;
-    arg = newArg;
+    MCSNameExpr oldTextarg = textarg;
+    textarg = newTextarg;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CLAIM_ARG__ARG, oldArg, arg));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.CLAIM_ARG__TEXTARG, oldTextarg, newTextarg);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTextarg(MCSNameExpr newTextarg)
+  {
+    if (newTextarg != textarg)
+    {
+      NotificationChain msgs = null;
+      if (textarg != null)
+        msgs = ((InternalEObject)textarg).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.CLAIM_ARG__TEXTARG, null, msgs);
+      if (newTextarg != null)
+        msgs = ((InternalEObject)newTextarg).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.CLAIM_ARG__TEXTARG, null, msgs);
+      msgs = basicSetTextarg(newTextarg, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CLAIM_ARG__TEXTARG, newTextarg, newTextarg));
   }
 
   /**
@@ -165,13 +171,28 @@ public class ClaimArgImpl extends TextParmImpl implements ClaimArg
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case McsPackage.CLAIM_ARG__TEXTARG:
+        return basicSetTextarg(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case McsPackage.CLAIM_ARG__ARG:
-        if (resolve) return getArg();
-        return basicGetArg();
+      case McsPackage.CLAIM_ARG__TEXTARG:
+        return getTextarg();
       case McsPackage.CLAIM_ARG__UNIT:
         if (resolve) return getUnit();
         return basicGetUnit();
@@ -189,8 +210,8 @@ public class ClaimArgImpl extends TextParmImpl implements ClaimArg
   {
     switch (featureID)
     {
-      case McsPackage.CLAIM_ARG__ARG:
-        setArg((McsTypedName)newValue);
+      case McsPackage.CLAIM_ARG__TEXTARG:
+        setTextarg((MCSNameExpr)newValue);
         return;
       case McsPackage.CLAIM_ARG__UNIT:
         setUnit((UnitLiteral)newValue);
@@ -209,8 +230,8 @@ public class ClaimArgImpl extends TextParmImpl implements ClaimArg
   {
     switch (featureID)
     {
-      case McsPackage.CLAIM_ARG__ARG:
-        setArg((McsTypedName)null);
+      case McsPackage.CLAIM_ARG__TEXTARG:
+        setTextarg((MCSNameExpr)null);
         return;
       case McsPackage.CLAIM_ARG__UNIT:
         setUnit((UnitLiteral)null);
@@ -229,8 +250,8 @@ public class ClaimArgImpl extends TextParmImpl implements ClaimArg
   {
     switch (featureID)
     {
-      case McsPackage.CLAIM_ARG__ARG:
-        return arg != null;
+      case McsPackage.CLAIM_ARG__TEXTARG:
+        return textarg != null;
       case McsPackage.CLAIM_ARG__UNIT:
         return unit != null;
     }

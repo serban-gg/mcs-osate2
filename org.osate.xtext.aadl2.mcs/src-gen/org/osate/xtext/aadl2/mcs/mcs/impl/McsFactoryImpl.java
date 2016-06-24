@@ -70,23 +70,29 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.MCS_ANNEX_SUBCLAUSE: return createMCSAnnexSubclause();
       case McsPackage.TYPE_DECLARATION: return createType_declaration();
       case McsPackage.CONSTANT_DECLARATION: return createConstant_declaration();
-      case McsPackage.FOR_T: return createF_or_T();
+      case McsPackage.FUNCTION: return createFunction();
+      case McsPackage.THEOREM: return createTheorem();
       case McsPackage.THEOREM_ROOT: return createTheorem_root();
-      case McsPackage.DEFINITION_BODY: return createDefinitionBody();
+      case McsPackage.FUNCTION_BODY: return createFunctionBody();
+      case McsPackage.THEOREM_BODY: return createTheoremBody();
       case McsPackage.PARAMETERIZED_STRING: return createParameterizedString();
       case McsPackage.PARAMETER: return createParameter();
       case McsPackage.TEXT_PARM: return createTextParm();
       case McsPackage.MCS_NAME: return createMcsName();
       case McsPackage.MCS_TYPED_NAME: return createMcsTypedName();
+      case McsPackage.DOMAIN: return createDomain();
       case McsPackage.THEOREM_CALL: return createTheoremCall();
       case McsPackage.CLASSIFIER_LITERAL: return createClassifier_literal();
+      case McsPackage.RANGE: return createRange();
       case McsPackage.REF_TERM: return createRefTerm();
+      case McsPackage.NESTED_DOT_ID: return createNestedDotID();
       case McsPackage.MCS_NAME_REF: return createMcs_name_ref();
+      case McsPackage.METHOD_CHAIN: return createMethodChain();
       case McsPackage.BUILT_IN_FN_CALL: return createBuiltInFnCall();
       case McsPackage.FN_CALL: return createFnCall();
-      case McsPackage.LET_BINDING: return createLet_binding();
       case McsPackage.EXPR: return createExpr();
-      case McsPackage.DOMAIN: return createDomain();
+      case McsPackage.POST_CAST_EXPR: return createPostCastExpr();
+      case McsPackage.MCS_NAME_EXPR: return createMCSNameExpr();
       case McsPackage.TYPE_EXPRESSION: return createType_expression();
       case McsPackage.BASIC_TYPE: return createBasic_type();
       case McsPackage.COMPOSITE_TYPE: return createComposite_type();
@@ -109,15 +115,16 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.TPORT_SUBTYPES: return createt_port_subtypes();
       case McsPackage.TFLOW_SPEC_SUBTYPES: return createt_flow_spec_subtypes();
       case McsPackage.TFLOW_IMPL_SUBTYPES: return createt_flow_impl_subtypes();
-      case McsPackage.FUNCTION_BODY: return createFunctionBody();
-      case McsPackage.CLAIM_BODY: return createClaimBody();
+      case McsPackage.INTEGER_RANGE: return createIntegerRange();
+      case McsPackage.REAL_RANGE: return createRealRange();
+      case McsPackage.UNNAMED_INTEGER_TYPE: return createUnnamedIntegerType();
+      case McsPackage.UNNAMED_REAL_TYPE: return createUnnamedRealType();
+      case McsPackage.UNNAMED_RANGE_TYPE: return createUnnamedRangeType();
       case McsPackage.CLAIM_STRING: return createClaimString();
       case McsPackage.CLAIM_ARG: return createClaimArg();
       case McsPackage.BINARY_EXPR: return createBinaryExpr();
       case McsPackage.INSTANCE_OF_EXPR: return createInstanceOfExpr();
       case McsPackage.UNARY_EXPR: return createUnaryExpr();
-      case McsPackage.POST_CAST_EXPR: return createPostCastExpr();
-      case McsPackage.MCS_NAME_EXPR: return createMCSNameExpr();
       case McsPackage.PKG_EXPR: return createPkgExpr();
       case McsPackage.COMP_EXPR: return createCompExpr();
       case McsPackage.REF_EXPR: return createRefExpr();
@@ -126,14 +133,16 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.REAL_EXPR: return createRealExpr();
       case McsPackage.BOOL_EXPR: return createBoolExpr();
       case McsPackage.STRING_EXPR: return createStringExpr();
-      case McsPackage.RANGE: return createRange();
       case McsPackage.IF_THEN_ELSE_EXPR: return createIfThenElseExpr();
       case McsPackage.QUANTIFIED_EXPR: return createQuantifiedExpr();
       case McsPackage.BUILT_IN_FN_CALL_EXPR: return createBuiltInFnCallExpr();
       case McsPackage.FN_CALL_EXPR: return createFnCallExpr();
+      case McsPackage.THEOREM_CALL_EXPR: return createTheoremCallExpr();
+      case McsPackage.FILTER_SET: return createFilterSet();
       case McsPackage.FILTER_MAP_EXPR: return createFilterMapExpr();
       case McsPackage.SET_EXPR: return createSetExpr();
-      case McsPackage.EMPTY: return createEmpty();
+      case McsPackage.MAPPING_EXPR: return createMappingExpr();
+      case McsPackage.EMPTY_SET_EXPR: return createEmptySetExpr();
       case McsPackage.LET_EXPR: return createLetExpr();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -211,10 +220,21 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public F_or_T createF_or_T()
+  public Function createFunction()
   {
-    F_or_TImpl f_or_T = new F_or_TImpl();
-    return f_or_T;
+    FunctionImpl function = new FunctionImpl();
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Theorem createTheorem()
+  {
+    TheoremImpl theorem = new TheoremImpl();
+    return theorem;
   }
 
   /**
@@ -233,10 +253,21 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DefinitionBody createDefinitionBody()
+  public FunctionBody createFunctionBody()
   {
-    DefinitionBodyImpl definitionBody = new DefinitionBodyImpl();
-    return definitionBody;
+    FunctionBodyImpl functionBody = new FunctionBodyImpl();
+    return functionBody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TheoremBody createTheoremBody()
+  {
+    TheoremBodyImpl theoremBody = new TheoremBodyImpl();
+    return theoremBody;
   }
 
   /**
@@ -299,6 +330,17 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Domain createDomain()
+  {
+    DomainImpl domain = new DomainImpl();
+    return domain;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TheoremCall createTheoremCall()
   {
     TheoremCallImpl theoremCall = new TheoremCallImpl();
@@ -321,6 +363,17 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Range createRange()
+  {
+    RangeImpl range = new RangeImpl();
+    return range;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RefTerm createRefTerm()
   {
     RefTermImpl refTerm = new RefTermImpl();
@@ -332,10 +385,32 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public NestedDotID createNestedDotID()
+  {
+    NestedDotIDImpl nestedDotID = new NestedDotIDImpl();
+    return nestedDotID;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Mcs_name_ref createMcs_name_ref()
   {
     Mcs_name_refImpl mcs_name_ref = new Mcs_name_refImpl();
     return mcs_name_ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodChain createMethodChain()
+  {
+    MethodChainImpl methodChain = new MethodChainImpl();
+    return methodChain;
   }
 
   /**
@@ -365,17 +440,6 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Let_binding createLet_binding()
-  {
-    Let_bindingImpl let_binding = new Let_bindingImpl();
-    return let_binding;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Expr createExpr()
   {
     ExprImpl expr = new ExprImpl();
@@ -387,10 +451,21 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Domain createDomain()
+  public PostCastExpr createPostCastExpr()
   {
-    DomainImpl domain = new DomainImpl();
-    return domain;
+    PostCastExprImpl postCastExpr = new PostCastExprImpl();
+    return postCastExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MCSNameExpr createMCSNameExpr()
+  {
+    MCSNameExprImpl mcsNameExpr = new MCSNameExprImpl();
+    return mcsNameExpr;
   }
 
   /**
@@ -640,10 +715,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public FunctionBody createFunctionBody()
+  public IntegerRange createIntegerRange()
   {
-    FunctionBodyImpl functionBody = new FunctionBodyImpl();
-    return functionBody;
+    IntegerRangeImpl integerRange = new IntegerRangeImpl();
+    return integerRange;
   }
 
   /**
@@ -651,10 +726,43 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClaimBody createClaimBody()
+  public RealRange createRealRange()
   {
-    ClaimBodyImpl claimBody = new ClaimBodyImpl();
-    return claimBody;
+    RealRangeImpl realRange = new RealRangeImpl();
+    return realRange;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnnamedIntegerType createUnnamedIntegerType()
+  {
+    UnnamedIntegerTypeImpl unnamedIntegerType = new UnnamedIntegerTypeImpl();
+    return unnamedIntegerType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnnamedRealType createUnnamedRealType()
+  {
+    UnnamedRealTypeImpl unnamedRealType = new UnnamedRealTypeImpl();
+    return unnamedRealType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnnamedRangeType createUnnamedRangeType()
+  {
+    UnnamedRangeTypeImpl unnamedRangeType = new UnnamedRangeTypeImpl();
+    return unnamedRangeType;
   }
 
   /**
@@ -710,28 +818,6 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
   {
     UnaryExprImpl unaryExpr = new UnaryExprImpl();
     return unaryExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PostCastExpr createPostCastExpr()
-  {
-    PostCastExprImpl postCastExpr = new PostCastExprImpl();
-    return postCastExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MCSNameExpr createMCSNameExpr()
-  {
-    MCSNameExprImpl mcsNameExpr = new MCSNameExprImpl();
-    return mcsNameExpr;
   }
 
   /**
@@ -827,17 +913,6 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Range createRange()
-  {
-    RangeImpl range = new RangeImpl();
-    return range;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public IfThenElseExpr createIfThenElseExpr()
   {
     IfThenElseExprImpl ifThenElseExpr = new IfThenElseExprImpl();
@@ -882,6 +957,28 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public TheoremCallExpr createTheoremCallExpr()
+  {
+    TheoremCallExprImpl theoremCallExpr = new TheoremCallExprImpl();
+    return theoremCallExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FilterSet createFilterSet()
+  {
+    FilterSetImpl filterSet = new FilterSetImpl();
+    return filterSet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public FilterMapExpr createFilterMapExpr()
   {
     FilterMapExprImpl filterMapExpr = new FilterMapExprImpl();
@@ -904,10 +1001,21 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Empty createEmpty()
+  public MappingExpr createMappingExpr()
   {
-    EmptyImpl empty = new EmptyImpl();
-    return empty;
+    MappingExprImpl mappingExpr = new MappingExprImpl();
+    return mappingExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EmptySetExpr createEmptySetExpr()
+  {
+    EmptySetExprImpl emptySetExpr = new EmptySetExprImpl();
+    return emptySetExpr;
   }
 
   /**

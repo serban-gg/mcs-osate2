@@ -18,28 +18,28 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.osate.xtext.aadl2.mcs.mcs.DefinitionBody;
-import org.osate.xtext.aadl2.mcs.mcs.F_or_T;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.Parameter;
+import org.osate.xtext.aadl2.mcs.mcs.Theorem;
+import org.osate.xtext.aadl2.mcs.mcs.TheoremBody;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>For T</b></em>'.
+ * An implementation of the model object '<em><b>Theorem</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl#isT_root <em>Troot</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl#getArgs <em>Args</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.F_or_TImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremImpl#isT_root <em>Troot</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremImpl#getArgs <em>Args</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.TheoremImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
+public class TheoremImpl extends MinimalEObjectImpl.Container implements Theorem
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -99,14 +99,14 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
    * @generated
    * @ordered
    */
-  protected DefinitionBody body;
+  protected TheoremBody body;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected F_or_TImpl()
+  protected TheoremImpl()
   {
     super();
   }
@@ -119,7 +119,7 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
   @Override
   protected EClass eStaticClass()
   {
-    return McsPackage.Literals.FOR_T;
+    return McsPackage.Literals.THEOREM;
   }
 
   /**
@@ -142,7 +142,7 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.FOR_T__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.THEOREM__NAME, oldName, name));
   }
 
   /**
@@ -165,7 +165,7 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
     boolean oldT_root = t_root;
     t_root = newT_root;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.FOR_T__TROOT, oldT_root, t_root));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.THEOREM__TROOT, oldT_root, t_root));
   }
 
   /**
@@ -177,7 +177,7 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
   {
     if (args == null)
     {
-      args = new EObjectContainmentEList<Parameter>(Parameter.class, this, McsPackage.FOR_T__ARGS);
+      args = new EObjectContainmentEList<Parameter>(Parameter.class, this, McsPackage.THEOREM__ARGS);
     }
     return args;
   }
@@ -187,7 +187,7 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
    * <!-- end-user-doc -->
    * @generated
    */
-  public DefinitionBody getBody()
+  public TheoremBody getBody()
   {
     return body;
   }
@@ -197,13 +197,13 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBody(DefinitionBody newBody, NotificationChain msgs)
+  public NotificationChain basicSetBody(TheoremBody newBody, NotificationChain msgs)
   {
-    DefinitionBody oldBody = body;
+    TheoremBody oldBody = body;
     body = newBody;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.FOR_T__BODY, oldBody, newBody);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.THEOREM__BODY, oldBody, newBody);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -214,20 +214,20 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBody(DefinitionBody newBody)
+  public void setBody(TheoremBody newBody)
   {
     if (newBody != body)
     {
       NotificationChain msgs = null;
       if (body != null)
-        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.FOR_T__BODY, null, msgs);
+        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.THEOREM__BODY, null, msgs);
       if (newBody != null)
-        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.FOR_T__BODY, null, msgs);
+        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.THEOREM__BODY, null, msgs);
       msgs = basicSetBody(newBody, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.FOR_T__BODY, newBody, newBody));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.THEOREM__BODY, newBody, newBody));
   }
 
   /**
@@ -240,9 +240,9 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
   {
     switch (featureID)
     {
-      case McsPackage.FOR_T__ARGS:
+      case McsPackage.THEOREM__ARGS:
         return ((InternalEList<?>)getArgs()).basicRemove(otherEnd, msgs);
-      case McsPackage.FOR_T__BODY:
+      case McsPackage.THEOREM__BODY:
         return basicSetBody(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -258,13 +258,13 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
   {
     switch (featureID)
     {
-      case McsPackage.FOR_T__NAME:
+      case McsPackage.THEOREM__NAME:
         return getName();
-      case McsPackage.FOR_T__TROOT:
+      case McsPackage.THEOREM__TROOT:
         return isT_root();
-      case McsPackage.FOR_T__ARGS:
+      case McsPackage.THEOREM__ARGS:
         return getArgs();
-      case McsPackage.FOR_T__BODY:
+      case McsPackage.THEOREM__BODY:
         return getBody();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -281,18 +281,18 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
   {
     switch (featureID)
     {
-      case McsPackage.FOR_T__NAME:
+      case McsPackage.THEOREM__NAME:
         setName((String)newValue);
         return;
-      case McsPackage.FOR_T__TROOT:
+      case McsPackage.THEOREM__TROOT:
         setT_root((Boolean)newValue);
         return;
-      case McsPackage.FOR_T__ARGS:
+      case McsPackage.THEOREM__ARGS:
         getArgs().clear();
         getArgs().addAll((Collection<? extends Parameter>)newValue);
         return;
-      case McsPackage.FOR_T__BODY:
-        setBody((DefinitionBody)newValue);
+      case McsPackage.THEOREM__BODY:
+        setBody((TheoremBody)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -308,17 +308,17 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
   {
     switch (featureID)
     {
-      case McsPackage.FOR_T__NAME:
+      case McsPackage.THEOREM__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case McsPackage.FOR_T__TROOT:
+      case McsPackage.THEOREM__TROOT:
         setT_root(TROOT_EDEFAULT);
         return;
-      case McsPackage.FOR_T__ARGS:
+      case McsPackage.THEOREM__ARGS:
         getArgs().clear();
         return;
-      case McsPackage.FOR_T__BODY:
-        setBody((DefinitionBody)null);
+      case McsPackage.THEOREM__BODY:
+        setBody((TheoremBody)null);
         return;
     }
     super.eUnset(featureID);
@@ -334,13 +334,13 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
   {
     switch (featureID)
     {
-      case McsPackage.FOR_T__NAME:
+      case McsPackage.THEOREM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case McsPackage.FOR_T__TROOT:
+      case McsPackage.THEOREM__TROOT:
         return t_root != TROOT_EDEFAULT;
-      case McsPackage.FOR_T__ARGS:
+      case McsPackage.THEOREM__ARGS:
         return args != null && !args.isEmpty();
-      case McsPackage.FOR_T__BODY:
+      case McsPackage.THEOREM__BODY:
         return body != null;
     }
     return super.eIsSet(featureID);
@@ -365,4 +365,4 @@ public class F_or_TImpl extends MinimalEObjectImpl.Container implements F_or_T
     return result.toString();
   }
 
-} //F_or_TImpl
+} //TheoremImpl

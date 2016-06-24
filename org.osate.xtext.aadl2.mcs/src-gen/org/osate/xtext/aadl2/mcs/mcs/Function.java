@@ -8,24 +8,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>For T</b></em>'.
+ * A representation of the model object '<em><b>Function</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getName <em>Name</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#isT_root <em>Troot</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getArgs <em>Args</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getBody <em>Body</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Function#getName <em>Name</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Function#getArgs <em>Args</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Function#getBody <em>Body</em>}</li>
  * </ul>
  *
- * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getF_or_T()
+ * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getFunction()
  * @model
  * @generated
  */
-public interface F_or_T extends EObject
+public interface Function extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -37,14 +36,14 @@ public interface F_or_T extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getF_or_T_Name()
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getFunction_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Function#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -52,32 +51,6 @@ public interface F_or_T extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Troot</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Troot</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Troot</em>' attribute.
-   * @see #setT_root(boolean)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getF_or_T_T_root()
-   * @model
-   * @generated
-   */
-  boolean isT_root();
-
-  /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#isT_root <em>Troot</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Troot</em>' attribute.
-   * @see #isT_root()
-   * @generated
-   */
-  void setT_root(boolean value);
 
   /**
    * Returns the value of the '<em><b>Args</b></em>' containment reference list.
@@ -89,7 +62,7 @@ public interface F_or_T extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Args</em>' containment reference list.
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getF_or_T_Args()
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getFunction_Args()
    * @model containment="true"
    * @generated
    */
@@ -104,21 +77,21 @@ public interface F_or_T extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Body</em>' containment reference.
-   * @see #setBody(DefinitionBody)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getF_or_T_Body()
+   * @see #setBody(FunctionBody)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getFunction_Body()
    * @model containment="true"
    * @generated
    */
-  DefinitionBody getBody();
+  FunctionBody getBody();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.F_or_T#getBody <em>Body</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Function#getBody <em>Body</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Body</em>' containment reference.
    * @see #getBody()
    * @generated
    */
-  void setBody(DefinitionBody value);
+  void setBody(FunctionBody value);
 
-} // F_or_T
+} // Function

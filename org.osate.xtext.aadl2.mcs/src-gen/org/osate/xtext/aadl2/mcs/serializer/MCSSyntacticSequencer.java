@@ -22,89 +22,32 @@ import org.osate.xtext.aadl2.mcs.services.MCSGrammarAccess;
 public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MCSGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_AadlPackage___PropertiesKeyword_3_0_NoneKeyword_3_1_1_0_SemicolonKeyword_3_1_1_1__q;
-	protected AbstractElementAlias match_AbstractFeature_FeatureKeyword_2_1_0_or_PrototypeKeyword_2_0_0;
-	protected AbstractElementAlias match_Basic_type_BoolKeyword_1_3_or_StringKeyword_1_5;
 	protected AbstractElementAlias match_Constant_declaration_ConstKeyword_0_q;
+	protected AbstractElementAlias match_Theorem_call_CheckKeyword_0_0_or_ProveKeyword_0_1;
 	protected AbstractElementAlias match_Theorem_call___LessThanSignKeyword_2_0_NilKeyword_2_1_0_GreaterThanSignKeyword_2_2__q;
+	protected AbstractElementAlias match_UnnamedBooleanType_AadlbooleanKeyword_1_0_or_BoolKeyword_1_1;
+	protected AbstractElementAlias match_UnnamedEnumerationType_EnumKeyword_0_1_or_EnumerationKeyword_0_0;
+	protected AbstractElementAlias match_UnnamedIntegerType_AadlintegerKeyword_1_0_or_IntKeyword_1_1;
+	protected AbstractElementAlias match_UnnamedRealType_AadlrealKeyword_1_0_or_RealKeyword_1_1;
+	protected AbstractElementAlias match_UnnamedStringType_AadlstringKeyword_1_0_or_StringKeyword_1_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MCSGrammarAccess) access;
-		match_AadlPackage___PropertiesKeyword_3_0_NoneKeyword_3_1_1_0_SemicolonKeyword_3_1_1_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAadlPackageAccess().getPropertiesKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getAadlPackageAccess().getNoneKeyword_3_1_1_0()), new TokenAlias(false, false, grammarAccess.getAadlPackageAccess().getSemicolonKeyword_3_1_1_1()));
-		match_AbstractFeature_FeatureKeyword_2_1_0_or_PrototypeKeyword_2_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAbstractFeatureAccess().getFeatureKeyword_2_1_0()), new TokenAlias(false, false, grammarAccess.getAbstractFeatureAccess().getPrototypeKeyword_2_0_0()));
-		match_Basic_type_BoolKeyword_1_3_or_StringKeyword_1_5 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getBasic_typeAccess().getBoolKeyword_1_3()), new TokenAlias(false, false, grammarAccess.getBasic_typeAccess().getStringKeyword_1_5()));
 		match_Constant_declaration_ConstKeyword_0_q = new TokenAlias(false, true, grammarAccess.getConstant_declarationAccess().getConstKeyword_0());
+		match_Theorem_call_CheckKeyword_0_0_or_ProveKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTheorem_callAccess().getCheckKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getTheorem_callAccess().getProveKeyword_0_1()));
 		match_Theorem_call___LessThanSignKeyword_2_0_NilKeyword_2_1_0_GreaterThanSignKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getTheorem_callAccess().getLessThanSignKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getTheorem_callAccess().getNilKeyword_2_1_0()), new TokenAlias(false, false, grammarAccess.getTheorem_callAccess().getGreaterThanSignKeyword_2_2()));
+		match_UnnamedBooleanType_AadlbooleanKeyword_1_0_or_BoolKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUnnamedBooleanTypeAccess().getAadlbooleanKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getUnnamedBooleanTypeAccess().getBoolKeyword_1_1()));
+		match_UnnamedEnumerationType_EnumKeyword_0_1_or_EnumerationKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUnnamedEnumerationTypeAccess().getEnumKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getUnnamedEnumerationTypeAccess().getEnumerationKeyword_0_0()));
+		match_UnnamedIntegerType_AadlintegerKeyword_1_0_or_IntKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUnnamedIntegerTypeAccess().getAadlintegerKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getUnnamedIntegerTypeAccess().getIntKeyword_1_1()));
+		match_UnnamedRealType_AadlrealKeyword_1_0_or_RealKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUnnamedRealTypeAccess().getAadlrealKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getUnnamedRealTypeAccess().getRealKeyword_1_1()));
+		match_UnnamedStringType_AadlstringKeyword_1_0_or_StringKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUnnamedStringTypeAccess().getAadlstringKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getUnnamedStringTypeAccess().getStringKeyword_1_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if(ruleCall.getRule() == grammarAccess.getFLOWINRule())
-			return getFLOWINToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getFLOWOUTRule())
-			return getFLOWOUTToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getFULLINAMERule())
-			return getFULLINAMEToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getIDRule())
-			return getIDToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getPNAMERule())
-			return getPNAMEToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getSTARRule())
+		if(ruleCall.getRule() == grammarAccess.getSTARRule())
 			return getSTARToken(semanticObject, ruleCall, node);
-		return "";
-	}
-	
-	/**
-	 * FLOWIN: (ID '.')? ID
-	 * ;
-	 */
-	protected String getFLOWINToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
-	
-	/**
-	 * FLOWOUT: (ID '.')? ID
-	 * ;
-	 */
-	protected String getFLOWOUTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
-	
-	/**
-	 * FULLINAME:
-	 * 	ID '.' ID;
-	 */
-	protected String getFULLINAMEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ".";
-	}
-	
-	/**
-	 * terminal ID:	('a'..'z'
-	 *         |'A'..'Z'
-	 *         ) ( ('_')? ('a'..'z'
-	 *         |'A'..'Z'
-	 *         |'0'..'9'))*;
-	 */
-	protected String getIDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
-	
-	/**
-	 * PNAME:
-	 * 	ID ('::' ID)*;
-	 */
-	protected String getPNAMEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
 		return "";
 	}
 	
@@ -123,65 +66,26 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_AadlPackage___PropertiesKeyword_3_0_NoneKeyword_3_1_1_0_SemicolonKeyword_3_1_1_1__q.equals(syntax))
-				emit_AadlPackage___PropertiesKeyword_3_0_NoneKeyword_3_1_1_0_SemicolonKeyword_3_1_1_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_AbstractFeature_FeatureKeyword_2_1_0_or_PrototypeKeyword_2_0_0.equals(syntax))
-				emit_AbstractFeature_FeatureKeyword_2_1_0_or_PrototypeKeyword_2_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Basic_type_BoolKeyword_1_3_or_StringKeyword_1_5.equals(syntax))
-				emit_Basic_type_BoolKeyword_1_3_or_StringKeyword_1_5(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Constant_declaration_ConstKeyword_0_q.equals(syntax))
+			if(match_Constant_declaration_ConstKeyword_0_q.equals(syntax))
 				emit_Constant_declaration_ConstKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Theorem_call_CheckKeyword_0_0_or_ProveKeyword_0_1.equals(syntax))
+				emit_Theorem_call_CheckKeyword_0_0_or_ProveKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Theorem_call___LessThanSignKeyword_2_0_NilKeyword_2_1_0_GreaterThanSignKeyword_2_2__q.equals(syntax))
 				emit_Theorem_call___LessThanSignKeyword_2_0_NilKeyword_2_1_0_GreaterThanSignKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UnnamedBooleanType_AadlbooleanKeyword_1_0_or_BoolKeyword_1_1.equals(syntax))
+				emit_UnnamedBooleanType_AadlbooleanKeyword_1_0_or_BoolKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UnnamedEnumerationType_EnumKeyword_0_1_or_EnumerationKeyword_0_0.equals(syntax))
+				emit_UnnamedEnumerationType_EnumKeyword_0_1_or_EnumerationKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UnnamedIntegerType_AadlintegerKeyword_1_0_or_IntKeyword_1_1.equals(syntax))
+				emit_UnnamedIntegerType_AadlintegerKeyword_1_0_or_IntKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UnnamedRealType_AadlrealKeyword_1_0_or_RealKeyword_1_1.equals(syntax))
+				emit_UnnamedRealType_AadlrealKeyword_1_0_or_RealKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UnnamedStringType_AadlstringKeyword_1_0_or_StringKeyword_1_1.equals(syntax))
+				emit_UnnamedStringType_AadlstringKeyword_1_0_or_StringKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     ('properties' 'none' ';')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     ownedPrivateSection=PrivatePackageSection (ambiguity) 'end' PNAME ';' (rule end)
-	 *     ownedPublicSection=PublicPackageSection (ambiguity) 'end' PNAME ';' (rule end)
-	 */
-	protected void emit_AadlPackage___PropertiesKeyword_3_0_NoneKeyword_3_1_1_0_SemicolonKeyword_3_1_1_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'prototype' | 'feature'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     in?='in' (ambiguity) ';' (rule end)
-	 *     in?='in' (ambiguity) '{' ownedPropertyAssociation+=PropertyAssociation
-	 *     in?='in' (ambiguity) arrayDimension+=ArrayDimension
-	 *     name=ID ':' (ambiguity) ';' (rule end)
-	 *     name=ID ':' (ambiguity) '{' ownedPropertyAssociation+=PropertyAssociation
-	 *     name=ID ':' (ambiguity) arrayDimension+=ArrayDimension
-	 *     out?='out' (ambiguity) ';' (rule end)
-	 *     out?='out' (ambiguity) '{' ownedPropertyAssociation+=PropertyAssociation
-	 *     out?='out' (ambiguity) arrayDimension+=ArrayDimension
-	 *     refined=[AbstractFeature|REFINEDNAME] ':' 'refined' 'to' (ambiguity) ';' (rule end)
-	 *     refined=[AbstractFeature|REFINEDNAME] ':' 'refined' 'to' (ambiguity) '{' ownedPropertyAssociation+=PropertyAssociation
-	 *     refined=[AbstractFeature|REFINEDNAME] ':' 'refined' 'to' (ambiguity) arrayDimension+=ArrayDimension
-	 */
-	protected void emit_AbstractFeature_FeatureKeyword_2_1_0_or_PrototypeKeyword_2_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'bool' | 'string'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_Basic_type_BoolKeyword_1_3_or_StringKeyword_1_5(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 	/**
 	 * Ambiguous syntax:
 	 *     'const'?
@@ -195,13 +99,85 @@ public class MCSSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
+	 *     'check' | 'prove'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) tname=[Theorem|ID]
+	 */
+	protected void emit_Theorem_call_CheckKeyword_0_0_or_ProveKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     ('<' 'nil' '>')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=[F_or_T|ID] (ambiguity) '(' ')' (rule end)
-	 *     name=[F_or_T|ID] (ambiguity) '(' actarg+=Expr
+	 *     tname=[Theorem|ID] (ambiguity) '(' ')' (rule end)
+	 *     tname=[Theorem|ID] (ambiguity) '(' actarg+=Expr
 	 */
 	protected void emit_Theorem_call___LessThanSignKeyword_2_0_NilKeyword_2_1_0_GreaterThanSignKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'aadlboolean' | 'bool'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 */
+	protected void emit_UnnamedBooleanType_AadlbooleanKeyword_1_0_or_BoolKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'enumeration' | 'enum'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) '(' ownedLiteral+=EnumerationLiteral
+	 */
+	protected void emit_UnnamedEnumerationType_EnumKeyword_0_1_or_EnumerationKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'aadlinteger' | 'int'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'units' referencedUnitsType=[UnitsType|QPREF]
+	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) ownedUnitsType=UnnamedUnitsType
+	 *     (rule start) (ambiguity) range=IntegerRange
+	 */
+	protected void emit_UnnamedIntegerType_AadlintegerKeyword_1_0_or_IntKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'aadlreal' | 'real'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'units' referencedUnitsType=[UnitsType|QPREF]
+	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) ownedUnitsType=UnnamedUnitsType
+	 *     (rule start) (ambiguity) range=RealRange
+	 */
+	protected void emit_UnnamedRealType_AadlrealKeyword_1_0_or_RealKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'aadlstring' | 'string'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 */
+	protected void emit_UnnamedStringType_AadlstringKeyword_1_0_or_StringKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

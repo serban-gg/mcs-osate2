@@ -2,6 +2,7 @@
  */
 package org.osate.xtext.aadl2.mcs.mcs;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,39 +13,39 @@ package org.osate.xtext.aadl2.mcs.mcs;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.McsName#getType <em>Type</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.McsName#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMcsName()
  * @model
  * @generated
  */
-public interface McsName extends McsTypedName
+public interface McsName extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(Type_expression)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMcsName_Type()
-   * @model containment="true"
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMcsName_Name()
+   * @model
    * @generated
    */
-  Type_expression getType();
+  String getName();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.McsName#getType <em>Type</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.McsName#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' containment reference.
-   * @see #getType()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setType(Type_expression value);
+  void setName(String value);
 
 } // McsName

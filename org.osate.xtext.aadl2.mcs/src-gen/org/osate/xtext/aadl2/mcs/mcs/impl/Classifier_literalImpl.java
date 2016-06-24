@@ -27,7 +27,7 @@ import org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref;
  * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Classifier_literalImpl#getClasslit <em>Classlit</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Classifier_literalImpl#getArg <em>Arg</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Classifier_literalImpl#getNameref <em>Nameref</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,14 +45,14 @@ public class Classifier_literalImpl extends MinimalEObjectImpl.Container impleme
   protected ComponentClassifier classlit;
 
   /**
-   * The cached value of the '{@link #getArg() <em>Arg</em>}' containment reference.
+   * The cached value of the '{@link #getNameref() <em>Nameref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getArg()
+   * @see #getNameref()
    * @generated
    * @ordered
    */
-  protected Mcs_name_ref arg;
+  protected Mcs_name_ref nameref;
 
   /**
    * <!-- begin-user-doc -->
@@ -123,9 +123,9 @@ public class Classifier_literalImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public Mcs_name_ref getArg()
+  public Mcs_name_ref getNameref()
   {
-    return arg;
+    return nameref;
   }
 
   /**
@@ -133,13 +133,13 @@ public class Classifier_literalImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetArg(Mcs_name_ref newArg, NotificationChain msgs)
+  public NotificationChain basicSetNameref(Mcs_name_ref newNameref, NotificationChain msgs)
   {
-    Mcs_name_ref oldArg = arg;
-    arg = newArg;
+    Mcs_name_ref oldNameref = nameref;
+    nameref = newNameref;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.CLASSIFIER_LITERAL__ARG, oldArg, newArg);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.CLASSIFIER_LITERAL__NAMEREF, oldNameref, newNameref);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -150,20 +150,20 @@ public class Classifier_literalImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setArg(Mcs_name_ref newArg)
+  public void setNameref(Mcs_name_ref newNameref)
   {
-    if (newArg != arg)
+    if (newNameref != nameref)
     {
       NotificationChain msgs = null;
-      if (arg != null)
-        msgs = ((InternalEObject)arg).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.CLASSIFIER_LITERAL__ARG, null, msgs);
-      if (newArg != null)
-        msgs = ((InternalEObject)newArg).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.CLASSIFIER_LITERAL__ARG, null, msgs);
-      msgs = basicSetArg(newArg, msgs);
+      if (nameref != null)
+        msgs = ((InternalEObject)nameref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.CLASSIFIER_LITERAL__NAMEREF, null, msgs);
+      if (newNameref != null)
+        msgs = ((InternalEObject)newNameref).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.CLASSIFIER_LITERAL__NAMEREF, null, msgs);
+      msgs = basicSetNameref(newNameref, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CLASSIFIER_LITERAL__ARG, newArg, newArg));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.CLASSIFIER_LITERAL__NAMEREF, newNameref, newNameref));
   }
 
   /**
@@ -176,8 +176,8 @@ public class Classifier_literalImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case McsPackage.CLASSIFIER_LITERAL__ARG:
-        return basicSetArg(null, msgs);
+      case McsPackage.CLASSIFIER_LITERAL__NAMEREF:
+        return basicSetNameref(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -195,8 +195,8 @@ public class Classifier_literalImpl extends MinimalEObjectImpl.Container impleme
       case McsPackage.CLASSIFIER_LITERAL__CLASSLIT:
         if (resolve) return getClasslit();
         return basicGetClasslit();
-      case McsPackage.CLASSIFIER_LITERAL__ARG:
-        return getArg();
+      case McsPackage.CLASSIFIER_LITERAL__NAMEREF:
+        return getNameref();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -214,8 +214,8 @@ public class Classifier_literalImpl extends MinimalEObjectImpl.Container impleme
       case McsPackage.CLASSIFIER_LITERAL__CLASSLIT:
         setClasslit((ComponentClassifier)newValue);
         return;
-      case McsPackage.CLASSIFIER_LITERAL__ARG:
-        setArg((Mcs_name_ref)newValue);
+      case McsPackage.CLASSIFIER_LITERAL__NAMEREF:
+        setNameref((Mcs_name_ref)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -234,8 +234,8 @@ public class Classifier_literalImpl extends MinimalEObjectImpl.Container impleme
       case McsPackage.CLASSIFIER_LITERAL__CLASSLIT:
         setClasslit((ComponentClassifier)null);
         return;
-      case McsPackage.CLASSIFIER_LITERAL__ARG:
-        setArg((Mcs_name_ref)null);
+      case McsPackage.CLASSIFIER_LITERAL__NAMEREF:
+        setNameref((Mcs_name_ref)null);
         return;
     }
     super.eUnset(featureID);
@@ -253,8 +253,8 @@ public class Classifier_literalImpl extends MinimalEObjectImpl.Container impleme
     {
       case McsPackage.CLASSIFIER_LITERAL__CLASSLIT:
         return classlit != null;
-      case McsPackage.CLASSIFIER_LITERAL__ARG:
-        return arg != null;
+      case McsPackage.CLASSIFIER_LITERAL__NAMEREF:
+        return nameref != null;
     }
     return super.eIsSet(featureID);
   }

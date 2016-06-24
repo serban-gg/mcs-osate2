@@ -9,7 +9,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.osate.xtext.aadl2.mcs.mcs.Expr;
 import org.osate.xtext.aadl2.mcs.mcs.FunctionBody;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
@@ -23,11 +25,12 @@ import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
  * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.FunctionBodyImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.FunctionBodyImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FunctionBodyImpl extends DefinitionBodyImpl implements FunctionBody
+public class FunctionBodyImpl extends MinimalEObjectImpl.Container implements FunctionBody
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -38,6 +41,16 @@ public class FunctionBodyImpl extends DefinitionBodyImpl implements FunctionBody
    * @ordered
    */
   protected Type_expression type;
+
+  /**
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpr()
+   * @generated
+   * @ordered
+   */
+  protected Expr expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,6 +126,54 @@ public class FunctionBodyImpl extends DefinitionBodyImpl implements FunctionBody
    * <!-- end-user-doc -->
    * @generated
    */
+  public Expr getExpr()
+  {
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpr(Expr newExpr, NotificationChain msgs)
+  {
+    Expr oldExpr = expr;
+    expr = newExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.FUNCTION_BODY__EXPR, oldExpr, newExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpr(Expr newExpr)
+  {
+    if (newExpr != expr)
+    {
+      NotificationChain msgs = null;
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.FUNCTION_BODY__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.FUNCTION_BODY__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.FUNCTION_BODY__EXPR, newExpr, newExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -120,6 +181,8 @@ public class FunctionBodyImpl extends DefinitionBodyImpl implements FunctionBody
     {
       case McsPackage.FUNCTION_BODY__TYPE:
         return basicSetType(null, msgs);
+      case McsPackage.FUNCTION_BODY__EXPR:
+        return basicSetExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,6 +199,8 @@ public class FunctionBodyImpl extends DefinitionBodyImpl implements FunctionBody
     {
       case McsPackage.FUNCTION_BODY__TYPE:
         return getType();
+      case McsPackage.FUNCTION_BODY__EXPR:
+        return getExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,6 +217,9 @@ public class FunctionBodyImpl extends DefinitionBodyImpl implements FunctionBody
     {
       case McsPackage.FUNCTION_BODY__TYPE:
         setType((Type_expression)newValue);
+        return;
+      case McsPackage.FUNCTION_BODY__EXPR:
+        setExpr((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,6 +238,9 @@ public class FunctionBodyImpl extends DefinitionBodyImpl implements FunctionBody
       case McsPackage.FUNCTION_BODY__TYPE:
         setType((Type_expression)null);
         return;
+      case McsPackage.FUNCTION_BODY__EXPR:
+        setExpr((Expr)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -186,6 +257,8 @@ public class FunctionBodyImpl extends DefinitionBodyImpl implements FunctionBody
     {
       case McsPackage.FUNCTION_BODY__TYPE:
         return type != null;
+      case McsPackage.FUNCTION_BODY__EXPR:
+        return expr != null;
     }
     return super.eIsSet(featureID);
   }

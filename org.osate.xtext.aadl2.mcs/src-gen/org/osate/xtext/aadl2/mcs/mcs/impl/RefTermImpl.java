@@ -11,9 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.osate.aadl2.ContainmentPathElement;
-
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.NestedDotID;
 import org.osate.xtext.aadl2.mcs.mcs.RefTerm;
 
 /**
@@ -25,7 +24,7 @@ import org.osate.xtext.aadl2.mcs.mcs.RefTerm;
  * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.RefTermImpl#isRoot <em>Root</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.RefTermImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.RefTermImpl#getSub <em>Sub</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,14 +52,14 @@ public class RefTermImpl extends MinimalEObjectImpl.Container implements RefTerm
   protected boolean root = ROOT_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
+   * The cached value of the '{@link #getSub() <em>Sub</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPath()
+   * @see #getSub()
    * @generated
    * @ordered
    */
-  protected ContainmentPathElement path;
+  protected NestedDotID sub;
 
   /**
    * <!-- begin-user-doc -->
@@ -111,9 +110,9 @@ public class RefTermImpl extends MinimalEObjectImpl.Container implements RefTerm
    * <!-- end-user-doc -->
    * @generated
    */
-  public ContainmentPathElement getPath()
+  public NestedDotID getSub()
   {
-    return path;
+    return sub;
   }
 
   /**
@@ -121,13 +120,13 @@ public class RefTermImpl extends MinimalEObjectImpl.Container implements RefTerm
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPath(ContainmentPathElement newPath, NotificationChain msgs)
+  public NotificationChain basicSetSub(NestedDotID newSub, NotificationChain msgs)
   {
-    ContainmentPathElement oldPath = path;
-    path = newPath;
+    NestedDotID oldSub = sub;
+    sub = newSub;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.REF_TERM__PATH, oldPath, newPath);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.REF_TERM__SUB, oldSub, newSub);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -138,20 +137,20 @@ public class RefTermImpl extends MinimalEObjectImpl.Container implements RefTerm
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPath(ContainmentPathElement newPath)
+  public void setSub(NestedDotID newSub)
   {
-    if (newPath != path)
+    if (newSub != sub)
     {
       NotificationChain msgs = null;
-      if (path != null)
-        msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.REF_TERM__PATH, null, msgs);
-      if (newPath != null)
-        msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.REF_TERM__PATH, null, msgs);
-      msgs = basicSetPath(newPath, msgs);
+      if (sub != null)
+        msgs = ((InternalEObject)sub).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.REF_TERM__SUB, null, msgs);
+      if (newSub != null)
+        msgs = ((InternalEObject)newSub).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.REF_TERM__SUB, null, msgs);
+      msgs = basicSetSub(newSub, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.REF_TERM__PATH, newPath, newPath));
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.REF_TERM__SUB, newSub, newSub));
   }
 
   /**
@@ -164,8 +163,8 @@ public class RefTermImpl extends MinimalEObjectImpl.Container implements RefTerm
   {
     switch (featureID)
     {
-      case McsPackage.REF_TERM__PATH:
-        return basicSetPath(null, msgs);
+      case McsPackage.REF_TERM__SUB:
+        return basicSetSub(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -182,8 +181,8 @@ public class RefTermImpl extends MinimalEObjectImpl.Container implements RefTerm
     {
       case McsPackage.REF_TERM__ROOT:
         return isRoot();
-      case McsPackage.REF_TERM__PATH:
-        return getPath();
+      case McsPackage.REF_TERM__SUB:
+        return getSub();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -201,8 +200,8 @@ public class RefTermImpl extends MinimalEObjectImpl.Container implements RefTerm
       case McsPackage.REF_TERM__ROOT:
         setRoot((Boolean)newValue);
         return;
-      case McsPackage.REF_TERM__PATH:
-        setPath((ContainmentPathElement)newValue);
+      case McsPackage.REF_TERM__SUB:
+        setSub((NestedDotID)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,8 +220,8 @@ public class RefTermImpl extends MinimalEObjectImpl.Container implements RefTerm
       case McsPackage.REF_TERM__ROOT:
         setRoot(ROOT_EDEFAULT);
         return;
-      case McsPackage.REF_TERM__PATH:
-        setPath((ContainmentPathElement)null);
+      case McsPackage.REF_TERM__SUB:
+        setSub((NestedDotID)null);
         return;
     }
     super.eUnset(featureID);
@@ -240,8 +239,8 @@ public class RefTermImpl extends MinimalEObjectImpl.Container implements RefTerm
     {
       case McsPackage.REF_TERM__ROOT:
         return root != ROOT_EDEFAULT;
-      case McsPackage.REF_TERM__PATH:
-        return path != null;
+      case McsPackage.REF_TERM__SUB:
+        return sub != null;
     }
     return super.eIsSet(featureID);
   }

@@ -5,13 +5,8 @@ package org.osate.xtext.aadl2.mcs.mcs;
 import org.eclipse.emf.ecore.EObject;
 
 import org.osate.aadl2.AadlBoolean;
-import org.osate.aadl2.AadlInteger;
-import org.osate.aadl2.AadlReal;
 import org.osate.aadl2.AadlString;
-import org.osate.aadl2.ClassifierType;
 import org.osate.aadl2.EnumerationType;
-import org.osate.aadl2.RangeType;
-import org.osate.aadl2.ReferenceType;
 import org.osate.aadl2.UnitsType;
 
 /**
@@ -32,8 +27,6 @@ import org.osate.aadl2.UnitsType;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getInteger <em>Integer</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getReal <em>Real</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getRange <em>Range</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getRef <em>Ref</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getTypename <em>Typename</em>}</li>
  * </ul>
  *
@@ -208,12 +201,12 @@ public interface Basic_type extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Integer</em>' containment reference.
-   * @see #setInteger(AadlInteger)
+   * @see #setInteger(UnnamedIntegerType)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type_Integer()
    * @model containment="true"
    * @generated
    */
-  AadlInteger getInteger();
+  UnnamedIntegerType getInteger();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getInteger <em>Integer</em>}' containment reference.
@@ -223,7 +216,7 @@ public interface Basic_type extends EObject
    * @see #getInteger()
    * @generated
    */
-  void setInteger(AadlInteger value);
+  void setInteger(UnnamedIntegerType value);
 
   /**
    * Returns the value of the '<em><b>Real</b></em>' containment reference.
@@ -234,12 +227,12 @@ public interface Basic_type extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Real</em>' containment reference.
-   * @see #setReal(AadlReal)
+   * @see #setReal(UnnamedRealType)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type_Real()
    * @model containment="true"
    * @generated
    */
-  AadlReal getReal();
+  UnnamedRealType getReal();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getReal <em>Real</em>}' containment reference.
@@ -249,7 +242,7 @@ public interface Basic_type extends EObject
    * @see #getReal()
    * @generated
    */
-  void setReal(AadlReal value);
+  void setReal(UnnamedRealType value);
 
   /**
    * Returns the value of the '<em><b>Range</b></em>' containment reference.
@@ -260,12 +253,12 @@ public interface Basic_type extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Range</em>' containment reference.
-   * @see #setRange(RangeType)
+   * @see #setRange(UnnamedRangeType)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type_Range()
    * @model containment="true"
    * @generated
    */
-  RangeType getRange();
+  UnnamedRangeType getRange();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getRange <em>Range</em>}' containment reference.
@@ -275,59 +268,7 @@ public interface Basic_type extends EObject
    * @see #getRange()
    * @generated
    */
-  void setRange(RangeType value);
-
-  /**
-   * Returns the value of the '<em><b>Class</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Class</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Class</em>' containment reference.
-   * @see #setClass(ClassifierType)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type_Class()
-   * @model containment="true"
-   * @generated
-   */
-  ClassifierType getClass_();
-
-  /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getClass_ <em>Class</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Class</em>' containment reference.
-   * @see #getClass_()
-   * @generated
-   */
-  void setClass(ClassifierType value);
-
-  /**
-   * Returns the value of the '<em><b>Ref</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Ref</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ref</em>' containment reference.
-   * @see #setRef(ReferenceType)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getBasic_type_Ref()
-   * @model containment="true"
-   * @generated
-   */
-  ReferenceType getRef();
-
-  /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Basic_type#getRef <em>Ref</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ref</em>' containment reference.
-   * @see #getRef()
-   * @generated
-   */
-  void setRef(ReferenceType value);
+  void setRange(UnnamedRangeType value);
 
   /**
    * Returns the value of the '<em><b>Typename</b></em>' reference.

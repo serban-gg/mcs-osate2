@@ -16,7 +16,7 @@ import org.osate.aadl2.ComponentClassifier;
  * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Classifier_literal#getClasslit <em>Classlit</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Classifier_literal#getArg <em>Arg</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.Classifier_literal#getNameref <em>Nameref</em>}</li>
  * </ul>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClassifier_literal()
@@ -52,29 +52,29 @@ public interface Classifier_literal extends EObject
   void setClasslit(ComponentClassifier value);
 
   /**
-   * Returns the value of the '<em><b>Arg</b></em>' containment reference.
+   * Returns the value of the '<em><b>Nameref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Arg</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Nameref</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Arg</em>' containment reference.
-   * @see #setArg(Mcs_name_ref)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClassifier_literal_Arg()
+   * @return the value of the '<em>Nameref</em>' containment reference.
+   * @see #setNameref(Mcs_name_ref)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getClassifier_literal_Nameref()
    * @model containment="true"
    * @generated
    */
-  Mcs_name_ref getArg();
+  Mcs_name_ref getNameref();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Classifier_literal#getArg <em>Arg</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.Classifier_literal#getNameref <em>Nameref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Arg</em>' containment reference.
-   * @see #getArg()
+   * @param value the new value of the '<em>Nameref</em>' containment reference.
+   * @see #getNameref()
    * @generated
    */
-  void setArg(Mcs_name_ref value);
+  void setNameref(Mcs_name_ref value);
 
 } // Classifier_literal

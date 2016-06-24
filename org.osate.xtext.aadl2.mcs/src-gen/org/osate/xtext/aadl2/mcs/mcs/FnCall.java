@@ -34,12 +34,12 @@ public interface FnCall extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Fn</em>' reference.
-   * @see #setFn(F_or_T)
+   * @see #setFn(Function)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getFnCall_Fn()
    * @model
    * @generated
    */
-  F_or_T getFn();
+  Function getFn();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.FnCall#getFn <em>Fn</em>}' reference.
@@ -49,7 +49,7 @@ public interface FnCall extends EObject
    * @see #getFn()
    * @generated
    */
-  void setFn(F_or_T value);
+  void setFn(Function value);
 
   /**
    * Returns the value of the '<em><b>Args</b></em>' containment reference list.

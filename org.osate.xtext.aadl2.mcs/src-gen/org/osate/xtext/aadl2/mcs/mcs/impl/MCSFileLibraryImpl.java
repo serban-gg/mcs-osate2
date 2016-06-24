@@ -21,9 +21,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.osate.aadl2.ModelUnit;
 
 import org.osate.xtext.aadl2.mcs.mcs.Constant_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.F_or_T;
+import org.osate.xtext.aadl2.mcs.mcs.Function;
 import org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.Theorem;
 import org.osate.xtext.aadl2.mcs.mcs.TheoremCall;
 import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
 
@@ -96,7 +97,7 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    * @ordered
    */
-  protected EList<F_or_T> functions;
+  protected EList<Function> functions;
 
   /**
    * The cached value of the '{@link #getTheorems() <em>Theorems</em>}' containment reference list.
@@ -106,7 +107,7 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    * @ordered
    */
-  protected EList<F_or_T> theorems;
+  protected EList<Theorem> theorems;
 
   /**
    * The cached value of the '{@link #getCalls() <em>Calls</em>}' containment reference list.
@@ -200,11 +201,11 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<F_or_T> getFunctions()
+  public EList<Function> getFunctions()
   {
     if (functions == null)
     {
-      functions = new EObjectContainmentEList<F_or_T>(F_or_T.class, this, McsPackage.MCS_FILE_LIBRARY__FUNCTIONS);
+      functions = new EObjectContainmentEList<Function>(Function.class, this, McsPackage.MCS_FILE_LIBRARY__FUNCTIONS);
     }
     return functions;
   }
@@ -214,11 +215,11 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<F_or_T> getTheorems()
+  public EList<Theorem> getTheorems()
   {
     if (theorems == null)
     {
-      theorems = new EObjectContainmentEList<F_or_T>(F_or_T.class, this, McsPackage.MCS_FILE_LIBRARY__THEOREMS);
+      theorems = new EObjectContainmentEList<Theorem>(Theorem.class, this, McsPackage.MCS_FILE_LIBRARY__THEOREMS);
     }
     return theorems;
   }
@@ -318,11 +319,11 @@ public class MCSFileLibraryImpl extends MinimalEObjectImpl.Container implements 
         return;
       case McsPackage.MCS_FILE_LIBRARY__FUNCTIONS:
         getFunctions().clear();
-        getFunctions().addAll((Collection<? extends F_or_T>)newValue);
+        getFunctions().addAll((Collection<? extends Function>)newValue);
         return;
       case McsPackage.MCS_FILE_LIBRARY__THEOREMS:
         getTheorems().clear();
-        getTheorems().addAll((Collection<? extends F_or_T>)newValue);
+        getTheorems().addAll((Collection<? extends Theorem>)newValue);
         return;
       case McsPackage.MCS_FILE_LIBRARY__CALLS:
         getCalls().clear();

@@ -3,16 +3,14 @@
 package org.osate.xtext.aadl2.mcs.mcs.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.McsName;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
-import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,22 +20,32 @@ import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.McsNameImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.McsNameImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class McsNameImpl extends McsTypedNameImpl implements McsName
+public class McsNameImpl extends MinimalEObjectImpl.Container implements McsName
 {
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected Type_expression type;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,9 +73,9 @@ public class McsNameImpl extends McsTypedNameImpl implements McsName
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type_expression getType()
+  public String getName()
   {
-    return type;
+    return name;
   }
 
   /**
@@ -75,53 +83,12 @@ public class McsNameImpl extends McsTypedNameImpl implements McsName
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(Type_expression newType, NotificationChain msgs)
+  public void setName(String newName)
   {
-    Type_expression oldType = type;
-    type = newType;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.MCS_NAME__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(Type_expression newType)
-  {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.MCS_NAME__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.MCS_NAME__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.MCS_NAME__TYPE, newType, newType));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case McsPackage.MCS_NAME__TYPE:
-        return basicSetType(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.MCS_NAME__NAME, oldName, name));
   }
 
   /**
@@ -134,8 +101,8 @@ public class McsNameImpl extends McsTypedNameImpl implements McsName
   {
     switch (featureID)
     {
-      case McsPackage.MCS_NAME__TYPE:
-        return getType();
+      case McsPackage.MCS_NAME__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -150,8 +117,8 @@ public class McsNameImpl extends McsTypedNameImpl implements McsName
   {
     switch (featureID)
     {
-      case McsPackage.MCS_NAME__TYPE:
-        setType((Type_expression)newValue);
+      case McsPackage.MCS_NAME__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -167,8 +134,8 @@ public class McsNameImpl extends McsTypedNameImpl implements McsName
   {
     switch (featureID)
     {
-      case McsPackage.MCS_NAME__TYPE:
-        setType((Type_expression)null);
+      case McsPackage.MCS_NAME__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -184,10 +151,27 @@ public class McsNameImpl extends McsTypedNameImpl implements McsName
   {
     switch (featureID)
     {
-      case McsPackage.MCS_NAME__TYPE:
-        return type != null;
+      case McsPackage.MCS_NAME__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //McsNameImpl

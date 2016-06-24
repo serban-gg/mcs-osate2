@@ -14,6 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Parameter extends EObject, org.osate.aadl2.Parameter
+public interface Parameter extends EObject
 {
 } // Parameter

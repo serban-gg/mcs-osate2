@@ -12,8 +12,9 @@ package org.osate.xtext.aadl2.mcs.mcs;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getBinding <em>Binding</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr <em>Expr</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getLocal <em>Local</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr1 <em>Expr1</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr2 <em>Expr2</em>}</li>
  * </ul>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getLetExpr()
@@ -23,55 +24,81 @@ package org.osate.xtext.aadl2.mcs.mcs;
 public interface LetExpr extends Expr
 {
   /**
-   * Returns the value of the '<em><b>Binding</b></em>' containment reference.
+   * Returns the value of the '<em><b>Local</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Binding</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Local</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Binding</em>' containment reference.
-   * @see #setBinding(Let_binding)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getLetExpr_Binding()
+   * @return the value of the '<em>Local</em>' containment reference.
+   * @see #setLocal(McsTypedName)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getLetExpr_Local()
    * @model containment="true"
    * @generated
    */
-  Let_binding getBinding();
+  McsTypedName getLocal();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getBinding <em>Binding</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getLocal <em>Local</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Binding</em>' containment reference.
-   * @see #getBinding()
+   * @param value the new value of the '<em>Local</em>' containment reference.
+   * @see #getLocal()
    * @generated
    */
-  void setBinding(Let_binding value);
+  void setLocal(McsTypedName value);
 
   /**
-   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
+   * Returns the value of the '<em><b>Expr1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Expr1</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expr)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getLetExpr_Expr()
+   * @return the value of the '<em>Expr1</em>' containment reference.
+   * @see #setExpr1(Expr)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getLetExpr_Expr1()
    * @model containment="true"
    * @generated
    */
-  Expr getExpr();
+  Expr getExpr1();
 
   /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr <em>Expr</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr1 <em>Expr1</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expr</em>' containment reference.
-   * @see #getExpr()
+   * @param value the new value of the '<em>Expr1</em>' containment reference.
+   * @see #getExpr1()
    * @generated
    */
-  void setExpr(Expr value);
+  void setExpr1(Expr value);
+
+  /**
+   * Returns the value of the '<em><b>Expr2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expr2</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expr2</em>' containment reference.
+   * @see #setExpr2(Expr)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getLetExpr_Expr2()
+   * @model containment="true"
+   * @generated
+   */
+  Expr getExpr2();
+
+  /**
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.LetExpr#getExpr2 <em>Expr2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expr2</em>' containment reference.
+   * @see #getExpr2()
+   * @generated
+   */
+  void setExpr2(Expr value);
 
 } // LetExpr

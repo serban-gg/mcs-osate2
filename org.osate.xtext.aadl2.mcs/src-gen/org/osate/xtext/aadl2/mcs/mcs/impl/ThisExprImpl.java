@@ -10,9 +10,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.osate.aadl2.ContainedNamedElement;
-
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.NestedDotID;
 import org.osate.xtext.aadl2.mcs.mcs.ThisExpr;
 
 /**
@@ -38,7 +37,7 @@ public class ThisExprImpl extends ExprImpl implements ThisExpr
    * @generated
    * @ordered
    */
-  protected ContainedNamedElement sub;
+  protected NestedDotID sub;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,7 +65,7 @@ public class ThisExprImpl extends ExprImpl implements ThisExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public ContainedNamedElement getSub()
+  public NestedDotID getSub()
   {
     return sub;
   }
@@ -76,9 +75,9 @@ public class ThisExprImpl extends ExprImpl implements ThisExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSub(ContainedNamedElement newSub, NotificationChain msgs)
+  public NotificationChain basicSetSub(NestedDotID newSub, NotificationChain msgs)
   {
-    ContainedNamedElement oldSub = sub;
+    NestedDotID oldSub = sub;
     sub = newSub;
     if (eNotificationRequired())
     {
@@ -93,7 +92,7 @@ public class ThisExprImpl extends ExprImpl implements ThisExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSub(ContainedNamedElement newSub)
+  public void setSub(NestedDotID newSub)
   {
     if (newSub != sub)
     {
@@ -152,7 +151,7 @@ public class ThisExprImpl extends ExprImpl implements ThisExpr
     switch (featureID)
     {
       case McsPackage.THIS_EXPR__SUB:
-        setSub((ContainedNamedElement)newValue);
+        setSub((NestedDotID)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +168,7 @@ public class ThisExprImpl extends ExprImpl implements ThisExpr
     switch (featureID)
     {
       case McsPackage.THIS_EXPR__SUB:
-        setSub((ContainedNamedElement)null);
+        setSub((NestedDotID)null);
         return;
     }
     super.eUnset(featureID);

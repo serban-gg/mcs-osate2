@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -20,7 +19,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.osate.xtext.aadl2.mcs.mcs.Expr;
 import org.osate.xtext.aadl2.mcs.mcs.FilterMapExpr;
+import org.osate.xtext.aadl2.mcs.mcs.FilterSet;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.Parameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +48,7 @@ public class FilterMapExprImpl extends ExprImpl implements FilterMapExpr
    * @generated
    * @ordered
    */
-  protected Expr map;
+  protected FilterSet map;
 
   /**
    * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
@@ -57,7 +58,7 @@ public class FilterMapExprImpl extends ExprImpl implements FilterMapExpr
    * @generated
    * @ordered
    */
-  protected EList<EObject> args;
+  protected EList<Parameter> args;
 
   /**
    * The cached value of the '{@link #getFilter() <em>Filter</em>}' containment reference.
@@ -95,7 +96,7 @@ public class FilterMapExprImpl extends ExprImpl implements FilterMapExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getMap()
+  public FilterSet getMap()
   {
     return map;
   }
@@ -105,9 +106,9 @@ public class FilterMapExprImpl extends ExprImpl implements FilterMapExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMap(Expr newMap, NotificationChain msgs)
+  public NotificationChain basicSetMap(FilterSet newMap, NotificationChain msgs)
   {
-    Expr oldMap = map;
+    FilterSet oldMap = map;
     map = newMap;
     if (eNotificationRequired())
     {
@@ -122,7 +123,7 @@ public class FilterMapExprImpl extends ExprImpl implements FilterMapExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMap(Expr newMap)
+  public void setMap(FilterSet newMap)
   {
     if (newMap != map)
     {
@@ -143,11 +144,11 @@ public class FilterMapExprImpl extends ExprImpl implements FilterMapExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<EObject> getArgs()
+  public EList<Parameter> getArgs()
   {
     if (args == null)
     {
-      args = new EObjectContainmentEList<EObject>(EObject.class, this, McsPackage.FILTER_MAP_EXPR__ARGS);
+      args = new EObjectContainmentEList<Parameter>(Parameter.class, this, McsPackage.FILTER_MAP_EXPR__ARGS);
     }
     return args;
   }
@@ -252,11 +253,11 @@ public class FilterMapExprImpl extends ExprImpl implements FilterMapExpr
     switch (featureID)
     {
       case McsPackage.FILTER_MAP_EXPR__MAP:
-        setMap((Expr)newValue);
+        setMap((FilterSet)newValue);
         return;
       case McsPackage.FILTER_MAP_EXPR__ARGS:
         getArgs().clear();
-        getArgs().addAll((Collection<? extends EObject>)newValue);
+        getArgs().addAll((Collection<? extends Parameter>)newValue);
         return;
       case McsPackage.FILTER_MAP_EXPR__FILTER:
         setFilter((Expr)newValue);
@@ -276,7 +277,7 @@ public class FilterMapExprImpl extends ExprImpl implements FilterMapExpr
     switch (featureID)
     {
       case McsPackage.FILTER_MAP_EXPR__MAP:
-        setMap((Expr)null);
+        setMap((FilterSet)null);
         return;
       case McsPackage.FILTER_MAP_EXPR__ARGS:
         getArgs().clear();

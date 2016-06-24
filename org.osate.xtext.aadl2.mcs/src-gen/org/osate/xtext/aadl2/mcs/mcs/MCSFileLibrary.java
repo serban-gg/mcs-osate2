@@ -98,7 +98,7 @@ public interface MCSFileLibrary extends EObject
 
   /**
    * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.F_or_T}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Function}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
@@ -110,11 +110,11 @@ public interface MCSFileLibrary extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<F_or_T> getFunctions();
+  EList<Function> getFunctions();
 
   /**
    * Returns the value of the '<em><b>Theorems</b></em>' containment reference list.
-   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.F_or_T}.
+   * The list contents are of type {@link org.osate.xtext.aadl2.mcs.mcs.Theorem}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Theorems</em>' containment reference list isn't clear,
@@ -126,7 +126,7 @@ public interface MCSFileLibrary extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<F_or_T> getTheorems();
+  EList<Theorem> getTheorems();
 
   /**
    * Returns the value of the '<em><b>Calls</b></em>' containment reference list.

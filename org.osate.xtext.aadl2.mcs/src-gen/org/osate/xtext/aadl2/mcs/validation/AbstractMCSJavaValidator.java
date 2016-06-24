@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EPackage;
 
-public class AbstractMCSJavaValidator extends org.osate.xtext.aadl2.validation.Aadl2JavaValidator {
+public class AbstractMCSJavaValidator extends org.osate.xtext.aadl2.properties.validation.PropertiesJavaValidator {
 
 	@Override
 	protected List<EPackage> getEPackages() {

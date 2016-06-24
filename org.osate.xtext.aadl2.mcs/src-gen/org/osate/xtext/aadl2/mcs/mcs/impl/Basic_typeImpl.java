@@ -12,18 +12,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.osate.aadl2.AadlBoolean;
-import org.osate.aadl2.AadlInteger;
-import org.osate.aadl2.AadlReal;
 import org.osate.aadl2.AadlString;
-import org.osate.aadl2.ClassifierType;
 import org.osate.aadl2.EnumerationType;
-import org.osate.aadl2.RangeType;
-import org.osate.aadl2.ReferenceType;
 import org.osate.aadl2.UnitsType;
 
 import org.osate.xtext.aadl2.mcs.mcs.Basic_type;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
+import org.osate.xtext.aadl2.mcs.mcs.UnnamedIntegerType;
+import org.osate.xtext.aadl2.mcs.mcs.UnnamedRangeType;
+import org.osate.xtext.aadl2.mcs.mcs.UnnamedRealType;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,8 +40,6 @@ import org.osate.xtext.aadl2.mcs.mcs.Type_declaration;
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getInteger <em>Integer</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getReal <em>Real</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getRange <em>Range</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.Basic_typeImpl#getTypename <em>Typename</em>}</li>
  * </ul>
  *
@@ -139,7 +135,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * @generated
    * @ordered
    */
-  protected AadlInteger integer;
+  protected UnnamedIntegerType integer;
 
   /**
    * The cached value of the '{@link #getReal() <em>Real</em>}' containment reference.
@@ -149,7 +145,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * @generated
    * @ordered
    */
-  protected AadlReal real;
+  protected UnnamedRealType real;
 
   /**
    * The cached value of the '{@link #getRange() <em>Range</em>}' containment reference.
@@ -159,27 +155,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * @generated
    * @ordered
    */
-  protected RangeType range;
-
-  /**
-   * The cached value of the '{@link #getClass_() <em>Class</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getClass_()
-   * @generated
-   * @ordered
-   */
-  protected ClassifierType class_;
-
-  /**
-   * The cached value of the '{@link #getRef() <em>Ref</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRef()
-   * @generated
-   * @ordered
-   */
-  protected ReferenceType ref;
+  protected UnnamedRangeType range;
 
   /**
    * The cached value of the '{@link #getTypename() <em>Typename</em>}' reference.
@@ -455,7 +431,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public AadlInteger getInteger()
+  public UnnamedIntegerType getInteger()
   {
     return integer;
   }
@@ -465,9 +441,9 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetInteger(AadlInteger newInteger, NotificationChain msgs)
+  public NotificationChain basicSetInteger(UnnamedIntegerType newInteger, NotificationChain msgs)
   {
-    AadlInteger oldInteger = integer;
+    UnnamedIntegerType oldInteger = integer;
     integer = newInteger;
     if (eNotificationRequired())
     {
@@ -482,7 +458,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setInteger(AadlInteger newInteger)
+  public void setInteger(UnnamedIntegerType newInteger)
   {
     if (newInteger != integer)
     {
@@ -503,7 +479,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public AadlReal getReal()
+  public UnnamedRealType getReal()
   {
     return real;
   }
@@ -513,9 +489,9 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReal(AadlReal newReal, NotificationChain msgs)
+  public NotificationChain basicSetReal(UnnamedRealType newReal, NotificationChain msgs)
   {
-    AadlReal oldReal = real;
+    UnnamedRealType oldReal = real;
     real = newReal;
     if (eNotificationRequired())
     {
@@ -530,7 +506,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setReal(AadlReal newReal)
+  public void setReal(UnnamedRealType newReal)
   {
     if (newReal != real)
     {
@@ -551,7 +527,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public RangeType getRange()
+  public UnnamedRangeType getRange()
   {
     return range;
   }
@@ -561,9 +537,9 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRange(RangeType newRange, NotificationChain msgs)
+  public NotificationChain basicSetRange(UnnamedRangeType newRange, NotificationChain msgs)
   {
-    RangeType oldRange = range;
+    UnnamedRangeType oldRange = range;
     range = newRange;
     if (eNotificationRequired())
     {
@@ -578,7 +554,7 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRange(RangeType newRange)
+  public void setRange(UnnamedRangeType newRange)
   {
     if (newRange != range)
     {
@@ -592,102 +568,6 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__RANGE, newRange, newRange));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ClassifierType getClass_()
-  {
-    return class_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetClass(ClassifierType newClass, NotificationChain msgs)
-  {
-    ClassifierType oldClass = class_;
-    class_ = newClass;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__CLASS, oldClass, newClass);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setClass(ClassifierType newClass)
-  {
-    if (newClass != class_)
-    {
-      NotificationChain msgs = null;
-      if (class_ != null)
-        msgs = ((InternalEObject)class_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.BASIC_TYPE__CLASS, null, msgs);
-      if (newClass != null)
-        msgs = ((InternalEObject)newClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.BASIC_TYPE__CLASS, null, msgs);
-      msgs = basicSetClass(newClass, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__CLASS, newClass, newClass));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ReferenceType getRef()
-  {
-    return ref;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRef(ReferenceType newRef, NotificationChain msgs)
-  {
-    ReferenceType oldRef = ref;
-    ref = newRef;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__REF, oldRef, newRef);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRef(ReferenceType newRef)
-  {
-    if (newRef != ref)
-    {
-      NotificationChain msgs = null;
-      if (ref != null)
-        msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.BASIC_TYPE__REF, null, msgs);
-      if (newRef != null)
-        msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.BASIC_TYPE__REF, null, msgs);
-      msgs = basicSetRef(newRef, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.BASIC_TYPE__REF, newRef, newRef));
   }
 
   /**
@@ -757,10 +637,6 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
         return basicSetReal(null, msgs);
       case McsPackage.BASIC_TYPE__RANGE:
         return basicSetRange(null, msgs);
-      case McsPackage.BASIC_TYPE__CLASS:
-        return basicSetClass(null, msgs);
-      case McsPackage.BASIC_TYPE__REF:
-        return basicSetRef(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -793,10 +669,6 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
         return getReal();
       case McsPackage.BASIC_TYPE__RANGE:
         return getRange();
-      case McsPackage.BASIC_TYPE__CLASS:
-        return getClass_();
-      case McsPackage.BASIC_TYPE__REF:
-        return getRef();
       case McsPackage.BASIC_TYPE__TYPENAME:
         if (resolve) return getTypename();
         return basicGetTypename();
@@ -833,19 +705,13 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
         setUnits((UnitsType)newValue);
         return;
       case McsPackage.BASIC_TYPE__INTEGER:
-        setInteger((AadlInteger)newValue);
+        setInteger((UnnamedIntegerType)newValue);
         return;
       case McsPackage.BASIC_TYPE__REAL:
-        setReal((AadlReal)newValue);
+        setReal((UnnamedRealType)newValue);
         return;
       case McsPackage.BASIC_TYPE__RANGE:
-        setRange((RangeType)newValue);
-        return;
-      case McsPackage.BASIC_TYPE__CLASS:
-        setClass((ClassifierType)newValue);
-        return;
-      case McsPackage.BASIC_TYPE__REF:
-        setRef((ReferenceType)newValue);
+        setRange((UnnamedRangeType)newValue);
         return;
       case McsPackage.BASIC_TYPE__TYPENAME:
         setTypename((Type_declaration)newValue);
@@ -883,19 +749,13 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
         setUnits((UnitsType)null);
         return;
       case McsPackage.BASIC_TYPE__INTEGER:
-        setInteger((AadlInteger)null);
+        setInteger((UnnamedIntegerType)null);
         return;
       case McsPackage.BASIC_TYPE__REAL:
-        setReal((AadlReal)null);
+        setReal((UnnamedRealType)null);
         return;
       case McsPackage.BASIC_TYPE__RANGE:
-        setRange((RangeType)null);
-        return;
-      case McsPackage.BASIC_TYPE__CLASS:
-        setClass((ClassifierType)null);
-        return;
-      case McsPackage.BASIC_TYPE__REF:
-        setRef((ReferenceType)null);
+        setRange((UnnamedRangeType)null);
         return;
       case McsPackage.BASIC_TYPE__TYPENAME:
         setTypename((Type_declaration)null);
@@ -932,10 +792,6 @@ public class Basic_typeImpl extends MinimalEObjectImpl.Container implements Basi
         return real != null;
       case McsPackage.BASIC_TYPE__RANGE:
         return range != null;
-      case McsPackage.BASIC_TYPE__CLASS:
-        return class_ != null;
-      case McsPackage.BASIC_TYPE__REF:
-        return ref != null;
       case McsPackage.BASIC_TYPE__TYPENAME:
         return typename != null;
     }
