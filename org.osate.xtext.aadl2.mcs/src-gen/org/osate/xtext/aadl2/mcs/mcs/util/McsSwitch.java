@@ -95,10 +95,10 @@ public class McsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case McsPackage.MCS_FILE_LIBRARY:
+      case McsPackage.MCS_FILE:
       {
-        MCSFileLibrary mcsFileLibrary = (MCSFileLibrary)theEObject;
-        T result = caseMCSFileLibrary(mcsFileLibrary);
+        MCSFile mcsFile = (MCSFile)theEObject;
+        T result = caseMCSFile(mcsFile);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -183,25 +183,11 @@ public class McsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case McsPackage.MCS_NAME:
-      {
-        McsName mcsName = (McsName)theEObject;
-        T result = caseMcsName(mcsName);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case McsPackage.MCS_TYPED_NAME:
       {
         McsTypedName mcsTypedName = (McsTypedName)theEObject;
         T result = caseMcsTypedName(mcsTypedName);
         if (result == null) result = caseParameter(mcsTypedName);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case McsPackage.DOMAIN:
-      {
-        Domain domain = (Domain)theEObject;
-        T result = caseDomain(domain);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -337,26 +323,11 @@ public class McsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case McsPackage.RECORD_TYPE:
-      {
-        Record_type record_type = (Record_type)theEObject;
-        T result = caseRecord_type(record_type);
-        if (result == null) result = caseComposite_type(record_type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case McsPackage.UNION_TYPE:
       {
         Union_type union_type = (Union_type)theEObject;
         T result = caseUnion_type(union_type);
         if (result == null) result = caseComposite_type(union_type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case McsPackage.ID_TYPE_PAIR:
-      {
-        Id_type_pair id_type_pair = (Id_type_pair)theEObject;
-        T result = caseId_type_pair(id_type_pair);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -723,17 +694,17 @@ public class McsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>MCS File Library</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>MCS File</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>MCS File Library</em>'.
+   * @return the result of interpreting the object as an instance of '<em>MCS File</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMCSFileLibrary(MCSFileLibrary object)
+  public T caseMCSFile(MCSFile object)
   {
     return null;
   }
@@ -915,22 +886,6 @@ public class McsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Name</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Name</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMcsName(McsName object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Typed Name</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -942,22 +897,6 @@ public class McsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMcsTypedName(McsTypedName object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Domain</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Domain</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDomain(Domain object)
   {
     return null;
   }
@@ -1251,22 +1190,6 @@ public class McsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Record type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Record type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRecord_type(Record_type object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Union type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1278,22 +1201,6 @@ public class McsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUnion_type(Union_type object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Id type pair</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Id type pair</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseId_type_pair(Id_type_pair object)
   {
     return null;
   }

@@ -28,7 +28,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cMcsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cFileAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cFileMCSFileLibraryParserRuleCall_1_1_0 = (RuleCall)cFileAssignment_1_1.eContents().get(0);
+		private final RuleCall cFileMCSFileParserRuleCall_1_1_0 = (RuleCall)cFileAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Keyword cSubclauseKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cSubclauseAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -36,10 +36,10 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////import "http://www.eclipse.org/xtext/xbase/Xbase"
 		//MCSGrammarRoot:
-		//	"annex" lib=MCSAnnexLibrary | "mcs" file=MCSFileLibrary | "subclause" subclause=MCSAnnexSubclause;
+		//	"annex" lib=MCSAnnexLibrary | "mcs" file=MCSFile | "subclause" subclause=MCSAnnexSubclause;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"annex" lib=MCSAnnexLibrary | "mcs" file=MCSFileLibrary | "subclause" subclause=MCSAnnexSubclause
+		//"annex" lib=MCSAnnexLibrary | "mcs" file=MCSFile | "subclause" subclause=MCSAnnexSubclause
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"annex" lib=MCSAnnexLibrary
@@ -54,17 +54,17 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		//MCSAnnexLibrary
 		public RuleCall getLibMCSAnnexLibraryParserRuleCall_0_1_0() { return cLibMCSAnnexLibraryParserRuleCall_0_1_0; }
 
-		//"mcs" file=MCSFileLibrary
+		//"mcs" file=MCSFile
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"mcs"
 		public Keyword getMcsKeyword_1_0() { return cMcsKeyword_1_0; }
 
-		//file=MCSFileLibrary
+		//file=MCSFile
 		public Assignment getFileAssignment_1_1() { return cFileAssignment_1_1; }
 
-		//MCSFileLibrary
-		public RuleCall getFileMCSFileLibraryParserRuleCall_1_1_0() { return cFileMCSFileLibraryParserRuleCall_1_1_0; }
+		//MCSFile
+		public RuleCall getFileMCSFileParserRuleCall_1_1_0() { return cFileMCSFileParserRuleCall_1_1_0; }
 
 		//"subclause" subclause=MCSAnnexSubclause
 		public Group getGroup_2() { return cGroup_2; }
@@ -185,10 +185,10 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getTheoremsTheorem_declarationParserRuleCall_4_1_0() { return cTheoremsTheorem_declarationParserRuleCall_4_1_0; }
 	}
 
-	public class MCSFileLibraryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MCSFileLibrary");
+	public class MCSFileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MCSFile");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cMCSFileLibraryAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cMCSFileAction_0 = (Action)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cWithKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cImportedUnitAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -228,21 +228,21 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCallsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final RuleCall cCallsTheorem_callParserRuleCall_7_1_0 = (RuleCall)cCallsAssignment_7_1.eContents().get(0);
 		
-		//MCSFileLibrary:
-		//	{MCSFileLibrary} ("with" importedUnit+=[aadl2::ModelUnit] ("," importedUnit+=[aadl2::ModelUnit])*)+ ("import"
+		//MCSFile:
+		//	{MCSFile} ("with" importedUnit+=[aadl2::ModelUnit] ("," importedUnit+=[aadl2::ModelUnit])*)+ ("import"
 		//	files+=File_name ("," files+=File_name)*)* ("types" types+=Type_declaration+)? ("constants"
 		//	constants+=Constant_declaration+)? ("functions" functions+=Function_declaration+)? ("theorems"
 		//	theorems+=Theorem_declaration+)? ("constraints" calls+=Theorem_call+)?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{MCSFileLibrary} ("with" importedUnit+=[aadl2::ModelUnit] ("," importedUnit+=[aadl2::ModelUnit])*)+ ("import"
-		//files+=File_name ("," files+=File_name)*)* ("types" types+=Type_declaration+)? ("constants"
-		//constants+=Constant_declaration+)? ("functions" functions+=Function_declaration+)? ("theorems"
-		//theorems+=Theorem_declaration+)? ("constraints" calls+=Theorem_call+)?
+		//{MCSFile} ("with" importedUnit+=[aadl2::ModelUnit] ("," importedUnit+=[aadl2::ModelUnit])*)+ ("import" files+=File_name
+		//("," files+=File_name)*)* ("types" types+=Type_declaration+)? ("constants" constants+=Constant_declaration+)?
+		//("functions" functions+=Function_declaration+)? ("theorems" theorems+=Theorem_declaration+)? ("constraints"
+		//calls+=Theorem_call+)?
 		public Group getGroup() { return cGroup; }
 
-		//{MCSFileLibrary}
-		public Action getMCSFileLibraryAction_0() { return cMCSFileLibraryAction_0; }
+		//{MCSFile}
+		public Action getMCSFileAction_0() { return cMCSFileAction_0; }
 
 		//("with" importedUnit+=[aadl2::ModelUnit] ("," importedUnit+=[aadl2::ModelUnit])*)+
 		public Group getGroup_1() { return cGroup_1; }
@@ -624,11 +624,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cClassifierClassifiersParserRuleCall_3_1_0 = (RuleCall)cClassifierAssignment_3_1.eContents().get(0);
 		private final Keyword cGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		/// * 
-		//F_or_T_declaration returns FuncOrTheorem:
-		//	name=ID (t_root ?= Theorem_root)? '(' (args+=Parameter (',' args+=Parameter)*)? ')' body=DefinitionBody
-		//;
-		// * / Theorem_root:
+		//Theorem_root:
 		//	"<" "root" ":" (nilroot?="nil" | classifier=Classifiers) ">";
 		@Override public ParserRule getRule() { return rule; }
 
@@ -747,12 +743,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cClaimTextParmParserRuleCall_1_0 = (RuleCall)cClaimAssignment_1.eContents().get(0);
 		private final Keyword cAsteriskAsteriskKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		/// * 
-		//DefinitionBody:
-		//	{FunctionBody} ':' type=Type_expression '=' expr=Expr
-		//  | {ClaimBody} '<='  (string += ParameterizedString)+ expr=Expr
-		//;
-		// * / ParameterizedString:
+		//ParameterizedString:
 		//	"**" claim+=TextParm+ "**";
 		@Override public ParserRule getRule() { return rule; }
 
@@ -849,22 +840,6 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getUnitUnitLiteralIDTerminalRuleCall_1_2_1_0_1() { return cUnitUnitLiteralIDTerminalRuleCall_1_2_1_0_1; }
 	}
 
-	public class McsNameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "McsName");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
-		
-		//McsName:
-		//	name=ID;
-		@Override public ParserRule getRule() { return rule; }
-
-		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
-	}
-
 	public class McsTypedNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "McsTypedName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -921,42 +896,6 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getExprExprParserRuleCall_1_1_1_0() { return cExprExprParserRuleCall_1_1_1_0; }
 	}
 
-	public class DomainElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Domain");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cInKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExprExprParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
-		
-		//Domain:
-		//	name=ID "in" expr= // must be a set expression
-		//	Expr;
-		@Override public ParserRule getRule() { return rule; }
-
-		//name=ID "in" expr= // must be a set expression
-		//Expr
-		public Group getGroup() { return cGroup; }
-
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
-
-		//"in"
-		public Keyword getInKeyword_1() { return cInKeyword_1; }
-
-		//expr= // must be a set expression
-		//Expr
-		public Assignment getExprAssignment_2() { return cExprAssignment_2; }
-
-		//// must be a set expression
-		//Expr
-		public RuleCall getExprExprParserRuleCall_2_0() { return cExprExprParserRuleCall_2_0; }
-	}
-
 	public class Theorem_callElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Theorem_call");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -984,12 +923,12 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Theorem_call returns TheoremCall:
-		//	("check" | "prove") tname= // must be a theorem reference 
-		//	[Theorem] ("<" ("nil" | croot=Classifier_literal) ">")? "(" (actarg+=Expr ("," actarg+=Expr)*)? ")";
+		//	("check" | "prove") tname=[Theorem] ("<" ("nil" | croot=Classifier_literal) ">")? "(" (actarg+=Expr (","
+		//	actarg+=Expr)*)? ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//("check" | "prove") tname= // must be a theorem reference 
-		//[Theorem] ("<" ("nil" | croot=Classifier_literal) ">")? "(" (actarg+=Expr ("," actarg+=Expr)*)? ")"
+		//("check" | "prove") tname=[Theorem] ("<" ("nil" | croot=Classifier_literal) ">")? "(" (actarg+=Expr (","
+		//actarg+=Expr)*)? ")"
 		public Group getGroup() { return cGroup; }
 
 		//"check" | "prove"
@@ -1001,11 +940,9 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		//"prove"
 		public Keyword getProveKeyword_0_1() { return cProveKeyword_0_1; }
 
-		//tname= // must be a theorem reference 
-		//[Theorem]
+		//tname=[Theorem]
 		public Assignment getTnameAssignment_1() { return cTnameAssignment_1; }
 
-		//// must be a theorem reference 
 		//[Theorem]
 		public CrossReference getTnameTheoremCrossReference_1_0() { return cTnameTheoremCrossReference_1_0; }
 
@@ -1071,12 +1008,10 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNamerefMcs_name_refParserRuleCall_1_0 = (RuleCall)cNamerefAssignment_1.eContents().get(0);
 		
 		//Classifier_literal:
-		//	-> classlit=[aadl2::ComponentClassifier|FQCREF] | nameref= //[ClaimTextVar] //
-		//	Mcs_name_ref;
+		//	-> classlit=[aadl2::ComponentClassifier|FQCREF] | nameref=Mcs_name_ref;
 		@Override public ParserRule getRule() { return rule; }
 
-		//-> classlit=[aadl2::ComponentClassifier|FQCREF] | nameref= //[ClaimTextVar] //
-		//Mcs_name_ref
+		//-> classlit=[aadl2::ComponentClassifier|FQCREF] | nameref=Mcs_name_ref
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//-> classlit=[aadl2::ComponentClassifier|FQCREF]
@@ -1088,11 +1023,9 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		//FQCREF
 		public RuleCall getClasslitComponentClassifierFQCREFParserRuleCall_0_0_1() { return cClasslitComponentClassifierFQCREFParserRuleCall_0_0_1; }
 
-		//nameref= //[ClaimTextVar] //
-		//Mcs_name_ref
+		//nameref=Mcs_name_ref
 		public Assignment getNamerefAssignment_1() { return cNamerefAssignment_1; }
 
-		////[ClaimTextVar] //
 		//Mcs_name_ref
 		public RuleCall getNamerefMcs_name_refParserRuleCall_1_0() { return cNamerefMcs_name_refParserRuleCall_1_0; }
 	}
@@ -1423,12 +1356,18 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cArgsAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
 		private final RuleCall cArgsExprParserRuleCall_2_1_1_0 = (RuleCall)cArgsAssignment_2_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cGroup_4.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
+		private final Assignment cNewtypeAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
+		private final RuleCall cNewtypeType_expressionParserRuleCall_4_0_1_0 = (RuleCall)cNewtypeAssignment_4_0_1.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_4_0_2 = (Keyword)cGroup_4_0.eContents().get(2);
 		
 		//BuiltInFnCall:
-		//	fn=BuiltInFn "(" (args+=Expr ("," args+=Expr)*)? ")";
+		//	fn=BuiltInFn "(" (args+=Expr ("," args+=Expr)*)? ")" => ("<" newtype=Type_expression ">")?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//fn=BuiltInFn "(" (args+=Expr ("," args+=Expr)*)? ")"
+		//fn=BuiltInFn "(" (args+=Expr ("," args+=Expr)*)? ")" => ("<" newtype=Type_expression ">")?
 		public Group getGroup() { return cGroup; }
 
 		//fn=BuiltInFn
@@ -1463,6 +1402,24 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+
+		//=> ("<" newtype=Type_expression ">")?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"<" newtype=Type_expression ">"
+		public Group getGroup_4_0() { return cGroup_4_0; }
+
+		//"<"
+		public Keyword getLessThanSignKeyword_4_0_0() { return cLessThanSignKeyword_4_0_0; }
+
+		//newtype=Type_expression
+		public Assignment getNewtypeAssignment_4_0_1() { return cNewtypeAssignment_4_0_1; }
+
+		//Type_expression
+		public RuleCall getNewtypeType_expressionParserRuleCall_4_0_1_0() { return cNewtypeType_expressionParserRuleCall_4_0_1_0; }
+
+		//">"
+		public Keyword getGreaterThanSignKeyword_4_0_2() { return cGreaterThanSignKeyword_4_0_2; }
 	}
 
 	public class FnCallElements extends AbstractParserRuleElementFinder {
@@ -1480,12 +1437,18 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cArgsAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
 		private final RuleCall cArgsExprParserRuleCall_2_1_1_0 = (RuleCall)cArgsAssignment_2_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cGroup_4.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
+		private final Assignment cNewtypeAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
+		private final RuleCall cNewtypeType_expressionParserRuleCall_4_0_1_0 = (RuleCall)cNewtypeAssignment_4_0_1.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_4_0_2 = (Keyword)cGroup_4_0.eContents().get(2);
 		
 		//FnCall:
-		//	fn=[Function] "(" (args+=Expr ("," args+=Expr)*)? ")";
+		//	fn=[Function] "(" (args+=Expr ("," args+=Expr)*)? ")" => ("<" newtype=Type_expression ">")?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//fn=[Function] "(" (args+=Expr ("," args+=Expr)*)? ")"
+		//fn=[Function] "(" (args+=Expr ("," args+=Expr)*)? ")" => ("<" newtype=Type_expression ">")?
 		public Group getGroup() { return cGroup; }
 
 		//fn=[Function]
@@ -1523,30 +1486,31 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+
+		//=> ("<" newtype=Type_expression ">")?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"<" newtype=Type_expression ">"
+		public Group getGroup_4_0() { return cGroup_4_0; }
+
+		//"<"
+		public Keyword getLessThanSignKeyword_4_0_0() { return cLessThanSignKeyword_4_0_0; }
+
+		//newtype=Type_expression
+		public Assignment getNewtypeAssignment_4_0_1() { return cNewtypeAssignment_4_0_1; }
+
+		//Type_expression
+		public RuleCall getNewtypeType_expressionParserRuleCall_4_0_1_0() { return cNewtypeType_expressionParserRuleCall_4_0_1_0; }
+
+		//">"
+		public Keyword getGreaterThanSignKeyword_4_0_2() { return cGreaterThanSignKeyword_4_0_2; }
 	}
 
 	public class ExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expr");
 		private final RuleCall cFailExprParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		/// * 
-		//PropertyExists:
-		//  ('has_property' | '#?') '(' property=[aadl2::Property|QPREF]
-		//						(',' modeset = Expr (',' inbind = Expr)?)?
-		//				   ')'
-		//;
-		//PropertyVal:
-		//	('property' | '#') '(' property=[aadl2::Property|QPREF]
-		//						(',' modeset = Expr (',' inbind = Expr)?)?
-		//				')'
-		//;
-		//
-		//
-		//LetBinding :
-		//	local = McsTypedName '=' expr=Expr
-		//;
-		//
-		// * / Expr:
+		//Expr:
 		//	FailExpr;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -2059,20 +2023,20 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExprExpression_termParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cChainAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cChainMethodChainParserRuleCall_2_0_0 = (RuleCall)cChainAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_0 = (Group)cGroup_2.eContents().get(0);
+		private final Keyword cLessThanSignKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
+		private final Assignment cNewtypeAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
+		private final RuleCall cNewtypeType_expressionParserRuleCall_2_0_1_0 = (RuleCall)cNewtypeAssignment_2_0_1.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_2_0_2 = (Keyword)cGroup_2_0.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Group cGroup_3_0 = (Group)cGroup_3.eContents().get(0);
-		private final Keyword cLessThanSignKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
-		private final Assignment cNewtypeAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
-		private final RuleCall cNewtypeType_expressionParserRuleCall_3_0_1_0 = (RuleCall)cNewtypeAssignment_3_0_1.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_3_0_2 = (Keyword)cGroup_3_0.eContents().get(2);
+		private final Assignment cChainAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cChainMethodChainParserRuleCall_3_0_0 = (RuleCall)cChainAssignment_3_0.eContents().get(0);
 		
 		//PostCastExpr:
-		//	{PostCastExpr} expr=Expression_term -> (chain=MethodChain)? => ("<" newtype=Type_expression ">")?;
+		//	{PostCastExpr} expr=Expression_term -> ("<" newtype=Type_expression ">")? -> (chain=MethodChain)?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{PostCastExpr} expr=Expression_term -> (chain=MethodChain)? => ("<" newtype=Type_expression ">")?
+		//{PostCastExpr} expr=Expression_term -> ("<" newtype=Type_expression ">")? -> (chain=MethodChain)?
 		public Group getGroup() { return cGroup; }
 
 		//{PostCastExpr}
@@ -2084,32 +2048,32 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression_term
 		public RuleCall getExprExpression_termParserRuleCall_1_0() { return cExprExpression_termParserRuleCall_1_0; }
 
-		//-> (chain=MethodChain)?
+		//-> ("<" newtype=Type_expression ">")?
 		public Group getGroup_2() { return cGroup_2; }
 
-		//chain=MethodChain
-		public Assignment getChainAssignment_2_0() { return cChainAssignment_2_0; }
-
-		//MethodChain
-		public RuleCall getChainMethodChainParserRuleCall_2_0_0() { return cChainMethodChainParserRuleCall_2_0_0; }
-
-		//=> ("<" newtype=Type_expression ">")?
-		public Group getGroup_3() { return cGroup_3; }
-
 		//"<" newtype=Type_expression ">"
-		public Group getGroup_3_0() { return cGroup_3_0; }
+		public Group getGroup_2_0() { return cGroup_2_0; }
 
 		//"<"
-		public Keyword getLessThanSignKeyword_3_0_0() { return cLessThanSignKeyword_3_0_0; }
+		public Keyword getLessThanSignKeyword_2_0_0() { return cLessThanSignKeyword_2_0_0; }
 
 		//newtype=Type_expression
-		public Assignment getNewtypeAssignment_3_0_1() { return cNewtypeAssignment_3_0_1; }
+		public Assignment getNewtypeAssignment_2_0_1() { return cNewtypeAssignment_2_0_1; }
 
 		//Type_expression
-		public RuleCall getNewtypeType_expressionParserRuleCall_3_0_1_0() { return cNewtypeType_expressionParserRuleCall_3_0_1_0; }
+		public RuleCall getNewtypeType_expressionParserRuleCall_2_0_1_0() { return cNewtypeType_expressionParserRuleCall_2_0_1_0; }
 
 		//">"
-		public Keyword getGreaterThanSignKeyword_3_0_2() { return cGreaterThanSignKeyword_3_0_2; }
+		public Keyword getGreaterThanSignKeyword_2_0_2() { return cGreaterThanSignKeyword_2_0_2; }
+
+		//-> (chain=MethodChain)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//chain=MethodChain
+		public Assignment getChainAssignment_3_0() { return cChainAssignment_3_0; }
+
+		//MethodChain
+		public RuleCall getChainMethodChainParserRuleCall_3_0_0() { return cChainMethodChainParserRuleCall_3_0_0; }
 	}
 
 	public class MCSNameExprElements extends AbstractParserRuleElementFinder {
@@ -3440,15 +3404,14 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMapping_typeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSet_typeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cList_typeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cRecord_typeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cUnion_typeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cUnion_typeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//// composite type rules
 		//Composite_type:
-		//	Mapping_type | Set_type | List_type | Record_type | Union_type;
+		//	Mapping_type | Set_type | List_type | Union_type;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Mapping_type | Set_type | List_type | Record_type | Union_type
+		//Mapping_type | Set_type | List_type | Union_type
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Mapping_type
@@ -3460,11 +3423,8 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		//List_type
 		public RuleCall getList_typeParserRuleCall_2() { return cList_typeParserRuleCall_2; }
 
-		//Record_type
-		public RuleCall getRecord_typeParserRuleCall_3() { return cRecord_typeParserRuleCall_3; }
-
 		//Union_type
-		public RuleCall getUnion_typeParserRuleCall_4() { return cUnion_typeParserRuleCall_4; }
+		public RuleCall getUnion_typeParserRuleCall_3() { return cUnion_typeParserRuleCall_3; }
 	}
 
 	public class Mapping_typeElements extends AbstractParserRuleElementFinder {
@@ -3619,38 +3579,6 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getGreaterThanSignKeyword_1_3() { return cGreaterThanSignKeyword_1_3; }
 	}
 
-	public class Record_typeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Record_type");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRecordKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisSpaceKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cFieldAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cFieldId_type_pairParserRuleCall_2_0 = (RuleCall)cFieldAssignment_2.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//Record_type:
-		//	"record" "( " field+=Id_type_pair+ ")";
-		@Override public ParserRule getRule() { return rule; }
-
-		//"record" "( " field+=Id_type_pair+ ")"
-		public Group getGroup() { return cGroup; }
-
-		//"record"
-		public Keyword getRecordKeyword_0() { return cRecordKeyword_0; }
-
-		//"( "
-		public Keyword getLeftParenthesisSpaceKeyword_1() { return cLeftParenthesisSpaceKeyword_1; }
-
-		//field+=Id_type_pair+
-		public Assignment getFieldAssignment_2() { return cFieldAssignment_2; }
-
-		//Id_type_pair
-		public RuleCall getFieldId_type_pairParserRuleCall_2_0() { return cFieldId_type_pairParserRuleCall_2_0; }
-
-		//")"
-		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
-	}
-
 	public class Union_typeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Union_type");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -3697,38 +3625,6 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
-	}
-
-	public class Id_type_pairElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Id_type_pair");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTypeType_expressionParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
-		
-		//Id_type_pair:
-		//	name=ID ":" type=Type_expression;
-		@Override public ParserRule getRule() { return rule; }
-
-		//name=ID ":" type=Type_expression
-		public Group getGroup() { return cGroup; }
-
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
-
-		//":"
-		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
-
-		//type=Type_expression
-		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
-
-		//Type_expression
-		public RuleCall getTypeType_expressionParserRuleCall_2_0() { return cTypeType_expressionParserRuleCall_2_0; }
 	}
 
 	public class EnumerationLiteralElements extends AbstractParserRuleElementFinder {
@@ -5103,7 +4999,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 	private final AnnexLibraryElements pAnnexLibrary;
 	private final AnnexSubclauseElements pAnnexSubclause;
 	private final MCSAnnexLibraryElements pMCSAnnexLibrary;
-	private final MCSFileLibraryElements pMCSFileLibrary;
+	private final MCSFileElements pMCSFile;
 	private final MCSAnnexSubclauseElements pMCSAnnexSubclause;
 	private final File_nameElements pFile_name;
 	private final Type_declarationElements pType_declaration;
@@ -5116,9 +5012,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 	private final ParameterizedStringElements pParameterizedString;
 	private final ParameterElements pParameter;
 	private final TextParmElements pTextParm;
-	private final McsNameElements pMcsName;
 	private final McsTypedNameElements pMcsTypedName;
-	private final DomainElements pDomain;
 	private final Theorem_callElements pTheorem_call;
 	private final Classifier_literalElements pClassifier_literal;
 	private final RealTermElements pRealTerm;
@@ -5153,9 +5047,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 	private final Mapping_typeElements pMapping_type;
 	private final Set_typeElements pSet_type;
 	private final List_typeElements pList_type;
-	private final Record_typeElements pRecord_type;
 	private final Union_typeElements pUnion_type;
-	private final Id_type_pairElements pId_type_pair;
 	private final EnumerationLiteralElements pEnumerationLiteral;
 	private final Element_typeElements pElement_type;
 	private final ClassifiersElements pClassifiers;
@@ -5199,7 +5091,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAnnexLibrary = new AnnexLibraryElements();
 		this.pAnnexSubclause = new AnnexSubclauseElements();
 		this.pMCSAnnexLibrary = new MCSAnnexLibraryElements();
-		this.pMCSFileLibrary = new MCSFileLibraryElements();
+		this.pMCSFile = new MCSFileElements();
 		this.pMCSAnnexSubclause = new MCSAnnexSubclauseElements();
 		this.pFile_name = new File_nameElements();
 		this.pType_declaration = new Type_declarationElements();
@@ -5212,9 +5104,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		this.pParameterizedString = new ParameterizedStringElements();
 		this.pParameter = new ParameterElements();
 		this.pTextParm = new TextParmElements();
-		this.pMcsName = new McsNameElements();
 		this.pMcsTypedName = new McsTypedNameElements();
-		this.pDomain = new DomainElements();
 		this.pTheorem_call = new Theorem_callElements();
 		this.pClassifier_literal = new Classifier_literalElements();
 		this.pRealTerm = new RealTermElements();
@@ -5249,9 +5139,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMapping_type = new Mapping_typeElements();
 		this.pSet_type = new Set_typeElements();
 		this.pList_type = new List_typeElements();
-		this.pRecord_type = new Record_typeElements();
 		this.pUnion_type = new Union_typeElements();
-		this.pId_type_pair = new Id_type_pairElements();
 		this.pEnumerationLiteral = new EnumerationLiteralElements();
 		this.pElement_type = new Element_typeElements();
 		this.pClassifiers = new ClassifiersElements();
@@ -5312,7 +5200,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////import "http://www.eclipse.org/xtext/xbase/Xbase"
 	//MCSGrammarRoot:
-	//	"annex" lib=MCSAnnexLibrary | "mcs" file=MCSFileLibrary | "subclause" subclause=MCSAnnexSubclause;
+	//	"annex" lib=MCSAnnexLibrary | "mcs" file=MCSFile | "subclause" subclause=MCSAnnexSubclause;
 	public MCSGrammarRootElements getMCSGrammarRootAccess() {
 		return pMCSGrammarRoot;
 	}
@@ -5352,17 +5240,17 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		return getMCSAnnexLibraryAccess().getRule();
 	}
 
-	//MCSFileLibrary:
-	//	{MCSFileLibrary} ("with" importedUnit+=[aadl2::ModelUnit] ("," importedUnit+=[aadl2::ModelUnit])*)+ ("import"
+	//MCSFile:
+	//	{MCSFile} ("with" importedUnit+=[aadl2::ModelUnit] ("," importedUnit+=[aadl2::ModelUnit])*)+ ("import"
 	//	files+=File_name ("," files+=File_name)*)* ("types" types+=Type_declaration+)? ("constants"
 	//	constants+=Constant_declaration+)? ("functions" functions+=Function_declaration+)? ("theorems"
 	//	theorems+=Theorem_declaration+)? ("constraints" calls+=Theorem_call+)?;
-	public MCSFileLibraryElements getMCSFileLibraryAccess() {
-		return pMCSFileLibrary;
+	public MCSFileElements getMCSFileAccess() {
+		return pMCSFile;
 	}
 	
-	public ParserRule getMCSFileLibraryRule() {
-		return getMCSFileLibraryAccess().getRule();
+	public ParserRule getMCSFileRule() {
+		return getMCSFileAccess().getRule();
 	}
 
 	//MCSAnnexSubclause:
@@ -5425,11 +5313,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		return getTheorem_declarationAccess().getRule();
 	}
 
-	/// * 
-	//F_or_T_declaration returns FuncOrTheorem:
-	//	name=ID (t_root ?= Theorem_root)? '(' (args+=Parameter (',' args+=Parameter)*)? ')' body=DefinitionBody
-	//;
-	// * / Theorem_root:
+	//Theorem_root:
 	//	"<" "root" ":" (nilroot?="nil" | classifier=Classifiers) ">";
 	public Theorem_rootElements getTheorem_rootAccess() {
 		return pTheorem_root;
@@ -5459,12 +5343,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		return getTheoremBodyAccess().getRule();
 	}
 
-	/// * 
-	//DefinitionBody:
-	//	{FunctionBody} ':' type=Type_expression '=' expr=Expr
-	//  | {ClaimBody} '<='  (string += ParameterizedString)+ expr=Expr
-	//;
-	// * / ParameterizedString:
+	//ParameterizedString:
 	//	"**" claim+=TextParm+ "**";
 	public ParameterizedStringElements getParameterizedStringAccess() {
 		return pParameterizedString;
@@ -5495,16 +5374,6 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		return getTextParmAccess().getRule();
 	}
 
-	//McsName:
-	//	name=ID;
-	public McsNameElements getMcsNameAccess() {
-		return pMcsName;
-	}
-	
-	public ParserRule getMcsNameRule() {
-		return getMcsNameAccess().getRule();
-	}
-
 	//McsTypedName:
 	//	name=ID (":" type=Type_expression | "in" expr=Expr);
 	public McsTypedNameElements getMcsTypedNameAccess() {
@@ -5515,20 +5384,9 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		return getMcsTypedNameAccess().getRule();
 	}
 
-	//Domain:
-	//	name=ID "in" expr= // must be a set expression
-	//	Expr;
-	public DomainElements getDomainAccess() {
-		return pDomain;
-	}
-	
-	public ParserRule getDomainRule() {
-		return getDomainAccess().getRule();
-	}
-
 	//Theorem_call returns TheoremCall:
-	//	("check" | "prove") tname= // must be a theorem reference 
-	//	[Theorem] ("<" ("nil" | croot=Classifier_literal) ">")? "(" (actarg+=Expr ("," actarg+=Expr)*)? ")";
+	//	("check" | "prove") tname=[Theorem] ("<" ("nil" | croot=Classifier_literal) ">")? "(" (actarg+=Expr (","
+	//	actarg+=Expr)*)? ")";
 	public Theorem_callElements getTheorem_callAccess() {
 		return pTheorem_call;
 	}
@@ -5538,8 +5396,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Classifier_literal:
-	//	-> classlit=[aadl2::ComponentClassifier|FQCREF] | nameref= //[ClaimTextVar] //
-	//	Mcs_name_ref;
+	//	-> classlit=[aadl2::ComponentClassifier|FQCREF] | nameref=Mcs_name_ref;
 	public Classifier_literalElements getClassifier_literalAccess() {
 		return pClassifier_literal;
 	}
@@ -5640,7 +5497,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BuiltInFnCall:
-	//	fn=BuiltInFn "(" (args+=Expr ("," args+=Expr)*)? ")";
+	//	fn=BuiltInFn "(" (args+=Expr ("," args+=Expr)*)? ")" => ("<" newtype=Type_expression ">")?;
 	public BuiltInFnCallElements getBuiltInFnCallAccess() {
 		return pBuiltInFnCall;
 	}
@@ -5650,7 +5507,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FnCall:
-	//	fn=[Function] "(" (args+=Expr ("," args+=Expr)*)? ")";
+	//	fn=[Function] "(" (args+=Expr ("," args+=Expr)*)? ")" => ("<" newtype=Type_expression ">")?;
 	public FnCallElements getFnCallAccess() {
 		return pFnCall;
 	}
@@ -5659,24 +5516,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		return getFnCallAccess().getRule();
 	}
 
-	/// * 
-	//PropertyExists:
-	//  ('has_property' | '#?') '(' property=[aadl2::Property|QPREF]
-	//						(',' modeset = Expr (',' inbind = Expr)?)?
-	//				   ')'
-	//;
-	//PropertyVal:
-	//	('property' | '#') '(' property=[aadl2::Property|QPREF]
-	//						(',' modeset = Expr (',' inbind = Expr)?)?
-	//				')'
-	//;
-	//
-	//
-	//LetBinding :
-	//	local = McsTypedName '=' expr=Expr
-	//;
-	//
-	// * / Expr:
+	//Expr:
 	//	FailExpr;
 	public ExprElements getExprAccess() {
 		return pExpr;
@@ -5788,7 +5628,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PostCastExpr:
-	//	{PostCastExpr} expr=Expression_term -> (chain=MethodChain)? => ("<" newtype=Type_expression ">")?;
+	//	{PostCastExpr} expr=Expression_term -> ("<" newtype=Type_expression ">")? -> (chain=MethodChain)?;
 	public PostCastExprElements getPostCastExprAccess() {
 		return pPostCastExpr;
 	}
@@ -5909,7 +5749,7 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// composite type rules
 	//Composite_type:
-	//	Mapping_type | Set_type | List_type | Record_type | Union_type;
+	//	Mapping_type | Set_type | List_type | Union_type;
 	public Composite_typeElements getComposite_typeAccess() {
 		return pComposite_type;
 	}
@@ -5948,16 +5788,6 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 		return getList_typeAccess().getRule();
 	}
 
-	//Record_type:
-	//	"record" "( " field+=Id_type_pair+ ")";
-	public Record_typeElements getRecord_typeAccess() {
-		return pRecord_type;
-	}
-	
-	public ParserRule getRecord_typeRule() {
-		return getRecord_typeAccess().getRule();
-	}
-
 	//Union_type:
 	//	"union" "(" types+=Type_expression ("," type+=Type_expression)* ")";
 	public Union_typeElements getUnion_typeAccess() {
@@ -5966,16 +5796,6 @@ public class MCSGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getUnion_typeRule() {
 		return getUnion_typeAccess().getRule();
-	}
-
-	//Id_type_pair:
-	//	name=ID ":" type=Type_expression;
-	public Id_type_pairElements getId_type_pairAccess() {
-		return pId_type_pair;
-	}
-	
-	public ParserRule getId_type_pairRule() {
-		return getId_type_pairAccess().getRule();
 	}
 
 	//EnumerationLiteral returns aadl2::EnumerationLiteral:

@@ -13,8 +13,8 @@ package org.osate.xtext.aadl2.mcs.mcs;
  * </p>
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getExpr <em>Expr</em>}</li>
- *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getChain <em>Chain</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getNewtype <em>Newtype</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getChain <em>Chain</em>}</li>
  * </ul>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getPostCastExpr()
@@ -50,32 +50,6 @@ public interface PostCastExpr extends Expr
   void setExpr(Expr value);
 
   /**
-   * Returns the value of the '<em><b>Chain</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Chain</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Chain</em>' containment reference.
-   * @see #setChain(MethodChain)
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getPostCastExpr_Chain()
-   * @model containment="true"
-   * @generated
-   */
-  MethodChain getChain();
-
-  /**
-   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getChain <em>Chain</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Chain</em>' containment reference.
-   * @see #getChain()
-   * @generated
-   */
-  void setChain(MethodChain value);
-
-  /**
    * Returns the value of the '<em><b>Newtype</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -100,5 +74,31 @@ public interface PostCastExpr extends Expr
    * @generated
    */
   void setNewtype(Type_expression value);
+
+  /**
+   * Returns the value of the '<em><b>Chain</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Chain</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Chain</em>' containment reference.
+   * @see #setChain(MethodChain)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getPostCastExpr_Chain()
+   * @model containment="true"
+   * @generated
+   */
+  MethodChain getChain();
+
+  /**
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.PostCastExpr#getChain <em>Chain</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Chain</em>' containment reference.
+   * @see #getChain()
+   * @generated
+   */
+  void setChain(MethodChain value);
 
 } // PostCastExpr

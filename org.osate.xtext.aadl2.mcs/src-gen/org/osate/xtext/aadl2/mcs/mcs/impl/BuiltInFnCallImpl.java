@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.osate.xtext.aadl2.mcs.mcs.BuiltInFnCall;
 import org.osate.xtext.aadl2.mcs.mcs.Expr;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
+import org.osate.xtext.aadl2.mcs.mcs.Type_expression;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +33,7 @@ import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.BuiltInFnCallImpl#getFn <em>Fn</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.BuiltInFnCallImpl#getArgs <em>Args</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.impl.BuiltInFnCallImpl#getNewtype <em>Newtype</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +69,16 @@ public class BuiltInFnCallImpl extends MinimalEObjectImpl.Container implements B
    * @ordered
    */
   protected EList<Expr> args;
+
+  /**
+   * The cached value of the '{@link #getNewtype() <em>Newtype</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNewtype()
+   * @generated
+   * @ordered
+   */
+  protected Type_expression newtype;
 
   /**
    * <!-- begin-user-doc -->
@@ -131,6 +143,54 @@ public class BuiltInFnCallImpl extends MinimalEObjectImpl.Container implements B
    * <!-- end-user-doc -->
    * @generated
    */
+  public Type_expression getNewtype()
+  {
+    return newtype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetNewtype(Type_expression newNewtype, NotificationChain msgs)
+  {
+    Type_expression oldNewtype = newtype;
+    newtype = newNewtype;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McsPackage.BUILT_IN_FN_CALL__NEWTYPE, oldNewtype, newNewtype);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNewtype(Type_expression newNewtype)
+  {
+    if (newNewtype != newtype)
+    {
+      NotificationChain msgs = null;
+      if (newtype != null)
+        msgs = ((InternalEObject)newtype).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McsPackage.BUILT_IN_FN_CALL__NEWTYPE, null, msgs);
+      if (newNewtype != null)
+        msgs = ((InternalEObject)newNewtype).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McsPackage.BUILT_IN_FN_CALL__NEWTYPE, null, msgs);
+      msgs = basicSetNewtype(newNewtype, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, McsPackage.BUILT_IN_FN_CALL__NEWTYPE, newNewtype, newNewtype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -138,6 +198,8 @@ public class BuiltInFnCallImpl extends MinimalEObjectImpl.Container implements B
     {
       case McsPackage.BUILT_IN_FN_CALL__ARGS:
         return ((InternalEList<?>)getArgs()).basicRemove(otherEnd, msgs);
+      case McsPackage.BUILT_IN_FN_CALL__NEWTYPE:
+        return basicSetNewtype(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -156,6 +218,8 @@ public class BuiltInFnCallImpl extends MinimalEObjectImpl.Container implements B
         return getFn();
       case McsPackage.BUILT_IN_FN_CALL__ARGS:
         return getArgs();
+      case McsPackage.BUILT_IN_FN_CALL__NEWTYPE:
+        return getNewtype();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -178,6 +242,9 @@ public class BuiltInFnCallImpl extends MinimalEObjectImpl.Container implements B
         getArgs().clear();
         getArgs().addAll((Collection<? extends Expr>)newValue);
         return;
+      case McsPackage.BUILT_IN_FN_CALL__NEWTYPE:
+        setNewtype((Type_expression)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -198,6 +265,9 @@ public class BuiltInFnCallImpl extends MinimalEObjectImpl.Container implements B
       case McsPackage.BUILT_IN_FN_CALL__ARGS:
         getArgs().clear();
         return;
+      case McsPackage.BUILT_IN_FN_CALL__NEWTYPE:
+        setNewtype((Type_expression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -216,6 +286,8 @@ public class BuiltInFnCallImpl extends MinimalEObjectImpl.Container implements B
         return FN_EDEFAULT == null ? fn != null : !FN_EDEFAULT.equals(fn);
       case McsPackage.BUILT_IN_FN_CALL__ARGS:
         return args != null && !args.isEmpty();
+      case McsPackage.BUILT_IN_FN_CALL__NEWTYPE:
+        return newtype != null;
     }
     return super.eIsSet(featureID);
   }

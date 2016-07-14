@@ -330,8 +330,6 @@ Import : ('I'|'i')('M'|'m')('P'|'p')('O'|'o')('R'|'r')('T'|'t');
 
 Parent : ('P'|'p')('A'|'a')('R'|'r')('E'|'e')('N'|'n')('T'|'t');
 
-Record : ('R'|'r')('E'|'e')('C'|'c')('O'|'o')('R'|'r')('D'|'d');
-
 Source : ('S'|'s')('O'|'o')('U'|'u')('R'|'r')('C'|'c')('E'|'e');
 
 String : ('S'|'s')('T'|'t')('R'|'r')('I'|'i')('N'|'n')('G'|'g');
@@ -439,8 +437,6 @@ Sum : ('S'|'s')('U'|'u')('M'|'m');
 Val : ('V'|'v')('A'|'a')('L'|'l');
 
 NumberSignQuestionMark : '#''?';
-
-LeftParenthesisSpace : '('' ';
 
 AsteriskAsterisk : '*''*';
 

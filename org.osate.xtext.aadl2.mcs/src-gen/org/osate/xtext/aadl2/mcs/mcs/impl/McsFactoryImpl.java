@@ -66,7 +66,7 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
     {
       case McsPackage.MCS_GRAMMAR_ROOT: return createMCSGrammarRoot();
       case McsPackage.MCS_ANNEX_LIBRARY: return createMCSAnnexLibrary();
-      case McsPackage.MCS_FILE_LIBRARY: return createMCSFileLibrary();
+      case McsPackage.MCS_FILE: return createMCSFile();
       case McsPackage.MCS_ANNEX_SUBCLAUSE: return createMCSAnnexSubclause();
       case McsPackage.TYPE_DECLARATION: return createType_declaration();
       case McsPackage.CONSTANT_DECLARATION: return createConstant_declaration();
@@ -78,9 +78,7 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.PARAMETERIZED_STRING: return createParameterizedString();
       case McsPackage.PARAMETER: return createParameter();
       case McsPackage.TEXT_PARM: return createTextParm();
-      case McsPackage.MCS_NAME: return createMcsName();
       case McsPackage.MCS_TYPED_NAME: return createMcsTypedName();
-      case McsPackage.DOMAIN: return createDomain();
       case McsPackage.THEOREM_CALL: return createTheoremCall();
       case McsPackage.CLASSIFIER_LITERAL: return createClassifier_literal();
       case McsPackage.RANGE: return createRange();
@@ -99,9 +97,7 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
       case McsPackage.MAPPING_TYPE: return createMapping_type();
       case McsPackage.SET_TYPE: return createSet_type();
       case McsPackage.LIST_TYPE: return createList_type();
-      case McsPackage.RECORD_TYPE: return createRecord_type();
       case McsPackage.UNION_TYPE: return createUnion_type();
-      case McsPackage.ID_TYPE_PAIR: return createId_type_pair();
       case McsPackage.ELEMENT_TYPE: return createElement_type();
       case McsPackage.CLASSIFIERS: return createClassifiers();
       case McsPackage.TCLASSIFIER_SUBTYPES: return createT_classifier_subtypes();
@@ -176,10 +172,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MCSFileLibrary createMCSFileLibrary()
+  public MCSFile createMCSFile()
   {
-    MCSFileLibraryImpl mcsFileLibrary = new MCSFileLibraryImpl();
-    return mcsFileLibrary;
+    MCSFileImpl mcsFile = new MCSFileImpl();
+    return mcsFile;
   }
 
   /**
@@ -308,32 +304,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public McsName createMcsName()
-  {
-    McsNameImpl mcsName = new McsNameImpl();
-    return mcsName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public McsTypedName createMcsTypedName()
   {
     McsTypedNameImpl mcsTypedName = new McsTypedNameImpl();
     return mcsTypedName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Domain createDomain()
-  {
-    DomainImpl domain = new DomainImpl();
-    return domain;
   }
 
   /**
@@ -539,32 +513,10 @@ public class McsFactoryImpl extends EFactoryImpl implements McsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Record_type createRecord_type()
-  {
-    Record_typeImpl record_type = new Record_typeImpl();
-    return record_type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Union_type createUnion_type()
   {
     Union_typeImpl union_type = new Union_typeImpl();
     return union_type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Id_type_pair createId_type_pair()
-  {
-    Id_type_pairImpl id_type_pair = new Id_type_pairImpl();
-    return id_type_pair;
   }
 
   /**

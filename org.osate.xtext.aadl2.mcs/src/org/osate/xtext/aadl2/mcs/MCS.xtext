@@ -8,7 +8,7 @@ import "platform:/resource/org.osate.aadl2/model/aadl2.ecore" as aadl2
 
 MCSGrammarRoot :    
         'annex' lib = MCSAnnexLibrary 
-        | 'mcs' file = MCSFileLibrary
+        | 'mcs' file = MCSFile
         | 'subclause' subclause = MCSAnnexSubclause
 ;
 
@@ -29,8 +29,8 @@ MCSAnnexLibrary returns MCSAnnexLibrary:
 	  ('theorems' (theorems += Theorem_declaration)+)?
 ;
  
-MCSFileLibrary:
-	{MCSFileLibrary} 
+MCSFile:
+	{MCSFile} 
 	  ('with' (importedUnit+=[aadl2::ModelUnit])  
 	                     (',' importedUnit+=[aadl2::ModelUnit])*)+
 	  ('import' (files += File_name) (',' files += File_name)*)*
@@ -66,11 +66,7 @@ Function_declaration returns Function:
 Theorem_declaration returns Theorem:
 	name=ID (t_root ?= Theorem_root)? => '(' (args+=Parameter (',' args+=Parameter)*)? ')' body=TheoremBody
 ;
-/* 
-F_or_T_declaration returns FuncOrTheorem:
-	name=ID (t_root ?= Theorem_root)? '(' (args+=Parameter (',' args+=Parameter)*)? ')' body=DefinitionBody
-;
-*/	
+
 Theorem_root:
 	'<' 'root' ':' ( nilroot ?= 'nil' | classifier = Classifiers) '>'
 ;
@@ -82,12 +78,7 @@ FunctionBody:
 TheoremBody:
 	{TheoremBody} '<='  (string += ParameterizedString)+ expr=Expr
 ;
-/* 
-DefinitionBody:
-	{FunctionBody} ':' type=Type_expression '=' expr=Expr
-  | {ClaimBody} '<='  (string += ParameterizedString)+ expr=Expr
-;
-*/
+
 ParameterizedString:
 	('**'(claim+=TextParm)+'**')
 ;
@@ -103,27 +94,19 @@ TextParm:
 | 	 {ClaimArg} textarg=MCSNameExpr ('%' unit=[aadl2::UnitLiteral])?
 ;
 
-McsName:
-	name=ID
-;
-
 McsTypedName: 
    name=ID (':' type=Type_expression | 'in' expr = Expr) 
 ;
 
-Domain:
-	name=ID 'in' expr=Expr					// must be a set expression
-;
-
 Theorem_call returns TheoremCall:
-    ('check'|'prove') tname = [Theorem]                   // must be a theorem reference 
+    ('check'|'prove') tname = [Theorem]    
            ('<' ('nil'| croot = Classifier_literal) '>')?
              '(' (actarg += Expr ( ',' actarg += Expr)*)? ')'
 ;
 
 Classifier_literal:
 	-> classlit = [aadl2::ComponentClassifier| FQCREF] 
-	| nameref = Mcs_name_ref //[ClaimTextVar] //
+	| nameref = Mcs_name_ref 
 ;
 
 RealTerm returns aadl2::RealLiteral:
@@ -165,29 +148,13 @@ MethodChain:
 ;
 BuiltInFnCall :
 	fn=BuiltInFn '(' (args+=Expr (',' args+=Expr)*)?  ')'
+				=> ( '<' newtype = Type_expression '>')?
 ;
 
 FnCall:
 	fn=[Function] '(' (args+=Expr (',' args+=Expr)*)? ')'
+				=> ( '<' newtype = Type_expression '>')?
 ;
-/* 
-PropertyExists:
-  ('has_property' | '#?') '(' property=[aadl2::Property|QPREF]
-						(',' modeset = Expr (',' inbind = Expr)?)?
-				   ')'
-;
-PropertyVal:
-	('property' | '#') '(' property=[aadl2::Property|QPREF]
-						(',' modeset = Expr (',' inbind = Expr)?)?
-				')'
-;
-
-
-LetBinding :
-	local = McsTypedName '=' expr=Expr
-;
-
-*/
 
 Expr:
 	FailExpr  
@@ -236,9 +203,10 @@ PrefixExpr returns Expr:
 ;
 
 PostCastExpr:
-	{PostCastExpr} expr = Expression_term 
+	{PostCastExpr} expr = Expression_term 	
+			-> ( '<' newtype = Type_expression '>')?	
 			->(chain = MethodChain)?
-			=> ( '<' newtype = Type_expression '>')?
+			
 ;
 
 MCSNameExpr:
@@ -375,7 +343,6 @@ Composite_type :
 		Mapping_type |
 		Set_type |
 		List_type |
-		Record_type |
 		Union_type
 ;
 
@@ -393,16 +360,8 @@ List_type:
 |	'list' '<' root_type=Type_expression '>'
 ;
 
-Record_type:
-	'record'  '( '( field += Id_type_pair)+ ')'
-;
-
 Union_type:
 	'union' '('  types += Type_expression (','type += Type_expression )* ')'
-;
-
-Id_type_pair : 
-	 name=ID ':' type = Type_expression
 ;
 
 EnumerationLiteral returns aadl2::EnumerationLiteral:

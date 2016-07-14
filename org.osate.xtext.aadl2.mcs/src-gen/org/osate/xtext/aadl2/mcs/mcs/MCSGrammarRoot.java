@@ -59,12 +59,12 @@ public interface MCSGrammarRoot extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>File</em>' containment reference.
-   * @see #setFile(MCSFileLibrary)
+   * @see #setFile(MCSFile)
    * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getMCSGrammarRoot_File()
    * @model containment="true"
    * @generated
    */
-  MCSFileLibrary getFile();
+  MCSFile getFile();
 
   /**
    * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot#getFile <em>File</em>}' containment reference.
@@ -74,7 +74,7 @@ public interface MCSGrammarRoot extends EObject
    * @see #getFile()
    * @generated
    */
-  void setFile(MCSFileLibrary value);
+  void setFile(MCSFile value);
 
   /**
    * Returns the value of the '<em><b>Subclause</b></em>' containment reference.

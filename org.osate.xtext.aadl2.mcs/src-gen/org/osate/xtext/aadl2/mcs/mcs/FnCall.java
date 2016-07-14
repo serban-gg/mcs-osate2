@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.FnCall#getFn <em>Fn</em>}</li>
  *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.FnCall#getArgs <em>Args</em>}</li>
+ *   <li>{@link org.osate.xtext.aadl2.mcs.mcs.FnCall#getNewtype <em>Newtype</em>}</li>
  * </ul>
  *
  * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getFnCall()
@@ -66,5 +67,31 @@ public interface FnCall extends EObject
    * @generated
    */
   EList<Expr> getArgs();
+
+  /**
+   * Returns the value of the '<em><b>Newtype</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Newtype</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Newtype</em>' containment reference.
+   * @see #setNewtype(Type_expression)
+   * @see org.osate.xtext.aadl2.mcs.mcs.McsPackage#getFnCall_Newtype()
+   * @model containment="true"
+   * @generated
+   */
+  Type_expression getNewtype();
+
+  /**
+   * Sets the value of the '{@link org.osate.xtext.aadl2.mcs.mcs.FnCall#getNewtype <em>Newtype</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Newtype</em>' containment reference.
+   * @see #getNewtype()
+   * @generated
+   */
+  void setNewtype(Type_expression value);
 
 } // FnCall

@@ -91,9 +91,9 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createMCSAnnexLibraryAdapter();
       }
       @Override
-      public Adapter caseMCSFileLibrary(MCSFileLibrary object)
+      public Adapter caseMCSFile(MCSFile object)
       {
-        return createMCSFileLibraryAdapter();
+        return createMCSFileAdapter();
       }
       @Override
       public Adapter caseMCSAnnexSubclause(MCSAnnexSubclause object)
@@ -151,19 +151,9 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createTextParmAdapter();
       }
       @Override
-      public Adapter caseMcsName(McsName object)
-      {
-        return createMcsNameAdapter();
-      }
-      @Override
       public Adapter caseMcsTypedName(McsTypedName object)
       {
         return createMcsTypedNameAdapter();
-      }
-      @Override
-      public Adapter caseDomain(Domain object)
-      {
-        return createDomainAdapter();
       }
       @Override
       public Adapter caseTheoremCall(TheoremCall object)
@@ -256,19 +246,9 @@ public class McsAdapterFactory extends AdapterFactoryImpl
         return createList_typeAdapter();
       }
       @Override
-      public Adapter caseRecord_type(Record_type object)
-      {
-        return createRecord_typeAdapter();
-      }
-      @Override
       public Adapter caseUnion_type(Union_type object)
       {
         return createUnion_typeAdapter();
-      }
-      @Override
-      public Adapter caseId_type_pair(Id_type_pair object)
-      {
-        return createId_type_pairAdapter();
       }
       @Override
       public Adapter caseElement_type(Element_type object)
@@ -558,16 +538,16 @@ public class McsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary <em>MCS File Library</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.MCSFile <em>MCS File</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary
+   * @see org.osate.xtext.aadl2.mcs.mcs.MCSFile
    * @generated
    */
-  public Adapter createMCSFileLibraryAdapter()
+  public Adapter createMCSFileAdapter()
   {
     return null;
   }
@@ -738,21 +718,6 @@ public class McsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.McsName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.McsName
-   * @generated
-   */
-  public Adapter createMcsNameAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.McsTypedName <em>Typed Name</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -763,21 +728,6 @@ public class McsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMcsTypedNameAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Domain <em>Domain</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Domain
-   * @generated
-   */
-  public Adapter createDomainAdapter()
   {
     return null;
   }
@@ -1053,21 +1003,6 @@ public class McsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Record_type <em>Record type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Record_type
-   * @generated
-   */
-  public Adapter createRecord_typeAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Union_type <em>Union type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1078,21 +1013,6 @@ public class McsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createUnion_typeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.xtext.aadl2.mcs.mcs.Id_type_pair <em>Id type pair</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.xtext.aadl2.mcs.mcs.Id_type_pair
-   * @generated
-   */
-  public Adapter createId_type_pairAdapter()
   {
     return null;
   }

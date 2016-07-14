@@ -41,13 +41,13 @@ public interface McsFactory extends EFactory
   MCSAnnexLibrary createMCSAnnexLibrary();
 
   /**
-   * Returns a new object of class '<em>MCS File Library</em>'.
+   * Returns a new object of class '<em>MCS File</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>MCS File Library</em>'.
+   * @return a new object of class '<em>MCS File</em>'.
    * @generated
    */
-  MCSFileLibrary createMCSFileLibrary();
+  MCSFile createMCSFile();
 
   /**
    * Returns a new object of class '<em>MCS Annex Subclause</em>'.
@@ -149,15 +149,6 @@ public interface McsFactory extends EFactory
   TextParm createTextParm();
 
   /**
-   * Returns a new object of class '<em>Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Name</em>'.
-   * @generated
-   */
-  McsName createMcsName();
-
-  /**
    * Returns a new object of class '<em>Typed Name</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -165,15 +156,6 @@ public interface McsFactory extends EFactory
    * @generated
    */
   McsTypedName createMcsTypedName();
-
-  /**
-   * Returns a new object of class '<em>Domain</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Domain</em>'.
-   * @generated
-   */
-  Domain createDomain();
 
   /**
    * Returns a new object of class '<em>Theorem Call</em>'.
@@ -338,15 +320,6 @@ public interface McsFactory extends EFactory
   List_type createList_type();
 
   /**
-   * Returns a new object of class '<em>Record type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Record type</em>'.
-   * @generated
-   */
-  Record_type createRecord_type();
-
-  /**
    * Returns a new object of class '<em>Union type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -354,15 +327,6 @@ public interface McsFactory extends EFactory
    * @generated
    */
   Union_type createUnion_type();
-
-  /**
-   * Returns a new object of class '<em>Id type pair</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Id type pair</em>'.
-   * @generated
-   */
-  Id_type_pair createId_type_pair();
 
   /**
    * Returns a new object of class '<em>Element type</em>'.

@@ -4,7 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="MCSGrammarRoot">
     <eStructuralFeatures xsi:type="ecore:EReference" name="lib" eType="#//MCSAnnexLibrary"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="file" eType="#//MCSFileLibrary"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="file" eType="#//MCSFile"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subclause" eType="#//MCSAnnexSubclause"
         containment="true"/>
@@ -19,7 +19,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="theorems" upperBound="-1"
         eType="#//Theorem" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MCSFileLibrary">
+  <eClassifiers xsi:type="ecore:EClass" name="MCSFile">
     <eStructuralFeatures xsi:type="ecore:EReference" name="importedUnit" unique="false"
         upperBound="-1" eType="ecore:EClass platform:/resource/org.osate.aadl2/model/aadl2.ecore#//ModelUnit"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="files" unique="false" upperBound="-1"
@@ -86,17 +86,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter"/>
   <eClassifiers xsi:type="ecore:EClass" name="TextParm"/>
-  <eClassifiers xsi:type="ecore:EClass" name="McsName">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="McsTypedName" eSuperTypes="#//Parameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type_expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Domain">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TheoremCall">
@@ -143,18 +136,22 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fn" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//Expr"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newtype" eType="#//Type_expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FnCall">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fn" eType="#//Function"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//Expr"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newtype" eType="#//Type_expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expr"/>
   <eClassifiers xsi:type="ecore:EClass" name="PostCastExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="chain" eType="#//MethodChain"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="newtype" eType="#//Type_expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chain" eType="#//MethodChain"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MCSNameExpr" eSuperTypes="#//Expr">
@@ -208,19 +205,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="root_type" eType="#//Type_expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Record_type" eSuperTypes="#//Composite_type">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="field" upperBound="-1"
-        eType="#//Id_type_pair" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Union_type" eSuperTypes="#//Composite_type">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//Type_expression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="#//Type_expression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Id_type_pair">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type_expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element_type">

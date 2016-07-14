@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary;
 import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexSubclause;
-import org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary;
+import org.osate.xtext.aadl2.mcs.mcs.MCSFile;
 import org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 
@@ -52,7 +52,7 @@ public class MCSGrammarRootImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    * @ordered
    */
-  protected MCSFileLibrary file;
+  protected MCSFile file;
 
   /**
    * The cached value of the '{@link #getSubclause() <em>Subclause</em>}' containment reference.
@@ -138,7 +138,7 @@ public class MCSGrammarRootImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public MCSFileLibrary getFile()
+  public MCSFile getFile()
   {
     return file;
   }
@@ -148,9 +148,9 @@ public class MCSGrammarRootImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFile(MCSFileLibrary newFile, NotificationChain msgs)
+  public NotificationChain basicSetFile(MCSFile newFile, NotificationChain msgs)
   {
-    MCSFileLibrary oldFile = file;
+    MCSFile oldFile = file;
     file = newFile;
     if (eNotificationRequired())
     {
@@ -165,7 +165,7 @@ public class MCSGrammarRootImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFile(MCSFileLibrary newFile)
+  public void setFile(MCSFile newFile)
   {
     if (newFile != file)
     {
@@ -283,7 +283,7 @@ public class MCSGrammarRootImpl extends MinimalEObjectImpl.Container implements 
         setLib((MCSAnnexLibrary)newValue);
         return;
       case McsPackage.MCS_GRAMMAR_ROOT__FILE:
-        setFile((MCSFileLibrary)newValue);
+        setFile((MCSFile)newValue);
         return;
       case McsPackage.MCS_GRAMMAR_ROOT__SUBCLAUSE:
         setSubclause((MCSAnnexSubclause)newValue);
@@ -306,7 +306,7 @@ public class MCSGrammarRootImpl extends MinimalEObjectImpl.Container implements 
         setLib((MCSAnnexLibrary)null);
         return;
       case McsPackage.MCS_GRAMMAR_ROOT__FILE:
-        setFile((MCSFileLibrary)null);
+        setFile((MCSFile)null);
         return;
       case McsPackage.MCS_GRAMMAR_ROOT__SUBCLAUSE:
         setSubclause((MCSAnnexSubclause)null);

@@ -51,7 +51,6 @@ import org.osate.xtext.aadl2.mcs.mcs.Classifier_literal;
 import org.osate.xtext.aadl2.mcs.mcs.Classifiers;
 import org.osate.xtext.aadl2.mcs.mcs.CompExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Constant_declaration;
-import org.osate.xtext.aadl2.mcs.mcs.Domain;
 import org.osate.xtext.aadl2.mcs.mcs.Element_type;
 import org.osate.xtext.aadl2.mcs.mcs.EmptySetExpr;
 import org.osate.xtext.aadl2.mcs.mcs.FilterMapExpr;
@@ -60,7 +59,6 @@ import org.osate.xtext.aadl2.mcs.mcs.FnCall;
 import org.osate.xtext.aadl2.mcs.mcs.FnCallExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Function;
 import org.osate.xtext.aadl2.mcs.mcs.FunctionBody;
-import org.osate.xtext.aadl2.mcs.mcs.Id_type_pair;
 import org.osate.xtext.aadl2.mcs.mcs.IfThenElseExpr;
 import org.osate.xtext.aadl2.mcs.mcs.InstanceOfExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Instances;
@@ -70,12 +68,11 @@ import org.osate.xtext.aadl2.mcs.mcs.LetExpr;
 import org.osate.xtext.aadl2.mcs.mcs.List_type;
 import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexLibrary;
 import org.osate.xtext.aadl2.mcs.mcs.MCSAnnexSubclause;
-import org.osate.xtext.aadl2.mcs.mcs.MCSFileLibrary;
+import org.osate.xtext.aadl2.mcs.mcs.MCSFile;
 import org.osate.xtext.aadl2.mcs.mcs.MCSGrammarRoot;
 import org.osate.xtext.aadl2.mcs.mcs.MCSNameExpr;
 import org.osate.xtext.aadl2.mcs.mcs.MappingExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Mapping_type;
-import org.osate.xtext.aadl2.mcs.mcs.McsName;
 import org.osate.xtext.aadl2.mcs.mcs.McsPackage;
 import org.osate.xtext.aadl2.mcs.mcs.McsTypedName;
 import org.osate.xtext.aadl2.mcs.mcs.Mcs_name_ref;
@@ -88,7 +85,6 @@ import org.osate.xtext.aadl2.mcs.mcs.QuantifiedExpr;
 import org.osate.xtext.aadl2.mcs.mcs.Range;
 import org.osate.xtext.aadl2.mcs.mcs.RealExpr;
 import org.osate.xtext.aadl2.mcs.mcs.RealRange;
-import org.osate.xtext.aadl2.mcs.mcs.Record_type;
 import org.osate.xtext.aadl2.mcs.mcs.RefExpr;
 import org.osate.xtext.aadl2.mcs.mcs.RefTerm;
 import org.osate.xtext.aadl2.mcs.mcs.SetExpr;
@@ -343,9 +339,6 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 			case McsPackage.CONSTANT_DECLARATION:
 				sequence_Constant_declaration(context, (Constant_declaration) semanticObject); 
 				return; 
-			case McsPackage.DOMAIN:
-				sequence_Domain(context, (Domain) semanticObject); 
-				return; 
 			case McsPackage.ELEMENT_TYPE:
 				sequence_Element_type(context, (Element_type) semanticObject); 
 				return; 
@@ -369,9 +362,6 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 				return; 
 			case McsPackage.FUNCTION_BODY:
 				sequence_FunctionBody(context, (FunctionBody) semanticObject); 
-				return; 
-			case McsPackage.ID_TYPE_PAIR:
-				sequence_Id_type_pair(context, (Id_type_pair) semanticObject); 
 				return; 
 			case McsPackage.IF_THEN_ELSE_EXPR:
 				sequence_Expression_term(context, (IfThenElseExpr) semanticObject); 
@@ -400,8 +390,8 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 			case McsPackage.MCS_ANNEX_SUBCLAUSE:
 				sequence_MCSAnnexSubclause(context, (MCSAnnexSubclause) semanticObject); 
 				return; 
-			case McsPackage.MCS_FILE_LIBRARY:
-				sequence_MCSFileLibrary(context, (MCSFileLibrary) semanticObject); 
+			case McsPackage.MCS_FILE:
+				sequence_MCSFile(context, (MCSFile) semanticObject); 
 				return; 
 			case McsPackage.MCS_GRAMMAR_ROOT:
 				sequence_MCSGrammarRoot(context, (MCSGrammarRoot) semanticObject); 
@@ -414,9 +404,6 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 				return; 
 			case McsPackage.MAPPING_TYPE:
 				sequence_Mapping_type(context, (Mapping_type) semanticObject); 
-				return; 
-			case McsPackage.MCS_NAME:
-				sequence_McsName(context, (McsName) semanticObject); 
 				return; 
 			case McsPackage.MCS_TYPED_NAME:
 				sequence_McsTypedName(context, (McsTypedName) semanticObject); 
@@ -457,9 +444,6 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 				return; 
 			case McsPackage.REAL_RANGE:
 				sequence_RealRange(context, (RealRange) semanticObject); 
-				return; 
-			case McsPackage.RECORD_TYPE:
-				sequence_Record_type(context, (Record_type) semanticObject); 
 				return; 
 			case McsPackage.REF_EXPR:
 				sequence_Expression_term(context, (RefExpr) semanticObject); 
@@ -633,7 +617,7 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (fn=BuiltInFn (args+=Expr args+=Expr*)?)
+	 *     (fn=BuiltInFn (args+=Expr args+=Expr*)? newtype=Type_expression?)
 	 */
 	protected void sequence_BuiltInFnCall(EObject context, BuiltInFnCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -673,25 +657,6 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getConstant_declarationAccess().getConstMcsTypedNameParserRuleCall_1_0(), semanticObject.getConst());
 		feeder.accept(grammarAccess.getConstant_declarationAccess().getLeft_exprExprParserRuleCall_3_0(), semanticObject.getLeft_expr());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID expr=Expr)
-	 */
-	protected void sequence_Domain(EObject context, Domain semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.DOMAIN__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.DOMAIN__NAME));
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.DOMAIN__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.DOMAIN__EXPR));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDomainAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDomainAccess().getExprExprParserRuleCall_2_0(), semanticObject.getExpr());
 		feeder.finish();
 	}
 	
@@ -1012,7 +977,7 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (fn=[Function|ID] (args+=Expr args+=Expr*)?)
+	 *     (fn=[Function|ID] (args+=Expr args+=Expr*)? newtype=Type_expression?)
 	 */
 	protected void sequence_FnCall(EObject context, FnCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1044,25 +1009,6 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 	 */
 	protected void sequence_Function_declaration(EObject context, Function semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=ID type=Type_expression)
-	 */
-	protected void sequence_Id_type_pair(EObject context, Id_type_pair semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__NAME));
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.ID_TYPE_PAIR__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getId_type_pairAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getId_type_pairAccess().getTypeType_expressionParserRuleCall_2_0(), semanticObject.getType());
-		feeder.finish();
 	}
 	
 	
@@ -1163,14 +1109,14 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 	 *         calls+=Theorem_call*
 	 *     )
 	 */
-	protected void sequence_MCSFileLibrary(EObject context, MCSFileLibrary semanticObject) {
+	protected void sequence_MCSFile(EObject context, MCSFile semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (lib=MCSAnnexLibrary | file=MCSFileLibrary | subclause=MCSAnnexSubclause)
+	 *     (lib=MCSAnnexLibrary | file=MCSFile | subclause=MCSAnnexSubclause)
 	 */
 	protected void sequence_MCSGrammarRoot(EObject context, MCSGrammarRoot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1208,22 +1154,6 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getMapping_typeAccess().getKeyType_expressionParserRuleCall_1_0(), semanticObject.getKey());
 		feeder.accept(grammarAccess.getMapping_typeAccess().getValType_expressionParserRuleCall_3_0(), semanticObject.getVal());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_McsName(EObject context, McsName semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, McsPackage.Literals.MCS_NAME__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, McsPackage.Literals.MCS_NAME__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getMcsNameAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -1300,7 +1230,7 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr=Expression_term chain=MethodChain? newtype=Type_expression?)
+	 *     (expr=Expression_term newtype=Type_expression? chain=MethodChain?)
 	 */
 	protected void sequence_PostCastExpr(EObject context, PostCastExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1352,15 +1282,6 @@ public class MCSSemanticSequencer extends PropertiesSemanticSequencer {
 	 */
 	protected void sequence_RealTerm(EObject context, RealLiteral semanticObject) {
 		genericSequencer.createSequence(context, (EObject)semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     field+=Id_type_pair+
-	 */
-	protected void sequence_Record_type(EObject context, Record_type semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
